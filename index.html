@@ -111,6 +111,40 @@
   .about-quote b { font-style: normal; font-weight: 600; color: var(--espresso); background: linear-gradient(transparent 62%, rgba(237, 184, 67, .55) 62%); }
   .about-quote + .about-quote { margin-top: 24px; }
 
+  .portrait { position: relative; max-width: 420px; width: 100%; justify-self: center; }
+  .portrait .frame { border-radius: 50%; background: var(--blush); padding: 18px; position: relative; z-index: 1; }
+  .portrait .clip { border-radius: 50%; overflow: hidden; aspect-ratio: 1; }
+  .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.07); max-width: 100%; }
+  .portrait .sun { position: absolute; width: 120px; height: 120px; border-radius: 50%; background: var(--yellow); right: -30px; top: 40px; z-index: 0; }
+  .portrait .star { position: absolute; left: -22px; top: 70px; width: 48px; z-index: 2; }
+  .sticker { position: absolute; z-index: 2; padding: 10px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; box-shadow: 0 10px 24px -12px rgba(58, 34, 24, .5); white-space: nowrap; }
+  .sticker.s1 { background: var(--red); color: var(--paper); left: -14px; bottom: 70px; transform: rotate(-5deg); }
+  .sticker.s2 { background: var(--yellow); color: var(--espresso); right: -10px; bottom: 14px; transform: rotate(4deg); }
+  .about-top { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
+  .about-top > div { min-width: 0; }
+  .about-top h2 { font-size: clamp(40px, 5vw, 64px); margin: 16px 0 8px; }
+  .role { font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 28px; }
+  .creds { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 64px 0 88px; }
+  .cred { background: var(--paper); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; min-width: 0; }
+  .cred:nth-child(1) { background: var(--red); color: var(--paper); border-color: transparent; }
+  .cred b { display: block; font: italic 500 24px/1.15 var(--serif); margin-bottom: 8px; }
+  .cred span { font-size: 14px; color: var(--brown); }
+  .cred:nth-child(1) span { color: var(--blush); }
+  .inside h3 { font-size: clamp(32px, 3.6vw, 46px); margin: 16px 0 18px; }
+  .inside p { color: var(--brown); font-size: 17px; margin-bottom: 20px; max-width: 560px; }
+  .ava { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--yellow); max-width: 100%; }
+
+  /* Business */
+  #business { background: var(--sand); border-radius: 56px; margin-inline: 16px; }
+  .biz { grid-column: span 2; background: var(--paper); border: 1px solid var(--line); border-radius: 26px; padding: 30px 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .biz.wide { grid-column: span 3; }
+  .biz .ico { width: 56px; height: 56px; }
+  .biz h3 { font-size: 28px; }
+  .biz .p-desc { margin-bottom: 4px; }
+  .biz-res { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font: italic 19px/1.35 var(--serif); color: var(--red); }
+  .biz-foot { margin-top: 28px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .biz-foot p { font: italic 26px/1.3 var(--serif); color: var(--brown); }
+
   /* Path */
   #path { background: var(--sand); border-radius: 56px 56px 0 0; }
   .variants { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -256,6 +290,15 @@
   .review .who b { display: block; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; font-size: 12px; margin-bottom: 4px; }
   .review .who span { font-family: var(--serif); font-style: italic; font-size: 17px; }
   .review.chat { background: var(--paper); border: 1px solid var(--line); }
+  .res { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .06em; padding: 6px 12px; border-radius: 999px; background: var(--red); color: var(--paper); position: relative; }
+  .review.c4 .res { background: var(--yellow); color: var(--espresso); }
+  .review.stat-card { background: var(--espresso); color: var(--sand); }
+  .stat-card .res { background: var(--yellow); color: var(--espresso); }
+  .stat-card .big { font: 500 96px/0.9 var(--serif); color: var(--yellow); }
+  .stat-card .big-sub { font: italic 24px/1.3 var(--serif); color: var(--paper); }
+  .stat-card ul { list-style: none; display: grid; gap: 10px; font-size: 15px; padding-top: 18px; border-top: 1px solid rgba(244, 227, 211, .2); }
+  .stat-card li { padding-left: 22px; position: relative; }
+  .stat-card li::before { content: "✦"; position: absolute; left: 0; color: var(--pink); }
   .chat-src { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   .chat-src::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pink); }
   .bubbles { display: grid; gap: 8px; }
@@ -264,7 +307,7 @@
   .car-hint { margin-top: 10px; font-size: 13px; color: var(--muted); }
 
   /* Channel */
-  .channel { padding-block: 0; }
+  .channel { padding-block: 0; margin-top: 104px; }
   .channel-box {
     background: var(--yellow); border-radius: 56px; padding: 64px 56px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center;
     position: relative; overflow: hidden;
@@ -303,9 +346,11 @@
   /* Responsive */
   @media (max-width: 1000px) {
     .nav ul { display: none; }
-    .hero-grid, .about-grid, .variants, .how, .reboot-grid, .promo-box, .channel-box, .includes { grid-template-columns: 1fr; }
+    .about-top, .hero-grid, .about-grid, .variants, .how, .reboot-grid, .promo-box, .channel-box, .includes { grid-template-columns: 1fr; }
     .catalog { grid-template-columns: 1fr 1fr; }
-    .product, .product.wide { grid-column: span 1; }
+    .product, .product.wide, .biz, .biz.wide { grid-column: span 1; }
+    .biz:last-child { grid-column: span 2; }
+    .creds { grid-template-columns: 1fr 1fr; }
     .product:last-child { grid-column: span 2; }
     .head { grid-template-columns: 1fr; }
     .fork-art { width: 190px; }
@@ -324,7 +369,11 @@
     .card .corner { width: 90px; }
     .pack-item, .review { padding: 30px 24px; }
     .catalog, .facts { grid-template-columns: 1fr; }
-    .product:last-child { grid-column: span 1; }
+    .product:last-child, .biz:last-child { grid-column: span 1; }
+    .creds { grid-template-columns: 1fr; margin: 48px 0 64px; }
+    #business { border-radius: 36px; margin-inline: 8px; }
+    .sticker { font-size: 12px; }
+    .portrait { max-width: 320px; }
     .reboot-result p { font-size: 22px; }
     footer { border-radius: 28px 28px 0 0; }
     #path { border-radius: 36px 36px 0 0; }
@@ -352,6 +401,7 @@
       <li><a href="#formats">Форматы</a></li>
       <li><a href="#reboot">Перезагрузка</a></li>
       <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#business">Компаниям</a></li>
       <li><a href="#channel">Канал</a></li>
     </ul>
     <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Написать</a>
@@ -371,9 +421,7 @@
           <a href="#formats" class="btn btn-ghost">Форматы работы</a>
         </div>
         <div class="hero-sign">
-          <span class="dot" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="#C9412E"/></svg>
-          </span>
+          <img class="ava" src="assets/alexandra.jpg" alt="">
           <div><strong>Александра Амброжий</strong>про людей и бизнес</div>
         </div>
       </div>
@@ -431,9 +479,34 @@
 
   <!-- About -->
   <section id="about">
-    <div class="wrap about-grid">
-      <div>
-        <svg class="venn" viewBox="0 0 460 400" role="img" aria-label="Три опоры: HR-практика, рынок труда, психология">
+    <div class="wrap">
+      <div class="about-top">
+        <div class="portrait">
+          <span class="sun" aria-hidden="true"></span>
+          <svg class="star" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0 L29 19 L48 24 L29 29 L24 48 L19 29 L0 24 L19 19 Z" fill="#C9412E"/></svg>
+          <div class="frame"><div class="clip"><img src="assets/alexandra.jpg" alt="Александра Амброжий"></div></div>
+          <span class="sticker s1">Психолог · НИУ ВШЭ</span>
+          <span class="sticker s2">People &amp; Culture Expert</span>
+        </div>
+        <div>
+          <span class="eyebrow">Обо мне</span>
+          <h2>Александра <em>Амброжий</em></h2>
+          <p class="role">Психолог и HR-специалист</p>
+          <p class="about-quote">Моя работа соединяет <b>практику HR</b>, анализ рынков труда и научную психологию.</p>
+          <p class="about-quote">Мы выстраиваем систему профессионального развития, в которой опыт, интеллект и личные цели превращаются в <b>устойчивый доход и качество жизни</b>.</p>
+        </div>
+      </div>
+
+      <div class="creds">
+        <div class="cred"><b>НИУ ВШЭ</b><span>Психология, диплом бакалавра с отличием, 2024</span></div>
+        <div class="cred"><b>HR-практика</b><span>Подбор, структурированные интервью, оценка кандидатов и сопровождение до оффера</span></div>
+        <div class="cred"><b>Оценка и развитие</b><span>Ассессмент-центры, оценка 360°, индивидуальные планы развития</span></div>
+        <div class="cred"><b>Карьерные стратегии</b><span>Диагностика, анализ рынка труда, коучинговые техники и карьерные карты</span></div>
+      </div>
+
+      <div class="about-grid">
+        <div>
+          <svg class="venn" viewBox="0 0 460 400" role="img" aria-label="Три опоры: HR-практика, рынок труда, психология">
           <ellipse cx="230" cy="195" rx="222" ry="180" fill="none" stroke="#6B3F26" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/>
           <circle cx="400" cy="52" r="34" fill="#EDB843"/>
           <path d="M44 330 C 18 290, 34 250, 64 236 C 78 272, 72 310, 44 330 Z" fill="#EE9E9C"/>
@@ -454,11 +527,18 @@
           </g>
           <path d="M230 160 L235 175 L250 180 L235 185 L230 200 L225 185 L210 180 L225 175 Z" fill="#C9412E"/>
         </svg>
-      </div>
-      <div>
-        <span class="eyebrow">Обо мне</span>
-        <p class="about-quote" style="margin-top:22px">Моя работа соединяет <b>практику HR</b>, анализ рынков труда и научную психологию.</p>
-        <p class="about-quote">Мы выстраиваем систему профессионального развития, в которой опыт, интеллект и личные цели превращаются в <b>устойчивый доход и качество жизни</b>.</p>
+        </div>
+        <div class="inside">
+          <span class="eyebrow">Знаю найм изнутри</span>
+          <h3>Смотрю на ваш профиль <em>глазами работодателя</em></h3>
+          <p>Я сама составляю профили ролей вместе с руководителями, провожу интервью и оцениваю кандидатов. Поэтому знаю, что ищет работодатель и как показать вашу ценность так, чтобы её заметили.</p>
+          <ul class="list">
+            <li>Повышение дохода и карьерный рост</li>
+            <li>Переход на руководящие позиции</li>
+            <li>Больше приглашений на собеседования</li>
+            <li>Смена профессионального направления</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -794,48 +874,120 @@
         </div>
       </div>
       <div class="track" id="rev-track" tabindex="0" aria-label="Отзывы, листайте в сторону">
+        <div class="review stat-card">
+          <span class="res">Повышения и офферы</span>
+          <p class="big">10+</p>
+          <p class="big-sub">клиентов получили повышение уже после одной консультации</p>
+          <ul>
+            <li>Повышение в течение нескольких месяцев</li>
+            <li>Переход на руководящие позиции</li>
+            <li>Больше приглашений на собеседования</li>
+          </ul>
+        </div>
         <figure class="review c2">
+          <span class="res">2 оффера на руководителя</span>
           <span class="q" aria-hidden="true">“</span>
           <blockquote>За два месяца работы со стратегией получил два оффера на позицию руководителя. Раньше казалось, что переход в управление — это про связи и удачу. Оказалось, дело в системе.</blockquote>
           <figcaption class="who"><b>Менеджер проектов</b><span>Офис пак → 2 оффера на руководителя</span></figcaption>
         </figure>
         <figure class="review chat">
-          <span class="chat-src">Из переписки в Telegram</span>
+          <span class="res">Резюме заметили работодатели</span>
+          <span class="chat-src" style="margin-top:-8px">Из переписки в Telegram</span>
           <div class="bubbles"><p class="bubble">Сказали, что у меня отлично сделанное резюме ❤️❤️</p><p class="bubble">Всё твоя заслуга!</p></div>
           <figcaption class="who"><b>Клиент · Офис пак</b><span>Новые работодатели сказали, что сразу увидели хорошо сделанное резюме</span></figcaption>
         </figure>
         <figure class="review c3">
+          <span class="res">Повышение</span>
           <span class="q" aria-hidden="true">“</span>
           <blockquote>Последовал всему построенному плану, проявил инициативу, сделал пет-проект. И собственно сейчас подписываю документы на повышение!</blockquote>
           <figcaption class="who"><b>IT-специалист</b><span>План роста → повышение</span></figcaption>
         </figure>
         <figure class="review chat">
-          <span class="chat-src">Из переписки в Telegram</span>
+          <span class="res">Оффер на руководящую позицию</span>
+          <span class="chat-src" style="margin-top:-8px">Из переписки в Telegram</span>
           <div class="bubbles"><p class="bubble">Спасибо большое!</p><p class="bubble">За помощь на собеседованиях и оформление собственных запросов</p><p class="bubble">Ох уж этот шантаж по офферам)</p></div>
           <figcaption class="who"><b>Клиент</b><span>Собеседования → оффер на руководящую позицию</span></figcaption>
         </figure>
         <figure class="review c1">
+          <span class="res">Ясное направление</span>
           <span class="q" aria-hidden="true">“</span>
           <blockquote>Несколько лет чувствовала, что психология — моё, но не могла это обосновать ни себе, ни окружающим. После работы с Александрой появилась настоящая ясность: понимаю, куда иду и почему именно туда.</blockquote>
           <figcaption class="who"><b>Маркетолог</b><span>Карьерное направление → уверенность в выборе</span></figcaption>
         </figure>
         <figure class="review chat">
-          <span class="chat-src">Из переписки в Telegram</span>
+          <span class="res">Вектор развития</span>
+          <span class="chat-src" style="margin-top:-8px">Из переписки в Telegram</span>
           <div class="bubbles"><p class="bubble">Большое спасибо Александре за увлекательную карьерную консультацию, всё прошло замечательно. Открыл для себя новые пути развития, получил классные советы, полезные рекомендации, так же наметили вектор развития и способы достигнуть желаемого.</p><p class="bubble">После консультации появилась уверенность в себе, своих силах и желание достигать новых карьерных высот!</p></div>
           <figcaption class="who"><b>Клиент</b><span>Карьерная консультация → вектор развития</span></figcaption>
         </figure>
         <figure class="review c4">
+          <span class="res">Своя практика</span>
           <span class="q" aria-hidden="true">“</span>
           <blockquote>Я HR с десятью годами опыта — казалось, всё знаю про карьеру. Но именно со стороны всё увиделось иначе. За три месяца выстроила собственную практику, ушла из найма и уже закрыла первых клиентов.</blockquote>
           <figcaption class="who"><b>HR-специалист</b><span>Перезагрузка карьеры → своя практика за 3 месяца</span></figcaption>
         </figure>
         <figure class="review chat">
-          <span class="chat-src">Из переписки в Telegram</span>
+          <span class="res">Инсайды рынка</span>
+          <span class="chat-src" style="margin-top:-8px">Из переписки в Telegram</span>
           <div class="bubbles"><p class="bubble">Спасибо огромное за помощь. Консультация на 100% стоит своих денег. Персонифицированный подход, компетенция, ну и инсайды рынка — всё это о Вас</p></div>
           <figcaption class="who"><b>Клиент</b><span>Консультация → инсайды рынка</span></figcaption>
         </figure>
       </div>
       <p class="car-hint">Листайте отзывы стрелками или свайпом.</p>
+    </div>
+  </section>
+
+  <!-- Business -->
+  <section id="business">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Для компаний</span>
+          <h2>HR-решения <em>для бизнеса</em></h2>
+          <p>Создаю команды, развиваю людей и строю культуру. Подключаюсь к подбору, оценке, HR-процессам и развитию сотрудников.</p>
+        </div>
+      </div>
+      <div class="catalog">
+        <article class="biz">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#F8DCD6"/><circle cx="20" cy="22" r="7" fill="#C9412E"/><circle cx="36" cy="22" r="7" fill="#EDB843"/><path d="M8 44 C 10 32, 30 32, 32 44 Z" fill="#C9412E"/><path d="M24 44 C 26 32, 46 32, 48 44 Z" fill="#DE7B3A"/></svg>
+          <h3>Подбор и формирование команд</h3>
+          <p class="p-desc">Подбор с фокусом на долгосрочную эффективность человека в компании.</p>
+          <ul class="p-list"><li>Профиль роли вместе с руководителем</li><li>Структурированные интервью и оценка</li><li>Психологическая диагностика и профайлинг</li><li>Сопровождение до оффера и адаптация</li></ul>
+          <p class="biz-res">Быстрое закрытие ключевых вакансий и меньше ошибок найма</p>
+        </article>
+        <article class="biz">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#FBE7BE"/><circle cx="28" cy="28" r="12" fill="none" stroke="#C9412E" stroke-width="5"/><g stroke="#C9412E" stroke-width="5" stroke-linecap="round"><path d="M28 8 V13"/><path d="M28 43 V48"/><path d="M8 28 H13"/><path d="M43 28 H48"/></g><circle cx="28" cy="28" r="4" fill="#EDB843"/></svg>
+          <h3>HR-консалтинг и изменения</h3>
+          <p class="p-desc">Системная HR-функция, которая повышает эффективность бизнеса.</p>
+          <ul class="p-list"><li>HR-аудит и поиск узких мест</li><li>HR-функция и процессы с нуля</li><li>Пульс-опросы и exit-интервью</li><li>Гибридный и удалённый формат работы</li></ul>
+          <p class="biz-res">Ниже текучесть, выше управляемость команды</p>
+        </article>
+        <article class="biz">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#F8DCD6"/><rect x="12" y="32" width="8" height="12" rx="2" fill="#EE9E9C"/><rect x="24" y="24" width="8" height="20" rx="2" fill="#DE7B3A"/><rect x="36" y="14" width="8" height="30" rx="2" fill="#C9412E"/></svg>
+          <h3>Оценка и развитие сотрудников</h3>
+          <p class="p-desc">Оценка компетенций и развитие управленческого потенциала.</p>
+          <ul class="p-list"><li>Ассессмент-центры и оценка 360°</li><li>Performance review</li><li>ИПР, обучающие программы и тренинги</li><li>Подготовка к управленческим ролям</li></ul>
+          <p class="biz-res">Кадровый резерв и свои руководители</p>
+        </article>
+        <article class="biz wide">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#FBE7BE"/><path d="M12 42 C 20 40, 22 30, 30 28 S 40 18, 44 12" fill="none" stroke="#6B3F26" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/><circle cx="44" cy="12" r="6" fill="#C9412E"/><circle cx="12" cy="42" r="5" fill="#EDB843"/></svg>
+          <h3>Карьерное консультирование сотрудников</h3>
+          <p class="p-desc">Помогаю специалистам и руководителям строить осознанную карьеру внутри компании.</p>
+          <ul class="p-list"><li>Карьерная диагностика и профориентация</li><li>Карьерные карты и стратегии</li><li>Развитие профессионального бренда</li></ul>
+          <p class="biz-res">Повышения, переходы на руководящие позиции, успешная смена направления</p>
+        </article>
+        <article class="biz wide">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#F8DCD6"/><path d="M28 42 C 10 30, 12 16, 22 16 C 26 16, 28 20, 28 20 C 28 20, 30 16, 34 16 C 44 16, 46 30, 28 42 Z" fill="#C9412E"/></svg>
+          <h3>HR-бренд и корпоративная культура</h3>
+          <p class="p-desc">Среда, в которой сотрудники хотят работать, а кандидаты хотят приходить.</p>
+          <ul class="p-list"><li>Стратегия HR-бренда и внутренние коммуникации</li><li>Программы вовлечённости и wellbeing</li><li>Публикации, медиа и соцсети</li></ul>
+          <p class="biz-res">Привлекательность работодателя и вовлечённость сотрудников</p>
+        </article>
+      </div>
+      <div class="biz-foot">
+        <p>Создаю команды · Развиваю людей · Строю культуру</p>
+        <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Обсудить задачу компании</a>
+      </div>
     </div>
   </section>
 
