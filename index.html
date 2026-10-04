@@ -7,9 +7,9 @@
 <meta name="description" content="Карьерные консультации и стратегии роста: профориентация, офис пак, план роста и сопровождение. Александра Амброжий — про людей и бизнес.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Golos+Text:wght@400;500;600&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  /* Layout: warm paper page, paper-cut art (arches, sun, paths) in red, yellow and pink beside each block */
+  /* Layout: riso-printed paper page: paper-cut art with offset outlines, hand-written notes, outlined cards with solid offset shadows */
   :root {
     --cream: #FBF3EA;
     --sand: #F4E3D3;
@@ -23,8 +23,10 @@
     --muted: #8A6A55;
     --line: rgba(107, 63, 38, .16);
     --paper: #FFFAF4;
-    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --display: "Yeseva One", "PT Serif", Georgia, serif;
+    --serif: "PT Serif", Georgia, "Times New Roman", serif;
+    --sans: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --hand: "Caveat", "Segoe Print", "Comic Sans MS", cursive;
     --radius: 28px;
     color-scheme: light;
   }
@@ -342,6 +344,67 @@
   .social span { font-size: 13px; color: rgba(244, 227, 211, .7); }
   .foot-bottom { border-top: 1px solid rgba(244, 227, 211, .15); padding-top: 22px; color: rgba(244, 227, 211, .6); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
+  /* Identity: type, print texture, outlined shapes */
+  body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .13 0 0 0 0 .09 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"); opacity: .07; mix-blend-mode: multiply; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.005em; line-height: 1.1; }
+  h1 em, h2 em, h3 em { font-style: normal; color: var(--red); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 6 Q 5 1 10 6 T 20 6 T 30 6 T 40 6' fill='none' stroke='%23EDB843' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left bottom / 28px 8px; padding-bottom: .12em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .hero h1 { line-height: 1.04; }
+  .logo { font-family: var(--display); font-size: 23px; font-weight: 400; }
+  .logo em { font-style: normal; }
+  .eyebrow { font-family: var(--hand); font-size: 25px; font-weight: 700; letter-spacing: 0; text-transform: none; gap: 10px; line-height: 1.1; }
+  .eyebrow::before { width: 44px; height: 20px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='20' viewBox='0 0 44 20'%3E%3Cpath d='M2 12 C 12 4, 24 16, 36 9' fill='none' stroke='%23C9412E' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M30 4 L 37 9 L 30 14' fill='none' stroke='%23C9412E' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain; }
+  .lead, .head p { font-weight: 400; }
+
+  .btn { border-radius: 14px; border: 1.5px solid var(--espresso); box-shadow: 3px 3px 0 var(--espresso); font-weight: 500; }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--espresso); }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--espresso); }
+  .btn-primary { box-shadow: 3px 3px 0 var(--espresso); }
+  .btn-ghost { background: var(--paper); border-color: var(--espresso); }
+  .btn-yellow { border-color: var(--paper); box-shadow: 3px 3px 0 var(--paper); }
+  .car-btn { border-radius: 14px; border: 1.5px solid var(--espresso); box-shadow: 3px 3px 0 var(--espresso); }
+
+  .product, .fact, .cred, .biz, .pack-item { border: 1.5px solid var(--espresso); border-radius: 20px; }
+  .product { box-shadow: 7px 7px 0 var(--pink); }
+  .product:nth-child(3n+2) { box-shadow: 7px 7px 0 var(--yellow); }
+  .product:nth-child(3n) { box-shadow: 7px 7px 0 var(--orange); }
+  .product:hover { transform: translate(-3px, -3px); box-shadow: 10px 10px 0 var(--red); }
+  .p-media { border-bottom: 1.5px solid var(--espresso); }
+  .p-tag { border: 1.5px solid var(--espresso); }
+  .fact { box-shadow: 5px 5px 0 var(--blush); }
+  .fact strong { font-family: var(--display); font-weight: 400; font-size: 32px; line-height: 1.15; }
+  .promo h2 { font-size: clamp(34px, 3.8vw, 50px); }
+  .fact strong .circled { position: relative; display: inline-block; font-size: inherit; color: inherit; }
+  .circled::after { content: ""; position: absolute; inset: -12px -16px -10px -14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80' preserveAspectRatio='none'%3E%3Cpath d='M18 44 C 20 14, 170 6, 186 32 C 200 60, 60 78, 24 60 C 6 50, 30 22, 104 16' fill='none' stroke='%23EDB843' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%; pointer-events: none; }
+  .cred { box-shadow: 5px 5px 0 var(--sand); }
+  .cred b { font: 400 21px/1.2 var(--display); }
+  .biz { box-shadow: 6px 6px 0 var(--blush); }
+  .pack-item { box-shadow: 6px 6px 0 var(--sand); }
+  .card { border-radius: 22px; }
+  .card:not(.dark):not(.red):not(.cream) { border: 1.5px solid var(--espresso); }
+
+  .about-quote { font-size: clamp(22px, 2.5vw, 30px); line-height: 1.4; }
+  .about-quote b { font-family: var(--display); font-weight: 400; }
+  .result { font-size: 19px; }
+  .review blockquote { font-size: 19px; line-height: 1.5; }
+  .review .who span { font-size: 15px; }
+  .review .q { font-family: var(--display); font-style: normal; }
+  .biz-res { font-size: 16px; }
+  .biz-foot p, .reboot-result p { font-size: 21px; }
+  .reboot-result p b { font-family: var(--display); font-weight: 400; }
+  .stat-card .big, .stat strong, .format .f-title, .foot-name, .hero-sign strong { font-family: var(--display); font-style: normal; font-weight: 400; }
+  .stat-card .big-sub { font-size: 20px; }
+  .handout b { font: 400 19px/1.25 var(--display); }
+  .step-num { font: 400 26px var(--display); border: 1.5px solid var(--espresso); }
+  .ticker span { font-family: var(--display); font-style: normal; font-size: 22px; }
+  .handle { font-family: var(--hand); font-size: 28px; font-style: normal; }
+  .car-hint { font-family: var(--hand); font-size: 22px; color: var(--red); }
+  .chat-src { font-family: var(--hand); font-size: 20px; letter-spacing: 0; text-transform: none; }
+  .sticker { border: 1.5px solid var(--espresso); }
+  .portrait .frame { border: 1.5px solid var(--espresso); }
+  .portrait .sun { box-shadow: -8px 6px 0 -2px var(--cream), -8px 6px 0 0 var(--espresso); }
+  .hand-note { display: flex; align-items: flex-start; gap: 6px; margin-top: 16px; font: 700 23px/1.1 var(--hand); color: var(--red); transform: rotate(-2deg); }
+  .hand-note svg { width: 48px; flex: none; margin-top: -14px; }
+
   /* Responsive */
   @media (max-width: 1000px) {
     .nav ul { display: none; }
@@ -418,6 +481,7 @@
           <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Написать в Telegram</a>
           <a href="#formats" class="btn btn-ghost">Форматы работы</a>
         </div>
+        <p class="hand-note"><svg viewBox="0 0 48 30" aria-hidden="true"><path d="M44 26 C 30 26, 14 22, 8 6" fill="none" stroke="#C9412E" stroke-width="2.2" stroke-linecap="round"/><path d="M3 12 L 8 4 L 14 11" fill="none" stroke="#C9412E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>отвечаю лично, обычно в тот же день</p>
         <div class="hero-sign">
           <img class="ava" src="assets/alexandra.jpg" alt="">
           <div><strong>Александра Амброжий</strong>про людей и бизнес</div>
@@ -426,11 +490,16 @@
 
       <div class="hero-art" aria-hidden="true">
         <svg class="float" viewBox="0 0 420 500">
+          <defs><pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#EE9E9C"/></pattern></defs>
           <path d="M10 500 V210 A200 200 0 0 1 410 210 V500 Z" fill="#F8DCD6"/>
+          <path d="M10 500 V210 A200 200 0 0 1 410 210 V500 Z" fill="url(#dots)" opacity=".7"/>
+          <path d="M20 500 V214 A196 196 0 0 1 418 214 V500" fill="none" stroke="#3A2218" stroke-width="1.6"/>
           <circle cx="300" cy="140" r="74" fill="#EDB843"/>
+          <circle cx="290" cy="148" r="74" fill="none" stroke="#3A2218" stroke-width="1.6"/>
           <path d="M40 500 C 70 420, 140 430, 170 380 S 230 260, 300 230" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round"/>
           <path d="M120 500 V320 A90 90 0 0 1 300 320 V500 Z" fill="#C9412E"/>
           <path d="M165 500 V345 A45 45 0 0 1 255 345 V500 Z" fill="#3A2218"/>
+          <path d="M110 500 V318 A90 90 0 0 1 290 318 V500" fill="none" stroke="#3A2218" stroke-width="1.6"/>
           <rect x="165" y="470" width="90" height="30" fill="#DE7B3A"/>
           <rect x="182" y="446" width="56" height="24" fill="#EDB843"/>
           <rect x="196" y="426" width="28" height="20" fill="#EE9E9C"/>
@@ -446,7 +515,7 @@
           <circle cx="60" cy="60" r="58" fill="#C9412E"/>
           <g class="spin">
             <defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
-            <text font-family="Manrope, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5" fill="#FFFAF4"><textPath href="#ring" textLength="272">ПРО ЛЮДЕЙ И БИЗНЕС ✦ КАРЬЕРА И РОСТ ✦</textPath></text>
+            <text font-family="Golos Text, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5" fill="#FFFAF4"><textPath href="#ring" textLength="272">ПРО ЛЮДЕЙ И БИЗНЕС ✦ КАРЬЕРА И РОСТ ✦</textPath></text>
           </g>
           <path d="M60 40 L65 55 L80 60 L65 65 L60 80 L55 65 L40 60 L55 55 Z" fill="#EDB843"/>
         </svg>
@@ -468,7 +537,7 @@
         <h2>Помогаю получать <em>повышения</em> и&nbsp;сильные офферы</h2>
       </div>
       <div class="facts">
-        <div class="fact"><strong>35+ офферов</strong><span>получили клиенты, в том числе на позиции руководителей</span></div>
+        <div class="fact"><strong><span class="circled">35+</span> офферов</strong><span>получили клиенты, в том числе на позиции руководителей</span></div>
         <div class="fact"><strong>10+ человек</strong><span>получили повышение уже после одной консультации</span></div>
         <div class="fact"><strong>3 месяца</strong><span>чтобы выйти из найма в собственную практику</span></div>
       </div>
@@ -513,12 +582,13 @@
           <path d="M40 40 L46 58 L64 64 L46 70 L40 88 L34 70 L16 64 L34 58 Z" fill="#C9412E"/>
           <path d="M440 170 L444 182 L456 186 L444 190 L440 202 L436 190 L424 186 L436 182 Z" fill="#DE7B3A"/>
           <path d="M120 372 L124 382 L134 386 L124 390 L120 400 L116 390 L106 386 L116 382 Z" fill="#EDB843"/>
+          <g fill="none" stroke="#3A2218" stroke-width="1.6"><circle cx="172" cy="158" r="100"/><circle cx="290" cy="144" r="100"/><circle cx="224" cy="243" r="100"/></g>
           <g style="mix-blend-mode: multiply">
             <circle cx="180" cy="150" r="100" fill="#EE9E9C"/>
             <circle cx="280" cy="150" r="100" fill="#EDB843"/>
             <circle cx="230" cy="235" r="100" fill="#DE7B3A" opacity=".85"/>
           </g>
-          <g font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="18" font-weight="600" fill="#6B3F26" text-anchor="middle">
+          <g font-family="PT Serif, Georgia, serif" font-style="italic" font-size="18" font-weight="600" fill="#6B3F26" text-anchor="middle">
             <text x="131" y="112">HR-</text><text x="131" y="134">практика</text>
             <text x="329" y="112">Рынок</text><text x="329" y="134">труда</text>
             <text x="230" y="298">Психология</text>
@@ -662,8 +732,8 @@
           <path d="M110 110 C110 70, 180 70, 180 30" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
           <circle cx="40" cy="26" r="22" fill="#EDB843"/>
           <circle cx="180" cy="26" r="22" fill="#C9412E"/>
-          <text x="40" y="34" font-family="Cormorant Garamond, serif" font-style="italic" font-size="22" fill="#3A2218" text-anchor="middle">1</text>
-          <text x="180" y="34" font-family="Cormorant Garamond, serif" font-style="italic" font-size="22" fill="#FFFAF4" text-anchor="middle">2</text>
+          <text x="40" y="34" font-family="PT Serif, Georgia, serif" font-style="italic" font-size="22" fill="#3A2218" text-anchor="middle">1</text>
+          <text x="180" y="34" font-family="PT Serif, Georgia, serif" font-style="italic" font-size="22" fill="#FFFAF4" text-anchor="middle">2</text>
           <circle cx="110" cy="160" r="8" fill="#3A2218"/>
         </svg>
 
@@ -823,7 +893,7 @@
             <rect x="96" y="58" width="46" height="46" rx="6" fill="#EE9E9C"/>
             <rect x="172" y="36" width="46" height="68" rx="6" fill="#DE7B3A"/>
             <rect x="248" y="12" width="46" height="92" rx="6" fill="#EDB843"/>
-            <g font-family="Manrope, sans-serif" font-size="12" fill="#F8DCD6" text-anchor="middle">
+            <g font-family="Golos Text, sans-serif" font-size="12" fill="#F8DCD6" text-anchor="middle">
               <text x="43" y="124">3 мес</text><text x="119" y="124">6 мес</text><text x="195" y="124">9 мес</text><text x="271" y="124">12 мес</text>
             </g>
           </svg>
