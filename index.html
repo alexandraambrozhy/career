@@ -450,6 +450,7 @@
   .hero .lead b { font-weight: 600; color: var(--flame); }
   .hero-cta { grid-column: 1; grid-row: 3; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
   .hero-cta .btn-ghost { order: 3; }
+  .flex-break { flex-basis: 100%; height: 0; order: 2; }
   .hero-sign { grid-column: 1 / -1; grid-row: 4; margin-top: 0; padding-top: 22px; border-top: 1px solid rgba(34, 30, 29, .14); color: var(--ink); }
   .hero-sign strong { color: var(--ink); font-size: 20px; }
   .hero-panel .badge-rot { left: auto; bottom: auto; right: 48px; top: 40px; z-index: 2; width: 120px; height: 120px; }
@@ -656,6 +657,7 @@
         <div class="hero-cta">
           <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-wide">Начать работу</a>
           <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn-round" aria-label="Написать в Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.6 2.9 10.8c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5ZM8.4 13.6l9.6-6.1c.5-.3.9-.1.5.2l-8 7.3-.3 3.4-1.8-4.8Z" fill="currentColor"/></svg></a>
+          <span class="flex-break" aria-hidden="true"></span>
           <a href="#formats" class="btn btn-ghost">Форматы работы</a>
         </div>
         <div class="hero-sign">
