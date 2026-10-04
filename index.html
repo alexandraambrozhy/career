@@ -146,6 +146,13 @@
   .pack-item li { padding-left: 22px; position: relative; }
   .pack-item li::before { content: "—"; position: absolute; left: 0; color: var(--red); }
 
+  .handouts { margin-top: 24px; background: var(--espresso); color: var(--sand); border-radius: var(--radius); padding: 34px 36px; display: grid; grid-template-columns: .8fr repeat(3, 1fr); gap: 24px; align-items: start; }
+  .handouts > div { min-width: 0; }
+  .handouts h3 { font-size: 30px; color: var(--paper); }
+  .handout b { display: block; font: italic 500 22px/1.2 var(--serif); color: var(--yellow); margin-bottom: 8px; }
+  .handout span { font-size: 15px; color: rgba(244, 227, 211, .8); }
+  .handout::before { content: "✦"; display: block; color: var(--pink); margin-bottom: 8px; }
+
   .how { margin-top: 80px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
   .how > div { min-width: 0; }
   .how h3 { font-size: 46px; margin-top: 14px; }
@@ -302,7 +309,7 @@
     .product:last-child { grid-column: span 2; }
     .head { grid-template-columns: 1fr; }
     .fork-art { width: 190px; }
-    .pack, .formats { grid-template-columns: 1fr; }
+    .pack, .formats, .handouts { grid-template-columns: 1fr; }
     .hero-art { justify-self: center; max-width: 380px; }
     .about-grid .venn { max-width: 340px; }
   }
@@ -507,8 +514,8 @@
             <span class="p-cat">Подготовка к отбору</span>
             <h3>Офис пак</h3>
             <p class="p-desc">Полный аудит профиля: резюме, сопроводительное письмо и собеседование с HR за одну рабочую встречу.</p>
-            <ul class="p-list"><li>Резюме под рынок и ATS</li><li>Сопроводительное письмо</li><li>Самопрезентация и ответы для HR</li></ul>
-            <div class="p-meta"><span>аудит + встреча 1–1,5 ч</span><span>готовое резюме</span></div>
+            <ul class="p-list"><li>Резюме под рынок и ATS</li><li>Сопроводительное письмо</li><li>Большой персональный файл по собеседованию</li><li>Шпаргалка по переговорам</li><li>Стратегия поиска работы</li></ul>
+            <div class="p-meta"><span>аудит + встреча 1–1,5 ч</span><span>материалы на руки</span></div>
             <div class="p-actions"><a href="#office" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
           </div>
         </article>
@@ -643,6 +650,13 @@
             <li>Позиционирование себя как кандидата</li>
           </ul>
         </div>
+      </div>
+
+      <div class="handouts">
+        <div><span class="eyebrow" style="color:var(--pink)">На руки</span><h3 style="margin-top:12px">Материалы, которые остаются с вами</h3></div>
+        <div class="handout"><b>Файл по собеседованию</b><span>Большой персонализированный документ: ваши ответы, карьерная история и самопрезентация.</span></div>
+        <div class="handout"><b>Шпаргалка по переговорам</b><span>Как обсуждать зарплату и условия оффера уверенно и по делу.</span></div>
+        <div class="handout"><b>Стратегия поиска работы</b><span>Где искать, как откликаться и как выстроить поиск системно.</span></div>
       </div>
 
       <div class="how">
