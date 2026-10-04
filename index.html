@@ -1,358 +1,442 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Карьерный путь — профориентация и подготовка к работе</title>
-  <meta name="description" content="Профориентация, упаковка резюме, сопроводительное письмо и подготовка к собеседованию с HR. Разовая диагностика или сопровождение в вашем темпе.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cream: #FBF4EA;
-      --sand: #F3E4D0;
-      --peach: #F6D3B3;
-      --apricot: #E8A26A;
-      --orange: #D2763A;
-      --terracotta: #B35A2B;
-      --brown: #6B3F26;
-      --espresso: #3B2418;
-      --muted: #8A6A55;
-      --line: rgba(107, 63, 38, .16);
-      --serif: "Cormorant Garamond", Georgia, serif;
-      --sans: "Manrope", system-ui, sans-serif;
-      --radius: 28px;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Александра Амброжий</title>
+<meta name="description" content="Карьерные консультации и стратегии роста: профориентация, офис пак, план роста и сопровождение. Александра Амброжий — про людей и бизнес.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout: warm paper page, paper-cut art (arches, sun, paths) in red, yellow and pink beside each block */
+  :root {
+    --cream: #FBF3EA;
+    --sand: #F4E3D3;
+    --blush: #F8DCD6;
+    --pink: #EE9E9C;
+    --red: #C9412E;
+    --orange: #DE7B3A;
+    --yellow: #EDB843;
+    --brown: #6B3F26;
+    --espresso: #3A2218;
+    --muted: #8A6A55;
+    --line: rgba(107, 63, 38, .16);
+    --paper: #FFFAF4;
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --radius: 28px;
+    color-scheme: light;
+  }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      font-weight: 400;
-      color: var(--espresso);
-      background: var(--cream);
-      line-height: 1.65;
-      font-size: 17px;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans); color: var(--espresso); background: var(--cream);
+    line-height: 1.65; font-size: 17px; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  svg { display: block; max-width: 100%; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 24px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.06; text-wrap: balance; }
+  h1 em, h2 em, h3 em { font-style: italic; color: var(--red); }
 
-    /* ---------- Header ---------- */
-    header {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(251, 244, 234, .82);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .logo { font-family: var(--serif); font-size: 26px; font-weight: 500; letter-spacing: .01em; }
-    .logo em { color: var(--orange); }
-    .nav ul { display: flex; gap: 34px; list-style: none; font-size: 15px; color: var(--brown); }
-    .nav ul a { position: relative; }
-    .nav ul a::after {
-      content: ""; position: absolute; left: 0; bottom: -4px; height: 1px; width: 0;
-      background: var(--orange); transition: width .3s ease;
-    }
-    .nav ul a:hover::after { width: 100%; }
+  /* Header */
+  header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: rgba(251, 243, 234, .86); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; }
+  .logo { font-family: var(--serif); font-size: 25px; font-weight: 500; white-space: nowrap; }
+  .logo em { color: var(--red); }
+  .nav ul { display: flex; gap: 28px; list-style: none; font-size: 15px; color: var(--brown); }
+  .nav ul a { position: relative; }
+  .nav ul a::after { content: ""; position: absolute; left: 0; bottom: -4px; height: 1px; width: 0; background: var(--red); transition: width .3s ease; }
+  .nav ul a:hover::after { width: 100%; }
 
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 15px 30px; border-radius: 999px;
-      font-family: var(--sans); font-size: 15px; font-weight: 500; letter-spacing: .02em;
-      transition: transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
-      cursor: pointer; border: 1px solid transparent;
-    }
-    .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 10px 30px -10px rgba(210, 118, 58, .7); }
-    .btn-primary:hover { background: var(--terracotta); transform: translateY(-2px); }
-    .btn-ghost { background: var(--peach); border-color: var(--apricot); color: var(--brown); }
-    .btn-ghost:hover { background: var(--brown); color: var(--cream); }
-    .btn-sm { padding: 11px 22px; font-size: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 999px;
+    font: 500 15px/1.2 var(--sans); letter-spacing: .02em; border: 1px solid transparent; cursor: pointer;
+    transition: transform .25s ease, background .25s ease, color .25s ease;
+  }
+  .btn-primary { background: var(--red); color: var(--paper); box-shadow: 0 12px 30px -12px rgba(201, 65, 46, .8); }
+  .btn-primary:hover { background: var(--brown); transform: translateY(-2px); }
+  .btn-ghost { background: var(--blush); border-color: var(--pink); color: var(--brown); }
+  .btn-ghost:hover { background: var(--brown); color: var(--cream); border-color: var(--brown); }
+  .btn-sm { padding: 11px 22px; font-size: 14px; }
+  .btn-yellow { background: var(--yellow); color: var(--espresso); }
+  .btn-yellow:hover { background: var(--paper); transform: translateY(-2px); }
 
-    /* ---------- Hero ---------- */
-    .hero { position: relative; padding: 110px 0 130px; overflow: hidden; }
-    .blob { position: absolute; border-radius: 50%; filter: blur(2px); z-index: 0; }
-    .blob-1 { width: 520px; height: 520px; right: -120px; top: -60px; background: radial-gradient(circle at 35% 35%, var(--peach), rgba(232, 162, 106, .35) 60%, transparent 72%); }
-    .blob-2 { width: 300px; height: 300px; right: 240px; bottom: -80px; background: radial-gradient(circle, rgba(179, 90, 43, .18), transparent 70%); }
-    .ring {
-      position: absolute; right: 70px; top: 90px; width: 360px; height: 360px;
-      border: 1px solid rgba(179, 90, 43, .3); border-radius: 50%; z-index: 0;
-    }
-    .ring::after {
-      content: ""; position: absolute; width: 14px; height: 14px; border-radius: 50%;
-      background: var(--orange); top: 40px; left: 52px;
-      animation: orbit 14s linear infinite; transform-origin: 128px 140px;
-    }
-    @keyframes orbit { to { transform: rotate(360deg); } }
+  .eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); }
+  .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; }
 
-    .hero .wrap { position: relative; z-index: 1; }
-    .eyebrow {
-      display: inline-block; font-size: 13px; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--terracotta); margin-bottom: 26px;
-    }
-    .eyebrow::before { content: ""; display: inline-block; width: 36px; height: 1px; background: var(--terracotta); vertical-align: middle; margin-right: 14px; }
-    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.08; color: var(--espresso); }
-    h1 { font-size: clamp(46px, 7vw, 92px); max-width: 820px; letter-spacing: -.01em; }
-    h1 em, h2 em { font-style: italic; color: var(--orange); }
-    .hero p.lead { font-size: 19px; color: var(--brown); max-width: 540px; margin: 30px 0 44px; font-weight: 300; }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  /* Hero */
+  .hero { padding-block: 72px 56px; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .hero-grid > div { min-width: 0; }
+  .hero h1 { font-size: clamp(46px, 6.6vw, 90px); margin: 22px 0 0; letter-spacing: -.01em; }
+  .hero .lead { font-size: 19px; color: var(--brown); max-width: 520px; margin: 26px 0 38px; font-weight: 300; }
+  .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-sign { margin-top: 44px; display: flex; align-items: center; gap: 16px; color: var(--muted); font-size: 14px; }
+  .hero-sign strong { display: block; font-family: var(--serif); font-size: 24px; font-weight: 500; font-style: italic; color: var(--espresso); }
+  .hero-sign .dot { width: 46px; height: 46px; border-radius: 50%; background: var(--yellow); display: grid; place-items: center; flex: none; }
 
-    .hero-tags { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 70px; }
-    .tag {
-      padding: 9px 18px; border-radius: 999px; font-size: 14px; color: var(--brown);
-      background: rgba(255, 255, 255, .55); border: 1px solid var(--line);
-    }
+  .hero-art { position: relative; max-width: 470px; justify-self: end; width: 100%; }
+  .hero-art .float { animation: float 7s ease-in-out infinite; }
+  @keyframes float { 50% { transform: translateY(-10px); } }
+  .badge-rot { position: absolute; width: 132px; height: 132px; left: -34px; bottom: 34px; }
+  .badge-rot .spin { transform-origin: 60px 60px; animation: spin 22s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ---------- Sections ---------- */
-    section { padding: 110px 0; }
-    .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 64px; }
-    h2 { font-size: clamp(38px, 5vw, 64px); }
-    .section-head p { color: var(--muted); font-size: 18px; font-weight: 300; max-width: 460px; justify-self: end; }
-    .num-label { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--orange); display: block; margin-bottom: 14px; }
+  /* Ticker */
+  .ticker { background: var(--red); color: var(--paper); overflow: hidden; padding-block: 18px; transform: rotate(-1.2deg); margin: 24px -10px 0; }
+  .ticker-track { display: flex; gap: 0; width: max-content; animation: tick 38s linear infinite; }
+  .ticker span { font-family: var(--serif); font-size: 26px; font-style: italic; white-space: nowrap; padding-inline: 22px; display: inline-flex; align-items: center; gap: 44px; }
+  .ticker span::after { content: "✦"; font-style: normal; font-size: 16px; color: var(--yellow); }
+  @keyframes tick { to { transform: translateX(-50%); } }
 
-    /* Path / профориентация */
-    #path { background: var(--sand); border-radius: 56px 56px 0 0; }
-    .variants { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-    .card {
-      position: relative; background: var(--cream); border-radius: var(--radius);
-      padding: 48px 44px; border: 1px solid var(--line);
-      transition: transform .35s ease, box-shadow .35s ease;
-    }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -30px rgba(107, 63, 38, .35); }
-    .card.dark { background: var(--brown); color: var(--sand); border-color: transparent; }
-    .card.dark h3, .card.dark .card-sub { color: var(--cream); }
-    .card.dark .card-sub { opacity: .75; }
-    .card.dark li::before { background: var(--apricot); }
-    .card .badge {
-      display: inline-block; font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
-      padding: 7px 14px; border-radius: 999px; border: 1px solid currentColor; color: var(--terracotta); margin-bottom: 26px;
-    }
-    .card.dark .badge { color: var(--apricot); }
-    .card h3 { font-size: 36px; margin-bottom: 14px; }
-    .card-sub { color: var(--muted); font-size: 16px; margin-bottom: 28px; }
-    .card ul { list-style: none; display: grid; gap: 14px; }
-    .card li { position: relative; padding-left: 26px; font-size: 16px; }
-    .card li::before {
-      content: ""; position: absolute; left: 0; top: 11px; width: 8px; height: 8px; border-radius: 50%;
-      background: var(--orange);
-    }
-    .card-result {
-      margin-top: 32px; padding-top: 26px; border-top: 1px solid var(--line);
-      font-family: var(--serif); font-size: 22px; font-style: italic; line-height: 1.35;
-    }
-    .card.dark .card-result { border-color: rgba(243, 228, 208, .2); }
-    .stat { display: flex; gap: 30px; margin: 4px 0 30px; }
-    .stat div { font-size: 14px; opacity: .8; }
-    .stat strong { display: block; font-family: var(--serif); font-size: 44px; font-weight: 500; color: var(--apricot); line-height: 1; opacity: 1; margin-bottom: 6px; }
+  /* Sections */
+  section { padding-block: 104px; }
+  .head { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-bottom: 56px; }
+  .head > div { min-width: 0; }
+  .head h2 { font-size: clamp(38px, 5vw, 64px); margin-top: 16px; }
+  .head p { color: var(--muted); font-size: 18px; font-weight: 300; max-width: 520px; margin-top: 18px; }
+  .head-art { width: 220px; }
 
-    /* Офис пак */
-    #office { background: var(--cream); }
-    .pack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .pack-item {
-      padding: 40px 34px; border-radius: var(--radius);
-      background: linear-gradient(170deg, #fff 0%, var(--cream) 100%);
-      border: 1px solid var(--line); position: relative; overflow: hidden;
-      transition: transform .35s ease;
-    }
-    .pack-item:hover { transform: translateY(-6px); }
-    .pack-item .big-num {
-      position: absolute; right: 22px; top: 6px; font-family: var(--serif); font-size: 120px;
-      color: var(--peach); line-height: 1; opacity: .7; font-style: italic;
-    }
-    .pack-item h3 { font-size: 30px; margin: 64px 0 22px; position: relative; }
-    .pack-item ul { list-style: none; display: grid; gap: 11px; font-size: 15px; color: var(--brown); }
-    .pack-item li { padding-left: 22px; position: relative; }
-    .pack-item li::before { content: "—"; position: absolute; left: 0; color: var(--orange); }
+  /* About */
+  .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: center; }
+  .about-grid > div { min-width: 0; }
+  .about-quote { font-family: var(--serif); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.25; font-style: italic; color: var(--brown); }
+  .about-quote b { font-style: normal; font-weight: 600; color: var(--espresso); background: linear-gradient(transparent 62%, rgba(237, 184, 67, .55) 62%); }
+  .about-quote + .about-quote { margin-top: 24px; }
 
-    /* How it works */
-    .how { margin-top: 90px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: center; }
-    .how h3 { font-size: 46px; }
-    .steps { display: grid; gap: 18px; }
-    .step {
-      display: grid; grid-template-columns: 64px 1fr; gap: 22px; align-items: start;
-      background: var(--sand); padding: 30px; border-radius: 22px;
-    }
-    .step-num {
-      width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
-      background: var(--orange); color: #fff; font-family: var(--serif); font-size: 28px; font-style: italic;
-    }
-    .step h4 { font-family: var(--sans); font-weight: 600; font-size: 17px; margin-bottom: 6px; }
-    .step p { color: var(--brown); font-size: 15px; }
-    .step .time { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--terracotta); letter-spacing: .05em; }
+  /* Path */
+  #path { background: var(--sand); border-radius: 56px 56px 0 0; }
+  .variants { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card {
+    position: relative; background: var(--paper); border-radius: var(--radius); padding: 46px 42px; border: 1px solid var(--line);
+    transition: transform .35s ease, box-shadow .35s ease; overflow: hidden;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -30px rgba(107, 63, 38, .35); }
+  .card.dark { background: var(--brown); color: var(--sand); border-color: transparent; }
+  .card.dark h3 { color: var(--paper); }
+  .card .pill { display: inline-block; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; background: var(--blush); color: var(--red); margin-bottom: 24px; }
+  .card.dark .pill { background: var(--yellow); color: var(--espresso); }
+  .card h3 { font-size: 36px; margin-bottom: 12px; }
+  .card .sub { color: var(--muted); font-size: 16px; margin-bottom: 26px; }
+  .card.dark .sub { color: var(--sand); opacity: .78; }
+  .list { list-style: none; display: grid; gap: 13px; }
+  .list li { position: relative; padding-left: 26px; font-size: 16px; }
+  .list li::before { content: ""; position: absolute; left: 0; top: 10px; width: 9px; height: 9px; border-radius: 50%; background: var(--red); }
+  .card.dark .list li::before { background: var(--yellow); }
+  .result { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--serif); font-size: 22px; font-style: italic; line-height: 1.35; }
+  .card.dark .result { border-color: rgba(244, 227, 211, .22); }
+  .stat { display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px; font-size: 14px; opacity: .85; }
+  .stat strong { font-family: var(--serif); font-size: 52px; font-weight: 500; color: var(--yellow); line-height: 1; }
+  .card .corner { position: absolute; right: -26px; top: -26px; width: 120px; opacity: .95; }
 
-    /* Support formats */
-    #support { background: var(--espresso); color: var(--sand); border-radius: 56px; margin: 0 16px; }
-    #support h2 { color: var(--cream); }
-    #support .section-head p { color: rgba(243, 228, 208, .7); }
-    .formats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 56px; }
-    .format {
-      border: 1px solid rgba(243, 228, 208, .2); border-radius: 22px; padding: 30px 28px;
-      transition: background .3s ease, border-color .3s ease;
-    }
-    .format:hover { background: rgba(232, 162, 106, .1); border-color: var(--apricot); }
-    .format .f-title { font-family: var(--serif); font-size: 34px; color: var(--cream); line-height: 1.1; }
-    .format .f-sub { font-size: 14px; color: var(--apricot); margin-top: 8px; }
-    .includes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; list-style: none; }
-    .includes li { display: flex; gap: 16px; align-items: flex-start; font-size: 16px; padding: 20px 0; border-top: 1px solid rgba(243, 228, 208, .15); }
-    .includes li span { font-family: var(--serif); font-style: italic; color: var(--apricot); font-size: 22px; line-height: 1.1; }
-    .note { margin-top: 44px; font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--peach); max-width: 720px; line-height: 1.35; }
+  /* Office pack */
+  .pack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pack-item { padding: 36px 32px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); transition: transform .35s ease; min-width: 0; }
+  .pack-item:hover { transform: translateY(-6px) rotate(-.4deg); }
+  .pack-item .ico { width: 78px; height: 78px; margin-bottom: 26px; }
+  .pack-item h3 { font-size: 30px; margin-bottom: 20px; }
+  .pack-item ul { list-style: none; display: grid; gap: 10px; font-size: 15px; color: var(--brown); }
+  .pack-item li { padding-left: 22px; position: relative; }
+  .pack-item li::before { content: "—"; position: absolute; left: 0; color: var(--red); }
 
-    /* CTA */
-    .cta { text-align: center; padding: 140px 0 120px; position: relative; overflow: hidden; }
-    .cta::before {
-      content: ""; position: absolute; left: 50%; top: 50%; width: 640px; height: 640px; transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(246, 211, 179, .9), transparent 65%); z-index: 0;
-    }
-    .cta .wrap { position: relative; z-index: 1; }
-    .cta h2 { max-width: 760px; margin: 0 auto 24px; }
-    .cta p { color: var(--brown); max-width: 520px; margin: 0 auto 40px; font-weight: 300; font-size: 18px; }
-    .cta .hero-actions { justify-content: center; }
+  .how { margin-top: 80px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+  .how > div { min-width: 0; }
+  .how h3 { font-size: 46px; margin-top: 14px; }
+  .steps { display: grid; gap: 18px; }
+  .step { display: grid; grid-template-columns: 60px 1fr; gap: 22px; align-items: start; background: var(--blush); padding: 28px; border-radius: 22px; }
+  .step:nth-child(2) { background: #FBE7BE; }
+  .step-num { width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; background: var(--red); color: var(--paper); font: italic 28px var(--serif); }
+  .step:nth-child(2) .step-num { background: var(--orange); }
+  .step h4 { font-weight: 600; font-size: 17px; margin-bottom: 6px; }
+  .step p { color: var(--brown); font-size: 15px; }
+  .step .time { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--red); letter-spacing: .05em; }
 
-    footer { border-top: 1px solid var(--line); padding: 30px 0; font-size: 14px; color: var(--muted); }
-    footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  /* Growth */
+  #growth { background: var(--blush); border-radius: 56px; margin-inline: 16px; }
+  .growth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card.red { background: var(--red); color: var(--blush); border-color: transparent; }
+  .card.red h3 { color: var(--paper); }
+  .card.red .sub { color: var(--blush); opacity: .9; }
+  .card.red .pill { background: var(--yellow); color: var(--espresso); }
+  .card.red .list li::before { background: var(--yellow); }
+  .card.red .result { border-color: rgba(248, 220, 214, .3); }
+  .group-label { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--yellow); margin: 22px 0 10px; }
+  .growth-chart { margin: 4px 0 26px; }
 
-    /* Reveal on scroll */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s ease; }
-    .reveal.in { opacity: 1; transform: none; }
+  /* Support */
+  #support { background: var(--espresso); color: var(--sand); border-radius: 56px; margin: 104px 16px 0; }
+  #support h2 { color: var(--paper); }
+  #support .head p { color: rgba(244, 227, 211, .7); }
+  #support .eyebrow { color: var(--yellow); }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 52px; }
+  .chip { padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(244, 227, 211, .3); font-size: 15px; }
+  .chip:nth-child(3n+1) { background: var(--pink); color: var(--espresso); border-color: transparent; }
+  .chip:nth-child(3n+2) { background: var(--yellow); color: var(--espresso); border-color: transparent; }
+  .formats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 48px; }
+  .format { border: 1px solid rgba(244, 227, 211, .2); border-radius: 22px; padding: 28px; transition: background .3s ease, border-color .3s ease; }
+  .format:hover { background: rgba(238, 158, 156, .12); border-color: var(--pink); }
+  .format .f-title { font-family: var(--serif); font-size: 34px; color: var(--paper); line-height: 1.1; }
+  .format .f-sub { font-size: 14px; color: var(--pink); margin-top: 8px; }
+  .includes { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; list-style: none; }
+  .includes li { display: flex; gap: 16px; align-items: flex-start; font-size: 16px; padding-block: 20px; border-top: 1px solid rgba(244, 227, 211, .15); }
+  .includes li::before { content: "✦"; color: var(--yellow); font-size: 15px; line-height: 1.6; }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width: 960px) {
-      .nav ul { display: none; }
-      .section-head, .variants, .how, .includes { grid-template-columns: 1fr; }
-      .section-head p { justify-self: start; }
-      .pack, .formats { grid-template-columns: 1fr; }
-      .ring { display: none; }
-      .blob-1 { width: 360px; height: 360px; right: -160px; }
-    }
-    @media (max-width: 560px) {
-      body { font-size: 16px; }
-      .wrap { padding: 0 16px; }
-      .nav .btn { display: none; }
-      .hero { padding: 72px 0 90px; }
-      section { padding: 80px 0; }
-      .card { padding: 36px 26px; }
-      .card h3 { font-size: 30px; }
-      .pack-item { padding: 32px 26px; }
-      #path { border-radius: 36px 36px 0 0; }
-      #support { border-radius: 36px; margin: 0 8px; }
-      .step { grid-template-columns: 1fr; padding: 24px; }
-      .how h3 { font-size: 38px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-      .ring::after { animation: none; }
-    }
-  </style>
+  /* Reviews */
+  .reviews { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .review { position: relative; border-radius: var(--radius); padding: 40px 36px 32px; display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+  .review:nth-child(1) { background: var(--blush); }
+  .review:nth-child(2) { background: #FBE7BE; }
+  .review:nth-child(3) { background: var(--sand); }
+  .review:nth-child(4) { background: var(--red); color: var(--paper); }
+  .review .q { position: absolute; right: 26px; top: 6px; font: italic 120px/1 var(--serif); color: var(--red); opacity: .25; }
+  .review:nth-child(4) .q { color: var(--yellow); opacity: .6; }
+  .review blockquote { font-family: var(--serif); font-size: 23px; font-style: italic; line-height: 1.4; position: relative; }
+  .review .who { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; }
+  .review:nth-child(4) .who { border-color: rgba(255, 250, 244, .3); }
+  .review .who b { display: block; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; font-size: 12px; margin-bottom: 4px; }
+  .review .who span { font-family: var(--serif); font-style: italic; font-size: 17px; }
+
+  /* Channel */
+  .channel { padding-block: 0; }
+  .channel-box {
+    background: var(--yellow); border-radius: 56px; padding: 64px 56px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .channel-box > div { min-width: 0; position: relative; }
+  .channel-box .eyebrow { color: var(--espresso); }
+  .channel-box h2 { font-size: clamp(38px, 5vw, 64px); margin: 18px 0; }
+  .channel-box h2 em { color: var(--red); }
+  .channel-box p { font-size: 18px; color: var(--brown); max-width: 480px; margin-bottom: 30px; }
+  .handle { font-family: var(--serif); font-size: 22px; font-style: italic; margin-top: 18px; color: var(--brown); user-select: all; }
+
+  /* CTA */
+  .cta { text-align: center; padding-block: 120px 110px; position: relative; overflow: hidden; }
+  .cta .wrap { position: relative; }
+  .cta h2 { font-size: clamp(38px, 5vw, 64px); max-width: 760px; margin: 18px auto 22px; }
+  .cta p { color: var(--brown); max-width: 520px; margin: 0 auto 36px; font-weight: 300; font-size: 18px; }
+  .cta .actions { justify-content: center; }
+  .cta-art { width: 150px; margin: 0 auto 10px; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 30px; font-size: 14px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  footer b { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 18px; color: var(--espresso); }
+
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .nav ul { display: none; }
+    .hero-grid, .about-grid, .variants, .how, .growth-grid, .reviews, .channel-box, .includes { grid-template-columns: 1fr; }
+    .head { grid-template-columns: 1fr; }
+    .head-art { width: 170px; }
+    .pack, .formats { grid-template-columns: 1fr; }
+    .hero-art { justify-self: center; max-width: 380px; }
+    .about-grid .venn { max-width: 340px; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .wrap { padding-inline: 16px; }
+    .nav .btn { display: none; }
+    .hero { padding-block: 48px 40px; }
+    section { padding-block: 76px; }
+    .card { padding: 34px 24px; }
+    .card h3 { font-size: 30px; }
+    .card .corner { width: 90px; }
+    .pack-item, .review { padding: 30px 24px; }
+    #path { border-radius: 36px 36px 0 0; }
+    #growth, #support { border-radius: 36px; margin-inline: 8px; }
+    #support { margin-top: 76px; }
+    .channel-box { border-radius: 36px; padding: 44px 24px; }
+    .step { grid-template-columns: 1fr; padding: 24px; }
+    .how h3 { font-size: 38px; }
+    .badge-rot { width: 104px; height: 104px; left: -6px; bottom: 10px; }
+    .ticker span { font-size: 21px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-art .float, .badge-rot .spin, .ticker-track { animation: none; }
+    .card:hover, .pack-item:hover, .btn:hover { transform: none; }
+  }
+</style>
 </head>
 <body>
-
 <header>
   <div class="wrap nav">
-    <a href="#" class="logo">Карьерный <em>путь</em></a>
+    <a href="#top" class="logo">Александра <em>Амброжий</em></a>
     <ul>
+      <li><a href="#about">Обо мне</a></li>
       <li><a href="#path">Выбор пути</a></li>
       <li><a href="#office">Офис пак</a></li>
-      <li><a href="#support">Сопровождение</a></li>
-      <li><a href="#contact">Контакты</a></li>
+      <li><a href="#growth">План роста</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#channel">Канал</a></li>
     </ul>
-    <a href="#contact" class="btn btn-primary btn-sm">Записаться</a>
+    <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Написать</a>
   </div>
 </header>
 
-<main>
-  <!-- HERO -->
+<main id="top">
+  <!-- Hero -->
   <section class="hero">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="ring"></div>
-    <div class="wrap">
-      <span class="eyebrow reveal">Профориентация · Карьерный консалтинг</span>
-      <h1 class="reveal">Найдите своё дело и&nbsp;<em>уверенно</em> войдите в&nbsp;новую роль</h1>
-      <p class="lead reveal">Помогаю разобраться в карьерном запросе, выбрать направление и подготовиться к отбору — от резюме до собеседования с HR.</p>
-      <div class="hero-actions reveal">
-        <a href="#path" class="btn btn-primary">Выбор пути</a>
-        <a href="#office" class="btn btn-ghost">Офис пак</a>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Карьерные консультации &amp; стратегии роста</span>
+        <h1>Найдите своё дело и&nbsp;<em>уверенно</em> войдите в&nbsp;новую роль</h1>
+        <p class="lead">Помогаю разобраться в карьерном запросе, выбрать направление, подготовиться к отбору и выстроить план роста дохода.</p>
+        <div class="actions">
+          <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Написать в Telegram</a>
+          <a href="#path" class="btn btn-ghost">Форматы работы</a>
+        </div>
+        <div class="hero-sign">
+          <span class="dot" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="#C9412E"/></svg>
+          </span>
+          <div><strong>Александра Амброжий</strong>про людей и бизнес</div>
+        </div>
       </div>
-      <div class="hero-tags reveal">
-        <span class="tag">Диагностика и тесты</span>
-        <span class="tag">Карьерный план</span>
-        <span class="tag">Резюме под ATS</span>
-        <span class="tag">Mock-интервью</span>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg class="float" viewBox="0 0 420 500">
+          <path d="M10 500 V210 A200 200 0 0 1 410 210 V500 Z" fill="#F8DCD6"/>
+          <circle cx="300" cy="140" r="74" fill="#EDB843"/>
+          <path d="M40 500 C 70 420, 140 430, 170 380 S 230 260, 300 230" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round"/>
+          <path d="M120 500 V320 A90 90 0 0 1 300 320 V500 Z" fill="#C9412E"/>
+          <path d="M165 500 V345 A45 45 0 0 1 255 345 V500 Z" fill="#3A2218"/>
+          <rect x="165" y="470" width="90" height="30" fill="#DE7B3A"/>
+          <rect x="182" y="446" width="56" height="24" fill="#EDB843"/>
+          <rect x="196" y="426" width="28" height="20" fill="#EE9E9C"/>
+          <path d="M60 330 C 40 280, 70 240, 100 230 C 110 270, 95 310, 60 330 Z" fill="#EE9E9C"/>
+          <path d="M66 326 C 70 290, 82 262, 98 236" stroke="#C9412E" stroke-width="2" fill="none"/>
+          <path d="M350 330 C 380 300, 390 260, 372 236 C 346 260, 338 300, 350 330 Z" fill="#DE7B3A"/>
+          <path d="M80 110 L86 128 L104 134 L86 140 L80 158 L74 140 L56 134 L74 128 Z" fill="#C9412E"/>
+          <path d="M370 58 L374 70 L386 74 L374 78 L370 90 L366 78 L354 74 L366 70 Z" fill="#C9412E"/>
+          <path d="M210 60 L213 69 L222 72 L213 75 L210 84 L207 75 L198 72 L207 69 Z" fill="#DE7B3A"/>
+          <circle cx="300" cy="230" r="9" fill="#3A2218"/>
+        </svg>
+        <svg class="badge-rot" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="58" fill="#C9412E"/>
+          <g class="spin">
+            <defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+            <text font-family="Manrope, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5" fill="#FFFAF4"><textPath href="#ring" textLength="272">ПРО ЛЮДЕЙ И БИЗНЕС ✦ КАРЬЕРА И РОСТ ✦</textPath></text>
+          </g>
+          <path d="M60 40 L65 55 L80 60 L65 65 L60 80 L55 65 L40 60 L55 55 Z" fill="#EDB843"/>
+        </svg>
+      </div>
+    </div>
+    <div class="ticker" aria-label="Темы консультаций">
+      <div class="ticker-track">
+        <span>Поиск работы</span><span>Повышение дохода</span><span>Карьерный переход</span><span>Стратегия переговоров</span><span>Профессиональное позиционирование</span><span>Выгорание и карьерные сомнения</span>
+        <span aria-hidden="true">Поиск работы</span><span aria-hidden="true">Повышение дохода</span><span aria-hidden="true">Карьерный переход</span><span aria-hidden="true">Стратегия переговоров</span><span aria-hidden="true">Профессиональное позиционирование</span><span aria-hidden="true">Выгорание и карьерные сомнения</span>
       </div>
     </div>
   </section>
 
-  <!-- ВЫБОР ПУТИ -->
+  <!-- About -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <svg class="venn" viewBox="0 0 320 300" role="img" aria-label="Три опоры: HR-практика, рынок труда, психология">
+          <g style="mix-blend-mode: multiply">
+            <circle cx="115" cy="110" r="88" fill="#EE9E9C"/>
+            <circle cx="205" cy="110" r="88" fill="#EDB843"/>
+            <circle cx="160" cy="188" r="88" fill="#DE7B3A" opacity=".85"/>
+          </g>
+          <text x="78" y="92" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#3A2218" text-anchor="middle">HR-практика</text>
+          <text x="244" y="92" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#3A2218" text-anchor="middle">Рынок труда</text>
+          <text x="160" y="246" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#3A2218" text-anchor="middle">Психология</text>
+          <path d="M160 122 L164 134 L176 138 L164 142 L160 154 L156 142 L144 138 L156 134 Z" fill="#C9412E"/>
+        </svg>
+      </div>
+      <div>
+        <span class="eyebrow">Обо мне</span>
+        <p class="about-quote" style="margin-top:22px">Моя работа соединяет <b>практику HR</b>, анализ рынков труда и научную психологию.</p>
+        <p class="about-quote">Мы выстраиваем систему профессионального развития, в которой опыт, интеллект и личные цели превращаются в <b>устойчивый доход и качество жизни</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Path -->
   <section id="path">
     <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <span class="num-label">01 — Выбор пути</span>
+      <div class="head">
+        <div>
+          <span class="eyebrow">Выбор пути</span>
           <h2>Профориентация в&nbsp;<em>двух форматах</em></h2>
+          <p>Выберите формат под ваш запрос: разовую глубокую работу с методологией или пошаговое сопровождение.</p>
         </div>
-        <p class="reveal">Выберите формат, который подходит вашему запросу: разовую глубокую работу с методологией или пошаговое сопровождение.</p>
+        <svg class="head-art" viewBox="0 0 220 170" aria-hidden="true">
+          <path d="M110 160 V110 C110 70, 40 70, 40 30" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+          <path d="M110 110 C110 70, 180 70, 180 30" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+          <circle cx="40" cy="26" r="22" fill="#EDB843"/>
+          <circle cx="180" cy="26" r="22" fill="#C9412E"/>
+          <text x="40" y="34" font-family="Cormorant Garamond, serif" font-style="italic" font-size="22" fill="#3A2218" text-anchor="middle">1</text>
+          <text x="180" y="34" font-family="Cormorant Garamond, serif" font-style="italic" font-size="22" fill="#FFFAF4" text-anchor="middle">2</text>
+          <circle cx="110" cy="160" r="8" fill="#3A2218"/>
+        </svg>
       </div>
 
       <div class="variants">
-        <article class="card reveal">
-          <span class="badge">Вариант 1</span>
+        <article class="card">
+          <svg class="corner" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#F8DCD6"/><circle cx="52" cy="66" r="22" fill="none" stroke="#C9412E" stroke-width="5"/><path d="M68 82 L86 100" stroke="#C9412E" stroke-width="6" stroke-linecap="round"/></svg>
+          <span class="pill">Вариант 1</span>
           <h3>Глубокая диагностика</h3>
-          <p class="card-sub">Разовая работа с раскрытием методологии самостоятельной работы — углубляем запрос и формируем план действий.</p>
-          <ul>
+          <p class="sub">Разовая работа с раскрытием методологии самостоятельной работы: углубляем запрос и формируем план действий.</p>
+          <ul class="list">
             <li>Детальная распаковка запроса и текущей ситуации</li>
             <li>Диагностика причин и ограничений с помощью тестов и аналитических инструментов</li>
             <li>Ясное понимание ключевой задачи и точки роста</li>
             <li>Файл с выводами и рекомендациями, наглядный план или презентация с пошаговой логикой действий</li>
           </ul>
-          <p class="card-result">Готовый инструмент и понятная методология, чтобы строить карьерный план уверенно и&nbsp;осознанно.</p>
+          <p class="result">Готовый инструмент и понятная методология, чтобы строить карьерный план уверенно и&nbsp;осознанно.</p>
         </article>
 
-        <article class="card dark reveal">
-          <span class="badge">Вариант 2</span>
+        <article class="card dark">
+          <svg class="corner" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#C9412E"/><circle cx="46" cy="70" r="12" fill="#EDB843"/><circle cx="76" cy="70" r="12" fill="#EE9E9C"/><path d="M30 104 C 34 86, 58 86, 60 104 M60 104 C 62 86, 88 86, 92 104" stroke="#FFFAF4" stroke-width="4" fill="none"/></svg>
+          <span class="pill">Вариант 2</span>
           <h3>Сопровождение</h3>
-          <p class="card-sub">Проходим все этапы из первого варианта вместе — последовательно и в вашем темпе.</p>
-          <div class="stat">
-            <div><strong>3–5</strong>консультаций обычно</div>
-          </div>
-          <ul>
+          <p class="sub">Проходим все этапы из первого варианта вместе, последовательно и в вашем темпе.</p>
+          <div class="stat"><strong>3–5</strong>консультаций обычно</div>
+          <ul class="list">
             <li>Можно остановиться на любом этапе, если задача решена, или продолжить дальше</li>
-            <li>Каждая сессия — разбор решений и корректировка действий</li>
-            <li>Снимаем возникающие вопросы по ходу движения</li>
+            <li>Каждая сессия посвящена разбору решений и корректировке действий</li>
+            <li>Снимаем вопросы, которые возникают по ходу движения</li>
           </ul>
-          <p class="card-result">Рядом есть человек, который помогает дойти до результата.</p>
+          <p class="result">Рядом есть человек, который помогает дойти до результата.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ОФИС ПАК -->
+  <!-- Office pack -->
   <section id="office">
     <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <span class="num-label">02 — Офис пак</span>
+      <div class="head">
+        <div>
+          <span class="eyebrow">Офис пак</span>
           <h2>Полный аудит профиля и <em>подготовка к отбору</em></h2>
+          <p>Сильное резюме, продуманное сопроводительное письмо и готовность к разговору с HR, чтобы откликаться уверенно.</p>
         </div>
-        <p class="reveal">Всё, что нужно, чтобы откликаться уверенно: сильное резюме, продуманное сопроводительное и готовность к разговору с HR.</p>
       </div>
 
       <div class="pack">
-        <div class="pack-item reveal">
-          <span class="big-num">1</span>
+        <div class="pack-item">
+          <svg class="ico" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="#F8DCD6"/><rect x="24" y="16" width="34" height="46" rx="4" fill="#FFFAF4" stroke="#C9412E" stroke-width="2.5"/><circle cx="34" cy="28" r="5" fill="#EDB843"/><path d="M30 40 H52 M30 47 H52 M30 54 H44" stroke="#6B3F26" stroke-width="2.5" stroke-linecap="round"/></svg>
           <h3>Разбор и упаковка резюме</h3>
           <ul>
             <li>Подробный анализ опыта, навыков и карьерного пути</li>
-            <li>Выявление сильных сторон и достижений, которые часто остаются за кадром</li>
+            <li>Сильные стороны и достижения, которые часто остаются за кадром</li>
             <li>Усиление формулировок с учётом рынка и ATS-систем</li>
             <li>Корректировка структуры, логики и оформления</li>
             <li>Универсальный шаблон для адаптации под вакансии</li>
             <li>Готовое обновлённое резюме</li>
           </ul>
         </div>
-        <div class="pack-item reveal">
-          <span class="big-num">2</span>
+        <div class="pack-item">
+          <svg class="ico" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="#FBE7BE"/><rect x="16" y="26" width="48" height="32" rx="4" fill="#EDB843"/><path d="M16 30 L40 46 L64 30" stroke="#6B3F26" stroke-width="2.5" fill="none" stroke-linejoin="round"/><path d="M40 12 C 34 4, 24 12, 40 22 C 56 12, 46 4, 40 12 Z" fill="#C9412E"/></svg>
           <h3>Сопроводительное письмо</h3>
           <ul>
             <li>Структура и ключевые смыслы</li>
@@ -360,8 +444,8 @@
             <li>Формулировка мотивации и ценности для работодателя</li>
           </ul>
         </div>
-        <div class="pack-item reveal">
-          <span class="big-num">3</span>
+        <div class="pack-item">
+          <svg class="ico" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="#F8DCD6"/><path d="M14 22 H50 A6 6 0 0 1 56 28 V44 A6 6 0 0 1 50 50 H28 L18 58 V50 H14 A6 6 0 0 1 8 44 V28 A6 6 0 0 1 14 22 Z" fill="#C9412E"/><path d="M42 36 H66 A6 6 0 0 1 72 42 V54 A6 6 0 0 1 66 60 H64 V67 L56 60 H42 A6 6 0 0 1 36 54 V42 A6 6 0 0 1 42 36 Z" fill="#EDB843"/><circle cx="48" cy="48" r="2.5" fill="#3A2218"/><circle cx="55" cy="48" r="2.5" fill="#3A2218"/><circle cx="62" cy="48" r="2.5" fill="#3A2218"/></svg>
           <h3>Подготовка к&nbsp;собеседованию с&nbsp;HR</h3>
           <ul>
             <li>Разбор наиболее частых вопросов</li>
@@ -374,24 +458,24 @@
       </div>
 
       <div class="how">
-        <div class="reveal">
-          <span class="num-label">Как проходит работа</span>
-          <h3>Два шага — и вы готовы к&nbsp;откликам</h3>
+        <div>
+          <span class="eyebrow">Как проходит работа</span>
+          <h3>Два шага, и вы готовы к&nbsp;откликам</h3>
         </div>
         <div class="steps">
-          <div class="step reveal">
+          <div class="step">
             <div class="step-num">i</div>
             <div>
               <h4>Знакомство и предварительный аудит</h4>
-              <p>Уточняю ваш запрос и желаемую позицию — сообщениями или на коротком созвоне. Изучаю резюме и провожу аудит профиля в течение нескольких дней.</p>
+              <p>Уточняю ваш запрос и желаемую позицию сообщениями или на коротком созвоне. Изучаю резюме и провожу аудит профиля в течение нескольких дней.</p>
               <span class="time">встреча до 30–40 минут</span>
             </div>
           </div>
-          <div class="step reveal">
+          <div class="step">
             <div class="step-num">ii</div>
             <div>
               <h4>Рабочая встреча</h4>
-              <p>В режиме реального времени проходим все этапы — резюме, сопроводительное, собеседование с HR — и корректируем материалы прямо в диалоге.</p>
+              <p>В режиме реального времени проходим все этапы: резюме, сопроводительное, собеседование с HR. Корректируем материалы прямо в диалоге.</p>
               <span class="time">1–1,5 часа</span>
             </div>
           </div>
@@ -400,63 +484,179 @@
     </div>
   </section>
 
-  <!-- СОПРОВОЖДЕНИЕ -->
+  <!-- Growth -->
+  <section id="growth">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Глубокая карьерная стратегия</span>
+          <h2>План роста на&nbsp;<em>12 месяцев</em></h2>
+          <p>Мы не просто ставим цели, а выстраиваем маршрут. Каждый этап опирается на ваш реальный контекст: рынок, компетенции, жизненные приоритеты.</p>
+        </div>
+      </div>
+
+      <div class="growth-grid">
+        <article class="card">
+          <span class="pill">Расширение</span>
+          <h3>План роста</h3>
+          <p class="sub">Карьерная стратегия до 12 месяцев. Контрольные точки позволяют корректировать её по ходу.</p>
+          <svg class="growth-chart" viewBox="0 0 320 130" role="img" aria-label="Контрольные этапы плана: 3, 6, 9 и 12 месяцев">
+            <line x1="0" y1="104" x2="320" y2="104" stroke="#6B3F26" stroke-width="1.5"/>
+            <rect x="20" y="78" width="46" height="26" rx="6" fill="#F8DCD6"/>
+            <rect x="96" y="58" width="46" height="46" rx="6" fill="#EE9E9C"/>
+            <rect x="172" y="36" width="46" height="68" rx="6" fill="#DE7B3A"/>
+            <rect x="248" y="12" width="46" height="92" rx="6" fill="#C9412E"/>
+            <path d="M271 12 C 271 2, 262 -2, 256 2 C 258 8, 264 12, 271 12 Z" fill="#EDB843"/>
+            <g font-family="Manrope, sans-serif" font-size="12" fill="#8A6A55" text-anchor="middle">
+              <text x="43" y="124">3 мес</text><text x="119" y="124">6 мес</text><text x="195" y="124">9 мес</text><text x="271" y="124">12 мес</text>
+            </g>
+          </svg>
+          <ul class="list">
+            <li>Увеличение дохода</li>
+            <li>Переход в новую сферу</li>
+            <li>Выход на самостоятельную практику</li>
+            <li>Развитие собственного проекта</li>
+          </ul>
+          <p class="result">Персональный план: позиционирование, точки роста дохода, навыки, стратегия и контрольные этапы.</p>
+        </article>
+
+        <article class="card red">
+          <svg class="corner" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#EDB843"/><path d="M60 22 L68 50 L96 58 L68 66 L60 94 L52 66 L24 58 L52 50 Z" fill="#C9412E"/></svg>
+          <span class="pill">Всё включено</span>
+          <h3>Перегрузка карьеры</h3>
+          <p class="sub">Полная трансформация: от осознания себя до устойчивого роста дохода. Объединяет три направления в одну непрерывную стратегию.</p>
+          <p class="group-label">Направление</p>
+          <ul class="list">
+            <li>Какая работа действительно подходит</li>
+            <li>Куда двигаться дальше и на чём строить долгосрочный рост</li>
+          </ul>
+          <p class="group-label">Сильный оффер</p>
+          <ul class="list">
+            <li>Резюме, позиционирование и стратегия откликов</li>
+            <li>Подготовка к собеседованиям и переговоры о зарплате</li>
+            <li>Сопровождение до оффера</li>
+          </ul>
+          <p class="group-label">План роста</p>
+          <ul class="list">
+            <li>Доход, новая сфера, своя практика или проект</li>
+          </ul>
+          <p class="result">Ясное направление, конкурентный оффер и персональный план до 12 месяцев.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
   <section id="support">
     <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <span class="num-label">03 — Поддержка</span>
-          <h2>Разовый или <em>еженедельный</em> формат</h2>
+      <div class="head">
+        <div>
+          <span class="eyebrow">Индивидуальные сессии</span>
+          <h2>Разовый или <em style="color:var(--pink)">еженедельный</em> формат</h2>
+          <p>Подходит, если есть конкретный запрос и хочется работать точно. Вы получаете экспертную поддержку и внедряете рекомендации в удобном темпе.</p>
         </div>
-        <p class="reveal">Для тех, кто хочет экспертную поддержку и внедрять рекомендации самостоятельно, в удобном темпе.</p>
+      </div>
+
+      <div class="chips">
+        <span class="chip">Поиск работы</span><span class="chip">Повышение дохода</span><span class="chip">Карьерный переход</span>
+        <span class="chip">Стратегия переговоров</span><span class="chip">Профессиональное позиционирование</span><span class="chip">Выгорание и карьерные сомнения</span>
       </div>
 
       <div class="formats">
-        <div class="format reveal"><div class="f-title">1 встреча</div><div class="f-sub">точечный разбор</div></div>
-        <div class="format reveal"><div class="f-title">2–5 встреч</div><div class="f-sub">работа в динамике</div></div>
-        <div class="format reveal"><div class="f-title">Еженедельно</div><div class="f-sub">постоянное сопровождение</div></div>
+        <div class="format"><div class="f-title">1 встреча</div><div class="f-sub">точечный разбор</div></div>
+        <div class="format"><div class="f-title">2–5 встреч</div><div class="f-sub">работа в динамике</div></div>
+        <div class="format"><div class="f-title">Еженедельно</div><div class="f-sub">постоянное сопровождение</div></div>
       </div>
 
       <ul class="includes">
-        <li class="reveal"><span>01</span>Анализ вашего запроса, резюме и сопроводительного письма</li>
-        <li class="reveal"><span>02</span>Mock-интервью — репетиция собеседования</li>
-        <li class="reveal"><span>03</span>Подробная обратная связь по профилю голосовым сообщением или на онлайн-встрече</li>
-        <li class="reveal"><span>04</span>Ответы на вопросы и обратная связь по итогам выполнения рекомендаций</li>
+        <li>Анализ вашего запроса, резюме и сопроводительного письма</li>
+        <li>Mock-интервью: репетиция собеседования</li>
+        <li>Подробная обратная связь по профилю голосовым сообщением или на онлайн-встрече</li>
+        <li>Ответы на вопросы и обратная связь по итогам выполнения рекомендаций</li>
       </ul>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- Reviews -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Отзывы клиентов</span>
+          <h2>Что меняется <em>после работы</em></h2>
+        </div>
+      </div>
+      <div class="reviews">
+        <figure class="review">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Несколько лет чувствовала, что психология — моё, но не могла это обосновать ни себе, ни окружающим. После работы с Александрой появилась настоящая ясность: понимаю, куда иду и почему именно туда.</blockquote>
+          <figcaption class="who"><b>Маркетолог</b><span>Карьерное направление → уверенность в выборе</span></figcaption>
+        </figure>
+        <figure class="review">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>За два месяца работы со стратегией получил два оффера на позицию руководителя. Раньше казалось, что переход в управление — это про связи и удачу. Оказалось, дело в системе.</blockquote>
+          <figcaption class="who"><b>Менеджер проектов</b><span>Офис пак → 2 оффера на руководителя</span></figcaption>
+        </figure>
+        <figure class="review">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Последовал всему построенному плану, проявил инициативу, сделал чат-бота. И собственно сейчас подписываю документы на повышение!</blockquote>
+          <figcaption class="who"><b>IT-специалист</b><span>План роста → повышение</span></figcaption>
+        </figure>
+        <figure class="review">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Я HR с десятью годами опыта — казалось, всё знаю про карьеру. Но именно со стороны всё увиделось иначе. За три месяца выстроила собственную практику, ушла из найма и уже закрыла первых клиентов.</blockquote>
+          <figcaption class="who"><b>HR-специалист</b><span>Перегрузка карьеры → своя практика за 3 месяца</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Channel -->
+  <section id="channel" class="channel">
+    <div class="wrap">
+      <div class="channel-box">
+        <div>
+          <span class="eyebrow">Telegram-канал</span>
+          <h2>Александра Амброжий: <em>про людей и бизнес</em></h2>
+          <p>Подписывайтесь на канал, если интересны карьера, рынок труда и психология работы.</p>
+          <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Подписаться на канал</a>
+        </div>
+        <svg viewBox="0 0 300 240" aria-hidden="true">
+          <circle cx="190" cy="110" r="96" fill="#F8DCD6"/>
+          <path d="M20 210 C 70 200, 70 150, 120 150 S 170 120, 150 100" fill="none" stroke="#3A2218" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round"/>
+          <path d="M140 110 L270 50 L230 180 L200 140 Z" fill="#C9412E"/>
+          <path d="M200 140 L270 50 L190 170 Z" fill="#6B3F26"/>
+          <path d="M140 110 L270 50 L200 140 Z" fill="#DE7B3A"/>
+          <path d="M60 60 L65 75 L80 80 L65 85 L60 100 L55 85 L40 80 L55 75 Z" fill="#C9412E"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
   <section class="cta" id="contact">
     <div class="wrap">
-      <span class="eyebrow reveal">Первый шаг</span>
-      <h2 class="reveal">Расскажите о&nbsp;своём запросе — подберём <em>подходящий формат</em></h2>
-      <p class="reveal">Напишите мне, и мы вместе решим, с чего лучше начать: с выбора пути, офис пака или сопровождения.</p>
-      <div class="hero-actions reveal">
-        <a href="https://t.me/" class="btn btn-primary" target="_blank" rel="noopener">Написать в Telegram →</a>
-        <a href="mailto:hello@example.com" class="btn btn-ghost">Написать на почту</a>
+      <svg class="cta-art" viewBox="0 0 150 90" aria-hidden="true">
+        <path d="M10 90 A65 65 0 0 1 140 90 Z" fill="#EDB843"/>
+        <path d="M40 90 A35 35 0 0 1 110 90 Z" fill="#C9412E"/>
+        <g stroke="#DE7B3A" stroke-width="3" stroke-linecap="round"><path d="M75 6 V16"/><path d="M22 28 L30 35"/><path d="M128 28 L120 35"/></g>
+      </svg>
+      <span class="eyebrow">Первый шаг</span>
+      <h2>Расскажите о&nbsp;своём запросе, и мы подберём <em>подходящий формат</em></h2>
+      <p>Напишите мне в Telegram, и решим, с чего лучше начать: с выбора пути, офис пака или плана роста.</p>
+      <div class="actions">
+        <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Написать в Telegram</a>
       </div>
+      <p class="handle">@alexandraambrozhy</p>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Карьерный путь</span>
-    <span>Профориентация · Резюме · Собеседования</span>
+    <span><b>Александра Амброжий</b> · про людей и бизнес</span>
+    <span>Профориентация · Резюме · Собеседования · План роста</span>
   </div>
 </footer>
-
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = (i % 4) * 80 + 'ms';
-    io.observe(el);
-  });
-</script>
 </body>
 </html>
