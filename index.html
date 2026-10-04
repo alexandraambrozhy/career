@@ -487,7 +487,7 @@
   .srow li { padding-left: 30px; position: relative; }
   .srow li::before { content: "✱"; position: absolute; left: 0; top: 0; color: #fff; }
 
-  .hero-figure { position: relative; grid-column: 2; grid-row: 2 / span 2; align-self: end; width: 320px; z-index: 1; }
+  .hero-figure { position: absolute; right: 60px; top: 190px; width: 380px; z-index: 1; }
   .hero-glass-card { grid-column: 2; grid-row: 1; align-self: end; justify-self: end; position: relative; z-index: 2; display: grid; gap: 14px; width: 320px; padding: 20px 24px; border-radius: 22px; background: rgba(255, 255, 255, .42); border: 1px solid rgba(255, 255, 255, .75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: var(--ink); }
   .hero-glass-card div { display: flex; align-items: baseline; gap: 14px; }
   .hero-glass-card div + div { padding-top: 14px; border-top: 1px solid rgba(34, 30, 29, .14); }
@@ -499,7 +499,7 @@
   @media (max-width: 1000px) {
     .nav ul { display: none; }
     .hero-panel { grid-template-columns: 1fr; min-height: 0; padding: 240px 32px 32px; }
-    .hero-figure { position: absolute; grid-column: auto; grid-row: auto; width: 170px; right: 28px; top: 40px; bottom: auto; }
+    .hero-figure { position: absolute; width: 150px; right: 28px; top: 30px; bottom: auto; }
     .hero-glass-card { grid-column: 1; grid-row: 5; justify-self: start; width: 100%; max-width: 420px; }
     .hero-panel .badge-rot { right: auto; left: 28px; }
     .hero-content, .hero-cta { grid-column: 1; }
@@ -534,7 +534,7 @@
     .hero { padding-block: 8px 28px; }
     .hero-panel { padding: 230px 20px 24px; border-radius: 28px; }
     .hero-panel .badge-rot { left: 16px; top: 16px; width: 88px; height: 88px; }
-    .hero-figure { width: 130px; right: 16px; top: 24px; }
+    .hero-figure { width: 120px; right: 16px; top: 20px; }
     .glass { display: none; }
     .btn-wide { min-width: 0; flex: 1; }
     .hairgrid { grid-template-columns: 1fr; }
@@ -621,7 +621,19 @@
           </g>
           <path d="M60 40 L65 55 L80 60 L65 65 L60 80 L55 65 L40 60 L55 55 Z" fill="#EDB843"/>
         </svg>
-        <svg class="hero-figure float" viewBox="0 0 320 200" aria-hidden="true">
+        <svg class="hero-figure float" viewBox="0 0 320 430" aria-hidden="true">
+        <circle cx="160" cy="250" r="150" fill="none" stroke="#3A2218" stroke-width="1.2" stroke-dasharray="2 7" stroke-linecap="round"/>
+        <path d="M22 250 A138 138 0 0 1 298 250" fill="none" stroke="#EE9E9C" stroke-width="14" stroke-linecap="round"/>
+        <path d="M48 250 A112 112 0 0 1 272 250" fill="none" stroke="#DE7B3A" stroke-width="14" stroke-linecap="round"/>
+        <path d="M74 250 A86 86 0 0 1 246 250" fill="none" stroke="#C9412E" stroke-width="14" stroke-linecap="round"/>
+        <path d="M30 256 A132 132 0 0 1 292 244" fill="none" stroke="#3A2218" stroke-width="1.2"/>
+        <circle cx="160" cy="34" r="9" fill="#EDB843" stroke="#3A2218" stroke-width="1.2"/>
+        <circle cx="300" cy="120" r="6" fill="#C9412E"/>
+        <circle cx="18" cy="150" r="5" fill="#DE7B3A"/>
+        <path d="M44 40 L49 56 L65 61 L49 66 L44 82 L39 66 L23 61 L39 56 Z" fill="#C9412E"/>
+        <path d="M268 20 L272 32 L284 36 L272 40 L268 52 L264 40 L252 36 L264 32 Z" fill="#EDB843"/>
+        <path d="M230 120 L233 128 L241 131 L233 134 L230 142 L227 134 L219 131 L227 128 Z" fill="#DE7B3A"/>
+        <g transform="translate(0,230)">
         <circle cx="160" cy="92" r="70" fill="#EDB843"/>
         <circle cx="150" cy="100" r="70" fill="none" stroke="#3A2218" stroke-width="1.5"/>
         <path d="M20 196 C 70 170, 110 186, 150 160 S 250 140, 300 110" fill="none" stroke="#3A2218" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
@@ -633,6 +645,7 @@
         <path d="M204 200 C 204 148, 264 148, 264 200 Z" fill="#6B3F26" stroke="#3A2218" stroke-width="1.5"/>
         <path d="M40 40 L45 55 L60 60 L45 65 L40 80 L35 65 L20 60 L35 55 Z" fill="#C9412E"/>
         <path d="M282 30 L286 41 L297 45 L286 49 L282 60 L278 49 L267 45 L278 41 Z" fill="#DE7B3A"/>
+      </g>
       </svg>
         <div class="hero-content">
           <span class="eyebrow">Карьерные консультации &amp; стратегии роста</span>
