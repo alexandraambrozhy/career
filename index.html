@@ -473,7 +473,7 @@
   .hg-title h2 { font-size: clamp(40px, 4.4vw, 64px); }
   .asterisk { align-self: flex-end; font-size: 72px; line-height: 1; color: var(--ink); animation: spin 30s linear infinite; }
   .hg-cell:nth-child(4) { padding-left: 0; }
-  .hg-cta { justify-content: center; align-items: flex-start; }
+  .hg-cta { justify-content: center; align-items: flex-start; grid-column: span 2; }
 
   #steps { background: var(--ink); color: #F4ECE6; }
   .steps-title { font-size: clamp(56px, 9vw, 140px); color: #fff; letter-spacing: -.05em; margin-bottom: 64px; }
@@ -515,6 +515,7 @@
     .statement-big { text-align: left; }
     .hairgrid { grid-template-columns: 1fr 1fr; }
     .hg-title { grid-column: 1 / -1; min-height: 0; flex-direction: row; align-items: center; }
+    .hg-cta { grid-column: auto; }
     .hg-cell + .hg-cell { border-left: none; }
     .hg-cell:nth-child(odd):not(.hg-title) { border-left: 1px solid var(--ink); }
     .hg-cell { padding-left: 0; }
@@ -704,7 +705,6 @@
         <div class="hg-cell hg-title"><h2>Почему я?</h2><span class="asterisk" aria-hidden="true">✱</span></div>
         <div class="hg-cell"><h3>НИУ ВШЭ и Школа 21</h3><p>Психология в ВШЭ, диплом бакалавра с отличием. Школа 21: сеть контактов в IT и HR</p></div>
         <div class="hg-cell"><h3>HR-практика</h3><p>Подбор, структурированные интервью, оценка кандидатов и сопровождение до оффера</p></div>
-        <div class="hg-cell"><h3>Оценка и развитие</h3><p>Ассессмент-центры, оценка 360°, индивидуальные планы развития</p></div>
         <div class="hg-cell"><h3>Карьерные стратегии</h3><p>Диагностика, анализ рынка труда, коучинговые техники и карьерные карты</p></div>
         <div class="hg-cell hg-cta"><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-wide">Начать работу</a></div>
       </div>
