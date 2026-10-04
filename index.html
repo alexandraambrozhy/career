@@ -158,17 +158,58 @@
   .step p { color: var(--brown); font-size: 15px; }
   .step .time { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--red); letter-spacing: .05em; }
 
-  /* Growth */
-  #growth { background: var(--blush); border-radius: 56px; margin-inline: 16px; }
-  .growth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  /* Promotions accent */
+  .promo { padding-block: 72px 0; }
+  .promo-box { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; }
+  .promo-box > div { min-width: 0; }
+  .promo h2 { font-size: clamp(36px, 4.6vw, 58px); margin-top: 16px; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .fact { background: var(--paper); border: 1px solid var(--line); border-radius: 22px; padding: 26px 22px; min-width: 0; }
+  .fact:nth-child(2) { background: var(--yellow); border-color: transparent; }
+  .fact strong { display: block; font: 500 36px/1.05 var(--serif); color: var(--red); margin-bottom: 10px; }
+  .fact:nth-child(2) strong { color: var(--espresso); }
+  .fact span { font-size: 15px; color: var(--brown); }
+
+  /* Catalog (marketplace) */
+  .catalog { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+  .product {
+    grid-column: span 2; display: flex; flex-direction: column; min-width: 0; background: var(--paper);
+    border: 1px solid var(--line); border-radius: 26px; overflow: hidden; transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .product.wide { grid-column: span 3; }
+  .product:hover { transform: translateY(-6px); box-shadow: 0 28px 50px -28px rgba(107, 63, 38, .45); }
+  .p-media { position: relative; height: 190px; display: grid; place-items: center; }
+  .p-media svg { height: 140px; width: auto; }
+  .p-tags { position: absolute; left: 16px; top: 16px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .p-tag { font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: var(--paper); color: var(--red); }
+  .p-tag.hot { background: var(--red); color: var(--paper); }
+  .p-tag.up { background: var(--yellow); color: var(--espresso); }
+  .p-body { padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .p-cat { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .p-body h3 { font-size: 30px; }
+  .p-desc { font-size: 15px; color: var(--brown); }
+  .p-list { list-style: none; display: grid; gap: 6px; font-size: 14px; }
+  .p-list li { padding-left: 22px; position: relative; }
+  .p-list li::before { content: "✓"; position: absolute; left: 0; color: var(--red); font-weight: 600; }
+  .p-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 13px; color: var(--brown); }
+  .p-meta span { background: var(--cream); padding: 4px 10px; border-radius: 8px; }
+  .p-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .p-actions .btn { flex: 1; justify-content: center; padding: 12px 16px; font-size: 14px; white-space: nowrap; }
+
+  /* Reboot */
+  #reboot { background: var(--blush); border-radius: 56px; margin-inline: 16px; }
+  .reboot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .reboot-grid .card { padding: 36px 32px; }
+  .reboot-grid .card h3 { font-size: 30px; }
   .card.red { background: var(--red); color: var(--blush); border-color: transparent; }
   .card.red h3 { color: var(--paper); }
   .card.red .sub { color: var(--blush); opacity: .9; }
   .card.red .pill { background: var(--yellow); color: var(--espresso); }
   .card.red .list li::before { background: var(--yellow); }
-  .card.red .result { border-color: rgba(248, 220, 214, .3); }
-  .group-label { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--yellow); margin: 22px 0 10px; }
-  .growth-chart { margin: 4px 0 26px; }
+  .growth-chart { margin: 4px 0 22px; }
+  .reboot-result { margin-top: 28px; background: var(--espresso); color: var(--cream); border-radius: 26px; padding: 30px 34px; display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .reboot-result p { font: italic 26px/1.3 var(--serif); max-width: 720px; }
+  .reboot-result p b { color: var(--yellow); font-weight: 500; }
 
   /* Support */
   #support { background: var(--espresso); color: var(--sand); border-radius: 56px; margin: 104px 16px 0; }
@@ -188,20 +229,32 @@
   .includes li { display: flex; gap: 16px; align-items: flex-start; font-size: 16px; padding-block: 20px; border-top: 1px solid rgba(244, 227, 211, .15); }
   .includes li::before { content: "✦"; color: var(--yellow); font-size: 15px; line-height: 1.6; }
 
-  /* Reviews */
-  .reviews { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .review { position: relative; border-radius: var(--radius); padding: 40px 36px 32px; display: flex; flex-direction: column; gap: 24px; min-width: 0; }
-  .review:nth-child(1) { background: var(--blush); }
-  .review:nth-child(2) { background: #FBE7BE; }
-  .review:nth-child(3) { background: var(--sand); }
-  .review:nth-child(4) { background: var(--red); color: var(--paper); }
+  /* Reviews carousel */
+  .car-nav { display: flex; gap: 10px; }
+  .car-btn { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--brown); background: transparent; color: var(--brown); font: 20px/1 var(--sans); cursor: pointer; transition: background .25s ease, color .25s ease; }
+  .car-btn:hover { background: var(--brown); color: var(--cream); }
+  .car-btn:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  .track { display: flex; align-items: flex-start; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .track::-webkit-scrollbar { display: none; }
+  .review { flex: 0 0 min(400px, 86%); scroll-snap-align: start; position: relative; border-radius: var(--radius); padding: 38px 34px 30px; display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+  .review.c1 { background: var(--blush); }
+  .review.c2 { background: #FBE7BE; }
+  .review.c3 { background: var(--sand); }
+  .review.c4 { background: var(--red); color: var(--paper); }
   .review .q { position: absolute; right: 26px; top: 6px; font: italic 120px/1 var(--serif); color: var(--red); opacity: .25; }
-  .review:nth-child(4) .q { color: var(--yellow); opacity: .6; }
+  .review.c4 .q { color: var(--yellow); opacity: .6; }
   .review blockquote { font-family: var(--serif); font-size: 23px; font-style: italic; line-height: 1.4; position: relative; }
   .review .who { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; }
-  .review:nth-child(4) .who { border-color: rgba(255, 250, 244, .3); }
+  .review.c4 .who { border-color: rgba(255, 250, 244, .3); }
   .review .who b { display: block; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; font-size: 12px; margin-bottom: 4px; }
   .review .who span { font-family: var(--serif); font-style: italic; font-size: 17px; }
+  .review.chat { background: var(--paper); border: 1px solid var(--line); }
+  .chat-src { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .chat-src::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pink); }
+  .bubbles { display: grid; gap: 8px; }
+  .bubble { background: var(--blush); border-radius: 20px 20px 20px 6px; padding: 12px 16px; font-size: 16px; line-height: 1.5; justify-self: start; max-width: 100%; }
+  .bubble:nth-child(even) { background: #FBE7BE; }
+  .car-hint { margin-top: 10px; font-size: 13px; color: var(--muted); }
 
   /* Channel */
   .channel { padding-block: 0; }
@@ -224,14 +277,29 @@
   .cta .actions { justify-content: center; }
   .cta-art { width: 150px; margin: 0 auto 10px; }
 
-  footer { border-top: 1px solid var(--line); padding-block: 30px; font-size: 14px; color: var(--muted); }
-  footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-  footer b { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 18px; color: var(--espresso); }
+  footer { background: var(--espresso); color: var(--sand); padding-block: 56px 40px; font-size: 14px; border-radius: 40px 40px 0 0; }
+  footer .wrap { display: grid; gap: 30px; }
+  .foot-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .foot-name { font: italic 500 34px/1.1 var(--serif); color: var(--paper); }
+  .foot-name small { display: block; font: 400 13px/1.6 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--pink); margin-top: 6px; font-style: normal; }
+  .socials { display: flex; gap: 12px; flex-wrap: wrap; }
+  .social { display: inline-flex; align-items: center; gap: 12px; padding: 12px 20px 12px 12px; border-radius: 999px; border: 1px solid rgba(244, 227, 211, .25); transition: background .25s ease, border-color .25s ease; }
+  .social:hover { background: rgba(238, 158, 156, .14); border-color: var(--pink); }
+  .social i { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; flex: none; font-style: normal; font-weight: 600; font-size: 13px; }
+  .social.tg i { background: var(--pink); color: var(--espresso); }
+  .social.yt i { background: var(--red); color: var(--paper); }
+  .social.vk i { background: var(--yellow); color: var(--espresso); }
+  .social b { display: block; font-weight: 600; color: var(--paper); font-size: 15px; }
+  .social span { font-size: 13px; color: rgba(244, 227, 211, .7); }
+  .foot-bottom { border-top: 1px solid rgba(244, 227, 211, .15); padding-top: 22px; color: rgba(244, 227, 211, .6); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
   /* Responsive */
   @media (max-width: 1000px) {
     .nav ul { display: none; }
-    .hero-grid, .about-grid, .variants, .how, .growth-grid, .reviews, .channel-box, .includes { grid-template-columns: 1fr; }
+    .hero-grid, .about-grid, .variants, .how, .reboot-grid, .promo-box, .channel-box, .includes { grid-template-columns: 1fr; }
+    .catalog { grid-template-columns: 1fr 1fr; }
+    .product, .product.wide { grid-column: span 1; }
+    .product:last-child { grid-column: span 2; }
     .head { grid-template-columns: 1fr; }
     .fork-art { width: 190px; }
     .pack, .formats { grid-template-columns: 1fr; }
@@ -248,8 +316,12 @@
     .card h3 { font-size: 30px; }
     .card .corner { width: 90px; }
     .pack-item, .review { padding: 30px 24px; }
+    .catalog, .facts { grid-template-columns: 1fr; }
+    .product:last-child { grid-column: span 1; }
+    .reboot-result p { font-size: 22px; }
+    footer { border-radius: 28px 28px 0 0; }
     #path { border-radius: 36px 36px 0 0; }
-    #growth, #support { border-radius: 36px; margin-inline: 8px; }
+    #reboot, #support { border-radius: 36px; margin-inline: 8px; }
     #support { margin-top: 76px; }
     .channel-box { border-radius: 36px; padding: 44px 24px; }
     .step { grid-template-columns: 1fr; padding: 24px; }
@@ -259,7 +331,8 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-art .float, .badge-rot .spin, .ticker-track { animation: none; }
-    .card:hover, .pack-item:hover, .btn:hover { transform: none; }
+    .card:hover, .pack-item:hover, .btn:hover, .product:hover { transform: none; }
+    .track { scroll-behavior: auto; }
   }
 </style>
 </head>
@@ -269,9 +342,8 @@
     <a href="#top" class="logo">Александра <em>Амброжий</em></a>
     <ul>
       <li><a href="#about">Обо мне</a></li>
-      <li><a href="#path">Выбор пути</a></li>
-      <li><a href="#office">Офис пак</a></li>
-      <li><a href="#growth">План роста</a></li>
+      <li><a href="#formats">Форматы</a></li>
+      <li><a href="#reboot">Перезагрузка</a></li>
       <li><a href="#reviews">Отзывы</a></li>
       <li><a href="#channel">Канал</a></li>
     </ul>
@@ -286,10 +358,10 @@
       <div>
         <span class="eyebrow">Карьерные консультации &amp; стратегии роста</span>
         <h1>Найдите своё дело и&nbsp;<em>уверенно</em> войдите в&nbsp;новую роль</h1>
-        <p class="lead">Помогаю разобраться в карьерном запросе, выбрать направление, подготовиться к отбору и выстроить план роста дохода.</p>
+        <p class="lead">Помогаю разобраться в карьерном запросе, пройти отбор, <b style="font-weight:500;color:var(--red)">получить повышение</b> и выстроить план роста дохода.</p>
         <div class="actions">
           <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Написать в Telegram</a>
-          <a href="#path" class="btn btn-ghost">Форматы работы</a>
+          <a href="#formats" class="btn btn-ghost">Форматы работы</a>
         </div>
         <div class="hero-sign">
           <span class="dot" aria-hidden="true">
@@ -329,8 +401,23 @@
     </div>
     <div class="ticker" aria-label="Темы консультаций">
       <div class="ticker-track">
-        <span>Поиск работы</span><span>Повышение дохода</span><span>Карьерный переход</span><span>Стратегия переговоров</span><span>Профессиональное позиционирование</span><span>Выгорание и карьерные сомнения</span>
-        <span aria-hidden="true">Поиск работы</span><span aria-hidden="true">Повышение дохода</span><span aria-hidden="true">Карьерный переход</span><span aria-hidden="true">Стратегия переговоров</span><span aria-hidden="true">Профессиональное позиционирование</span><span aria-hidden="true">Выгорание и карьерные сомнения</span>
+        <span>Повышение в должности</span><span>Поиск работы</span><span>Повышение дохода</span><span>Карьерный переход</span><span>Стратегия переговоров</span><span>Профессиональное позиционирование</span><span>Выгорание и карьерные сомнения</span>
+        <span aria-hidden="true">Повышение в должности</span><span aria-hidden="true">Поиск работы</span><span aria-hidden="true">Повышение дохода</span><span aria-hidden="true">Карьерный переход</span><span aria-hidden="true">Стратегия переговоров</span><span aria-hidden="true">Профессиональное позиционирование</span><span aria-hidden="true">Выгорание и карьерные сомнения</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotions -->
+  <section class="promo">
+    <div class="wrap promo-box">
+      <div>
+        <span class="eyebrow">Результаты клиентов</span>
+        <h2>Помогаю получать <em>повышения</em> и&nbsp;сильные офферы</h2>
+      </div>
+      <div class="facts">
+        <div class="fact"><strong>2 оффера</strong><span>на позицию руководителя за два месяца работы со стратегией</span></div>
+        <div class="fact"><strong>Повышение</strong><span>после плана роста: клиент уже подписывает документы</span></div>
+        <div class="fact"><strong>3 месяца</strong><span>чтобы выйти из найма в собственную практику</span></div>
       </div>
     </div>
   </section>
@@ -365,6 +452,96 @@
         <span class="eyebrow">Обо мне</span>
         <p class="about-quote" style="margin-top:22px">Моя работа соединяет <b>практику HR</b>, анализ рынков труда и научную психологию.</p>
         <p class="about-quote">Мы выстраиваем систему профессионального развития, в которой опыт, интеллект и личные цели превращаются в <b>устойчивый доход и качество жизни</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section id="formats">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Форматы работы</span>
+          <h2>Выберите <em>свой формат</em></h2>
+          <p>Каждый формат решает свою задачу. Не уверены, что подойдёт? Напишите, и вместе подберём.</p>
+        </div>
+      </div>
+
+      <div class="catalog">
+        <article class="product">
+          <div class="p-media" style="background:var(--blush)">
+            <div class="p-tags"><span class="p-tag">Выбор пути</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><circle cx="70" cy="70" r="56" fill="#EE9E9C"/><circle cx="104" cy="56" r="30" fill="#EDB843"/><circle cx="66" cy="74" r="28" fill="#FFFAF4" stroke="#C9412E" stroke-width="7"/><path d="M86 94 L114 122" stroke="#C9412E" stroke-width="10" stroke-linecap="round"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Профориентация · вариант 1</span>
+            <h3>Глубокая диагностика</h3>
+            <p class="p-desc">Разовая работа: углубляем запрос и даём методологию, чтобы дальше строить карьерный план самостоятельно.</p>
+            <ul class="p-list"><li>Распаковка запроса и тесты</li><li>Ключевая задача и точка роста</li><li>Файл с выводами и пошаговый план</li></ul>
+            <div class="p-meta"><span>1 сессия</span><span>материалы на руки</span></div>
+            <div class="p-actions"><a href="#path" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="p-media" style="background:var(--brown)">
+            <div class="p-tags"><span class="p-tag">Выбор пути</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><path d="M10 130 C 50 120, 60 80, 100 76 S 140 40, 150 20" fill="none" stroke="#F4E3D3" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/><circle cx="62" cy="58" r="16" fill="#EDB843"/><circle cx="100" cy="58" r="16" fill="#EE9E9C"/><path d="M38 112 C 40 84, 84 84, 86 112 Z" fill="#C9412E"/><path d="M76 112 C 78 84, 122 84, 124 112 Z" fill="#DE7B3A"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Профориентация · вариант 2</span>
+            <h3>Сопровождение</h3>
+            <p class="p-desc">Проходим все этапы диагностики вместе, последовательно и в вашем темпе.</p>
+            <ul class="p-list"><li>Разбор решений на каждой сессии</li><li>Корректировка действий</li><li>Можно остановиться на любом этапе</li></ul>
+            <div class="p-meta"><span>3–5 консультаций</span><span>в вашем темпе</span></div>
+            <div class="p-actions"><a href="#path" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="p-media" style="background:#FBE7BE">
+            <div class="p-tags"><span class="p-tag hot">Хит</span><span class="p-tag up">Для оффера</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><rect x="28" y="14" width="66" height="88" rx="8" fill="#FFFAF4" stroke="#C9412E" stroke-width="4"/><circle cx="48" cy="36" r="9" fill="#EE9E9C"/><path d="M42 58 H80 M42 70 H80 M42 82 H66" stroke="#6B3F26" stroke-width="4" stroke-linecap="round"/><rect x="74" y="70" width="64" height="46" rx="6" fill="#C9412E"/><path d="M74 76 L106 98 L138 76" stroke="#FFFAF4" stroke-width="4" fill="none" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Подготовка к отбору</span>
+            <h3>Офис пак</h3>
+            <p class="p-desc">Полный аудит профиля: резюме, сопроводительное письмо и собеседование с HR за одну рабочую встречу.</p>
+            <ul class="p-list"><li>Резюме под рынок и ATS</li><li>Сопроводительное письмо</li><li>Самопрезентация и ответы для HR</li></ul>
+            <div class="p-meta"><span>аудит + встреча 1–1,5 ч</span><span>готовое резюме</span></div>
+            <div class="p-actions"><a href="#office" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+
+        <article class="product wide">
+          <div class="p-media" style="background:var(--red)">
+            <div class="p-tags"><span class="p-tag">Всё включено</span><span class="p-tag up">Для повышения</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><circle cx="122" cy="34" r="22" fill="#EDB843"/><rect x="20" y="96" width="24" height="30" rx="4" fill="#F8DCD6"/><rect x="52" y="76" width="24" height="50" rx="4" fill="#EE9E9C"/><rect x="84" y="56" width="24" height="70" rx="4" fill="#DE7B3A"/><rect x="116" y="70" width="24" height="56" rx="4" fill="#FFFAF4" opacity="0"/><path d="M14 126 H146" stroke="#FFFAF4" stroke-width="3"/><path d="M28 84 L60 64 L92 44 L120 24" stroke="#FFFAF4" stroke-width="3" fill="none" stroke-dasharray="2 7" stroke-linecap="round"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Глубокая карьерная стратегия</span>
+            <h3>Перезагрузка карьеры</h3>
+            <p class="p-desc">Полная трансформация: от осознания себя до устойчивого роста дохода. Направление, сильный оффер и план роста на 12 месяцев в одной стратегии.</p>
+            <ul class="p-list"><li>Какая работа действительно подходит</li><li>Резюме, отклики, собеседования, переговоры о зарплате</li><li>Персональный план роста до 12 месяцев с контрольными этапами</li></ul>
+            <div class="p-meta"><span>до 12 месяцев</span><span>сопровождение до оффера</span><span>повышение дохода</span></div>
+            <div class="p-actions"><a href="#reboot" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+
+        <article class="product wide">
+          <div class="p-media" style="background:var(--espresso)">
+            <div class="p-tags"><span class="p-tag">Если запрос не ясен</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><rect x="26" y="24" width="108" height="96" rx="12" fill="#FFFAF4"/><rect x="26" y="24" width="108" height="26" rx="12" fill="#C9412E"/><rect x="26" y="38" width="108" height="12" fill="#C9412E"/><g fill="#EE9E9C"><circle cx="48" cy="68" r="7"/><circle cx="80" cy="68" r="7"/><circle cx="112" cy="68" r="7"/><circle cx="48" cy="96" r="7"/></g><circle cx="80" cy="96" r="9" fill="#EDB843"/><circle cx="112" cy="96" r="7" fill="#EE9E9C"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Индивидуальные сессии</span>
+            <h3>Разовый или еженедельный формат</h3>
+            <p class="p-desc">Если вы ещё не определились с запросом, но хотите перемен, повышения или свой проект.</p>
+            <ul class="p-list"><li>Анализ запроса, резюме и сопроводительного</li><li>Mock-интервью: репетиция собеседования</li><li>Обратная связь голосом или на онлайн-встрече</li></ul>
+            <div class="p-meta"><span>1 встреча</span><span>2–5 встреч</span><span>еженедельно</span></div>
+            <div class="p-actions"><a href="#support" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -495,64 +672,65 @@
     </div>
   </section>
 
-  <!-- Growth -->
-  <section id="growth">
+  <!-- Reboot -->
+  <section id="reboot">
     <div class="wrap">
       <div class="head">
         <div>
-          <span class="eyebrow">Глубокая карьерная стратегия</span>
-          <h2>План роста на&nbsp;<em>12 месяцев</em></h2>
-          <p>Мы не просто ставим цели, а выстраиваем маршрут. Каждый этап опирается на ваш реальный контекст: рынок, компетенции, жизненные приоритеты.</p>
+          <span class="eyebrow">Всё включено</span>
+          <h2>Перезагрузка <em>карьеры</em></h2>
+          <p>Полная трансформация: от осознания себя до устойчивого роста дохода. Три направления в одной непрерывной стратегии для тех, кто готов к глубокой и комплексной работе.</p>
         </div>
       </div>
 
-      <div class="growth-grid">
+      <div class="reboot-grid">
         <article class="card">
-          <span class="pill">Расширение</span>
-          <h3>План роста</h3>
-          <p class="sub">Карьерная стратегия до 12 месяцев. Контрольные точки позволяют корректировать её по ходу.</p>
+          <span class="pill">Направление</span>
+          <h3>Куда двигаться</h3>
+          <p class="sub">Для тех, кто хочет понять, куда двигаться.</p>
+          <ul class="list">
+            <li>Какая работа действительно подходит</li>
+            <li>Куда двигаться дальше</li>
+            <li>На чём строить долгосрочный рост</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="pill">Сильный оффер</span>
+          <h3>Выход на рынок</h3>
+          <p class="sub">Структурированный поиск работы и конкурентный оффер.</p>
+          <ul class="list">
+            <li>Резюме и позиционирование</li>
+            <li>Подготовка к собеседованиям</li>
+            <li>Стратегия откликов</li>
+            <li>Переговоры о зарплате</li>
+            <li>Сопровождение до оффера</li>
+          </ul>
+        </article>
+        <article class="card red">
+          <span class="pill">План роста</span>
+          <h3>Стратегия на 12 месяцев</h3>
+          <p class="sub">Каждый этап опирается на ваш контекст: рынок, компетенции, приоритеты.</p>
           <svg class="growth-chart" viewBox="0 0 320 130" role="img" aria-label="Контрольные этапы плана: 3, 6, 9 и 12 месяцев">
-            <line x1="0" y1="104" x2="320" y2="104" stroke="#6B3F26" stroke-width="1.5"/>
+            <line x1="0" y1="104" x2="320" y2="104" stroke="#F8DCD6" stroke-width="1.5"/>
             <rect x="20" y="78" width="46" height="26" rx="6" fill="#F8DCD6"/>
             <rect x="96" y="58" width="46" height="46" rx="6" fill="#EE9E9C"/>
             <rect x="172" y="36" width="46" height="68" rx="6" fill="#DE7B3A"/>
-            <rect x="248" y="12" width="46" height="92" rx="6" fill="#C9412E"/>
-            <path d="M271 12 C 271 2, 262 -2, 256 2 C 258 8, 264 12, 271 12 Z" fill="#EDB843"/>
-            <g font-family="Manrope, sans-serif" font-size="12" fill="#8A6A55" text-anchor="middle">
+            <rect x="248" y="12" width="46" height="92" rx="6" fill="#EDB843"/>
+            <g font-family="Manrope, sans-serif" font-size="12" fill="#F8DCD6" text-anchor="middle">
               <text x="43" y="124">3 мес</text><text x="119" y="124">6 мес</text><text x="195" y="124">9 мес</text><text x="271" y="124">12 мес</text>
             </g>
           </svg>
           <ul class="list">
-            <li>Увеличение дохода</li>
+            <li>Повышение и рост дохода</li>
             <li>Переход в новую сферу</li>
-            <li>Выход на самостоятельную практику</li>
-            <li>Развитие собственного проекта</li>
+            <li>Своя практика или проект</li>
           </ul>
-          <p class="result">Персональный план: позиционирование, точки роста дохода, навыки, стратегия и контрольные этапы.</p>
         </article>
+      </div>
 
-        <article class="card red">
-          <svg class="corner" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#EDB843"/><path d="M60 22 L68 50 L96 58 L68 66 L60 94 L52 66 L24 58 L52 50 Z" fill="#C9412E"/></svg>
-          <span class="pill">Всё включено</span>
-          <h3>Перегрузка карьеры</h3>
-          <p class="sub">Полная трансформация: от осознания себя до устойчивого роста дохода. Объединяет три направления в одну непрерывную стратегию.</p>
-          <p class="group-label">Направление</p>
-          <ul class="list">
-            <li>Какая работа действительно подходит</li>
-            <li>Куда двигаться дальше и на чём строить долгосрочный рост</li>
-          </ul>
-          <p class="group-label">Сильный оффер</p>
-          <ul class="list">
-            <li>Резюме, позиционирование и стратегия откликов</li>
-            <li>Подготовка к собеседованиям и переговоры о зарплате</li>
-            <li>Сопровождение до оффера</li>
-          </ul>
-          <p class="group-label">План роста</p>
-          <ul class="list">
-            <li>Доход, новая сфера, своя практика или проект</li>
-          </ul>
-          <p class="result">Ясное направление, конкурентный оффер и персональный план до 12 месяцев.</p>
-        </article>
+      <div class="reboot-result">
+        <p>Результат: <b>ясное направление</b>, <b>конкурентный оффер</b> и <b>персональный план роста</b> до 12 месяцев. Полная система профессионального роста под ключ.</p>
+        <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-yellow">Обсудить перезагрузку</a>
       </div>
     </div>
   </section>
@@ -564,13 +742,13 @@
         <div>
           <span class="eyebrow">Индивидуальные сессии</span>
           <h2>Разовый или <em style="color:var(--pink)">еженедельный</em> формат</h2>
-          <p>Подходит, если есть конкретный запрос и хочется работать точно. Вы получаете экспертную поддержку и внедряете рекомендации в удобном темпе.</p>
+          <p>Если вы ещё не определились с запросом, но хотите перемен, повышения или свой проект. Вы получаете экспертную поддержку и внедряете рекомендации в удобном темпе.</p>
         </div>
       </div>
 
       <div class="chips">
-        <span class="chip">Поиск работы</span><span class="chip">Повышение дохода</span><span class="chip">Карьерный переход</span>
-        <span class="chip">Стратегия переговоров</span><span class="chip">Профессиональное позиционирование</span><span class="chip">Выгорание и карьерные сомнения</span>
+        <span class="chip">Повышение в должности</span><span class="chip">Поиск работы</span><span class="chip">Повышение дохода</span><span class="chip">Карьерный переход</span>
+        <span class="chip">Стратегия переговоров</span><span class="chip">Профессиональное позиционирование</span><span class="chip">Выгорание и карьерные сомнения</span><span class="chip">Свой проект</span>
       </div>
 
       <div class="formats">
@@ -596,29 +774,54 @@
           <span class="eyebrow">Отзывы клиентов</span>
           <h2>Что меняется <em>после работы</em></h2>
         </div>
+        <div class="car-nav">
+          <button class="car-btn" type="button" data-car="-1" aria-label="Предыдущий отзыв">←</button>
+          <button class="car-btn" type="button" data-car="1" aria-label="Следующий отзыв">→</button>
+        </div>
       </div>
-      <div class="reviews">
-        <figure class="review">
-          <span class="q" aria-hidden="true">“</span>
-          <blockquote>Несколько лет чувствовала, что психология — моё, но не могла это обосновать ни себе, ни окружающим. После работы с Александрой появилась настоящая ясность: понимаю, куда иду и почему именно туда.</blockquote>
-          <figcaption class="who"><b>Маркетолог</b><span>Карьерное направление → уверенность в выборе</span></figcaption>
-        </figure>
-        <figure class="review">
+      <div class="track" id="rev-track" tabindex="0" aria-label="Отзывы, листайте в сторону">
+        <figure class="review c2">
           <span class="q" aria-hidden="true">“</span>
           <blockquote>За два месяца работы со стратегией получил два оффера на позицию руководителя. Раньше казалось, что переход в управление — это про связи и удачу. Оказалось, дело в системе.</blockquote>
           <figcaption class="who"><b>Менеджер проектов</b><span>Офис пак → 2 оффера на руководителя</span></figcaption>
         </figure>
-        <figure class="review">
+        <figure class="review chat">
+          <span class="chat-src">Из переписки в Telegram</span>
+          <div class="bubbles"><p class="bubble">Сказали, что у меня отлично сделанное резюме ❤️❤️</p><p class="bubble">Всё твоя заслуга!</p></div>
+          <figcaption class="who"><b>Клиент</b><span>Офис пак → резюме, которое хвалят</span></figcaption>
+        </figure>
+        <figure class="review c3">
           <span class="q" aria-hidden="true">“</span>
           <blockquote>Последовал всему построенному плану, проявил инициативу, сделал чат-бота. И собственно сейчас подписываю документы на повышение!</blockquote>
           <figcaption class="who"><b>IT-специалист</b><span>План роста → повышение</span></figcaption>
         </figure>
-        <figure class="review">
+        <figure class="review chat">
+          <span class="chat-src">Из переписки в Telegram</span>
+          <div class="bubbles"><p class="bubble">Спасибо большое!</p><p class="bubble">За помощь на собеседованиях и оформление собственных запросов</p><p class="bubble">Ох уж этот шантаж по офферам)</p></div>
+          <figcaption class="who"><b>Клиент</b><span>Собеседования → оффер на руководящую позицию</span></figcaption>
+        </figure>
+        <figure class="review c1">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Несколько лет чувствовала, что психология — моё, но не могла это обосновать ни себе, ни окружающим. После работы с Александрой появилась настоящая ясность: понимаю, куда иду и почему именно туда.</blockquote>
+          <figcaption class="who"><b>Маркетолог</b><span>Карьерное направление → уверенность в выборе</span></figcaption>
+        </figure>
+        <figure class="review chat">
+          <span class="chat-src">Из переписки в Telegram</span>
+          <div class="bubbles"><p class="bubble">Большое спасибо Александре за увлекательную карьерную консультацию, всё прошло замечательно. Открыл для себя новые пути развития, получил классные советы, полезные рекомендации, так же наметили вектор развития и способы достигнуть желаемого.</p><p class="bubble">После консультации появилась уверенность в себе, своих силах и желание достигать новых карьерных высот!</p></div>
+          <figcaption class="who"><b>Клиент</b><span>Карьерная консультация → вектор развития</span></figcaption>
+        </figure>
+        <figure class="review c4">
           <span class="q" aria-hidden="true">“</span>
           <blockquote>Я HR с десятью годами опыта — казалось, всё знаю про карьеру. Но именно со стороны всё увиделось иначе. За три месяца выстроила собственную практику, ушла из найма и уже закрыла первых клиентов.</blockquote>
-          <figcaption class="who"><b>HR-специалист</b><span>Перегрузка карьеры → своя практика за 3 месяца</span></figcaption>
+          <figcaption class="who"><b>HR-специалист</b><span>Перезагрузка карьеры → своя практика за 3 месяца</span></figcaption>
+        </figure>
+        <figure class="review chat">
+          <span class="chat-src">Из переписки в Telegram</span>
+          <div class="bubbles"><p class="bubble">Спасибо огромное за помощь. Консультация на 100% стоит своих денег. Персонифицированный подход, компетенция, ну и инсайды рынка — всё это о Вас</p></div>
+          <figcaption class="who"><b>Клиент</b><span>Консультация → инсайды рынка</span></figcaption>
         </figure>
       </div>
+      <p class="car-hint">Листайте отзывы стрелками или свайпом.</p>
     </div>
   </section>
 
@@ -654,7 +857,7 @@
       </svg>
       <span class="eyebrow">Первый шаг</span>
       <h2>Расскажите о&nbsp;своём запросе, и мы подберём <em>подходящий формат</em></h2>
-      <p>Напишите мне в Telegram, и решим, с чего лучше начать: с выбора пути, офис пака или плана роста.</p>
+      <p>Напишите мне в Telegram, и решим, с чего лучше начать: с выбора пути, офис пака или перезагрузки карьеры.</p>
       <div class="actions">
         <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Написать в Telegram</a>
       </div>
@@ -665,9 +868,37 @@
 
 <footer>
   <div class="wrap">
-    <span><b>Александра Амброжий</b> · про людей и бизнес</span>
-    <span>Профориентация · Резюме · Собеседования · План роста</span>
+    <div class="foot-top">
+      <div class="foot-name">Александра Амброжий<small>про людей и бизнес</small></div>
+      <nav class="socials" aria-label="Мои каналы">
+        <a class="social tg" href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener"><i>TG</i><div><b>Telegram</b><span>@alexandraambrozhy</span></div></a>
+        <a class="social yt" href="https://www.youtube.com/@alessmera" target="_blank" rel="noopener"><i>YT</i><div><b>YouTube</b><span>Александра Амброжий · alessmera</span></div></a>
+        <a class="social vk" href="https://vk.com/alessmera" target="_blank" rel="noopener"><i>VK</i><div><b>ВКонтакте</b><span>Александра Амброжий</span></div></a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Александра Амброжий</span>
+      <span>Профориентация · Резюме · Собеседования · Повышение · План роста</span>
+    </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var track = document.getElementById('rev-track');
+    if (!track) return;
+    document.querySelectorAll('[data-car]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = track.querySelector('.review');
+        var step = card ? card.offsetWidth + 20 : 300;
+        var dir = Number(btn.getAttribute('data-car'));
+        var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+        if (dir > 0 && atEnd) track.scrollTo({ left: 0, behavior: 'smooth' });
+        else if (dir < 0 && track.scrollLeft <= 4) track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+        else track.scrollBy({ left: step * dir, behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
