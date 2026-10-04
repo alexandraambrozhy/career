@@ -238,6 +238,9 @@
   .reboot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .reboot-grid .card { padding: 36px 32px; }
   .reboot-grid .card h3 { font-size: 30px; }
+  .card.cream { background: #FBE7BE; border-color: transparent; }
+  .card.cream .pill { background: var(--orange); color: var(--paper); }
+  .card.cream .list li::before { background: var(--orange); }
   .card.red { background: var(--red); color: var(--blush); border-color: transparent; }
   .card.red h3 { color: var(--paper); }
   .card.red .sub { color: var(--blush); opacity: .9; }
@@ -798,7 +801,7 @@
             <li>На чём строить долгосрочный рост</li>
           </ul>
         </article>
-        <article class="card">
+        <article class="card cream">
           <span class="pill">Сильный оффер</span>
           <h3>Выход на рынок</h3>
           <p class="sub">Структурированный поиск работы и конкурентный оффер.</p>
