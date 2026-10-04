@@ -487,13 +487,19 @@
   .srow li::before { content: "✱"; position: absolute; left: 0; top: 0; color: #fff; }
 
   .hero-figure { position: relative; grid-column: 2; grid-row: 2 / span 2; align-self: end; width: 320px; z-index: 1; }
+  .hero-glass-card { grid-column: 2; grid-row: 1; align-self: end; justify-self: end; position: relative; z-index: 2; display: grid; gap: 14px; width: 320px; padding: 20px 24px; border-radius: 22px; background: rgba(255, 255, 255, .42); border: 1px solid rgba(255, 255, 255, .75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: var(--ink); }
+  .hero-glass-card div { display: flex; align-items: baseline; gap: 14px; }
+  .hero-glass-card div + div { padding-top: 14px; border-top: 1px solid rgba(34, 30, 29, .14); }
+  .hero-glass-card b { font: 500 34px/1 var(--display); letter-spacing: -.04em; color: var(--flame); min-width: 64px; }
+  .hero-glass-card span { font-size: 14px; line-height: 1.35; opacity: .8; }
   .cta-people { width: 300px; margin: 0 auto 18px; }
 
   /* Responsive */
   @media (max-width: 1000px) {
     .nav ul { display: none; }
     .hero-panel { grid-template-columns: 1fr; min-height: 0; padding: 240px 32px 32px; }
-    .hero-figure { position: absolute; width: 170px; right: 28px; top: 40px; bottom: auto; }
+    .hero-figure { position: absolute; grid-column: auto; grid-row: auto; width: 170px; right: 28px; top: 40px; bottom: auto; }
+    .hero-glass-card { grid-column: 1; grid-row: 5; justify-self: start; width: 100%; max-width: 420px; }
     .hero-panel .badge-rot { right: auto; left: 28px; }
     .hero-content, .hero-cta { grid-column: 1; }
     .hero-cta { grid-row: 3; justify-content: flex-start; max-width: none; }
@@ -642,6 +648,10 @@
           <circle cx="210" cy="398" r="9" fill="#EDB843" stroke="#3A2218" stroke-width="1.2"/>
           <path d="M196 426 C 196 404, 224 404, 224 426 Z" fill="#C9412E" stroke="#3A2218" stroke-width="1.2"/>
         </svg>
+        <div class="hero-glass-card">
+          <div><b>35+</b><span>офферов клиентам</span></div>
+          <div><b>10+</b><span>повышений после одной консультации</span></div>
+        </div>
         <div class="hero-content">
           <span class="eyebrow">Карьерные консультации &amp; стратегии роста</span>
           <h1>Авторские карьеры.<br><em>Сильные команды.</em></h1>
