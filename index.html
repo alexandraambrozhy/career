@@ -102,7 +102,7 @@
   .head > div { min-width: 0; }
   .head h2 { font-size: clamp(38px, 5vw, 64px); margin-top: 16px; }
   .head p { color: var(--muted); font-size: 18px; font-weight: 300; max-width: 520px; margin-top: 18px; }
-  .head-art { width: 220px; }
+  .fork-art { width: 240px; margin: -16px auto 28px; }
 
   /* About */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
@@ -233,7 +233,7 @@
     .nav ul { display: none; }
     .hero-grid, .about-grid, .variants, .how, .growth-grid, .reviews, .channel-box, .includes { grid-template-columns: 1fr; }
     .head { grid-template-columns: 1fr; }
-    .head-art { width: 170px; }
+    .fork-art { width: 190px; }
     .pack, .formats { grid-template-columns: 1fr; }
     .hero-art { justify-self: center; max-width: 380px; }
     .about-grid .venn { max-width: 340px; }
@@ -378,7 +378,9 @@
           <h2>Профориентация в&nbsp;<em>двух форматах</em></h2>
           <p>Выберите формат под ваш запрос: разовую глубокую работу с методологией или пошаговое сопровождение.</p>
         </div>
-        <svg class="head-art" viewBox="0 0 220 170" aria-hidden="true">
+      </div>
+
+      <svg class="fork-art" viewBox="0 0 220 170" aria-hidden="true">
           <path d="M110 160 V110 C110 70, 40 70, 40 30" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
           <path d="M110 110 C110 70, 180 70, 180 30" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
           <circle cx="40" cy="26" r="22" fill="#EDB843"/>
@@ -387,7 +389,6 @@
           <text x="180" y="34" font-family="Cormorant Garamond, serif" font-style="italic" font-size="22" fill="#FFFAF4" text-anchor="middle">2</text>
           <circle cx="110" cy="160" r="8" fill="#3A2218"/>
         </svg>
-      </div>
 
       <div class="variants">
         <article class="card">
