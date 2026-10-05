@@ -129,7 +129,11 @@
   .about-top h2 { font-size: clamp(40px, 5vw, 64px); margin: 16px 0 8px; }
   .role { font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 28px; }
   .creds { display: none; }
-  .about-top { margin-bottom: 96px; }
+  .about-top { margin-bottom: 64px; }
+  .about-divider { position: relative; height: 60px; margin-bottom: 72px; }
+  .about-divider svg { width: 100%; height: 100%; display: block; }
+  .ad-dot { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; border: 1.5px solid var(--ink); }
+  .ad-star { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--flame); color: #fff; display: grid; place-items: center; font-size: 22px; animation: spin 24s linear infinite; }
   .cred { background: var(--paper); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; min-width: 0; }
   .cred b { display: block; font: italic 500 24px/1.15 var(--serif); margin-bottom: 8px; }
   .cred span { font-size: 14px; color: var(--brown); }
@@ -585,7 +589,7 @@
     .ticker span { font-size: 21px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .hero-art .float, .badge-rot .spin, .ticker-track, .silk .wave1, .silk .wave2, .asterisk, .float { animation: none; }
+    .hero-art .float, .badge-rot .spin, .ticker-track, .silk .wave1, .silk .wave2, .asterisk, .float, .ad-star { animation: none; }
     .card:hover, .pack-item:hover, .btn:hover, .product:hover { transform: none; }
     .track { scroll-behavior: auto; }
   }
@@ -720,6 +724,18 @@
         </div>
       </div>
 
+
+<div class="about-divider" aria-hidden="true">
+        <svg viewBox="0 0 1132 60" preserveAspectRatio="none">
+          <path d="M0 30 C 70 6, 140 54, 210 30 S 350 6, 420 30 S 490 54, 530 30" fill="none" stroke="#221E1D" stroke-width="1.6" stroke-dasharray="2 8" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+          <path d="M602 30 C 642 6, 712 54, 782 30 S 922 6, 992 30 S 1062 54, 1132 30" fill="none" stroke="#221E1D" stroke-width="1.6" stroke-dasharray="2 8" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <span class="ad-dot" style="left:18.5%;background:var(--yellow)"></span>
+        <span class="ad-dot" style="left:37%;background:var(--pink)"></span>
+        <span class="ad-star">✱</span>
+        <span class="ad-dot" style="left:63%;background:var(--orange)"></span>
+        <span class="ad-dot" style="left:81.5%;background:var(--red)"></span>
+      </div>
 
       <div class="about-grid">
         <div>
