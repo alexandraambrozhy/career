@@ -134,9 +134,7 @@
   .cred b { display: block; font: italic 500 24px/1.15 var(--serif); margin-bottom: 8px; }
   .cred span { font-size: 14px; color: var(--brown); }
   .about-grid { grid-template-columns: .8fr 1.2fr; }
-  .inside { position: relative; padding-right: 250px; }
-  .inside-figure { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 230px; }
-  .inside-figure.float { animation: none; }
+  .head-figure { width: 250px; align-self: center; }
   .inside h3 { font-size: clamp(32px, 3.6vw, 46px); margin: 16px 0 18px; }
   .inside p { color: var(--brown); font-size: 17px; margin-bottom: 20px; max-width: 560px; }
   .ava { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--yellow); max-width: 100%; }
@@ -511,8 +509,7 @@
     .hero-panel { grid-template-columns: 1fr; min-height: 0; padding: 240px 32px 32px; }
     .hero-figure { position: absolute; width: 150px; right: 28px; top: 30px; bottom: auto; }
     .hero-path, .path-dot { display: none; }
-    .inside { padding-right: 0; }
-    .inside-figure { position: static; transform: none; width: 220px; margin: 0 auto 24px; display: block; }
+    .head-figure { width: 200px; justify-self: center; }
     .hero-glass-card { grid-column: 1; grid-row: 5; justify-self: start; width: 100%; max-width: 420px; }
     .hero-panel .badge-rot { right: auto; left: 28px; }
     .hero-content, .hero-cta { grid-column: 1; }
@@ -548,7 +545,7 @@
     .hero { padding-block: 8px 28px; }
     .hero-panel { padding: 230px 20px 24px; border-radius: 28px; }
     .hero-panel .badge-rot { left: 16px; top: 16px; width: 88px; height: 88px; }
-    .inside-figure { display: none; }
+    .head-figure { width: 170px; }
     .hero-figure { width: 120px; right: 16px; top: 20px; }
     .glass { display: none; }
     .btn-wide { min-width: 0; flex: 1; }
@@ -745,42 +742,6 @@
         </svg>
         </div>
         <div class="inside">
-          <svg class="inside-figure float" viewBox="0 0 320 520" aria-hidden="true">
-        <path d="M22 250 A138 138 0 0 1 298 250" fill="none" stroke="#EE9E9C" stroke-width="14" stroke-linecap="round"/>
-        <path d="M48 250 A112 112 0 0 1 272 250" fill="none" stroke="#DE7B3A" stroke-width="14" stroke-linecap="round"/>
-        <path d="M74 250 A86 86 0 0 1 246 250" fill="none" stroke="#C9412E" stroke-width="14" stroke-linecap="round"/>
-        <path d="M30 256 A132 132 0 0 1 292 244" fill="none" stroke="#3A2218" stroke-width="1.2"/>
-        <circle cx="160" cy="34" r="9" fill="#EDB843" stroke="#3A2218" stroke-width="1.2"/>
-        <circle cx="300" cy="120" r="6" fill="#C9412E"/>
-        <circle cx="18" cy="150" r="5" fill="#DE7B3A"/>
-        <path d="M44 40 L49 56 L65 61 L49 66 L44 82 L39 66 L23 61 L39 56 Z" fill="#C9412E"/>
-        <path d="M268 20 L272 32 L284 36 L272 40 L268 52 L264 40 L252 36 L264 32 Z" fill="#EDB843"/>
-        <path d="M230 120 L233 128 L241 131 L233 134 L230 142 L227 134 L219 131 L227 128 Z" fill="#DE7B3A"/>
-        <g transform="translate(0,230)">
-        <circle cx="160" cy="92" r="70" fill="#EDB843"/>
-        <circle cx="150" cy="100" r="70" fill="none" stroke="#3A2218" stroke-width="1.5"/>
-        <circle cx="86" cy="128" r="16" fill="#EE9E9C" stroke="#3A2218" stroke-width="1.5"/>
-        <path d="M56 200 C 56 148, 116 148, 116 200 Z" fill="#C9412E" stroke="#3A2218" stroke-width="1.5"/>
-        <circle cx="160" cy="112" r="19" fill="#FFFAF4" stroke="#3A2218" stroke-width="1.5"/>
-        <path d="M124 200 C 124 140, 196 140, 196 200 Z" fill="#DE7B3A" stroke="#3A2218" stroke-width="1.5"/>
-        <circle cx="234" cy="128" r="16" fill="#EDB843" stroke="#3A2218" stroke-width="1.5"/>
-        <path d="M204 200 C 204 148, 264 148, 264 200 Z" fill="#6B3F26" stroke="#3A2218" stroke-width="1.5"/>
-        <path d="M40 40 L45 55 L60 60 L45 65 L40 80 L35 65 L20 60 L35 55 Z" fill="#C9412E"/>
-        <path d="M282 30 L286 41 L297 45 L286 49 L282 60 L278 49 L267 45 L278 41 Z" fill="#DE7B3A"/>
-      </g>
-        <rect x="34" y="430" width="252" height="20" rx="10" fill="#C9412E"/>
-        <rect x="40" y="436" width="252" height="20" rx="10" fill="none" stroke="#3A2218" stroke-width="1.2"/>
-        <rect x="70" y="456" width="180" height="16" rx="8" fill="#EDB843"/>
-        <rect x="104" y="472" width="112" height="14" rx="7" fill="#EE9E9C"/>
-        <path d="M44 430 C 22 410, 20 380, 36 360 C 52 380, 56 408, 44 430 Z" fill="#DE7B3A"/>
-        <path d="M44 428 C 40 400, 38 380, 36 364" stroke="#3A2218" stroke-width="1.2" fill="none"/>
-        <path d="M278 430 C 302 412, 306 384, 292 364 C 274 382, 268 408, 278 430 Z" fill="#EE9E9C"/>
-        <path d="M278 428 C 284 402, 288 382, 292 368" stroke="#C9412E" stroke-width="1.2" fill="none"/>
-        <path d="M60 504 C 110 494, 210 514, 262 500" fill="none" stroke="#3A2218" stroke-width="1.6" stroke-dasharray="2 7" stroke-linecap="round"/>
-        <path d="M24 486 L27 495 L36 498 L27 501 L24 510 L21 501 L12 498 L21 495 Z" fill="#C9412E"/>
-        <path d="M298 474 L301 482 L309 485 L301 488 L298 496 L295 488 L287 485 L295 482 Z" fill="#EDB843"/>
-        <circle cx="160" cy="512" r="5" fill="#DE7B3A"/>
-      </svg>
           <span class="eyebrow">Знаю найм изнутри</span>
           <h3>Смотрю на ваш профиль <em>глазами работодателя</em></h3>
           <p>Я сама составляю профили ролей вместе с руководителями, провожу интервью и оцениваю кандидатов. Поэтому знаю, что ищет работодатель и как показать вашу ценность так, чтобы её заметили.</p>
@@ -1242,6 +1203,42 @@
           <h2>HR-решения <em>для бизнеса</em></h2>
           <p>Создаю команды, развиваю людей и строю культуру. Подключаюсь к подбору, оценке, HR-процессам и развитию сотрудников.</p>
         </div>
+        <svg class="head-figure" viewBox="0 0 320 520" aria-hidden="true">
+        <path d="M22 250 A138 138 0 0 1 298 250" fill="none" stroke="#EE9E9C" stroke-width="14" stroke-linecap="round"/>
+        <path d="M48 250 A112 112 0 0 1 272 250" fill="none" stroke="#DE7B3A" stroke-width="14" stroke-linecap="round"/>
+        <path d="M74 250 A86 86 0 0 1 246 250" fill="none" stroke="#C9412E" stroke-width="14" stroke-linecap="round"/>
+        <path d="M30 256 A132 132 0 0 1 292 244" fill="none" stroke="#3A2218" stroke-width="1.2"/>
+        <circle cx="160" cy="34" r="9" fill="#EDB843" stroke="#3A2218" stroke-width="1.2"/>
+        <circle cx="300" cy="120" r="6" fill="#C9412E"/>
+        <circle cx="18" cy="150" r="5" fill="#DE7B3A"/>
+        <path d="M44 40 L49 56 L65 61 L49 66 L44 82 L39 66 L23 61 L39 56 Z" fill="#C9412E"/>
+        <path d="M268 20 L272 32 L284 36 L272 40 L268 52 L264 40 L252 36 L264 32 Z" fill="#EDB843"/>
+        <path d="M230 120 L233 128 L241 131 L233 134 L230 142 L227 134 L219 131 L227 128 Z" fill="#DE7B3A"/>
+        <g transform="translate(0,230)">
+        <circle cx="160" cy="92" r="70" fill="#EDB843"/>
+        <circle cx="150" cy="100" r="70" fill="none" stroke="#3A2218" stroke-width="1.5"/>
+        <circle cx="86" cy="128" r="16" fill="#EE9E9C" stroke="#3A2218" stroke-width="1.5"/>
+        <path d="M56 200 C 56 148, 116 148, 116 200 Z" fill="#C9412E" stroke="#3A2218" stroke-width="1.5"/>
+        <circle cx="160" cy="112" r="19" fill="#FFFAF4" stroke="#3A2218" stroke-width="1.5"/>
+        <path d="M124 200 C 124 140, 196 140, 196 200 Z" fill="#DE7B3A" stroke="#3A2218" stroke-width="1.5"/>
+        <circle cx="234" cy="128" r="16" fill="#EDB843" stroke="#3A2218" stroke-width="1.5"/>
+        <path d="M204 200 C 204 148, 264 148, 264 200 Z" fill="#6B3F26" stroke="#3A2218" stroke-width="1.5"/>
+        <path d="M40 40 L45 55 L60 60 L45 65 L40 80 L35 65 L20 60 L35 55 Z" fill="#C9412E"/>
+        <path d="M282 30 L286 41 L297 45 L286 49 L282 60 L278 49 L267 45 L278 41 Z" fill="#DE7B3A"/>
+      </g>
+        <rect x="34" y="430" width="252" height="20" rx="10" fill="#C9412E"/>
+        <rect x="40" y="436" width="252" height="20" rx="10" fill="none" stroke="#3A2218" stroke-width="1.2"/>
+        <rect x="70" y="456" width="180" height="16" rx="8" fill="#EDB843"/>
+        <rect x="104" y="472" width="112" height="14" rx="7" fill="#EE9E9C"/>
+        <path d="M44 430 C 22 410, 20 380, 36 360 C 52 380, 56 408, 44 430 Z" fill="#DE7B3A"/>
+        <path d="M44 428 C 40 400, 38 380, 36 364" stroke="#3A2218" stroke-width="1.2" fill="none"/>
+        <path d="M278 430 C 302 412, 306 384, 292 364 C 274 382, 268 408, 278 430 Z" fill="#EE9E9C"/>
+        <path d="M278 428 C 284 402, 288 382, 292 368" stroke="#C9412E" stroke-width="1.2" fill="none"/>
+        <path d="M60 504 C 110 494, 210 514, 262 500" fill="none" stroke="#3A2218" stroke-width="1.6" stroke-dasharray="2 7" stroke-linecap="round"/>
+        <path d="M24 486 L27 495 L36 498 L27 501 L24 510 L21 501 L12 498 L21 495 Z" fill="#C9412E"/>
+        <path d="M298 474 L301 482 L309 485 L301 488 L298 496 L295 488 L287 485 L295 482 Z" fill="#EDB843"/>
+        <circle cx="160" cy="512" r="5" fill="#DE7B3A"/>
+      </svg>
       </div>
       <div class="catalog">
         <article class="biz">
