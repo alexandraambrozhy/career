@@ -139,7 +139,8 @@
   .cred span { font-size: 14px; color: var(--brown); }
   .about-grid { grid-template-columns: .8fr 1.2fr; }
   #business .head { grid-template-columns: 1.3fr 1fr; }
-  .head-figure { width: 190px; justify-self: center; align-self: center; }
+  .head-art { position: relative; align-self: stretch; min-height: 220px; }
+  .head-figure { position: absolute; inset: 0; width: 100%; height: 100%; }
   .inside h3 { font-size: clamp(32px, 3.6vw, 46px); margin: 16px 0 18px; }
   .inside p { color: var(--brown); font-size: 17px; margin-bottom: 20px; max-width: 560px; }
   .ava { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--yellow); max-width: 100%; }
@@ -517,7 +518,7 @@
     .hero-figure { position: absolute; width: 150px; right: 28px; top: 30px; bottom: auto; }
     .hero-path, .path-dot { display: none; }
     #business .head { grid-template-columns: 1fr; }
-    .head-figure { width: 170px; justify-self: center; margin-top: 0; }
+    .head-art { height: 260px; }
     .hero-glass-card { grid-column: 1; grid-row: 5; justify-self: start; width: 100%; max-width: 420px; }
     .hero-panel .badge-rot { right: auto; left: 28px; }
     .hero-content, .hero-cta { grid-column: 1; }
@@ -553,7 +554,7 @@
     .hero { padding-block: 8px 28px; }
     .hero-panel { padding: 230px 20px 24px; border-radius: 28px; }
     .hero-panel .badge-rot { left: 16px; top: 16px; width: 88px; height: 88px; }
-    .head-figure { width: 150px; }
+    .head-art { height: 230px; }
     .hero-figure { width: 120px; right: 16px; top: 20px; }
     .glass { display: none; }
     .btn-wide { min-width: 0; flex: 1; }
@@ -1219,7 +1220,7 @@
           <h2>HR-решения <em>для бизнеса</em></h2>
           <p>Создаю команды, развиваю людей и строю культуру. Подключаюсь к подбору, оценке, HR-процессам и развитию сотрудников.</p>
         </div>
-        <svg class="head-figure" viewBox="0 0 320 520" aria-hidden="true">
+        <div class="head-art"><svg class="head-figure" viewBox="0 0 320 520" aria-hidden="true">
         <path d="M22 250 A138 138 0 0 1 298 250" fill="none" stroke="#EE9E9C" stroke-width="14" stroke-linecap="round"/>
         <path d="M48 250 A112 112 0 0 1 272 250" fill="none" stroke="#DE7B3A" stroke-width="14" stroke-linecap="round"/>
         <path d="M74 250 A86 86 0 0 1 246 250" fill="none" stroke="#C9412E" stroke-width="14" stroke-linecap="round"/>
@@ -1254,7 +1255,7 @@
         <path d="M24 486 L27 495 L36 498 L27 501 L24 510 L21 501 L12 498 L21 495 Z" fill="#C9412E"/>
         <path d="M298 474 L301 482 L309 485 L301 488 L298 496 L295 488 L287 485 L295 482 Z" fill="#EDB843"/>
         <circle cx="160" cy="512" r="5" fill="#DE7B3A"/>
-      </svg>
+      </svg></div>
       </div>
       <div class="catalog">
         <article class="biz">
