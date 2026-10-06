@@ -321,6 +321,7 @@
   .form .btn { width: 100%; margin-top: 34px; font-size: 22px; padding: 24px; }
   .form .fine { text-align: center; font-size: 15px; color: var(--muted); margin: 22px 0 0; }
   .form .ok { display: none; margin-top: 18px; padding: 16px 20px; border-radius: 14px; background: #E9F6EC; color: #1E5B2E; font-size: 17px; }
+  .form .ok a { font-weight: 600; text-decoration: underline; }
   .form .ok.show { display: block; animation: fadeUp .5s both; }
 
   footer { padding: 0 0 48px; color: var(--muted); font-size: 15px; }
@@ -976,9 +977,10 @@
       (form.msg.value.trim() ? 'Запрос: ' + form.msg.value.trim() : '');
     window.open('https://t.me/alexandraambrozhy', '_blank', 'noopener');
     var done = function (copied) {
-      ok.textContent = copied
-        ? 'Текст заявки скопирован. Вставьте его в открывшийся чат в Telegram и отправьте.'
-        : 'Откройте чат в Telegram и отправьте заявку: ' + text.replace(/\n/g, ' ');
+      ok.innerHTML = (copied
+        ? 'Текст заявки скопирован. Вставьте его в чат в Telegram и отправьте. '
+        : 'Скопируйте текст и отправьте его в Telegram: «' + esc(text.replace(/\n/g, ' ')) + '» ') +
+        '<a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener">Открыть чат →</a>';
       ok.classList.add('show');
     };
     try { navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); }); }
