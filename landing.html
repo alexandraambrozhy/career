@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Александра Амброжий</title>
+<meta name="description" content="Карьерные консультации: повышение, сильный оффер, выбор направления. Александра Амброжий, психолог ВШЭ и HR-практик.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Golos+Text:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F3F1;
+    --card: #FFFFFF;
+    --ink: #2A1721;
+    --text: #4A3A42;
+    --muted: #7C6E74;
+    --red: #E3262B;
+    --red-dark: #C81E23;
+    --yellow: #FFC93C;
+    --pink: #F5A9D0;
+    --coral: #F05A5E;
+    --line: rgba(42, 23, 33, .09);
+    --display: "Onest", system-ui, sans-serif;
+    --sans: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --hand: "Caveat", cursive;
+    --wrap: 1240px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -.035em; line-height: 1.02; margin: 0; color: var(--ink); }
+  .hand { font-family: var(--hand); font-weight: 700; font-size: 30px; line-height: 1; color: var(--red); display: inline-block; transform: rotate(-3deg); }
+  .hand.y { color: var(--yellow); }
+
+  /* Squiggle underline that draws itself */
+  .squig { position: relative; display: inline-block; white-space: nowrap; }
+  .squig svg { position: absolute; left: -2%; bottom: -.2em; width: 104%; height: .32em; overflow: visible; }
+  .squig path { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.4s cubic-bezier(.6,.1,.2,1) .35s; }
+  .squig.pink path { stroke: var(--pink); }
+  .squig.yellow path { stroke: var(--yellow); }
+  .in .squig path, .squig.in path { stroke-dashoffset: 0; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--sans); font-weight: 500; font-size: 18px; padding: 18px 32px; border-radius: 12px; border: 1px solid transparent; cursor: pointer; transition: transform .25s, background .25s, box-shadow .25s; }
+  .btn-red { background: var(--red); color: #fff; box-shadow: 0 10px 24px -10px rgba(227, 38, 43, .6); }
+  .btn-red:hover { background: var(--red-dark); transform: translateY(-2px); }
+  .btn-white { background: #fff; border-color: var(--line); color: var(--ink); }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(42, 23, 33, .35); }
+
+  /* Nav */
+  .nav { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 50; width: min(1340px, calc(100% - 32px)); background: #fff; border-radius: 999px; padding: 12px 14px 12px 22px; display: flex; align-items: center; justify-content: space-between; gap: 24px; box-shadow: 0 18px 40px -24px rgba(42, 23, 33, .35); animation: navIn .8s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes navIn { from { opacity: 0; transform: translate(-50%, -30px); } }
+  .logo { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 800; font-size: 21px; color: var(--red); letter-spacing: -.02em; white-space: nowrap; }
+  .logo i { width: 40px; height: 40px; border-radius: 50%; background: var(--red); color: #fff; font-style: normal; font-size: 14px; display: grid; place-items: center; transition: transform .5s; }
+  .logo:hover i { transform: rotate(360deg); }
+  .nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 46px; }
+  .nav ul a { font-size: 17px; font-weight: 500; position: relative; }
+  .nav ul a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 2px; background: var(--red); border-radius: 2px; transition: right .3s; }
+  .nav ul a:hover::after { right: 0; }
+  .nav .btn { padding: 13px 24px; border-radius: 999px; font-size: 16px; }
+
+  /* Hero */
+  .hero { position: relative; min-height: 100vh; padding: 230px 0 60px; text-align: center; overflow: hidden; }
+  .globe { position: absolute; left: 50%; top: 250px; width: 980px; height: 980px; transform: translateX(-50%); pointer-events: none; z-index: 0; }
+  .hero .wrap { position: relative; z-index: 2; }
+  .hero h1 { font-size: clamp(40px, 7vw, 112px); }
+  .hero h1 .line { display: block; overflow: hidden; padding-bottom: .08em; }
+  .hero h1 .line > span { display: inline-block; animation: rise 1s cubic-bezier(.2,.8,.2,1) both; }
+  .hero h1 .line:nth-child(2) > span { animation-delay: .15s; }
+  @keyframes rise { from { transform: translateY(105%); } }
+  .lead { max-width: 900px; margin: 40px auto 0; font-size: clamp(18px, 1.8vw, 27px); line-height: 1.6; color: var(--text); animation: fadeUp .9s .45s both; }
+  .hero-actions { margin-top: 44px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeUp .9s .6s both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } }
+
+  .cloud { position: absolute; z-index: 1; fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .cloud.c1 { stroke: var(--pink); width: 200px; left: 8%; top: 290px; animation: drift 9s ease-in-out infinite; }
+  .cloud.c2 { stroke: var(--yellow); width: 190px; right: 6%; top: 430px; animation: drift 11s ease-in-out infinite reverse; }
+  .cloud.c3 { stroke: var(--pink); width: 110px; right: 22%; top: 190px; opacity: .6; animation: drift 13s ease-in-out infinite; }
+  @keyframes drift { 50% { transform: translate(26px, -10px); } }
+
+  .note { position: absolute; left: 11%; top: 1000px; z-index: 2; font-family: var(--hand); font-weight: 700; font-size: 34px; color: var(--ink); transform: rotate(-6deg); display: flex; align-items: flex-start; gap: 6px; }
+  .note svg { width: 42px; animation: poke 1.6s ease-in-out infinite; }
+  @keyframes poke { 50% { transform: translate(6px, 6px); } }
+
+  .chips { position: relative; z-index: 2; margin: 390px auto 0; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .chip { background: #fff; border-radius: 24px; padding: 26px 38px 26px 38px; text-align: left; min-width: 280px; box-shadow: 0 24px 50px -30px rgba(42, 23, 33, .45); animation: float 6s ease-in-out infinite; }
+  .chip:nth-child(2) { animation-delay: -2s; }
+  .chip:nth-child(3) { animation-delay: -4s; }
+  @keyframes float { 50% { transform: translateY(-10px); } }
+  .chip b { display: block; font-family: var(--display); font-weight: 800; font-size: 46px; line-height: 1; color: var(--red); letter-spacing: -.03em; }
+  .chip span { display: block; margin-top: 12px; font-size: 18px; color: var(--text); }
+
+  /* Sections */
+  main { overflow-x: clip; }
+  section { position: relative; }
+  .sec { padding: 120px 0; }
+  .sec-head h2 { font-size: clamp(40px, 6vw, 84px); margin-top: 10px; }
+  .sec-head p { max-width: 1000px; margin: 30px 0 0; font-size: clamp(18px, 1.8vw, 26px); color: var(--text); line-height: 1.65; }
+
+  /* Why */
+  .why-grid { margin-top: 90px; display: grid; grid-template-columns: 1fr 1fr; gap: 38px 38px; }
+  .why-col { display: flex; flex-direction: column; gap: 38px; }
+  .why-col:nth-child(2) { padding-top: 48px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 40px; padding: 54px; transition: transform .35s, box-shadow .35s; }
+  .card:hover { transform: translateY(-6px) rotate(-.4deg); box-shadow: 0 30px 60px -36px rgba(42, 23, 33, .4); }
+  .ico { width: 84px; height: 84px; border-radius: 18px; display: grid; place-items: center; color: var(--ink); transition: transform .5s cubic-bezier(.3,1.6,.5,1); }
+  .card:hover .ico { transform: rotate(-10deg) scale(1.08); }
+  .ico svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .ico.pink { background: var(--pink); }
+  .ico.yellow { background: var(--yellow); }
+  .ico.coral { background: var(--coral); }
+  .card h3 { font-size: 34px; letter-spacing: -.03em; margin-top: 44px; }
+  .card p { margin: 22px 0 0; font-size: 21px; color: var(--text); line-height: 1.85; }
+
+  /* Results (dark) */
+  .results { margin: 60px 24px; background: var(--ink); border-radius: 56px; padding: 170px 0 150px; overflow: hidden; color: #fff; }
+  .results .globe-sm { position: absolute; right: -140px; top: -40px; width: 470px; height: 470px; opacity: .8; }
+  .results h2 { color: #F7F1F3; }
+  .stats { margin-top: 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .stat { border-top: 1px solid rgba(255,255,255,.18); padding-top: 54px; }
+  .stat b { display: block; font-family: var(--display); font-weight: 900; font-size: clamp(64px, 8vw, 130px); line-height: .9; letter-spacing: -.05em; color: var(--red); }
+  .stat h3 { font-family: var(--sans); font-weight: 500; letter-spacing: 0; font-size: 28px; line-height: 1.5; color: #F7F1F3; margin-top: 44px; }
+  .stat p { margin: 14px 0 0; font-size: 22px; color: rgba(247, 241, 243, .55); line-height: 1.6; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 0.8fr 1fr; gap: 72px; align-items: center; }
+  .photo { position: relative; width: 100%; max-width: 640px; aspect-ratio: 0.76; margin: 0 auto; }
+  .photo .bg { position: absolute; inset: 0; border-radius: 48px; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+  .photo .bg.y { background: var(--yellow); transform: rotate(-4deg) translate(-12px, 14px); }
+  .photo .bg.p { background: var(--pink); opacity: .9; transform: rotate(3deg) translate(10px, -6px); }
+  .photo:hover .bg.y { transform: rotate(-7deg) translate(-20px, 18px); }
+  .photo:hover .bg.p { transform: rotate(6deg) translate(18px, -10px); }
+  .photo .frame { position: absolute; inset: 36px 40px 34px 36px; border-radius: 34px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(42, 23, 33, .45); }
+  .photo .frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s; }
+  .photo:hover .frame img { transform: scale(1.05); }
+  .photo .tag { position: absolute; right: -8px; bottom: -6px; background: #fff; border-radius: 16px; padding: 18px 30px; font-family: var(--hand); font-weight: 700; font-size: 32px; transform: rotate(-5deg); box-shadow: 0 18px 30px -18px rgba(42, 23, 33, .5); animation: wobble 4s ease-in-out infinite; }
+  @keyframes wobble { 50% { transform: rotate(-1deg) translateY(-6px); } }
+  .about-text h2 { font-size: clamp(44px, 5.4vw, 80px); margin-top: 14px; }
+  .about-text p { font-size: 22px; line-height: 1.85; color: var(--text); margin: 40px 0 0; }
+  .about-text p + p { margin-top: 24px; }
+  .facts { margin-top: 64px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .fact { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 26px 22px; transition: transform .3s, border-color .3s; }
+  .fact:hover { transform: translateY(-5px); border-color: var(--red); }
+  .fact svg { width: 30px; height: 30px; fill: none; stroke: var(--red); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  .fact b { display: block; font-family: var(--display); font-weight: 800; font-size: 21px; margin-top: 20px; letter-spacing: -.01em; }
+  .fact span { display: block; margin-top: 10px; font-size: 16px; color: var(--muted); line-height: 1.55; }
+
+  /* Formats */
+  .fmt { margin-top: 90px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 38px; align-items: start; }
+  .tabs { display: flex; flex-direction: column; gap: 20px; }
+  .tab { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 72px 1fr 24px; gap: 30px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 32px; padding: 34px 36px; transition: background .35s, transform .3s, color .35s; }
+  .tab:hover { transform: translateX(6px); }
+  .tab:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+  .tab .ico { width: 72px; height: 72px; border-radius: 16px; }
+  .tab .ico svg { width: 32px; height: 32px; }
+  .tab b { display: block; font-family: var(--sans); font-weight: 600; font-size: 25px; line-height: 1.35; letter-spacing: -.01em; }
+  .tab small { display: block; margin-top: 8px; font-size: 19px; color: var(--muted); transition: color .35s; }
+  .tab .arr { width: 24px; height: 24px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .3s, stroke .3s; }
+  .tab[aria-selected="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .tab[aria-selected="true"] small { color: rgba(255,255,255,.7); }
+  .tab[aria-selected="true"] .arr { stroke: var(--red); transform: translateX(4px); }
+  .panel { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 44px; padding: 76px 66px 60px; overflow: hidden; min-height: 100%; }
+  .panel .sun { position: absolute; right: -60px; top: -60px; width: 250px; height: 250px; border-radius: 50%; background: var(--yellow); opacity: .65; animation: pulse 6s ease-in-out infinite; transition: background .5s; }
+  @keyframes pulse { 50% { transform: scale(1.12); } }
+  .panel-body { position: relative; }
+  .panel-body.swap { animation: swap .55s cubic-bezier(.2,.8,.2,1); }
+  @keyframes swap { from { opacity: 0; transform: translateY(18px); } }
+  .panel h3 { font-size: clamp(40px, 4.4vw, 62px); margin-top: 14px; }
+  .panel p { font-size: 22px; line-height: 1.85; color: var(--text); margin: 30px 0 0; }
+  .checks { list-style: none; padding: 0; margin: 40px 0 0; display: grid; gap: 22px; }
+  .checks li { display: flex; align-items: center; gap: 18px; font-size: 21px; color: var(--ink); }
+  .checks li::before { content: ""; flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/18px no-repeat; }
+  .panel-foot { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .dur { display: flex; align-items: center; gap: 12px; font-size: 21px; color: var(--text); }
+  .dur svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+  .panel-foot .btn { font-size: 21px; padding: 20px 38px; }
+
+  /* Contact strip */
+  .contact { padding: 60px 0 120px; }
+  .contact-box { background: #fff; border: 1px solid var(--line); border-radius: 44px; padding: 64px; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .contact-box h2 { font-size: clamp(34px, 4vw, 56px); max-width: 700px; }
+  .contact-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  footer { padding: 0 0 48px; color: var(--muted); font-size: 15px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  /* Reveal on scroll */
+  .rv { opacity: 0; transform: translateY(40px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
+  .rv.in { opacity: 1; transform: none; }
+  .rv.d1 { transition-delay: .1s; } .rv.d2 { transition-delay: .2s; } .rv.d3 { transition-delay: .3s; }
+
+  @media (max-width: 1100px) {
+    .nav ul { display: none; }
+    .why-grid, .about-grid, .fmt { grid-template-columns: 1fr; }
+    .why-col:nth-child(2) { padding-top: 0; }
+    .about-grid { gap: 70px; }
+  }
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    .nav { padding: 8px 8px 8px 10px; top: 10px; width: calc(100% - 20px); gap: 8px; }
+    .logo { font-size: 14px; gap: 8px; letter-spacing: -.03em; }
+    .logo i { width: 34px; height: 34px; font-size: 12px; }
+    .nav .btn { padding: 10px 14px; font-size: 14px; width: auto; flex: none; }
+    .hero { padding: 140px 0 40px; }
+    .hero h1 { font-size: 36px; }
+    .squig { white-space: normal; }
+    .globe { width: 600px; height: 600px; top: 200px; }
+    .lead { margin-top: 26px; }
+    .btn { font-size: 16px; padding: 16px 24px; width: 100%; }
+    .hero-actions { flex-direction: column; }
+    .cloud.c1 { width: 110px; top: 120px; left: -20px; } .cloud.c2 { width: 110px; top: 360px; right: -20px; } .cloud.c3 { display: none; }
+    .note { position: relative; left: auto; top: auto; justify-content: center; margin-top: 60px; font-size: 28px; }
+    .chips { margin-top: 30px; flex-direction: column; align-items: stretch; gap: 14px; }
+    .chip { min-width: 0; padding: 22px 26px; }
+    .chip b { font-size: 38px; }
+    .sec { padding: 80px 0; }
+    .hand { font-size: 26px; }
+    .why-grid { margin-top: 50px; gap: 18px; } .why-col { gap: 18px; }
+    .card { padding: 32px 26px; border-radius: 28px; }
+    .card h3 { font-size: 26px; margin-top: 28px; }
+    .card p { font-size: 17px; line-height: 1.7; }
+    .ico { width: 64px; height: 64px; } .ico svg { width: 30px; height: 30px; }
+    .results { margin: 30px 8px; border-radius: 32px; padding: 90px 0 80px; }
+    .results .globe-sm { width: 260px; height: 260px; right: -90px; top: -30px; }
+    .stats { grid-template-columns: 1fr; gap: 10px; margin-top: 40px; }
+    .stat { padding-top: 30px; }
+    .stat h3 { font-size: 21px; margin-top: 20px; }
+    .stat p { font-size: 17px; }
+    .about-text p { font-size: 17px; line-height: 1.75; margin-top: 26px; }
+    .facts { grid-template-columns: 1fr; margin-top: 36px; gap: 12px; }
+    .photo .tag { font-size: 24px; padding: 12px 20px; }
+    .fmt { margin-top: 50px; gap: 20px; }
+    .tab { grid-template-columns: 56px 1fr 20px; gap: 16px; padding: 22px 20px; border-radius: 24px; }
+    .tab .ico { width: 56px; height: 56px; } .tab .ico svg { width: 26px; height: 26px; }
+    .tab b { font-size: 18px; } .tab small { font-size: 15px; }
+    .panel { padding: 44px 26px 32px; border-radius: 30px; }
+    .panel p, .checks li, .dur { font-size: 17px; }
+    .panel-foot .btn { width: 100%; font-size: 17px; }
+    .contact-box { padding: 36px 24px; border-radius: 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .rv { opacity: 1; transform: none; }
+    .squig path { stroke-dashoffset: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Основное меню">
+  <a href="#top" class="logo"><i>АА</i>Александра Амброжий</a>
+  <ul>
+    <li><a href="#formats">Форматы</a></li>
+    <li><a href="#results">Результаты</a></li>
+    <li><a href="#about">Обо мне</a></li>
+    <li><a href="#business">Компаниям</a></li>
+    <li><a href="#channel">Канал</a></li>
+  </ul>
+  <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-red">Написать</a>
+</nav>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <canvas class="globe" id="globe" aria-hidden="true"></canvas>
+
+    <svg class="cloud c1" viewBox="0 0 200 64" aria-hidden="true"><path d="M4 58 C2 40 20 30 44 34 C48 14 70 6 86 16 C96 4 118 8 120 26 C150 22 190 34 196 52 C140 60 60 60 4 58 Z"/></svg>
+    <svg class="cloud c2" viewBox="0 0 200 64" aria-hidden="true"><path d="M4 56 C6 40 30 34 50 40 C54 18 80 8 98 22 C112 14 126 30 116 46 C150 44 180 48 196 56 C130 60 60 60 4 56 Z"/></svg>
+    <svg class="cloud c3" viewBox="0 0 200 64" aria-hidden="true"><path d="M4 58 C2 40 20 30 44 34 C48 14 70 6 86 16 C96 4 118 8 120 26 C150 22 190 34 196 52 C140 60 60 60 4 58 Z"/></svg>
+
+    <div class="wrap">
+      <h1>
+        <span class="line"><span>Ваша карьера —</span></span>
+        <span class="line"><span><span class="squig pink in">на следующем<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 12 C 40 2, 70 20, 110 10 S 180 2, 220 12 S 280 16, 298 8"/></svg></span> уровне</span></span>
+      </h1>
+      <p class="lead">Помогаю получить повышение и сильный оффер. Психолог ВШЭ и&nbsp;HR-практик.</p>
+      <div class="hero-actions">
+        <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-red">Записаться на консультацию</a>
+        <a href="#formats" class="btn btn-white">Форматы работы</a>
+      </div>
+    </div>
+
+    <div class="note" aria-hidden="true">отвечаю лично
+      <svg viewBox="0 0 40 40" fill="none" stroke="#2A1721" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 L32 32 M32 16 L32 32 L16 32"/></svg>
+    </div>
+
+    <div class="wrap">
+      <div class="chips">
+        <div class="chip"><b data-count="35" data-suffix="+">35+</b><span>офферов у клиентов</span></div>
+        <div class="chip"><b data-count="10" data-suffix="+">10+</b><span>повышений после 1 встречи</span></div>
+        <div class="chip"><b data-count="3" data-suffix=" мес">3 мес</b><span>до своей практики</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="sec" id="why">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="hand">почему я</span>
+        <h2>Строим карьеру <span class="squig yellow">по плану<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 12 C 40 2, 70 20, 110 10 S 180 2, 220 12 S 280 16, 298 8"/></svg></span></h2>
+        <p>Помогаю специалистам расти в должности и доходе, менять направление и находить работу, которая приносит удовольствие.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-col">
+          <article class="card rv">
+            <div class="ico pink"><svg viewBox="0 0 24 24"><path d="M12 5a3 3 0 0 0-5.9-.6A3 3 0 0 0 4 9a3 3 0 0 0 .4 5.4A3 3 0 0 0 7 19a3 3 0 0 0 5 .5V5Z"/><path d="M12 5a3 3 0 0 1 5.9-.6A3 3 0 0 1 20 9a3 3 0 0 1-.4 5.4A3 3 0 0 1 17 19a3 3 0 0 1-5 .5"/><path d="M9 9.5c1 0 1.6.6 1.6 1.5M15 9.5c-1 0-1.6.6-1.6 1.5M8.5 14.5H10M14 14.5h1.5"/></svg></div>
+            <h3>Психолог + HR в одном лице</h3>
+            <p>Вижу и вашу мотивацию, и то, как вас читает работодатель. Работаем с обеими сторонами сразу.</p>
+          </article>
+          <article class="card rv d1">
+            <div class="ico coral"><svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7.1-.9l.5.3a4 4 0 0 0 2.8.4L21 3"/><path d="m21 14-3.7-3.7M3 4l1.3.3a4 4 0 0 1 2.4 1.7L8 8M3 13l6.5 6.5a1 1 0 1 0 3-3"/></svg></div>
+            <h3>Переговоры о деньгах</h3>
+            <p>Готовим аргументы и сценарии, чтобы вы уверенно называли свою цену и получали её.</p>
+          </article>
+        </div>
+        <div class="why-col">
+          <article class="card rv d2">
+            <div class="ico yellow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <h3>Конкретный план на каждом шаге</h3>
+            <p>После каждой встречи у вас есть понятные шаги, сроки и формулировки, которые можно использовать уже завтра.</p>
+          </article>
+          <article class="card rv d3">
+            <div class="ico pink"><svg viewBox="0 0 24 24"><path d="M7 7H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M15 7h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2M22 11v2"/><path d="m11 7-3 5h4l-3 5"/></svg></div>
+            <h3>Бережно к выгоранию</h3>
+            <p>Если сил мало, сначала восстанавливаем ресурс, затем строим стратегию в вашем темпе.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="results" id="results">
+    <canvas class="globe-sm" id="globe-sm" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="hand y">результаты клиентов</span>
+        <h2>За каждой цифрой — живые истории</h2>
+      </div>
+      <div class="stats">
+        <div class="stat rv">
+          <b data-count="35" data-suffix="+">35+</b>
+          <h3>офферов получили клиенты</h3>
+          <p>в IT, финансах, ритейле и консалтинге</p>
+        </div>
+        <div class="stat rv d1">
+          <b data-count="10" data-suffix="+">10+</b>
+          <h3>повышений после одной консультации</h3>
+          <p>иногда достаточно одного точного разговора</p>
+        </div>
+        <div class="stat rv d2">
+          <b data-count="3" data-suffix=" мес">3 мес</b>
+          <h3>до собственной практики</h3>
+          <p>путь от идеи до первых клиентов</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="sec" id="about">
+    <div class="wrap about-grid">
+      <div class="photo rv">
+        <div class="bg y"></div>
+        <div class="bg p"></div>
+        <div class="frame"><img src="assets/alexandra.jpg" alt="Александра Амброжий"></div>
+        <div class="tag">привет, это я!</div>
+      </div>
+      <div class="about-text rv d1">
+        <span class="hand">обо мне</span>
+        <h2>Александра<br><span class="squig pink">Амброжий<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 12 C 40 2, 70 20, 110 10 S 180 2, 220 12 S 280 16, 298 8"/></svg></span></h2>
+        <p>Я психолог и HR-специалист. Знаю, как устроен найм изнутри: что читает рекрутер за шесть секунд, о чём молчит нанимающий менеджер и почему сильные специалисты годами сидят на одной позиции.</p>
+        <p>Моя задача — соединить вашу экспертизу, ценности и рынок в одну понятную стратегию. Каждый маршрут строим под вашу историю.</p>
+        <div class="facts">
+          <div class="fact"><svg viewBox="0 0 24 24"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></svg><b>НИУ ВШЭ</b><span>Психология, красный диплом</span></div>
+          <div class="fact"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg><b>Школа 21</b><span>Понимаю IT изнутри</span></div>
+          <div class="fact"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.5 3.2-5.5 6.5-5.5s5.9 2 6.5 5.5M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.8c1.7.7 2.8 2.5 3 5.2"/></svg><b>HR-практика</b><span>Подбор и развитие сотрудников</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formats -->
+  <section class="sec" id="formats">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="hand">форматы работы</span>
+        <h2>Выберите, с чего <span class="squig pink">начнём<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 12 C 40 2, 70 20, 110 10 S 180 2, 220 12 S 280 16, 298 8"/></svg></span></h2>
+        <p>Нажмите на формат, чтобы увидеть, что в него входит.</p>
+      </div>
+      <div class="fmt">
+        <div class="tabs rv" role="tablist" aria-label="Форматы">
+          <button class="tab" role="tab" aria-selected="true" data-i="0">
+            <span class="ico yellow"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M8 7v13M16 7v13"/></svg></span>
+            <span><b>Офис пак</b><small>Всё, чтобы выйти на рынок во всеоружии</small></span>
+            <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="tab" role="tab" aria-selected="false" data-i="1">
+            <span class="ico pink"><svg viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></span>
+            <span><b>Разовая сессия и mock-интервью</b><small>Один точный разговор под вашу задачу</small></span>
+            <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="tab" role="tab" aria-selected="false" data-i="2">
+            <span class="ico coral"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg></span>
+            <span><b>Глубокая диагностика</b><small>Понять, куда двигаться дальше</small></span>
+            <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="tab" role="tab" aria-selected="false" data-i="3">
+            <span class="ico yellow"><svg viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></span>
+            <span><b>Сопровождение при выборе направления</b><small>Спокойный переход в новую сферу</small></span>
+            <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="panel rv d1" role="tabpanel" aria-live="polite">
+          <div class="sun" id="sun"></div>
+          <div class="panel-body" id="panel-body"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-box rv" id="channel">
+        <h2>Расскажите о своём запросе, и мы подберём <span class="squig yellow">формат<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 12 C 40 2, 70 20, 110 10 S 180 2, 220 12 S 280 16, 298 8"/></svg></span></h2>
+        <div class="contact-links" id="business">
+          <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-red">Telegram</a>
+          <a href="https://vk.com/alessmera" target="_blank" rel="noopener" class="btn btn-white">ВКонтакте</a>
+          <a href="https://www.youtube.com/@alessmera" target="_blank" rel="noopener" class="btn btn-white">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Александра Амброжий</span>
+    <span>Профориентация · Резюме · Собеседования · Повышение</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Rotating wireframe globe */
+  function Globe(canvas, opts) {
+    var ctx = canvas.getContext('2d');
+    var colors = opts.colors;
+    var n = opts.meridians;
+    var t0 = performance.now();
+    var w, h, dpr;
+    function size() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+    }
+    size();
+    window.addEventListener('resize', size);
+    var visible = true;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(canvas);
+    }
+    function frame(now) {
+      requestAnimationFrame(frame);
+      if (!visible) return;
+      var t = reduce ? 0 : (now - t0) / 1000;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+      var cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.47;
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(-0.12 + Math.sin(t * 0.25) * 0.05);
+      // meridians: rotating great circles seen edge-on
+      for (var i = 0; i < n; i++) {
+        var a = (i / n) * Math.PI + t * opts.speed;
+        var rx = Math.abs(Math.cos(a)) * R;
+        var front = Math.sin(a) > 0;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, Math.max(rx, 0.5), R, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = colors[i % colors.length];
+        ctx.globalAlpha = (front ? 0.95 : 0.4) * opts.alpha;
+        ctx.lineWidth = (front ? opts.lw : opts.lw * 0.55);
+        ctx.stroke();
+      }
+      // latitudes, gently bobbing
+      ctx.setLineDash([5, 6]);
+      for (var k = -1; k <= 1; k++) {
+        var lat = k * 0.45 + Math.sin(t * 0.6 + k) * 0.03;
+        var y = Math.sin(lat) * R;
+        var r = Math.cos(lat) * R;
+        ctx.beginPath();
+        ctx.ellipse(0, y + R * 0.18 * (k === 0 ? 1 : 0.6), r, r * 0.26, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = k === 0 ? colors[1] : colors[2];
+        ctx.globalAlpha = (k === 0 ? 0.9 : 0.45) * opts.alpha;
+        ctx.lineWidth = 1.4;
+        ctx.stroke();
+      }
+      ctx.setLineDash([]);
+      // orbiting dot
+      var oa = t * 0.9;
+      ctx.globalAlpha = opts.alpha;
+      ctx.fillStyle = colors[0];
+      ctx.beginPath();
+      ctx.arc(Math.cos(oa) * R * 1.02, R * 0.18 + Math.sin(oa) * R * 0.26, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    requestAnimationFrame(frame);
+  }
+  var big = document.getElementById('globe');
+  if (big) Globe(big, { colors: ['#E3262B', '#FFC93C', '#F5A9D0', '#F05A5E', '#FFC93C', '#F5A9D0'], meridians: 14, speed: 0.22, lw: 2.4, alpha: 0.85 });
+  var sm = document.getElementById('globe-sm');
+  if (sm) Globe(sm, { colors: ['#F05A5E', '#E0B13A', '#C9739E'], meridians: 12, speed: -0.3, lw: 1.4, alpha: 0.75 });
+
+  /* Count-up numbers */
+  function countUp(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = 1;
+    var end = +el.dataset.count, suf = el.dataset.suffix || '';
+    if (reduce) return;
+    var start = performance.now(), dur = 1600;
+    (function step(now) {
+      var p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + suf;
+      if (p < 1) requestAnimationFrame(step);
+    })(start);
+  }
+
+  /* Reveal on scroll */
+  var targets = document.querySelectorAll('.rv, .squig, [data-count]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        if (e.target.dataset.count) countUp(e.target);
+        e.target.querySelectorAll && e.target.querySelectorAll('[data-count]').forEach(countUp);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.18 });
+    targets.forEach(function (el) { io.observe(el); });
+  } else {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* Formats tabs */
+  var formats = [
+    { tag: 'под ключ', title: 'Офис пак', color: '#FFC93C',
+      text: 'Готовлю полный набор для поиска работы: от резюме, которое проходит автоматический отбор, до сценария разговора о зарплате.',
+      list: ['Резюме под рынок и ATS-системы', 'Сопроводительное письмо', 'Большой файл по подготовке к собеседованию', 'Шпаргалка по переговорам', 'Стратегия поиска работы'],
+      dur: 'аудит + встреча 1–1,5 ч' },
+    { tag: 'точечно', title: 'Разовая сессия и mock-интервью', color: '#F5A9D0',
+      text: 'Подходит, если запрос пока не сформулирован или нужно отрепетировать конкретное собеседование. Разбираем ситуацию и сразу отрабатываем.',
+      list: ['Анализ запроса, резюме и сопроводительного', 'Mock-интервью: репетиция собеседования', 'Обратная связь голосом или на онлайн-встрече'],
+      dur: '1 встреча, 2–5 встреч или еженедельно' },
+    { tag: 'выбор пути', title: 'Глубокая диагностика', color: '#F05A5E',
+      text: 'Углубляем запрос и даём методологию, чтобы дальше вы строили карьерный план самостоятельно.',
+      list: ['Распаковка запроса и тесты', 'Ключевая задача и точка роста', 'Файл с выводами и пошаговый план'],
+      dur: '1 сессия, материалы на руки' },
+    { tag: 'вместе до результата', title: 'Сопровождение при выборе направления', color: '#FFC93C',
+      text: 'Помогаю выбрать новое направление и решиться на перемены. Проходим все этапы вместе, последовательно и в вашем темпе.',
+      list: ['Разбор решений на каждой сессии', 'Корректировка действий', 'Можно остановиться на любом этапе'],
+      dur: '3–5 консультаций' }
+  ];
+  var body = document.getElementById('panel-body');
+  var sun = document.getElementById('sun');
+  var tabs = document.querySelectorAll('.tab');
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function show(i) {
+    var f = formats[i];
+    tabs.forEach(function (t, j) { t.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
+    sun.style.background = f.color;
+    body.innerHTML =
+      '<span class="hand">' + esc(f.tag) + '</span>' +
+      '<h3>' + esc(f.title) + '</h3>' +
+      '<p>' + esc(f.text) + '</p>' +
+      '<ul class="checks">' + f.list.map(function (l) { return '<li>' + esc(l) + '</li>'; }).join('') + '</ul>' +
+      '<div class="panel-foot"><span class="dur"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>' + esc(f.dur) + '</span>' +
+      '<a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-red">Выбрать формат</a></div>';
+    body.classList.remove('swap'); void body.offsetWidth; body.classList.add('swap');
+  }
+  tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); }); });
+  show(0);
+})();
+</script>
+</body>
+</html>
