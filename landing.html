@@ -65,7 +65,7 @@
 
   /* Hero */
   .hero { position: relative; min-height: 100vh; padding: 230px 0 60px; text-align: center; overflow: hidden; }
-  .globe { position: absolute; left: 50%; top: 250px; width: 980px; height: 980px; transform: translateX(-50%); pointer-events: none; z-index: 0; }
+  .globe { position: absolute; left: 50%; top: 270px; width: 760px; height: 760px; transform: translateX(-50%); pointer-events: none; z-index: 0; }
   .hero .wrap { position: relative; z-index: 2; }
   .hero h1 { font-size: clamp(40px, 7vw, 112px); }
   .hero h1 .line { display: block; overflow: hidden; padding-bottom: .08em; }
@@ -82,11 +82,8 @@
   .cloud.c3 { stroke: var(--pink); width: 110px; right: 22%; top: 190px; opacity: .6; animation: drift 13s ease-in-out infinite; }
   @keyframes drift { 50% { transform: translate(26px, -10px); } }
 
-  .note { position: absolute; left: 11%; top: 1000px; z-index: 2; font-family: var(--hand); font-weight: 700; font-size: 34px; color: var(--ink); transform: rotate(-6deg); display: flex; align-items: flex-start; gap: 6px; }
-  .note svg { width: 42px; animation: poke 1.6s ease-in-out infinite; }
-  @keyframes poke { 50% { transform: translate(6px, 6px); } }
 
-  .chips { position: relative; z-index: 2; margin: 390px auto 0; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .chips { position: relative; z-index: 2; margin: 230px auto 0; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
   .chip { background: #fff; border-radius: 24px; padding: 26px 38px 26px 38px; text-align: left; min-width: 280px; box-shadow: 0 24px 50px -30px rgba(42, 23, 33, .45); animation: float 6s ease-in-out infinite; }
   .chip:nth-child(2) { animation-delay: -2s; }
   .chip:nth-child(3) { animation-delay: -4s; }
@@ -352,13 +349,12 @@
     .hero { padding: 140px 0 40px; }
     .hero h1 { font-size: 36px; }
     .squig { white-space: normal; }
-    .globe { width: 600px; height: 600px; top: 200px; }
+    .globe { width: 460px; height: 460px; top: 190px; }
     .lead { margin-top: 26px; }
     .btn { font-size: 16px; padding: 16px 24px; width: 100%; }
     .hero-actions { flex-direction: column; }
     .cloud.c1 { width: 110px; top: 120px; left: -20px; } .cloud.c2 { width: 110px; top: 360px; right: -20px; } .cloud.c3 { display: none; }
-    .note { position: relative; left: auto; top: auto; justify-content: center; margin-top: 60px; font-size: 28px; }
-    .chips { margin-top: 30px; flex-direction: column; align-items: stretch; gap: 14px; }
+    .chips { margin-top: 70px; flex-direction: column; align-items: stretch; gap: 14px; }
     .chip { min-width: 0; padding: 22px 26px; }
     .chip b { font-size: 38px; }
     .sec { padding: 80px 0; }
@@ -469,10 +465,6 @@
         <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-red">Записаться на консультацию</a>
         <a href="#formats" class="btn btn-white">Форматы работы</a>
       </div>
-    </div>
-
-    <div class="note" aria-hidden="true">отвечаю лично
-      <svg viewBox="0 0 40 40" fill="none" stroke="#2A1721" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 L32 32 M32 16 L32 32 L16 32"/></svg>
     </div>
 
     <div class="wrap">
