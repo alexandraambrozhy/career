@@ -179,6 +179,48 @@
   .dur svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
   .panel-foot .btn { font-size: 21px; padding: 20px 38px; }
 
+  /* Steps */
+  .steps { background: #fff; padding: 150px 0 140px; text-align: center; }
+  .steps .sec-head h2 { font-size: clamp(40px, 5.2vw, 76px); }
+  .steps-row { position: relative; margin-top: 90px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: left; }
+  .steps-line { position: absolute; left: 40px; right: 0; top: 30px; height: 60px; width: calc(100% - 40px); overflow: visible; pointer-events: none; }
+  .steps-line path { fill: none; stroke: var(--pink); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 12 12; animation: flow 1.6s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset: -24; } }
+  .step { position: relative; }
+  .step .num { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 30px; color: var(--ink); transform: scale(.4); opacity: 0; transition: transform .7s cubic-bezier(.3,1.6,.5,1), opacity .4s; }
+  .step.in .num { transform: scale(1); opacity: 1; animation: bob 4s ease-in-out 1s infinite; }
+  .step:nth-child(3) .num { animation-delay: 1.5s; } .step:nth-child(4) .num { animation-delay: 2s; } .step:nth-child(5) .num { animation-delay: 2.5s; }
+  @keyframes bob { 50% { transform: translateY(-8px); } }
+  .step:nth-child(2) .num { background: var(--pink); }
+  .step:nth-child(3) .num { background: var(--yellow); transition-delay: .15s; }
+  .step:nth-child(4) .num { background: var(--coral); transition-delay: .3s; }
+  .step:nth-child(5) .num { background: var(--pink); transition-delay: .45s; }
+  .step h3 { font-size: 32px; margin-top: 44px; letter-spacing: -.03em; }
+  .step p { font-size: 20px; line-height: 1.75; color: var(--text); margin: 18px 0 0; }
+
+  /* Reboot */
+  .reboot { margin: 60px 12px; background: var(--red); border-radius: 56px; padding: 150px 0; overflow: hidden; color: #fff; }
+  .reboot .globe-r { position: absolute; left: -150px; bottom: -150px; width: 480px; height: 480px; }
+  .reboot-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 50px; align-items: center; }
+  .reboot h2 { color: #fff; font-size: clamp(44px, 5.4vw, 88px); margin-top: 14px; }
+  .reboot .lead-r { font-size: 24px; line-height: 1.7; color: rgba(255,255,255,.92); margin: 40px 0 0; max-width: 620px; }
+  .reboot-actions { margin-top: 46px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+  .reboot-actions .btn-white { border-color: #fff; }
+  .reboot .when { display: flex; align-items: center; gap: 12px; font-size: 21px; color: rgba(255,255,255,.92); }
+  .reboot .when svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .phases { display: flex; flex-direction: column; gap: 22px; }
+  .phase { --r: 0deg; background: #fff; color: var(--ink); border-radius: 30px; padding: 36px 40px; display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 16px; transition: transform .5s cubic-bezier(.3,1.4,.5,1), box-shadow .4s; box-shadow: 0 24px 40px -30px rgba(80, 0, 0, .6); }
+  .phase:nth-child(1) { --r: -1.2deg; }
+  .phase:nth-child(2) { --r: 1.2deg; margin-left: 50px; margin-right: -10px; }
+  .phase:nth-child(3) { --r: -.8deg; margin-left: 24px; }
+  .phase:hover { box-shadow: 0 34px 50px -30px rgba(80, 0, 0, .8); }
+  .phase .when-h { font-family: var(--hand); font-weight: 700; font-size: 30px; color: var(--red); line-height: 1.1; padding-top: 4px; }
+  .phase b { display: block; font-family: var(--display); font-weight: 800; font-size: 28px; letter-spacing: -.02em; line-height: 1.25; }
+  .phase span { display: block; margin-top: 10px; font-size: 19px; line-height: 1.6; color: var(--text); }
+  .phase.rv { opacity: 0; transform: translateX(80px) rotate(var(--r)); }
+  .phase.rv.in { opacity: 1; transform: rotate(var(--r)); }
+  .phase.rv.in:hover { transform: rotate(0) scale(1.03); }
+
   /* Contact strip */
   .contact { padding: 60px 0 120px; }
   .contact-box { background: #fff; border: 1px solid var(--line); border-radius: 44px; padding: 64px; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
@@ -194,7 +236,9 @@
 
   @media (max-width: 1100px) {
     .nav ul { display: none; }
-    .why-grid, .about-grid, .fmt { grid-template-columns: 1fr; }
+    .why-grid, .about-grid, .fmt, .reboot-grid { grid-template-columns: 1fr; }
+    .steps-row { grid-template-columns: 1fr 1fr; row-gap: 60px; }
+    .steps-line { display: none; }
     .why-col:nth-child(2) { padding-top: 0; }
     .about-grid { gap: 70px; }
   }
@@ -241,6 +285,19 @@
     .panel p, .checks li, .dur { font-size: 17px; }
     .panel-foot .btn { width: 100%; font-size: 17px; }
     .contact-box { padding: 36px 24px; border-radius: 30px; }
+    .steps { padding: 80px 0; text-align: left; }
+    .steps-row { grid-template-columns: 1fr; margin-top: 40px; row-gap: 36px; }
+    .step { display: grid; grid-template-columns: 64px 1fr; column-gap: 20px; }
+    .step .num { width: 64px; height: 64px; font-size: 22px; grid-row: span 2; }
+    .step h3 { font-size: 24px; margin-top: 4px; }
+    .step p { font-size: 17px; margin-top: 8px; }
+    .reboot { margin: 30px 8px; border-radius: 32px; padding: 80px 0 90px; }
+    .reboot .globe-r { width: 260px; height: 260px; left: -100px; bottom: -100px; }
+    .reboot .lead-r { font-size: 18px; margin-top: 24px; }
+    .reboot-actions { gap: 18px; }
+    .phase { grid-template-columns: 1fr; padding: 26px 24px; gap: 6px; border-radius: 24px; }
+    .phase:nth-child(2), .phase:nth-child(3) { margin-left: 0; }
+    .phase b { font-size: 22px; } .phase span { font-size: 16px; } .phase .when-h { font-size: 26px; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -425,6 +482,44 @@
     </div>
   </section>
 
+  <!-- Steps -->
+  <section class="steps" id="steps">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="hand">этапы</span>
+        <h2>Как мы будем работать</h2>
+      </div>
+      <div class="steps-row">
+        <svg class="steps-line" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 C 80 14, 160 16, 250 30 S 420 50, 500 30 S 640 6, 750 18 S 900 34, 1000 32"/></svg>
+        <div class="step rv"><div class="num">01</div><h3>Заявка</h3><p>Вы пишете пару слов о запросе, я лично отвечаю в течение дня.</p></div>
+        <div class="step rv d1"><div class="num">02</div><h3>Знакомство</h3><p>Бесплатные 15 минут: уточняем цель и выбираем подходящий формат.</p></div>
+        <div class="step rv d2"><div class="num">03</div><h3>Работа</h3><p>Диагностика, стратегия, документы и тренировки по согласованному плану.</p></div>
+        <div class="step rv d3"><div class="num">04</div><h3>Результат</h3><p>Оффер, повышение или новое направление. И я рядом, если нужна поддержка.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reboot -->
+  <section class="reboot" id="reboot">
+    <canvas class="globe-r" id="globe-r" aria-hidden="true"></canvas>
+    <div class="wrap reboot-grid">
+      <div class="rv">
+        <span class="hand y">флагманская программа</span>
+        <h2>Перезагрузка карьеры</h2>
+        <p class="lead-r">Стратегия и личное сопровождение до 12 месяцев. Для тех, кто хочет выстроить карьеру, в которой есть рост, деньги и смысл.</p>
+        <div class="reboot-actions">
+          <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-white">Начать работу</a>
+          <span class="when"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg>до 12 месяцев</span>
+        </div>
+      </div>
+      <div class="phases">
+        <div class="phase rv"><span class="when-h">1–2 мес</span><div><b>Диагностика и стратегия</b><span>Кто вы сейчас, куда хотите и какой путь туда самый короткий.</span></div></div>
+        <div class="phase rv d1"><span class="when-h">3–6 мес</span><div><b>Позиционирование и выход на рынок</b><span>Резюме, профиль, нетворкинг, собеседования и переговоры.</span></div></div>
+        <div class="phase rv d2"><span class="when-h">7–12 мес</span><div><b>Адаптация и рост</b><span>Первые месяцы на новом месте, закрепление и следующий шаг.</span></div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
   <section class="contact" id="contact">
     <div class="wrap">
@@ -518,6 +613,8 @@
   }
   var big = document.getElementById('globe');
   if (big) Globe(big, { colors: ['#E3262B', '#FFC93C', '#F5A9D0', '#F05A5E', '#FFC93C', '#F5A9D0'], meridians: 14, speed: 0.22, lw: 2.4, alpha: 0.85 });
+  var gr = document.getElementById('globe-r');
+  if (gr) Globe(gr, { colors: ['#FFC93C', '#F5A9D0', '#FF8A3D'], meridians: 12, speed: 0.28, lw: 1.6, alpha: 0.9 });
   var sm = document.getElementById('globe-sm');
   if (sm) Globe(sm, { colors: ['#F05A5E', '#E0B13A', '#C9739E'], meridians: 12, speed: -0.3, lw: 1.4, alpha: 0.75 });
 
@@ -556,20 +653,20 @@
   var formats = [
     { tag: 'под ключ', title: 'Офис пак', color: '#FFC93C',
       text: 'Готовлю полный набор для поиска работы: от резюме, которое проходит автоматический отбор, до сценария разговора о зарплате.',
-      list: ['Резюме под рынок и ATS-системы', 'Сопроводительное письмо', 'Большой файл по подготовке к собеседованию', 'Шпаргалка по переговорам', 'Стратегия поиска работы'],
-      dur: 'аудит + встреча 1–1,5 ч' },
-    { tag: 'точечно', title: 'Разовая сессия и mock-интервью', color: '#F5A9D0',
-      text: 'Подходит, если запрос пока не сформулирован или нужно отрепетировать конкретное собеседование. Разбираем ситуацию и сразу отрабатываем.',
-      list: ['Анализ запроса, резюме и сопроводительного', 'Mock-интервью: репетиция собеседования', 'Обратная связь голосом или на онлайн-встрече'],
-      dur: '1 встреча, 2–5 встреч или еженедельно' },
+      list: ['Резюме под ATS-системы', 'Сопроводительное письмо', 'Подготовка к собеседованию', 'Шпаргалка по переговорам'],
+      dur: '2–3 недели' },
+    { tag: 'быстрый результат', title: 'Разовая сессия и mock-интервью', color: '#F5A9D0',
+      text: 'Разбираем конкретный вопрос (повышение, оффер, сложные переговоры) или проводим тренировочное собеседование с подробной обратной связью.',
+      list: ['Разбор запроса и план действий', 'Mock-интервью как у реального работодателя', 'Обратная связь по ответам и подаче', 'Запись рекомендаций после встречи'],
+      dur: '60–90 минут' },
     { tag: 'выбор пути', title: 'Глубокая диагностика', color: '#F05A5E',
       text: 'Углубляем запрос и даём методологию, чтобы дальше вы строили карьерный план самостоятельно.',
       list: ['Распаковка запроса и тесты', 'Ключевая задача и точка роста', 'Файл с выводами и пошаговый план'],
       dur: '1 сессия, материалы на руки' },
-    { tag: 'вместе до результата', title: 'Сопровождение при выборе направления', color: '#FFC93C',
-      text: 'Помогаю выбрать новое направление и решиться на перемены. Проходим все этапы вместе, последовательно и в вашем темпе.',
-      list: ['Разбор решений на каждой сессии', 'Корректировка действий', 'Можно остановиться на любом этапе'],
-      dur: '3–5 консультаций' }
+    { tag: 'карьерный переход', title: 'Сопровождение при выборе направления', color: '#FFC93C',
+      text: 'Вместе выбираем направление, проверяем гипотезы на рынке и выстраиваем позиционирование для новой роли.',
+      list: ['3–5 консультаций', 'Проверка гипотез и анализ рынка', 'Профессиональное позиционирование', 'План первых шагов в новой роли'],
+      dur: '1–2 месяца' }
   ];
   var body = document.getElementById('panel-body');
   var sun = document.getElementById('sun');
