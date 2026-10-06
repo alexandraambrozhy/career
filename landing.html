@@ -273,6 +273,11 @@
   .channel-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 60px; align-items: center; }
   .channel h2 { font-size: clamp(44px, 5vw, 76px); margin-top: 14px; }
   .channel .lead-c { font-size: 22px; line-height: 1.85; color: var(--text); margin: 36px 0 0; max-width: 640px; }
+  .ch-btns { margin-top: 44px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .ch-btns .btn { margin-top: 0; }
+  .btn-yt { background: #fff; color: var(--ink); }
+  .btn-yt:hover { transform: translateY(-2px); }
+  .btn-yt svg { width: 22px; height: 22px; fill: none; stroke: var(--red); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .posts { display: flex; flex-direction: column; gap: 20px; }
   .post { --r: 0deg; background: #fff; border-radius: 26px; padding: 28px 30px; display: grid; grid-template-columns: auto 1fr 22px; gap: 22px; align-items: center; box-shadow: 0 20px 36px -28px rgba(90, 60, 0, .55); transition: transform .5s cubic-bezier(.3,1.4,.5,1); }
   .post:nth-child(1) { --r: -1.4deg; }
@@ -699,13 +704,16 @@
       <div class="rv">
         <span class="hand">канал</span>
         <h2>Пишу о карьере честно и по делу</h2>
-        <p class="lead-c">Разборы резюме, кейсы клиентов, скрипты переговоров и инсайды из найма. Бесплатно и без воды.</p>
-        <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-dark"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>Подписаться в Telegram</a>
+        <p class="lead-c">Разборы резюме, кейсы клиентов, скрипты переговоров и инсайды из найма. Пишу в Telegram и выкладываю видео на YouTube. Бесплатно и без воды.</p>
+        <div class="ch-btns">
+          <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-dark"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>Подписаться в Telegram</a>
+          <a href="https://www.youtube.com/@alessmera" target="_blank" rel="noopener" class="btn btn-yt"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3Z"/></svg>Смотреть на YouTube</a>
+        </div>
       </div>
       <div class="posts">
-        <a class="post rv" href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener"><span class="pill pink">Переговоры</span><b>5 фраз, которые стоят вам прибавки</b><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-        <a class="post rv d1" href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener"><span class="pill yellow">Резюме</span><b>Почему ATS не видит ваше резюме</b><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-        <a class="post rv d2" href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener"><span class="pill coral">Выгорание</span><b>Устал или выгорел: как отличить</b><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="post rv" href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener"><span class="pill pink">Повышение</span><b>Как прийти к руководителю за повышением и получить его</b><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="post rv d1" href="https://www.youtube.com/@alessmera" target="_blank" rel="noopener"><span class="pill yellow">Смена сферы</span><b>С чего начать, если хочется в новую профессию</b><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="post rv d2" href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener"><span class="pill coral">Свой продукт</span><b>Как найти новые источники дохода на своей экспертизе</b><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       </div>
     </div>
   </section>
