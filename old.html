@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Александра Амброжий</title>
+<meta name="description" content="Карьерные консультации и стратегии роста: профориентация, офис пак, план роста и сопровождение. Александра Амброжий — про людей и бизнес.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Golos+Text:wght@400;500;600&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: silk-gradient hero panel, white statement block on a hairline grid, dark full-bleed steps; paper-cut art and outlined cards between */
+  :root {
+    --cream: #FBF3EA;
+    --sand: #F4E3D3;
+    --blush: #F8DCD6;
+    --pink: #EE9E9C;
+    --red: #C9412E;
+    --orange: #DE7B3A;
+    --yellow: #EDB843;
+    --brown: #6B3F26;
+    --espresso: #3A2218;
+    --muted: #8A6A55;
+    --line: rgba(107, 63, 38, .16);
+    --paper: #FFFAF4;
+    --display: "Onest", "Golos Text", system-ui, sans-serif;
+    --flame: #E8693F;
+    --ink: #221E1D;
+    --serif: "PT Serif", Georgia, "Times New Roman", serif;
+    --sans: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --hand: "Caveat", "Segoe Print", "Comic Sans MS", cursive;
+    --radius: 28px;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans); color: var(--espresso); background: var(--cream);
+    line-height: 1.65; font-size: 17px; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  svg { display: block; max-width: 100%; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 24px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.06; text-wrap: balance; }
+  h1 em, h2 em, h3 em { font-style: italic; color: var(--red); }
+
+  /* Header */
+  header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: rgba(251, 243, 234, .86); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; }
+  .logo { font-family: var(--serif); font-size: 25px; font-weight: 500; white-space: nowrap; }
+  .logo em { color: var(--red); }
+  .nav ul { display: flex; gap: 28px; list-style: none; font-size: 15px; color: var(--brown); }
+  .nav ul a { position: relative; }
+  .nav ul a::after { content: ""; position: absolute; left: 0; bottom: -4px; height: 1px; width: 0; background: var(--red); transition: width .3s ease; }
+  .nav ul a:hover::after { width: 100%; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 999px;
+    font: 500 15px/1.2 var(--sans); letter-spacing: .02em; border: 1px solid transparent; cursor: pointer;
+    transition: transform .25s ease, background .25s ease, color .25s ease;
+  }
+  .btn-primary { background: var(--red); color: var(--paper); box-shadow: 0 12px 30px -12px rgba(201, 65, 46, .8); }
+  .btn-primary:hover { background: var(--brown); transform: translateY(-2px); }
+  .btn-ghost { background: var(--blush); border-color: var(--pink); color: var(--brown); }
+  .btn-ghost:hover { background: var(--brown); color: var(--cream); border-color: var(--brown); }
+  .btn-sm { padding: 11px 22px; font-size: 14px; }
+  .btn-yellow { background: var(--yellow); color: var(--espresso); }
+  .btn-yellow:hover { background: var(--paper); transform: translateY(-2px); }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); }
+  .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+
+  /* Hero */
+  .hero { padding-block: 72px 56px; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .hero-grid > div { min-width: 0; }
+  .hero h1 { font-size: clamp(46px, 6.6vw, 90px); margin: 22px 0 0; letter-spacing: -.01em; }
+  .hero .lead { font-size: 19px; color: var(--brown); max-width: 520px; margin: 26px 0 38px; font-weight: 300; }
+  .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-sign { margin-top: 44px; display: flex; align-items: center; gap: 16px; color: var(--muted); font-size: 14px; }
+  .hero-sign strong { display: block; font-family: var(--serif); font-size: 24px; font-weight: 500; font-style: italic; color: var(--espresso); }
+  .hero-sign .dot { width: 46px; height: 46px; border-radius: 50%; background: var(--yellow); display: grid; place-items: center; flex: none; }
+
+  .hero-art { position: relative; max-width: 470px; justify-self: end; width: 100%; }
+  .hero-art .float { animation: float 7s ease-in-out infinite; }
+  @keyframes float { 50% { transform: translateY(-10px); } }
+  .badge-rot { position: absolute; width: 132px; height: 132px; left: -34px; bottom: 34px; }
+  .badge-rot .spin { transform-origin: 60px 60px; animation: spin 22s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Ticker */
+  .ticker { background: var(--red); color: var(--paper); overflow: hidden; padding-block: 18px; transform: rotate(-1.2deg); margin: 24px -10px 0; }
+  .ticker-track { display: flex; gap: 0; width: max-content; animation: tick 38s linear infinite; }
+  .ticker span { font-family: var(--serif); font-size: 26px; font-style: italic; white-space: nowrap; padding-inline: 22px; display: inline-flex; align-items: center; gap: 44px; }
+  .ticker span::after { content: "✦"; font-style: normal; font-size: 16px; color: var(--yellow); }
+  @keyframes tick { to { transform: translateX(-50%); } }
+
+  /* Sections */
+  section { padding-block: 104px; }
+  .head { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-bottom: 56px; }
+  .head > div { min-width: 0; }
+  .head h2 { font-size: clamp(38px, 5vw, 64px); margin-top: 16px; }
+  .head p { color: var(--muted); font-size: 18px; font-weight: 300; max-width: 520px; margin-top: 18px; }
+  .fork-art { width: 240px; margin: -16px auto 28px; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-grid > div { min-width: 0; }
+  .about-quote { font-family: var(--serif); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.25; font-style: italic; color: var(--brown); }
+  .about-quote b { font-style: normal; font-weight: 600; color: var(--espresso); background: linear-gradient(transparent 62%, rgba(237, 184, 67, .55) 62%); }
+  .about-quote + .about-quote { margin-top: 24px; }
+
+  .portrait { position: relative; max-width: 420px; width: 100%; justify-self: center; }
+  .portrait .frame { border-radius: 50%; background: var(--blush); padding: 18px; position: relative; z-index: 1; }
+  .portrait .clip { border-radius: 50%; overflow: hidden; aspect-ratio: 1; }
+  .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.07); max-width: 100%; }
+  .portrait .sun { position: absolute; width: 120px; height: 120px; border-radius: 50%; background: var(--yellow); right: -30px; top: 40px; z-index: 0; }
+  .portrait .star { position: absolute; left: -22px; top: 70px; width: 48px; z-index: 2; }
+  .sticker { position: absolute; z-index: 2; padding: 10px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; box-shadow: 0 10px 24px -12px rgba(58, 34, 24, .5); white-space: nowrap; }
+  .sticker.s1 { background: var(--red); color: var(--paper); left: -14px; bottom: 70px; transform: rotate(-5deg); }
+  .sticker.s2 { background: var(--yellow); color: var(--espresso); right: -10px; bottom: 14px; transform: rotate(4deg); }
+  .about-top { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
+  .about-top > div { min-width: 0; }
+  .about-top h2 { font-size: clamp(40px, 5vw, 64px); margin: 16px 0 8px; }
+  .role { font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 28px; }
+  .creds { display: none; }
+  .about-top { margin-bottom: 64px; }
+  .about-divider { position: relative; height: 60px; margin-bottom: 72px; }
+  .about-divider svg { width: 100%; height: 100%; display: block; }
+  .ad-dot { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; border: 1.5px solid var(--ink); }
+  .ad-star { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--flame); color: #fff; display: grid; place-items: center; font-size: 22px; animation: spin 24s linear infinite; }
+  .cred { background: var(--paper); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; min-width: 0; }
+  .cred b { display: block; font: italic 500 24px/1.15 var(--serif); margin-bottom: 8px; }
+  .cred span { font-size: 14px; color: var(--brown); }
+  .about-grid { grid-template-columns: .8fr 1.2fr; }
+  .cta-arts { display: flex; justify-content: center; align-items: flex-end; gap: 32px; margin: 0 auto 24px; flex-wrap: wrap; }
+  .cta-arts .cta-people { margin: 0; width: 200px; }
+  .cta-team { height: 300px; width: auto; max-width: 100%; }
+  .inside h3 { font-size: clamp(32px, 3.6vw, 46px); margin: 16px 0 18px; }
+  .inside p { color: var(--brown); font-size: 17px; margin-bottom: 20px; max-width: 560px; }
+  .ava { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--yellow); max-width: 100%; }
+
+  /* Business */
+  #business { background: var(--sand); border-radius: 56px; margin-inline: 16px; }
+  .biz { grid-column: span 2; background: var(--paper); border: 1px solid var(--line); border-radius: 26px; padding: 30px 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .biz.wide { grid-column: span 3; }
+  .biz .ico { width: 56px; height: 56px; }
+  .biz h3 { font-size: 28px; }
+  .biz .p-desc { margin-bottom: 4px; }
+  .biz-res { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font: italic 19px/1.35 var(--serif); color: var(--red); }
+  .biz-foot { margin-top: 28px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .biz-foot p { font: italic 26px/1.3 var(--serif); color: var(--brown); }
+
+  /* Path */
+  #path { background: var(--sand); border-radius: 56px 56px 0 0; }
+  .variants { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card {
+    position: relative; background: var(--paper); border-radius: var(--radius); padding: 46px 42px; border: 1px solid var(--line);
+    transition: transform .35s ease, box-shadow .35s ease; overflow: hidden;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -30px rgba(107, 63, 38, .35); }
+  .card.dark { background: var(--brown); color: var(--sand); border-color: transparent; }
+  .card.dark h3 { color: var(--paper); }
+  .card .pill { display: inline-block; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; background: var(--blush); color: var(--red); margin-bottom: 24px; }
+  .card.dark .pill { background: var(--yellow); color: var(--espresso); }
+  .card h3 { font-size: 36px; margin-bottom: 12px; }
+  .card .sub { color: var(--muted); font-size: 16px; margin-bottom: 26px; }
+  .card.dark .sub { color: var(--sand); opacity: .78; }
+  .list { list-style: none; display: grid; gap: 13px; }
+  .list li { position: relative; padding-left: 26px; font-size: 16px; }
+  .list li::before { content: ""; position: absolute; left: 0; top: 10px; width: 9px; height: 9px; border-radius: 50%; background: var(--red); }
+  .card.dark .list li::before { background: var(--yellow); }
+  .result { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--serif); font-size: 22px; font-style: italic; line-height: 1.35; }
+  .card.dark .result { border-color: rgba(244, 227, 211, .22); }
+  .stat { display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px; font-size: 14px; opacity: .85; }
+  .stat strong { font-family: var(--serif); font-size: 52px; font-weight: 500; color: var(--yellow); line-height: 1; }
+  .card .corner { position: absolute; right: -26px; top: -26px; width: 120px; opacity: .95; }
+
+  /* Office pack */
+  .pack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pack-item { padding: 36px 32px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); transition: transform .35s ease; min-width: 0; }
+  .pack-item:hover { transform: translateY(-6px) rotate(-.4deg); }
+  .pack-item .ico { width: 78px; height: 78px; margin-bottom: 26px; }
+  .pack-item h3 { font-size: 30px; margin-bottom: 20px; }
+  .pack-item ul { list-style: none; display: grid; gap: 10px; font-size: 15px; color: var(--brown); }
+  .pack-item li { padding-left: 22px; position: relative; }
+  .pack-item li::before { content: "—"; position: absolute; left: 0; color: var(--red); }
+
+  .handouts { margin-top: 24px; background: var(--espresso); color: var(--sand); border-radius: var(--radius); padding: 34px 36px; display: grid; grid-template-columns: .8fr repeat(3, 1fr); gap: 24px; align-items: start; }
+  .handouts > div { min-width: 0; }
+  .handouts h3 { font-size: 30px; color: var(--paper); }
+  .handout b { display: block; font: italic 500 22px/1.2 var(--serif); color: var(--yellow); margin-bottom: 8px; }
+  .handout span { font-size: 15px; color: rgba(244, 227, 211, .8); }
+  .handout::before { content: "✦"; display: block; color: var(--pink); margin-bottom: 8px; }
+
+  .how { margin-top: 80px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+  .how > div { min-width: 0; }
+  .how h3 { font-size: 46px; margin-top: 14px; }
+  .steps { display: grid; gap: 18px; }
+  .step { display: grid; grid-template-columns: 60px 1fr; gap: 22px; align-items: start; background: var(--blush); padding: 28px; border-radius: 22px; }
+  .step:nth-child(2) { background: #FBE7BE; }
+  .step-num { width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; background: var(--red); color: var(--paper); font: italic 28px var(--serif); }
+  .step:nth-child(2) .step-num { background: var(--orange); }
+  .step h4 { font-weight: 600; font-size: 17px; margin-bottom: 6px; }
+  .step p { color: var(--brown); font-size: 15px; }
+  .step .time { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--red); letter-spacing: .05em; }
+
+  /* Promotions accent */
+  .promo { padding-block: 72px 0; }
+  .promo-box { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; }
+  .promo-box > div { min-width: 0; }
+  .promo h2 { font-size: clamp(36px, 4.6vw, 58px); margin-top: 16px; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .fact { background: var(--paper); border: 1px solid var(--line); border-radius: 22px; padding: 26px 22px; min-width: 0; }
+  .fact strong { display: block; font: 500 36px/1.05 var(--serif); color: var(--red); margin-bottom: 10px; }
+  .fact span { font-size: 15px; color: var(--brown); }
+
+  /* Catalog (marketplace) */
+  .catalog { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+  .product {
+    grid-column: span 2; display: flex; flex-direction: column; min-width: 0; background: var(--paper);
+    border: 1px solid var(--line); border-radius: 26px; overflow: hidden; transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .product.wide { grid-column: span 3; }
+  .product:hover { transform: translateY(-6px); box-shadow: 0 28px 50px -28px rgba(107, 63, 38, .45); }
+  .p-media { position: relative; height: 190px; display: grid; place-items: center; }
+  .p-media svg { height: 140px; width: auto; }
+  .p-tags { position: absolute; left: 16px; top: 16px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .p-tag { font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: var(--paper); color: var(--red); }
+  .p-tag.hot { background: var(--red); color: var(--paper); }
+  .p-tag.up { background: var(--yellow); color: var(--espresso); }
+  .p-body { padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .p-cat { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .p-body h3 { font-size: 30px; }
+  .p-desc { font-size: 15px; color: var(--brown); }
+  .p-list { list-style: none; display: grid; gap: 6px; font-size: 14px; }
+  .p-list li { padding-left: 22px; position: relative; }
+  .p-list li::before { content: "✓"; position: absolute; left: 0; color: var(--red); font-weight: 600; }
+  .p-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 13px; color: var(--brown); }
+  .p-meta span { background: var(--cream); padding: 4px 10px; border-radius: 8px; }
+  .p-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .p-actions .btn { flex: 1; justify-content: center; padding: 12px 16px; font-size: 14px; white-space: nowrap; }
+
+  /* Reboot */
+  #reboot { background: var(--blush); border-radius: 56px; margin-inline: 16px; }
+  .reboot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .reboot-grid .card { padding: 36px 32px; }
+  .reboot-grid .card h3 { font-size: 30px; }
+  .card.cream { background: #FBE7BE; border-color: transparent; }
+  .card.cream .pill { background: var(--orange); color: var(--paper); }
+  .card.cream .list li::before { background: var(--orange); }
+  .card.red { background: var(--red); color: var(--blush); border-color: transparent; }
+  .card.red h3 { color: var(--paper); }
+  .card.red .sub { color: var(--blush); opacity: .9; }
+  .card.red .pill { background: var(--yellow); color: var(--espresso); }
+  .card.red .list li::before { background: var(--yellow); }
+  .growth-chart { margin: 4px 0 22px; }
+  .reboot-result { margin-top: 28px; background: var(--espresso); color: var(--cream); border-radius: 26px; padding: 30px 34px; display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .reboot-result p { font: italic 26px/1.3 var(--serif); max-width: 720px; }
+  .reboot-result p b { color: var(--yellow); font-weight: 500; }
+
+  /* Support */
+  #support { background: var(--espresso); color: var(--sand); border-radius: 56px; margin: 104px 16px 0; }
+  #support h2 { color: var(--paper); }
+  #support .head p { color: rgba(244, 227, 211, .7); }
+  #support .eyebrow { color: var(--yellow); }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 52px; }
+  .chip { padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(244, 227, 211, .3); font-size: 15px; }
+  .chip:nth-child(3n+1) { background: var(--pink); color: var(--espresso); border-color: transparent; }
+  .chip:nth-child(3n+2) { background: var(--yellow); color: var(--espresso); border-color: transparent; }
+  .formats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 48px; }
+  .format { border: 1px solid rgba(244, 227, 211, .2); border-radius: 22px; padding: 28px; transition: background .3s ease, border-color .3s ease; }
+  .format:hover { background: rgba(238, 158, 156, .12); border-color: var(--pink); }
+  .format .f-title { font-family: var(--serif); font-size: 34px; color: var(--paper); line-height: 1.1; }
+  .format .f-sub { font-size: 14px; color: var(--pink); margin-top: 8px; }
+  .includes { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; list-style: none; }
+  .includes li { display: flex; gap: 16px; align-items: flex-start; font-size: 16px; padding-block: 20px; border-top: 1px solid rgba(244, 227, 211, .15); }
+  .includes li::before { content: "✦"; color: var(--yellow); font-size: 15px; line-height: 1.6; }
+
+  /* Reviews carousel */
+  .car-nav { display: flex; gap: 10px; }
+  .car-btn { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--brown); background: transparent; color: var(--brown); font: 20px/1 var(--sans); cursor: pointer; transition: background .25s ease, color .25s ease; }
+  .car-btn:hover { background: var(--brown); color: var(--cream); }
+  .car-btn:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  .track { display: flex; align-items: flex-start; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .track::-webkit-scrollbar { display: none; }
+  .review { flex: 0 0 min(400px, 86%); scroll-snap-align: start; position: relative; border-radius: var(--radius); padding: 38px 34px 30px; display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+  .review.c1 { background: var(--blush); }
+  .review.c2 { background: #FBE7BE; }
+  .review.c3 { background: var(--sand); }
+  .review.c4 { background: var(--red); color: var(--paper); }
+  .review .q { position: absolute; right: 26px; top: 6px; font: italic 120px/1 var(--serif); color: var(--red); opacity: .25; }
+  .review.c4 .q { color: var(--yellow); opacity: .6; }
+  .review blockquote { font-family: var(--serif); font-size: 23px; font-style: italic; line-height: 1.4; position: relative; }
+  .review .who { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; }
+  .review.c4 .who { border-color: rgba(255, 250, 244, .3); }
+  .review .who b { display: block; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; font-size: 12px; margin-bottom: 4px; }
+  .review .who span { font-family: var(--serif); font-style: italic; font-size: 17px; }
+  .review.chat { background: var(--paper); border: 1px solid var(--line); }
+  .res { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .06em; padding: 6px 12px; border-radius: 999px; background: var(--red); color: var(--paper); position: relative; }
+  .review.c4 .res { background: var(--yellow); color: var(--espresso); }
+  .review.stat-card { background: var(--espresso); color: var(--sand); }
+  .stat-card .res { background: var(--yellow); color: var(--espresso); }
+  .stat-card .big { font: 500 96px/0.9 var(--serif); color: var(--yellow); }
+  .stat-card .big-sub { font: italic 24px/1.3 var(--serif); color: var(--paper); }
+  .stat-card ul { list-style: none; display: grid; gap: 10px; font-size: 15px; padding-top: 18px; border-top: 1px solid rgba(244, 227, 211, .2); }
+  .stat-card li { padding-left: 22px; position: relative; }
+  .stat-card li::before { content: "✦"; position: absolute; left: 0; color: var(--pink); }
+  .chat-src { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .chat-src::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pink); }
+  .bubbles { display: grid; gap: 8px; }
+  .bubble { background: var(--blush); border-radius: 20px 20px 20px 6px; padding: 12px 16px; font-size: 16px; line-height: 1.5; justify-self: start; max-width: 100%; }
+  .bubble:nth-child(even) { background: #FBE7BE; }
+  .car-hint { margin-top: 10px; font-size: 13px; color: var(--muted); }
+
+  /* Channel */
+  .channel { padding-block: 0; margin-top: 104px; }
+  .channel-box {
+    background: var(--yellow); border-radius: 56px; padding: 64px 56px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .channel-box > div { min-width: 0; position: relative; }
+  .channel-box .eyebrow { color: var(--espresso); }
+  .channel-box h2 { font-size: clamp(38px, 5vw, 64px); margin: 18px 0; }
+  .channel-box h2 em { color: var(--red); }
+  .channel-box p { font-size: 18px; color: var(--brown); max-width: 480px; margin-bottom: 30px; }
+  .ch-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .handle { font-family: var(--serif); font-size: 22px; font-style: italic; margin-top: 18px; color: var(--brown); user-select: all; }
+
+  /* CTA */
+  .cta { text-align: center; padding-block: 120px 110px; position: relative; overflow: hidden; }
+  .cta .wrap { position: relative; }
+  .cta h2 { font-size: clamp(38px, 5vw, 64px); max-width: 760px; margin: 18px auto 22px; }
+  .cta p { color: var(--brown); max-width: 520px; margin: 0 auto 36px; font-weight: 300; font-size: 18px; }
+  .cta .actions { justify-content: center; }
+  .cta-art { width: 150px; margin: 0 auto 10px; }
+
+  footer { background: var(--espresso); color: var(--sand); padding-block: 56px 40px; font-size: 14px; border-radius: 40px 40px 0 0; }
+  footer .wrap { display: grid; gap: 30px; }
+  .foot-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .foot-name { font: italic 500 34px/1.1 var(--serif); color: var(--paper); }
+  .foot-name small { display: block; font: 400 13px/1.6 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--pink); margin-top: 6px; font-style: normal; }
+  .socials { display: flex; gap: 12px; flex-wrap: wrap; }
+  .social { display: inline-flex; align-items: center; gap: 12px; padding: 12px 20px 12px 12px; border-radius: 999px; border: 1px solid rgba(244, 227, 211, .25); transition: background .25s ease, border-color .25s ease; }
+  .social:hover { background: rgba(238, 158, 156, .14); border-color: var(--pink); }
+  .social i { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; flex: none; font-style: normal; font-weight: 600; font-size: 13px; }
+  .social.tg i { background: var(--pink); color: var(--espresso); }
+  .social.yt i { background: var(--red); color: var(--paper); }
+  .social.vk i { background: var(--yellow); color: var(--espresso); }
+  .social b { display: block; font-weight: 600; color: var(--paper); font-size: 15px; }
+  .social span { font-size: 13px; color: rgba(244, 227, 211, .7); }
+  .foot-bottom { border-top: 1px solid rgba(244, 227, 211, .15); padding-top: 22px; color: rgba(244, 227, 211, .6); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  /* Identity: type, print texture, outlined shapes */
+  body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .13 0 0 0 0 .09 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"); opacity: .07; mix-blend-mode: multiply; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.005em; line-height: 1.1; }
+  h1 em, h2 em, h3 em { font-style: normal; color: var(--red); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 6 Q 5 1 10 6 T 20 6 T 30 6 T 40 6' fill='none' stroke='%23EDB843' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left bottom / 28px 8px; padding-bottom: .12em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .hero h1 { line-height: 1.04; }
+  .logo { font-family: var(--display); font-size: 23px; font-weight: 400; }
+  .logo em { font-style: normal; }
+  .eyebrow { font-family: var(--hand); font-size: 25px; font-weight: 700; letter-spacing: 0; text-transform: none; gap: 10px; line-height: 1.1; }
+  .eyebrow::before { width: 44px; height: 20px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='20' viewBox='0 0 44 20'%3E%3Cpath d='M2 12 C 12 4, 24 16, 36 9' fill='none' stroke='%23C9412E' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M30 4 L 37 9 L 30 14' fill='none' stroke='%23C9412E' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain; }
+  .lead, .head p { font-weight: 400; }
+
+  .btn { border-radius: 14px; border: 1.5px solid var(--espresso); box-shadow: 3px 3px 0 var(--espresso); font-weight: 500; }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--espresso); }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--espresso); }
+  .btn-primary { box-shadow: 3px 3px 0 var(--espresso); }
+  .btn-ghost { background: var(--paper); border-color: var(--espresso); }
+  .btn-yellow { border-color: var(--paper); box-shadow: 3px 3px 0 var(--paper); }
+  .car-btn { border-radius: 14px; border: 1.5px solid var(--espresso); box-shadow: 3px 3px 0 var(--espresso); }
+
+  .product, .fact, .cred, .biz, .pack-item { border: 1.5px solid var(--espresso); border-radius: 20px; }
+  .product { box-shadow: 7px 7px 0 var(--pink); }
+  .product:nth-child(3n+2) { box-shadow: 7px 7px 0 var(--yellow); }
+  .product:nth-child(3n) { box-shadow: 7px 7px 0 var(--orange); }
+  .product:hover { transform: translate(-3px, -3px); box-shadow: 10px 10px 0 var(--red); }
+  .p-media { border-bottom: 1.5px solid var(--espresso); }
+  .p-tag { border: 1.5px solid var(--espresso); }
+  .fact { box-shadow: 5px 5px 0 var(--blush); }
+  .fact strong { font-family: var(--display); font-weight: 400; font-size: 32px; line-height: 1.15; }
+  .promo h2 { font-size: clamp(34px, 3.8vw, 50px); }
+  .fact strong .circled { position: relative; display: inline-block; font-size: inherit; color: inherit; }
+  .circled::after { content: ""; position: absolute; inset: -12px -16px -10px -14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80' preserveAspectRatio='none'%3E%3Cpath d='M18 44 C 20 14, 170 6, 186 32 C 200 60, 60 78, 24 60 C 6 50, 30 22, 104 16' fill='none' stroke='%23EDB843' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%; pointer-events: none; }
+  .cred { box-shadow: 5px 5px 0 var(--sand); }
+  .cred b { font: 400 21px/1.2 var(--display); }
+  .biz { box-shadow: 6px 6px 0 var(--blush); }
+  .pack-item { box-shadow: 6px 6px 0 var(--sand); }
+  .card { border-radius: 22px; }
+  .card:not(.dark):not(.red):not(.cream) { border: 1.5px solid var(--espresso); }
+
+  .about-quote { font-size: clamp(22px, 2.5vw, 30px); line-height: 1.4; }
+  .about-quote b { font-family: var(--display); font-weight: 400; }
+  .result { font-size: 19px; }
+  .review blockquote { font-size: 19px; line-height: 1.5; }
+  .review .who span { font-size: 15px; }
+  .review .q { font-family: var(--display); font-style: normal; }
+  .biz-res { font-size: 16px; }
+  .biz-foot p, .reboot-result p { font-size: 21px; }
+  .reboot-result p b { font-family: var(--display); font-weight: 400; }
+  .stat-card .big, .stat strong, .format .f-title, .foot-name, .hero-sign strong { font-family: var(--display); font-style: normal; font-weight: 400; }
+  .stat-card .big-sub { font-size: 20px; }
+  .handout b { font: 400 19px/1.25 var(--display); }
+  .step-num { font: 400 26px var(--display); border: 1.5px solid var(--espresso); }
+  .ticker span { font-family: var(--display); font-style: normal; font-size: 22px; }
+  .handle { font-family: var(--hand); font-size: 28px; font-style: normal; }
+  .car-hint { font-family: var(--hand); font-size: 22px; color: var(--red); }
+  .chat-src { font-family: var(--hand); font-size: 20px; letter-spacing: 0; text-transform: none; }
+  .sticker { border: 1.5px solid var(--espresso); }
+  .portrait .frame { border: 1.5px solid var(--espresso); }
+  .portrait .sun { box-shadow: -8px 6px 0 -2px var(--cream), -8px 6px 0 0 var(--espresso); }
+  .hand-note { display: flex; align-items: flex-start; gap: 6px; margin-top: 16px; font: 700 23px/1.1 var(--hand); color: var(--red); transform: rotate(-2deg); }
+  .hand-note svg { width: 48px; flex: none; margin-top: -14px; }
+
+  /* Flame-inspired: silk hero, statement + hairline grid, dark steps */
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; letter-spacing: -.035em; line-height: 1.02; }
+  h3 { letter-spacing: -.02em; line-height: 1.1; }
+  h1 em, h2 em, h3 em { background: none; padding: 0; color: var(--flame); }
+  .logo, .logo em { font-family: var(--display); font-weight: 500; letter-spacing: -.03em; }
+  .logo em { color: var(--flame); }
+  .eyebrow { font: 500 14px/1.3 var(--sans); letter-spacing: .02em; color: var(--flame); gap: 8px; }
+  .eyebrow::before { content: "✱"; width: auto; height: auto; background: none; font-size: 16px; }
+  .btn { border-radius: 999px; border: 1px solid transparent; box-shadow: none; padding: 15px 30px; }
+  .btn:hover { transform: translateY(-2px); box-shadow: none; }
+  .btn:active { transform: translateY(1px); box-shadow: none; }
+  .btn-primary { background: var(--flame); color: #fff; box-shadow: none; }
+  .btn-primary:hover { background: var(--red); }
+  .btn-ghost { background: rgba(255, 255, 255, .6); border-color: var(--ink); color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .btn-yellow { border-color: transparent; box-shadow: none; }
+  .car-btn { border-radius: 50%; box-shadow: none; border: 1px solid var(--ink); }
+  .btn-wide { min-width: 260px; justify-content: center; font-size: 17px; padding-block: 18px; }
+  .btn-round { width: 58px; height: 58px; border-radius: 50%; background: var(--flame); color: #fff; display: grid; place-items: center; flex: none; transition: background .25s ease, transform .25s ease; }
+  .btn-round:hover { background: var(--red); transform: rotate(-10deg); }
+  .btn-round svg { width: 24px; height: 24px; }
+  .stat-card .big, .stat strong, .format .f-title, .foot-name, .hero-sign strong, .fact strong, .cred b, .handout b, .step-num, .ticker span, .review .q, .about-quote b, .reboot-result p b { font-family: var(--display); letter-spacing: -.03em; font-weight: 500; }
+
+  .hero { padding-block: 20px 40px; }
+  .hero-panel {
+    position: relative; overflow: hidden; border-radius: 36px; min-height: 640px; padding: 250px 56px 48px;
+    display: grid; grid-template-columns: 1fr auto; grid-template-rows: 1fr auto auto auto; gap: 28px 40px; align-items: end;
+    background: radial-gradient(70% 60% at 70% 75%, #FFE3B8 0%, transparent 70%), linear-gradient(165deg, #FFF3E8 0%, #FDE3CF 45%, #FCEBDD 100%);
+  }
+  .silk { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+  .silk .wave1 { animation: drift 14s ease-in-out infinite alternate; }
+  .silk .wave2 { animation: drift 18s ease-in-out infinite alternate-reverse; }
+  @keyframes drift { from { transform: translateY(-10px); } to { transform: translateY(14px); } }
+  .glass { position: absolute; left: -40px; top: 40px; bottom: 40px; width: 76px; border-radius: 28px; background: rgba(255, 255, 255, .35); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, .6); z-index: 1; }
+  .hero-content, .hero-cta, .hero-sign { position: relative; z-index: 2; }
+  .hero-content { grid-column: 1; grid-row: 2; max-width: 720px; }
+  .hero h1 { font-size: clamp(46px, 6.4vw, 92px); color: var(--ink); margin-top: 18px; line-height: .98; }
+  .hero .lead { margin: 22px 0 0; color: var(--ink); opacity: .8; max-width: 520px; }
+  .hero .lead b { font-weight: 600; color: var(--flame); }
+  .hero-cta { grid-column: 1; grid-row: 3; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .hero-cta .btn-ghost { order: 3; }
+  .flex-break { flex-basis: 100%; height: 0; order: 2; }
+  .hero-sign { grid-column: 1 / -1; grid-row: 4; margin-top: 0; padding-top: 22px; border-top: 1px solid rgba(34, 30, 29, .14); color: var(--ink); }
+  .hero-sign strong { color: var(--ink); font-size: 20px; }
+  .hero-panel .badge-rot { left: auto; bottom: auto; right: 48px; top: 40px; z-index: 2; width: 120px; height: 120px; }
+  .ticker { background: var(--ink); transform: none; margin: 28px 0 0; }
+  .ticker span { font-size: 22px; }
+  .ticker span::after { content: "✱"; color: var(--flame); }
+
+  #why { background: #FFFFFF; overflow: hidden; }
+  #formats { background: #FFFFFF; border-radius: 56px 56px 0 0; border-top: 1px solid var(--ink); position: relative; }
+  #formats::before { content: "✱"; position: absolute; top: -22px; left: 50%; transform: translateX(-50%); width: 44px; height: 44px; border-radius: 50%; background: var(--flame); color: #fff; display: grid; place-items: center; font-size: 20px; }
+  .statement { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; align-items: end; margin-bottom: 80px; }
+  .statement > p { min-width: 0; }
+  .statement-note { font-size: 18px; max-width: 360px; color: var(--ink); }
+  .statement-big { font: 500 clamp(56px, 9vw, 140px)/.92 var(--display); letter-spacing: -.05em; color: var(--flame); text-align: right; }
+  .hairgrid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; border-top: 1px solid var(--ink); }
+  .hg-cell { padding: 36px 32px 44px; border-bottom: 1px solid var(--ink); min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+  .hg-cell + .hg-cell { border-left: 1px solid var(--ink); }
+  .hg-cell:nth-child(4) { border-left: none; }
+  .hg-cell h3 { font-size: clamp(26px, 2.6vw, 36px); }
+  .hg-cell p { color: var(--ink); opacity: .8; font-size: 16px; max-width: 320px; }
+  .hg-title { grid-row: span 1; justify-content: space-between; min-height: 280px; padding-left: 0; }
+  .hg-title h2 { font-size: clamp(40px, 4.4vw, 64px); }
+  .asterisk { align-self: flex-end; font-size: 72px; line-height: 1; color: var(--ink); animation: spin 30s linear infinite; }
+  .hg-cell:nth-child(4) { padding-left: 0; }
+  .hg-cta { justify-content: center; align-items: flex-start; grid-column: span 2; }
+
+  #steps { background: var(--ink); color: #F4ECE6; }
+  .steps-title { font-size: clamp(56px, 9vw, 140px); color: #fff; letter-spacing: -.05em; margin-bottom: 64px; }
+  .srow { display: grid; grid-template-columns: 120px 1fr 1.3fr; gap: 32px; align-items: center; padding-block: 44px; border-bottom: 1px solid rgba(255, 255, 255, .25); }
+  .srow > * { min-width: 0; }
+  .sarrow { font: 300 64px/1 var(--display); color: #fff; transition: transform .3s ease, color .3s ease; }
+  .srow:hover .sarrow { transform: translateX(10px); color: var(--flame); }
+  .snum { display: block; color: var(--flame); font-size: 20px; margin-bottom: 10px; }
+  .sname h3 { font-size: clamp(28px, 3vw, 42px); color: #fff; }
+  .srow ul { list-style: none; display: grid; gap: 14px; font-size: 17px; }
+  .srow li { padding-left: 30px; position: relative; }
+  .srow li::before { content: "✱"; position: absolute; left: 0; top: 0; color: #fff; }
+
+  .hero-figure { position: absolute; right: 60px; top: 190px; width: 380px; z-index: 1; }
+  .hero-glass-card { grid-column: 2; grid-row: 1; align-self: end; justify-self: end; position: relative; z-index: 2; display: grid; gap: 14px; width: 320px; padding: 20px 24px; border-radius: 22px; background: rgba(255, 255, 255, .42); border: 1px solid rgba(255, 255, 255, .75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: var(--ink); }
+  .hero-glass-card div { display: flex; align-items: baseline; gap: 14px; }
+  .hero-glass-card div + div { padding-top: 14px; border-top: 1px solid rgba(34, 30, 29, .14); }
+  .hero-glass-card b { font: 500 34px/1 var(--display); letter-spacing: -.04em; color: var(--flame); min-width: 64px; }
+  .hero-glass-card span { font-size: 14px; line-height: 1.35; opacity: .8; }
+  .hero-path { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+  .path-dot { position: absolute; z-index: 1; width: 12px; height: 12px; border-radius: 50%; }
+  .pd1 { left: calc(296 / 1132 * 100% - 6px); top: calc(912 / 1100 * 100% - 6px); background: var(--flame); }
+  .pd3 { left: calc(610 / 1132 * 100% - 6px); top: calc(300 / 1100 * 100% - 6px); background: var(--red); }
+  .pd4 { left: calc(890 / 1132 * 100% - 6px); top: calc(800 / 1100 * 100% - 6px); background: var(--yellow); border: 1.5px solid var(--ink); }
+  .pd2 { left: calc(580 / 1132 * 100% - 6px); top: calc(560 / 1100 * 100% - 6px); background: var(--yellow); border: 1.5px solid var(--ink); }
+  .cta-people { width: 240px; margin: 0 auto 18px; }
+
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .nav ul { display: none; }
+    .hero-panel { grid-template-columns: 1fr; min-height: 0; padding: 240px 32px 32px; }
+    .hero-figure { position: absolute; width: 150px; right: 28px; top: 30px; bottom: auto; }
+    .hero-path, .path-dot { display: none; }
+    .cta-arts .cta-people { width: 160px; }
+    .cta-team { height: 240px; }
+    .hero-glass-card { grid-column: 1; grid-row: 5; justify-self: start; width: 100%; max-width: 420px; }
+    .hero-panel .badge-rot { right: auto; left: 28px; }
+    .hero-content, .hero-cta { grid-column: 1; }
+    .hero-cta { grid-row: 3; justify-content: flex-start; max-width: none; }
+    .hero-sign { grid-row: 4; }
+    .statement { grid-template-columns: 1fr; }
+    .statement-big { text-align: left; }
+    .hairgrid { grid-template-columns: 1fr 1fr; }
+    .hg-title { grid-column: 1 / -1; min-height: 0; flex-direction: row; align-items: center; }
+    .hg-cta { grid-column: auto; }
+    .hg-cell + .hg-cell { border-left: none; }
+    .hg-cell:nth-child(odd):not(.hg-title) { border-left: 1px solid var(--ink); }
+    .hg-cell { padding-left: 0; }
+    .hg-cell:nth-child(odd):not(.hg-title) { padding-left: 24px; }
+    .srow { grid-template-columns: 70px 1fr; }
+    .srow ul { grid-column: 2; }
+    .sarrow { font-size: 44px; }
+    .about-top, .hero-grid, .about-grid, .variants, .how, .reboot-grid, .promo-box, .channel-box, .includes { grid-template-columns: 1fr; }
+    .catalog { grid-template-columns: 1fr 1fr; }
+    .product, .product.wide, .biz, .biz.wide { grid-column: span 1; }
+    .biz:last-child { grid-column: span 2; }
+    .creds { grid-template-columns: 1fr 1fr; }
+    .head { grid-template-columns: 1fr; }
+    .fork-art { width: 190px; }
+    .pack, .formats, .handouts { grid-template-columns: 1fr; }
+    .hero-art { justify-self: center; max-width: 380px; }
+    .about-grid .venn { max-width: 340px; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .wrap { padding-inline: 16px; }
+    .nav .btn { display: none; }
+    .hero { padding-block: 8px 28px; }
+    .hero-panel { padding: 230px 20px 24px; border-radius: 28px; }
+    .hero-panel .badge-rot { left: 16px; top: 16px; width: 88px; height: 88px; }
+    .cta-arts { gap: 16px; }
+    .cta-arts .cta-people { width: 120px; }
+    .cta-team { height: auto; width: 100%; }
+    .hero-figure { width: 120px; right: 16px; top: 20px; }
+    .glass { display: none; }
+    .btn-wide { min-width: 0; flex: 1; }
+    .hairgrid { grid-template-columns: 1fr; }
+    .hg-cell:nth-child(odd):not(.hg-title) { border-left: none; padding-left: 0; }
+    .hg-cell { padding: 26px 0 30px; }
+    .srow { grid-template-columns: 1fr; gap: 14px; padding-block: 32px; }
+    .srow ul { grid-column: 1; }
+    .sarrow { display: none; }
+    .steps-title { margin-bottom: 32px; }
+
+    section { padding-block: 76px; }
+    .card { padding: 34px 24px; }
+    .card h3 { font-size: 30px; }
+    .card .corner { width: 90px; }
+    .pack-item, .review { padding: 30px 24px; }
+    .catalog, .facts { grid-template-columns: 1fr; }
+    .biz:last-child { grid-column: span 1; }
+    .creds { grid-template-columns: 1fr; margin: 48px 0 64px; }
+    #business { border-radius: 36px; margin-inline: 8px; }
+    .sticker { font-size: 12px; }
+    .portrait { max-width: 320px; }
+    .reboot-result p { font-size: 22px; }
+    footer { border-radius: 28px 28px 0 0; }
+    #path { border-radius: 36px 36px 0 0; }
+    #reboot, #support { border-radius: 36px; margin-inline: 8px; }
+    #formats { border-radius: 36px 36px 0 0; }
+    #support { margin-top: 76px; }
+    .channel-box { border-radius: 36px; padding: 44px 24px; }
+    .step { grid-template-columns: 1fr; padding: 24px; }
+    .how h3 { font-size: 38px; }
+    .badge-rot { width: 104px; height: 104px; left: -6px; bottom: 10px; }
+    .ticker span { font-size: 21px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-art .float, .badge-rot .spin, .ticker-track, .silk .wave1, .silk .wave2, .asterisk, .float, .ad-star { animation: none; }
+    .card:hover, .pack-item:hover, .btn:hover, .product:hover { transform: none; }
+    .track { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">Александра <em>Амброжий</em></a>
+    <ul>
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#formats">Форматы</a></li>
+      <li><a href="#steps">Этапы</a></li>
+      <li><a href="#reboot">Перезагрузка</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#business">Компаниям</a></li>
+      <li><a href="#channel">Канал</a></li>
+    </ul>
+    <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Написать</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-panel">
+        <svg class="silk" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="silkA" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F0501C"/><stop offset=".45" stop-color="#FF8A3D"/><stop offset="1" stop-color="#FFC9A0" stop-opacity="0"/></linearGradient>
+            <linearGradient id="silkB" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F26A3A"/><stop offset=".6" stop-color="#F0503A"/><stop offset="1" stop-color="#F5A3B0"/></linearGradient>
+            <radialGradient id="silkY" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFC75A"/><stop offset="1" stop-color="#FFD58A" stop-opacity="0"/></radialGradient>
+            <filter id="blur30" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>
+            <filter id="blur8" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+            <filter id="blur2"><feGaussianBlur stdDeviation="1.6"/></filter>
+          </defs>
+          <ellipse cx="760" cy="470" rx="420" ry="200" fill="url(#silkY)" filter="url(#blur30)"/>
+          <ellipse cx="80" cy="260" rx="160" ry="220" fill="#F7A08E" opacity=".5" filter="url(#blur30)"/>
+          <g transform="translate(0,-165)"><g class="wave1"><path d="M0 250 C 260 170, 560 260, 1200 330 L 1200 360 C 760 320, 380 330, 0 340 Z" fill="url(#silkA)" filter="url(#blur8)"/></g>
+          <g class="wave2"><path d="M0 330 C 300 300, 720 360, 1200 250" fill="none" stroke="url(#silkB)" stroke-width="7" filter="url(#blur2)" opacity=".9"/>
+          <path d="M0 345 C 320 320, 740 372, 1200 275" fill="none" stroke="#FFFFFF" stroke-width="3" opacity=".55" filter="url(#blur2)"/></g></g>
+          <path d="M240 560 C 520 700, 860 690, 1200 600" fill="none" stroke="#FFB070" stroke-width="2" opacity=".5" filter="url(#blur2)"/>
+        </svg>
+        <div class="glass" aria-hidden="true"></div>
+        <svg class="badge-rot" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="58" fill="#C9412E"/>
+          <g class="spin">
+            <defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+            <text font-family="Golos Text, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5" fill="#FFFAF4"><textPath href="#ring" textLength="272">ПРО ЛЮДЕЙ И БИЗНЕС ✦ КАРЬЕРА И РОСТ ✦</textPath></text>
+          </g>
+          <path d="M60 40 L65 55 L80 60 L65 65 L60 80 L55 65 L40 60 L55 55 Z" fill="#EDB843"/>
+        </svg>
+<div class="hero-content">
+          <span class="eyebrow">Карьерные консультации &amp; стратегии роста</span>
+          <h1>Авторские карьеры.<br><em>Сильные команды.</em></h1>
+          <p class="lead">Помогаю специалистам <b>получать повышения и офферы</b>, а компаниям находить и развивать людей, которые двигают бизнес.</p>
+        </div>
+        <div class="hero-cta">
+          <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-wide">Начать работу</a>
+          <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn-round" aria-label="Написать в Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.6 2.9 10.8c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5ZM8.4 13.6l9.6-6.1c.5-.3.9-.1.5.2l-8 7.3-.3 3.4-1.8-4.8Z" fill="currentColor"/></svg></a>
+          <span class="flex-break" aria-hidden="true"></span>
+          <a href="#formats" class="btn btn-ghost">Форматы работы</a>
+        </div>
+        <div class="hero-sign">
+          <img class="ava" src="assets/alexandra.jpg" alt="">
+          <div><strong>Александра Амброжий</strong>про людей и бизнес · отвечаю лично</div>
+        </div>
+      </div>
+    </div>
+    <div class="ticker" aria-label="Темы консультаций">
+      <div class="ticker-track">
+        <span>Повышение в должности</span><span>Поиск работы</span><span>Повышение дохода</span><span>Карьерный переход</span><span>Стратегия переговоров</span><span>Профессиональное позиционирование</span><span>Выгорание и карьерные сомнения</span>
+        <span aria-hidden="true">Повышение в должности</span><span aria-hidden="true">Поиск работы</span><span aria-hidden="true">Повышение дохода</span><span aria-hidden="true">Карьерный переход</span><span aria-hidden="true">Стратегия переговоров</span><span aria-hidden="true">Профессиональное позиционирование</span><span aria-hidden="true">Выгорание и карьерные сомнения</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section id="why">
+    <div class="wrap">
+      <div class="statement">
+        <p class="statement-note">Психолог и HR-специалист. Соединяю практику HR, анализ рынка труда и научную психологию.</p>
+        <p class="statement-big">Про людей<br>и&nbsp;бизнес</p>
+      </div>
+      <div class="hairgrid">
+        <div class="hg-cell hg-title"><h2>Почему я?</h2><span class="asterisk" aria-hidden="true">✱</span></div>
+        <div class="hg-cell"><h3>НИУ ВШЭ и Школа 21</h3><p>Психология в ВШЭ, диплом бакалавра с отличием. Школа 21: сеть контактов в IT и HR</p></div>
+        <div class="hg-cell"><h3>HR-практика</h3><p>Подбор, структурированные интервью, оценка кандидатов и сопровождение до оффера</p></div>
+        <div class="hg-cell"><h3>Карьерные стратегии</h3><p>Диагностика, анализ рынка труда, коучинговые техники и карьерные карты</p></div>
+        <div class="hg-cell hg-cta"><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-wide">Начать работу</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotions -->
+  <section class="promo">
+    <div class="wrap promo-box">
+      <div>
+        <span class="eyebrow">Результаты клиентов</span>
+        <h2>Помогаю получать <em>повышения</em> и&nbsp;сильные офферы</h2>
+      </div>
+      <div class="facts">
+        <div class="fact"><strong><span class="circled">35+</span> офферов</strong><span>получили клиенты, в том числе на позиции руководителей</span></div>
+        <div class="fact"><strong>10+ человек</strong><span>получили повышение уже после одной консультации</span></div>
+        <div class="fact"><strong>3 месяца</strong><span>чтобы выйти из найма в собственную практику</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-top">
+        <div class="portrait">
+          <span class="sun" aria-hidden="true"></span>
+          <svg class="star" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0 L29 19 L48 24 L29 29 L24 48 L19 29 L0 24 L19 19 Z" fill="#C9412E"/></svg>
+          <div class="frame"><div class="clip"><img src="assets/alexandra.jpg" alt="Александра Амброжий"></div></div>
+          <span class="sticker s1">Психолог · НИУ ВШЭ</span>
+          <span class="sticker s2">People &amp; Culture Expert</span>
+        </div>
+        <div>
+          <span class="eyebrow">Обо мне</span>
+          <h2>Александра <em>Амброжий</em></h2>
+          <p class="role">Психолог и HR-специалист</p>
+          <p class="about-quote">Моя работа соединяет <b>практику HR</b>, анализ рынков труда и научную психологию.</p>
+          <p class="about-quote">Мы выстраиваем систему профессионального развития, в которой опыт, интеллект и личные цели превращаются в <b>устойчивый доход и качество жизни</b>.</p>
+        </div>
+      </div>
+
+
+<div class="about-divider" aria-hidden="true">
+        <svg viewBox="0 0 1132 60" preserveAspectRatio="none">
+          <path d="M0 30 C 70 6, 140 54, 210 30 S 350 6, 420 30 S 490 54, 530 30" fill="none" stroke="#221E1D" stroke-width="1.6" stroke-dasharray="2 8" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+          <path d="M602 30 C 642 6, 712 54, 782 30 S 922 6, 992 30 S 1062 54, 1132 30" fill="none" stroke="#221E1D" stroke-width="1.6" stroke-dasharray="2 8" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <span class="ad-dot" style="left:18.5%;background:var(--yellow)"></span>
+        <span class="ad-dot" style="left:37%;background:var(--pink)"></span>
+        <span class="ad-star">✱</span>
+        <span class="ad-dot" style="left:63%;background:var(--orange)"></span>
+        <span class="ad-dot" style="left:81.5%;background:var(--red)"></span>
+      </div>
+
+      <div class="about-grid">
+        <div>
+          <svg class="venn" viewBox="0 0 460 400" role="img" aria-label="Три опоры: HR-практика, рынок труда, психология">
+          <ellipse cx="230" cy="195" rx="222" ry="180" fill="none" stroke="#6B3F26" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/>
+          <circle cx="400" cy="52" r="34" fill="#EDB843"/>
+          <path d="M44 330 C 18 290, 34 250, 64 236 C 78 272, 72 310, 44 330 Z" fill="#EE9E9C"/>
+          <path d="M48 326 C 52 296, 58 268, 62 242" stroke="#C9412E" stroke-width="2" fill="none"/>
+          <path d="M408 340 C 440 316, 448 280, 432 256 C 404 276, 396 312, 408 340 Z" fill="#DE7B3A"/>
+          <path d="M40 40 L46 58 L64 64 L46 70 L40 88 L34 70 L16 64 L34 58 Z" fill="#C9412E"/>
+          <path d="M440 170 L444 182 L456 186 L444 190 L440 202 L436 190 L424 186 L436 182 Z" fill="#DE7B3A"/>
+          <path d="M120 372 L124 382 L134 386 L124 390 L120 400 L116 390 L106 386 L116 382 Z" fill="#EDB843"/>
+          <g fill="none" stroke="#3A2218" stroke-width="1.6"><circle cx="172" cy="158" r="100"/><circle cx="290" cy="144" r="100"/><circle cx="224" cy="243" r="100"/></g>
+          <g style="mix-blend-mode: multiply">
+            <circle cx="180" cy="150" r="100" fill="#EE9E9C"/>
+            <circle cx="280" cy="150" r="100" fill="#EDB843"/>
+            <circle cx="230" cy="235" r="100" fill="#DE7B3A" opacity=".85"/>
+          </g>
+          <g font-family="PT Serif, Georgia, serif" font-style="italic" font-size="18" font-weight="600" fill="#6B3F26" text-anchor="middle">
+            <text x="131" y="112">HR-</text><text x="131" y="134">практика</text>
+            <text x="329" y="112">Рынок</text><text x="329" y="134">труда</text>
+            <text x="230" y="298">Психология</text>
+          </g>
+          <path d="M230 160 L235 175 L250 180 L235 185 L230 200 L225 185 L210 180 L225 175 Z" fill="#C9412E"/>
+        </svg>
+        </div>
+        <div class="inside">
+          <span class="eyebrow">Знаю найм изнутри</span>
+          <h3>Смотрю на ваш профиль <em>глазами работодателя</em></h3>
+          <p>Я сама составляю профили ролей вместе с руководителями, провожу интервью и оцениваю кандидатов. Поэтому знаю, что ищет работодатель и как показать вашу ценность так, чтобы её заметили.</p>
+          <ul class="list">
+            <li>Повышение дохода и карьерный рост</li>
+            <li>Переход на руководящие позиции</li>
+            <li>Больше приглашений на собеседования</li>
+            <li>Смена профессионального направления</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section id="formats">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Форматы работы</span>
+          <h2>Выберите <em>свой формат</em></h2>
+          <p>Каждый формат решает свою задачу. Не уверены, что подойдёт? Напишите, и вместе подберём.</p>
+        </div>
+      </div>
+
+      <div class="catalog">
+        <article class="product">
+          <div class="p-media" style="background:#FBE7BE">
+            <div class="p-tags"><span class="p-tag hot">Хит</span><span class="p-tag up">Для оффера</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><rect x="28" y="14" width="66" height="88" rx="8" fill="#FFFAF4" stroke="#C9412E" stroke-width="4"/><circle cx="48" cy="36" r="9" fill="#EE9E9C"/><path d="M42 58 H80 M42 70 H80 M42 82 H66" stroke="#6B3F26" stroke-width="4" stroke-linecap="round"/><rect x="74" y="70" width="64" height="46" rx="6" fill="#C9412E"/><path d="M74 76 L106 98 L138 76" stroke="#FFFAF4" stroke-width="4" fill="none" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Подготовка к отбору</span>
+            <h3>Офис пак</h3>
+            <p class="p-desc">Полный аудит профиля: резюме, сопроводительное письмо и собеседование с HR за одну рабочую встречу.</p>
+            <ul class="p-list"><li>Резюме под рынок и ATS</li><li>Сопроводительное письмо</li><li>Большой персональный файл по собеседованию</li><li>Шпаргалка по переговорам</li><li>Стратегия поиска работы</li></ul>
+            <div class="p-meta"><span>аудит + встреча 1–1,5 ч</span><span>материалы на руки</span></div>
+            <div class="p-actions"><a href="#office" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="p-media" style="background:var(--espresso)">
+            <div class="p-tags"><span class="p-tag">Если запрос не ясен</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><rect x="26" y="24" width="108" height="96" rx="12" fill="#FFFAF4"/><rect x="26" y="24" width="108" height="26" rx="12" fill="#C9412E"/><rect x="26" y="38" width="108" height="12" fill="#C9412E"/><g fill="#EE9E9C"><circle cx="48" cy="68" r="7"/><circle cx="80" cy="68" r="7"/><circle cx="112" cy="68" r="7"/><circle cx="48" cy="96" r="7"/></g><circle cx="80" cy="96" r="9" fill="#EDB843"/><circle cx="112" cy="96" r="7" fill="#EE9E9C"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Разовые сессии</span>
+            <h3>Разовый или еженедельный формат</h3>
+            <p class="p-desc">Если вы ещё не определились с запросом, но хотите перемен, повышения или свой проект.</p>
+            <ul class="p-list"><li>Анализ запроса, резюме и сопроводительного</li><li>Mock-интервью: репетиция собеседования</li><li>Обратная связь голосом или на онлайн-встрече</li></ul>
+            <div class="p-meta"><span>1 встреча</span><span>2–5 встреч</span><span>еженедельно</span></div>
+            <div class="p-actions"><a href="#support" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="p-media" style="background:var(--blush)">
+            <div class="p-tags"><span class="p-tag">Выбор пути</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><circle cx="70" cy="70" r="56" fill="#EE9E9C"/><circle cx="104" cy="56" r="30" fill="#EDB843"/><circle cx="66" cy="74" r="28" fill="#FFFAF4" stroke="#C9412E" stroke-width="7"/><path d="M86 94 L114 122" stroke="#C9412E" stroke-width="10" stroke-linecap="round"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Профориентация · вариант 1</span>
+            <h3>Глубокая диагностика</h3>
+            <p class="p-desc">Разовая работа: углубляем запрос и даём методологию, чтобы дальше строить карьерный план самостоятельно.</p>
+            <ul class="p-list"><li>Распаковка запроса и тесты</li><li>Ключевая задача и точка роста</li><li>Файл с выводами и пошаговый план</li></ul>
+            <div class="p-meta"><span>1 сессия</span><span>материалы на руки</span></div>
+            <div class="p-actions"><a href="#path" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="p-media" style="background:var(--brown)">
+            <div class="p-tags"><span class="p-tag">Выбор пути</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><path d="M10 130 C 50 120, 60 80, 100 76 S 140 40, 150 20" fill="none" stroke="#F4E3D3" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/><circle cx="62" cy="58" r="16" fill="#EDB843"/><circle cx="100" cy="58" r="16" fill="#EE9E9C"/><path d="M38 112 C 40 84, 84 84, 86 112 Z" fill="#C9412E"/><path d="M76 112 C 78 84, 122 84, 124 112 Z" fill="#DE7B3A"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Профориентация · сопровождение</span>
+            <h3>Выбор нового направления</h3>
+            <p class="p-desc">Помогаю выбрать новое направление и «решиться» на перемены. Проходим все этапы вместе, последовательно и в вашем темпе.</p>
+            <ul class="p-list"><li>Разбор решений на каждой сессии</li><li>Корректировка действий</li><li>Можно остановиться на любом этапе</li></ul>
+            <div class="p-meta"><span>3–5 консультаций</span><span>в вашем темпе</span></div>
+            <div class="p-actions"><a href="#path" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="p-media" style="background:var(--red)">
+            <div class="p-tags"><span class="p-tag">Всё включено</span><span class="p-tag up">Для повышения</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><circle cx="122" cy="34" r="22" fill="#EDB843"/><rect x="20" y="96" width="24" height="30" rx="4" fill="#F8DCD6"/><rect x="52" y="76" width="24" height="50" rx="4" fill="#EE9E9C"/><rect x="84" y="56" width="24" height="70" rx="4" fill="#DE7B3A"/><rect x="116" y="70" width="24" height="56" rx="4" fill="#FFFAF4" opacity="0"/><path d="M14 126 H146" stroke="#FFFAF4" stroke-width="3"/><path d="M28 84 L60 64 L92 44 L120 24" stroke="#FFFAF4" stroke-width="3" fill="none" stroke-dasharray="2 7" stroke-linecap="round"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Глубокая карьерная стратегия</span>
+            <h3>Перезагрузка карьеры</h3>
+            <p class="p-desc">Полная трансформация: от осознания себя до устойчивого роста дохода. Направление, сильный оффер и план роста на 12 месяцев в одной стратегии.</p>
+            <ul class="p-list"><li>Какая работа действительно подходит</li><li>Резюме, отклики, собеседования, переговоры о зарплате</li><li>Персональный план роста до 12 месяцев с контрольными этапами</li></ul>
+            <div class="p-meta"><span>до 12 месяцев</span><span>сопровождение до оффера</span><span>повышение дохода</span></div>
+            <div class="p-actions"><a href="#reboot" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="p-media" style="background:var(--sand)">
+            <div class="p-tags"><span class="p-tag">Для компаний</span></div>
+            <svg viewBox="0 0 160 140" aria-hidden="true"><rect x="30" y="40" width="100" height="80" rx="10" fill="#6B3F26"/><rect x="62" y="26" width="36" height="20" rx="6" fill="none" stroke="#6B3F26" stroke-width="6"/><rect x="30" y="68" width="100" height="10" fill="#C9412E"/><circle cx="56" cy="100" r="9" fill="#EDB843"/><circle cx="80" cy="100" r="9" fill="#EE9E9C"/><circle cx="104" cy="100" r="9" fill="#DE7B3A"/></svg>
+          </div>
+          <div class="p-body">
+            <span class="p-cat">Для бизнеса</span>
+            <h3>HR-решения для компаний</h3>
+            <p class="p-desc">Создаю команды, развиваю людей и строю культуру. Подключаюсь к подбору, оценке и HR-процессам.</p>
+            <ul class="p-list"><li>Подбор и формирование команд</li><li>HR-аудит, консалтинг и изменения</li><li>Оценка, развитие и HR-бренд</li></ul>
+            <div class="p-meta"><span>5 направлений</span><span>под задачу компании</span></div>
+            <div class="p-actions"><a href="#business" class="btn btn-ghost">Подробнее</a><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Выбрать</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section id="steps">
+    <div class="wrap">
+      <h2 class="steps-title">Этапы работы</h2>
+      <div class="steps-list">
+        <div class="srow">
+          <span class="sarrow" aria-hidden="true">→</span>
+          <div class="sname"><span class="snum">(1)</span><h3>Знакомство</h3></div>
+          <ul><li>Обсуждаем запрос и цели в мессенджере или на коротком созвоне</li><li>Изучаю ваше резюме и опыт / вашу команду и цели</li><li>Подбираем формат: разовая сессия, пакет или сопровождение</li></ul>
+        </div>
+        <div class="srow">
+          <span class="sarrow" aria-hidden="true">→</span>
+          <div class="sname"><span class="snum">(2)</span><h3>Диагностика и стратегия</h3></div>
+          <ul><li>Разбираем сильные стороны, ограничения и точки роста</li><li>Анализируем рынок и подходящие направления</li><li>Формируем пошаговый план действий</li></ul>
+        </div>
+        <div class="srow">
+          <span class="sarrow" aria-hidden="true">→</span>
+          <div class="sname"><span class="snum">(3)</span><h3>Работа над результатом</h3></div>
+          <ul><li>Упаковываем резюме, сопроводительное и самопрезентацию</li><li>Репетируем собеседования и переговоры о зарплате</li><li>Сопровождаем отклики и решения</li></ul>
+        </div>
+        <div class="srow">
+          <span class="sarrow" aria-hidden="true">→</span>
+          <div class="sname"><span class="snum">(4)</span><h3>Результат</h3></div>
+          <ul><li>Оффер, повышение или новое направление</li><li>Для компаний: сотрудники в команду и выстроенные HR-процессы</li><li>Материалы и план остаются с вами</li><li>Можно вернуться за поддержкой на следующем шаге</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Path -->
+  <section id="path">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Выбор пути</span>
+          <h2>Профориентация в&nbsp;<em>двух форматах</em></h2>
+          <p>Выберите формат под ваш запрос: разовую глубокую работу с методологией или пошаговое сопровождение.</p>
+        </div>
+      </div>
+
+      <svg class="fork-art" viewBox="0 0 220 170" aria-hidden="true">
+          <path d="M110 160 V110 C110 70, 40 70, 40 30" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+          <path d="M110 110 C110 70, 180 70, 180 30" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+          <circle cx="40" cy="26" r="22" fill="#EDB843"/>
+          <circle cx="180" cy="26" r="22" fill="#C9412E"/>
+          <text x="40" y="34" font-family="PT Serif, Georgia, serif" font-style="italic" font-size="22" fill="#3A2218" text-anchor="middle">1</text>
+          <text x="180" y="34" font-family="PT Serif, Georgia, serif" font-style="italic" font-size="22" fill="#FFFAF4" text-anchor="middle">2</text>
+          <circle cx="110" cy="160" r="8" fill="#3A2218"/>
+        </svg>
+
+      <div class="variants">
+        <article class="card">
+          <svg class="corner" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#F8DCD6"/><circle cx="52" cy="66" r="22" fill="none" stroke="#C9412E" stroke-width="5"/><path d="M68 82 L86 100" stroke="#C9412E" stroke-width="6" stroke-linecap="round"/></svg>
+          <span class="pill">Вариант 1</span>
+          <h3>Глубокая диагностика</h3>
+          <p class="sub">Разовая работа с раскрытием методологии самостоятельной работы: углубляем запрос и формируем план действий.</p>
+          <ul class="list">
+            <li>Детальная распаковка запроса и текущей ситуации</li>
+            <li>Диагностика причин и ограничений с помощью тестов и аналитических инструментов</li>
+            <li>Ясное понимание ключевой задачи и точки роста</li>
+            <li>Файл с выводами и рекомендациями, наглядный план или презентация с пошаговой логикой действий</li>
+          </ul>
+          <p class="result">Готовый инструмент и понятная методология, чтобы строить карьерный план уверенно и&nbsp;осознанно.</p>
+        </article>
+
+        <article class="card dark">
+          <svg class="corner" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="60" fill="#C9412E"/><circle cx="46" cy="70" r="12" fill="#EDB843"/><circle cx="76" cy="70" r="12" fill="#EE9E9C"/><path d="M30 104 C 34 86, 58 86, 60 104 M60 104 C 62 86, 88 86, 92 104" stroke="#FFFAF4" stroke-width="4" fill="none"/></svg>
+          <span class="pill">Вариант 2</span>
+          <h3>Сопровождение</h3>
+          <p class="sub">Проходим все этапы из первого варианта вместе, последовательно и в вашем темпе.</p>
+          <div class="stat"><strong>3–5</strong>консультаций обычно</div>
+          <ul class="list">
+            <li>Можно остановиться на любом этапе, если задача решена, или продолжить дальше</li>
+            <li>Каждая сессия посвящена разбору решений и корректировке действий</li>
+            <li>Снимаем вопросы, которые возникают по ходу движения</li>
+          </ul>
+          <p class="result">Рядом есть человек, который помогает дойти до результата.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Office pack -->
+  <section id="office">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Офис пак</span>
+          <h2>Полный аудит профиля и <em>подготовка к отбору</em></h2>
+          <p>Сильное резюме, продуманное сопроводительное письмо и готовность к разговору с HR, чтобы откликаться уверенно.</p>
+        </div>
+      </div>
+
+      <div class="pack">
+        <div class="pack-item">
+          <svg class="ico" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="#F8DCD6"/><rect x="24" y="16" width="34" height="46" rx="4" fill="#FFFAF4" stroke="#C9412E" stroke-width="2.5"/><circle cx="34" cy="28" r="5" fill="#EDB843"/><path d="M30 40 H52 M30 47 H52 M30 54 H44" stroke="#6B3F26" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <h3>Разбор и упаковка резюме</h3>
+          <ul>
+            <li>Подробный анализ опыта, навыков и карьерного пути</li>
+            <li>Сильные стороны и достижения, которые часто остаются за кадром</li>
+            <li>Усиление формулировок с учётом рынка и ATS-систем</li>
+            <li>Корректировка структуры, логики и оформления</li>
+            <li>Универсальный шаблон для адаптации под вакансии</li>
+            <li>Готовое обновлённое резюме</li>
+          </ul>
+        </div>
+        <div class="pack-item">
+          <svg class="ico" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="#FBE7BE"/><rect x="16" y="26" width="48" height="32" rx="4" fill="#EDB843"/><path d="M16 30 L40 46 L64 30" stroke="#6B3F26" stroke-width="2.5" fill="none" stroke-linejoin="round"/><path d="M40 12 C 34 4, 24 12, 40 22 C 56 12, 46 4, 40 12 Z" fill="#C9412E"/></svg>
+          <h3>Сопроводительное письмо</h3>
+          <ul>
+            <li>Структура и ключевые смыслы</li>
+            <li>Универсальный шаблон или письмо под конкретную вакансию</li>
+            <li>Формулировка мотивации и ценности для работодателя</li>
+          </ul>
+        </div>
+        <div class="pack-item">
+          <svg class="ico" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="#F8DCD6"/><path d="M14 22 H50 A6 6 0 0 1 56 28 V44 A6 6 0 0 1 50 50 H28 L18 58 V50 H14 A6 6 0 0 1 8 44 V28 A6 6 0 0 1 14 22 Z" fill="#C9412E"/><path d="M42 36 H66 A6 6 0 0 1 72 42 V54 A6 6 0 0 1 66 60 H64 V67 L56 60 H42 A6 6 0 0 1 36 54 V42 A6 6 0 0 1 42 36 Z" fill="#EDB843"/><circle cx="48" cy="48" r="2.5" fill="#3A2218"/><circle cx="55" cy="48" r="2.5" fill="#3A2218"/><circle cx="62" cy="48" r="2.5" fill="#3A2218"/></svg>
+          <h3>Подготовка к&nbsp;собеседованию с&nbsp;HR</h3>
+          <ul>
+            <li>Разбор наиболее частых вопросов</li>
+            <li>Сильные и убедительные ответы</li>
+            <li>Работа над самопрезентацией</li>
+            <li>Карьерная история и мотивация поиска работы</li>
+            <li>Позиционирование себя как кандидата</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="handouts">
+        <div><span class="eyebrow" style="color:var(--pink)">На руки</span><h3 style="margin-top:12px">Материалы, которые остаются с вами</h3></div>
+        <div class="handout"><b>Файл по собеседованию</b><span>Большой персонализированный документ: ваши ответы, карьерная история и самопрезентация.</span></div>
+        <div class="handout"><b>Шпаргалка по переговорам</b><span>Как обсуждать зарплату и условия оффера уверенно и по делу.</span></div>
+        <div class="handout"><b>Стратегия поиска работы</b><span>Где искать, как откликаться и как выстроить поиск системно.</span></div>
+      </div>
+
+      <div class="how">
+        <div>
+          <span class="eyebrow">Как проходит работа</span>
+          <h3>Два шага, и вы готовы к&nbsp;откликам</h3>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h4>Знакомство и предварительный аудит</h4>
+              <p>Уточняю ваш запрос и желаемую позицию сообщениями или на коротком созвоне. Изучаю резюме и провожу аудит профиля в течение нескольких дней.</p>
+              <span class="time">встреча до 30–40 минут</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h4>Рабочая встреча</h4>
+              <p>В режиме реального времени проходим все этапы: резюме, сопроводительное, собеседование с HR. Корректируем материалы прямо в диалоге.</p>
+              <span class="time">1–1,5 часа</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reboot -->
+  <section id="reboot">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Всё включено</span>
+          <h2>Перезагрузка <em>карьеры</em></h2>
+          <p>Полная трансформация: от осознания себя до устойчивого роста дохода. Три направления в одной непрерывной стратегии для тех, кто готов к глубокой и комплексной работе.</p>
+        </div>
+      </div>
+
+      <div class="reboot-grid">
+        <article class="card">
+          <span class="pill">Направление</span>
+          <h3>Куда двигаться</h3>
+          <p class="sub">Для тех, кто хочет понять, куда двигаться.</p>
+          <ul class="list">
+            <li>Какая работа действительно подходит</li>
+            <li>Куда двигаться дальше</li>
+            <li>На чём строить долгосрочный рост</li>
+          </ul>
+        </article>
+        <article class="card cream">
+          <span class="pill">Сильный оффер</span>
+          <h3>Выход на рынок</h3>
+          <p class="sub">Структурированный поиск работы и конкурентный оффер.</p>
+          <ul class="list">
+            <li>Резюме и позиционирование</li>
+            <li>Подготовка к собеседованиям</li>
+            <li>Стратегия откликов</li>
+            <li>Переговоры о зарплате</li>
+            <li>Сопровождение до оффера</li>
+          </ul>
+        </article>
+        <article class="card red">
+          <span class="pill">План роста</span>
+          <h3>Стратегия на 12 месяцев</h3>
+          <p class="sub">Каждый этап опирается на ваш контекст: рынок, компетенции, приоритеты.</p>
+          <svg class="growth-chart" viewBox="0 0 320 130" role="img" aria-label="Контрольные этапы плана: 3, 6, 9 и 12 месяцев">
+            <line x1="0" y1="104" x2="320" y2="104" stroke="#F8DCD6" stroke-width="1.5"/>
+            <rect x="20" y="78" width="46" height="26" rx="6" fill="#F8DCD6"/>
+            <rect x="96" y="58" width="46" height="46" rx="6" fill="#EE9E9C"/>
+            <rect x="172" y="36" width="46" height="68" rx="6" fill="#DE7B3A"/>
+            <rect x="248" y="12" width="46" height="92" rx="6" fill="#EDB843"/>
+            <g font-family="Golos Text, sans-serif" font-size="12" fill="#F8DCD6" text-anchor="middle">
+              <text x="43" y="124">3 мес</text><text x="119" y="124">6 мес</text><text x="195" y="124">9 мес</text><text x="271" y="124">12 мес</text>
+            </g>
+          </svg>
+          <ul class="list">
+            <li>Повышение и рост дохода</li>
+            <li>Переход в новую сферу</li>
+            <li>Своя практика или проект</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="reboot-result">
+        <p>Результат: <b>ясное направление</b>, <b>конкурентный оффер</b> и <b>персональный план роста</b> до 12 месяцев. Полная система профессионального роста под ключ.</p>
+        <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-yellow">Обсудить перезагрузку</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section id="support">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Индивидуальные сессии</span>
+          <h2>Разовый или <em style="color:var(--pink)">еженедельный</em> формат</h2>
+          <p>Если вы ещё не определились с запросом, но хотите перемен, повышения или свой проект. Вы получаете экспертную поддержку и внедряете рекомендации в удобном темпе.</p>
+        </div>
+      </div>
+
+      <div class="chips">
+        <span class="chip">Повышение в должности</span><span class="chip">Поиск работы</span><span class="chip">Повышение дохода</span><span class="chip">Карьерный переход</span>
+        <span class="chip">Стратегия переговоров</span><span class="chip">Профессиональное позиционирование</span><span class="chip">Выгорание и карьерные сомнения</span><span class="chip">Свой проект</span>
+      </div>
+
+      <div class="formats">
+        <div class="format"><div class="f-title">1 встреча</div><div class="f-sub">точечный разбор</div></div>
+        <div class="format"><div class="f-title">2–5 встреч</div><div class="f-sub">работа в динамике</div></div>
+        <div class="format"><div class="f-title">Еженедельно</div><div class="f-sub">постоянное сопровождение</div></div>
+      </div>
+
+      <ul class="includes">
+        <li>Анализ вашего запроса, резюме и сопроводительного письма</li>
+        <li>Mock-интервью: репетиция собеседования</li>
+        <li>Подробная обратная связь по профилю голосовым сообщением или на онлайн-встрече</li>
+        <li>Ответы на вопросы и обратная связь по итогам выполнения рекомендаций</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Отзывы клиентов</span>
+          <h2>Что меняется <em>после работы</em></h2>
+        </div>
+        <div class="car-nav">
+          <button class="car-btn" type="button" data-car="-1" aria-label="Предыдущий отзыв">←</button>
+          <button class="car-btn" type="button" data-car="1" aria-label="Следующий отзыв">→</button>
+        </div>
+      </div>
+      <div class="track" id="rev-track" tabindex="0" aria-label="Отзывы, листайте в сторону">
+        <div class="review stat-card">
+          <span class="res">Повышения и офферы</span>
+          <p class="big">10+</p>
+          <p class="big-sub">клиентов получили повышение уже после одной консультации</p>
+          <ul>
+            <li>Повышение в течение нескольких месяцев</li>
+            <li>Переход на руководящие позиции</li>
+            <li>Больше приглашений на собеседования</li>
+          </ul>
+        </div>
+        <figure class="review c2">
+          <span class="res">2 оффера на руководителя</span>
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>За два месяца работы со стратегией получил два оффера на позицию руководителя. Раньше казалось, что переход в управление — это про связи и удачу. Оказалось, дело в системе.</blockquote>
+          <figcaption class="who"><b>Менеджер проектов</b><span>Офис пак → 2 оффера на руководителя</span></figcaption>
+        </figure>
+        <figure class="review chat">
+          <span class="res">Резюме заметили работодатели</span>
+          <span class="chat-src" style="margin-top:-8px">Из переписки в Telegram</span>
+          <div class="bubbles"><p class="bubble">Сказали, что у меня отлично сделанное резюме ❤️❤️</p><p class="bubble">Всё твоя заслуга!</p></div>
+          <figcaption class="who"><b>Клиент · Офис пак</b><span>Новые работодатели сказали, что сразу увидели хорошо сделанное резюме</span></figcaption>
+        </figure>
+        <figure class="review c3">
+          <span class="res">Повышение</span>
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Последовал всему построенному плану, проявил инициативу, сделал пет-проект. И собственно сейчас подписываю документы на повышение!</blockquote>
+          <figcaption class="who"><b>IT-специалист</b><span>План роста → повышение</span></figcaption>
+        </figure>
+        <figure class="review chat">
+          <span class="res">Оффер на руководящую позицию</span>
+          <span class="chat-src" style="margin-top:-8px">Из переписки в Telegram</span>
+          <div class="bubbles"><p class="bubble">Спасибо большое!</p><p class="bubble">За помощь на собеседованиях и оформление собственных запросов</p><p class="bubble">Ох уж этот шантаж по офферам)</p></div>
+          <figcaption class="who"><b>Клиент</b><span>Собеседования → оффер на руководящую позицию</span></figcaption>
+        </figure>
+        <figure class="review c1">
+          <span class="res">Ясное направление</span>
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Несколько лет чувствовала, что психология — моё, но не могла это обосновать ни себе, ни окружающим. После работы с Александрой появилась настоящая ясность: понимаю, куда иду и почему именно туда.</blockquote>
+          <figcaption class="who"><b>Маркетолог</b><span>Карьерное направление → уверенность в выборе</span></figcaption>
+        </figure>
+        <figure class="review chat">
+          <span class="res">Вектор развития</span>
+          <span class="chat-src" style="margin-top:-8px">Из переписки в Telegram</span>
+          <div class="bubbles"><p class="bubble">Большое спасибо Александре за увлекательную карьерную консультацию, всё прошло замечательно. Открыл для себя новые пути развития, получил классные советы, полезные рекомендации, так же наметили вектор развития и способы достигнуть желаемого.</p><p class="bubble">После консультации появилась уверенность в себе, своих силах и желание достигать новых карьерных высот!</p></div>
+          <figcaption class="who"><b>Клиент</b><span>Карьерная консультация → вектор развития</span></figcaption>
+        </figure>
+        <figure class="review c4">
+          <span class="res">Своя практика</span>
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Я HR с десятью годами опыта — казалось, всё знаю про карьеру. Но именно со стороны всё увиделось иначе. За три месяца выстроила собственную практику, ушла из найма и уже закрыла первых клиентов.</blockquote>
+          <figcaption class="who"><b>HR-специалист</b><span>Перезагрузка карьеры → своя практика за 3 месяца</span></figcaption>
+        </figure>
+        <figure class="review chat">
+          <span class="res">Инсайды рынка</span>
+          <span class="chat-src" style="margin-top:-8px">Из переписки в Telegram</span>
+          <div class="bubbles"><p class="bubble">Спасибо огромное за помощь. Консультация на 100% стоит своих денег. Персонифицированный подход, компетенция, ну и инсайды рынка — всё это о Вас</p></div>
+          <figcaption class="who"><b>Клиент</b><span>Консультация → инсайды рынка</span></figcaption>
+        </figure>
+      </div>
+      <p class="car-hint">Листайте отзывы стрелками или свайпом.</p>
+    </div>
+  </section>
+
+  <!-- Business -->
+  <section id="business">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Для компаний</span>
+          <h2>HR-решения <em>для бизнеса</em></h2>
+          <p>Создаю команды, развиваю людей и строю культуру. Подключаюсь к подбору, оценке, HR-процессам и развитию сотрудников.</p>
+        </div>
+      </div>
+      <div class="catalog">
+        <article class="biz">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#F8DCD6"/><circle cx="20" cy="22" r="7" fill="#C9412E"/><circle cx="36" cy="22" r="7" fill="#EDB843"/><path d="M8 44 C 10 32, 30 32, 32 44 Z" fill="#C9412E"/><path d="M24 44 C 26 32, 46 32, 48 44 Z" fill="#DE7B3A"/></svg>
+          <h3>Подбор и формирование команд</h3>
+          <p class="p-desc">Подбор с фокусом на долгосрочную эффективность человека в компании.</p>
+          <ul class="p-list"><li>Профиль роли вместе с руководителем</li><li>Структурированные интервью и оценка</li><li>Психологическая диагностика и профайлинг</li><li>Сопровождение до оффера и адаптация</li></ul>
+          <p class="biz-res">Быстрое закрытие ключевых вакансий и меньше ошибок найма</p>
+        </article>
+        <article class="biz">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#FBE7BE"/><circle cx="28" cy="28" r="12" fill="none" stroke="#C9412E" stroke-width="5"/><g stroke="#C9412E" stroke-width="5" stroke-linecap="round"><path d="M28 8 V13"/><path d="M28 43 V48"/><path d="M8 28 H13"/><path d="M43 28 H48"/></g><circle cx="28" cy="28" r="4" fill="#EDB843"/></svg>
+          <h3>HR-консалтинг и изменения</h3>
+          <p class="p-desc">Системная HR-функция, которая повышает эффективность бизнеса.</p>
+          <ul class="p-list"><li>HR-аудит и поиск узких мест</li><li>HR-функция и процессы с нуля</li><li>Пульс-опросы и exit-интервью</li><li>Гибридный и удалённый формат работы</li></ul>
+          <p class="biz-res">Ниже текучесть, выше управляемость команды</p>
+        </article>
+        <article class="biz">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#F8DCD6"/><rect x="12" y="32" width="8" height="12" rx="2" fill="#EE9E9C"/><rect x="24" y="24" width="8" height="20" rx="2" fill="#DE7B3A"/><rect x="36" y="14" width="8" height="30" rx="2" fill="#C9412E"/></svg>
+          <h3>Оценка и развитие сотрудников</h3>
+          <p class="p-desc">Оценка компетенций и развитие управленческого потенциала.</p>
+          <ul class="p-list"><li>Ассессмент-центры и оценка 360°</li><li>Performance review</li><li>ИПР, обучающие программы и тренинги</li><li>Подготовка к управленческим ролям</li></ul>
+          <p class="biz-res">Кадровый резерв и свои руководители</p>
+        </article>
+        <article class="biz wide">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#FBE7BE"/><path d="M12 42 C 20 40, 22 30, 30 28 S 40 18, 44 12" fill="none" stroke="#6B3F26" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/><circle cx="44" cy="12" r="6" fill="#C9412E"/><circle cx="12" cy="42" r="5" fill="#EDB843"/></svg>
+          <h3>Карьерное консультирование сотрудников</h3>
+          <p class="p-desc">Помогаю специалистам и руководителям строить осознанную карьеру внутри компании.</p>
+          <ul class="p-list"><li>Карьерная диагностика и профориентация</li><li>Карьерные карты и стратегии</li><li>Развитие профессионального бренда</li></ul>
+          <p class="biz-res">Повышения, переходы на руководящие позиции, успешная смена направления</p>
+        </article>
+        <article class="biz wide">
+          <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#F8DCD6"/><path d="M28 42 C 10 30, 12 16, 22 16 C 26 16, 28 20, 28 20 C 28 20, 30 16, 34 16 C 44 16, 46 30, 28 42 Z" fill="#C9412E"/></svg>
+          <h3>HR-бренд и корпоративная культура</h3>
+          <p class="p-desc">Среда, в которой сотрудники хотят работать, а кандидаты хотят приходить.</p>
+          <ul class="p-list"><li>Стратегия HR-бренда и внутренние коммуникации</li><li>Программы вовлечённости и wellbeing</li><li>Публикации, медиа и соцсети</li></ul>
+          <p class="biz-res">Привлекательность работодателя и вовлечённость сотрудников</p>
+        </article>
+      </div>
+      <div class="biz-foot">
+        <p>Создаю команды · Развиваю людей · Строю культуру</p>
+        <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary">Обсудить задачу компании</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Channel -->
+  <section id="channel" class="channel">
+    <div class="wrap">
+      <div class="channel-box">
+        <div>
+          <span class="eyebrow">Мои каналы</span>
+          <h2>Александра Амброжий: <em>про людей и бизнес</em></h2>
+          <p>Подписывайтесь, если интересны карьера, рынок труда и психология работы. Пишу в Telegram, выкладываю видео на YouTube и делюсь материалами во ВКонтакте.</p>
+          <div class="ch-links">
+            <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-ghost">Telegram</a>
+            <a href="https://www.youtube.com/@alessmera" target="_blank" rel="noopener" class="btn btn-ghost">YouTube · alessmera</a>
+            <a href="https://vk.com/alessmera" target="_blank" rel="noopener" class="btn btn-ghost">ВКонтакте</a>
+          </div>
+        </div>
+        <svg viewBox="0 0 300 240" aria-hidden="true">
+          <circle cx="190" cy="110" r="96" fill="#F8DCD6"/>
+          <path d="M20 210 C 70 200, 70 150, 120 150 S 170 120, 150 100" fill="none" stroke="#3A2218" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round"/>
+          <path d="M140 110 L270 50 L230 180 L200 140 Z" fill="#C9412E"/>
+          <path d="M200 140 L270 50 L190 170 Z" fill="#6B3F26"/>
+          <path d="M140 110 L270 50 L200 140 Z" fill="#DE7B3A"/>
+          <path d="M60 60 L65 75 L80 80 L65 85 L60 100 L55 85 L40 80 L55 75 Z" fill="#C9412E"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <div class="cta-arts">
+        <svg class="cta-people" aria-hidden="true" viewBox="0 0 420 500">
+          <defs><pattern id="dots3" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#EE9E9C"/></pattern></defs>
+          <path d="M10 500 V210 A200 200 0 0 1 410 210 V500 Z" fill="#F8DCD6"/>
+          <path d="M10 500 V210 A200 200 0 0 1 410 210 V500 Z" fill="url(#dots3)" opacity=".7"/>
+          <path d="M20 500 V214 A196 196 0 0 1 418 214 V500" fill="none" stroke="#3A2218" stroke-width="1.6"/>
+          <circle cx="300" cy="140" r="74" fill="#EDB843"/>
+          <circle cx="290" cy="148" r="74" fill="none" stroke="#3A2218" stroke-width="1.6"/>
+          <path d="M40 500 C 70 420, 140 430, 170 380 S 230 260, 300 230" fill="none" stroke="#6B3F26" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round"/>
+          <path d="M120 500 V320 A90 90 0 0 1 300 320 V500 Z" fill="#C9412E"/>
+          <path d="M165 500 V345 A45 45 0 0 1 255 345 V500 Z" fill="#3A2218"/>
+          <path d="M110 500 V318 A90 90 0 0 1 290 318 V500" fill="none" stroke="#3A2218" stroke-width="1.6"/>
+          <rect x="165" y="470" width="90" height="30" fill="#DE7B3A"/>
+          <rect x="182" y="446" width="56" height="24" fill="#EDB843"/>
+          <rect x="196" y="426" width="28" height="20" fill="#EE9E9C"/>
+          <path d="M60 330 C 40 280, 70 240, 100 230 C 110 270, 95 310, 60 330 Z" fill="#EE9E9C"/>
+          <path d="M66 326 C 70 290, 82 262, 98 236" stroke="#C9412E" stroke-width="2" fill="none"/>
+          <path d="M350 330 C 380 300, 390 260, 372 236 C 346 260, 338 300, 350 330 Z" fill="#DE7B3A"/>
+          <path d="M80 110 L86 128 L104 134 L86 140 L80 158 L74 140 L56 134 L74 128 Z" fill="#C9412E"/>
+          <path d="M370 58 L374 70 L386 74 L374 78 L370 90 L366 78 L354 74 L366 70 Z" fill="#C9412E"/>
+          <path d="M210 60 L213 69 L222 72 L213 75 L210 84 L207 75 L198 72 L207 69 Z" fill="#DE7B3A"/>
+          <circle cx="300" cy="230" r="9" fill="#3A2218"/>
+          <circle cx="120" cy="420" r="13" fill="#EDB843" stroke="#3A2218" stroke-width="1.4"/>
+          <path d="M96 500 C 96 450, 144 450, 144 500 Z" fill="#DE7B3A" stroke="#3A2218" stroke-width="1.4"/>
+          <circle cx="306" cy="414" r="14" fill="#EE9E9C" stroke="#3A2218" stroke-width="1.4"/>
+          <path d="M280 500 C 280 448, 332 448, 332 500 Z" fill="#C9412E" stroke="#3A2218" stroke-width="1.4"/>
+          <circle cx="210" cy="398" r="9" fill="#EDB843" stroke="#3A2218" stroke-width="1.2"/>
+          <path d="M196 426 C 196 404, 224 404, 224 426 Z" fill="#C9412E" stroke="#3A2218" stroke-width="1.2"/>
+        </svg>
+        <svg class="cta-team" viewBox="-210 0 740 520" aria-hidden="true">
+        <path d="M-200 492 C -100 484, 0 500, 100 492 S 300 484, 400 494 S 500 490, 520 492" fill="none" stroke="#3A2218" stroke-width="1.6" stroke-dasharray="2 8" stroke-linecap="round"/>
+        <rect x="-190" y="420" width="62" height="56" rx="6" fill="#EDB843" stroke="#3A2218" stroke-width="1.2"/>
+        <rect x="-128" y="370" width="62" height="106" rx="6" fill="#DE7B3A" stroke="#3A2218" stroke-width="1.2"/>
+        <rect x="-66" y="320" width="62" height="156" rx="6" fill="#C9412E" stroke="#3A2218" stroke-width="1.2"/>
+        <circle cx="-35" cy="280" r="13" fill="#EE9E9C" stroke="#3A2218" stroke-width="1.2"/>
+        <path d="M-58 320 C -58 290, -12 290, -12 320 Z" fill="#6B3F26" stroke="#3A2218" stroke-width="1.2"/>
+        <path d="M-180 400 C -170 360, -140 330, -100 310" fill="none" stroke="#3A2218" stroke-width="1.4" stroke-dasharray="2 7" stroke-linecap="round"/>
+        <path d="M-108 302 L -96 309 L -106 318" fill="none" stroke="#3A2218" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M-160 220 L-155 235 L-140 240 L-155 245 L-160 260 L-165 245 L-180 240 L-165 235 Z" fill="#C9412E"/>
+        <circle cx="-110" cy="180" r="7" fill="#EDB843"/>
+        <circle cx="-60" cy="240" r="4" fill="#DE7B3A"/>
+        <path d="M360 476 V350 A60 60 0 0 1 480 350 V476 Z" fill="#C9412E" stroke="#3A2218" stroke-width="1.2"/>
+        <path d="M392 476 V368 A28 28 0 0 1 448 368 V476 Z" fill="#3A2218"/>
+        <path d="M352 476 V346 A66 66 0 0 1 484 346" fill="none" stroke="#3A2218" stroke-width="1.2"/>
+        <circle cx="420" cy="430" r="5" fill="#EDB843"/>
+        <circle cx="336" cy="420" r="12" fill="#EDB843" stroke="#3A2218" stroke-width="1.2"/>
+        <path d="M316 476 C 316 444, 356 444, 356 476 Z" fill="#DE7B3A" stroke="#3A2218" stroke-width="1.2"/>
+        <path d="M500 476 C 476 450, 476 420, 494 398 C 512 420, 514 450, 500 476 Z" fill="#EE9E9C"/>
+        <path d="M500 474 C 498 446, 496 424, 494 404" stroke="#C9412E" stroke-width="1.2" fill="none"/>
+        <circle cx="420" cy="230" r="34" fill="#EDB843"/>
+        <circle cx="412" cy="238" r="34" fill="none" stroke="#3A2218" stroke-width="1.2"/>
+        <path d="M480 160 L484 172 L496 176 L484 180 L480 192 L476 180 L464 176 L476 172 Z" fill="#DE7B3A"/>
+        <circle cx="350" cy="190" r="5" fill="#C9412E"/>
+        <path d="M22 250 A138 138 0 0 1 298 250" fill="none" stroke="#EE9E9C" stroke-width="14" stroke-linecap="round"/>
+        <path d="M48 250 A112 112 0 0 1 272 250" fill="none" stroke="#DE7B3A" stroke-width="14" stroke-linecap="round"/>
+        <path d="M74 250 A86 86 0 0 1 246 250" fill="none" stroke="#C9412E" stroke-width="14" stroke-linecap="round"/>
+        <path d="M30 256 A132 132 0 0 1 292 244" fill="none" stroke="#3A2218" stroke-width="1.2"/>
+        <circle cx="160" cy="34" r="9" fill="#EDB843" stroke="#3A2218" stroke-width="1.2"/>
+        <circle cx="300" cy="120" r="6" fill="#C9412E"/>
+        <circle cx="18" cy="150" r="5" fill="#DE7B3A"/>
+        <path d="M44 40 L49 56 L65 61 L49 66 L44 82 L39 66 L23 61 L39 56 Z" fill="#C9412E"/>
+        <path d="M268 20 L272 32 L284 36 L272 40 L268 52 L264 40 L252 36 L264 32 Z" fill="#EDB843"/>
+        <path d="M230 120 L233 128 L241 131 L233 134 L230 142 L227 134 L219 131 L227 128 Z" fill="#DE7B3A"/>
+        <g transform="translate(0,230)">
+        <circle cx="160" cy="92" r="70" fill="#EDB843"/>
+        <circle cx="150" cy="100" r="70" fill="none" stroke="#3A2218" stroke-width="1.5"/>
+        <circle cx="86" cy="128" r="16" fill="#EE9E9C" stroke="#3A2218" stroke-width="1.5"/>
+        <path d="M56 200 C 56 148, 116 148, 116 200 Z" fill="#C9412E" stroke="#3A2218" stroke-width="1.5"/>
+        <circle cx="160" cy="112" r="19" fill="#FFFAF4" stroke="#3A2218" stroke-width="1.5"/>
+        <path d="M124 200 C 124 140, 196 140, 196 200 Z" fill="#DE7B3A" stroke="#3A2218" stroke-width="1.5"/>
+        <circle cx="234" cy="128" r="16" fill="#EDB843" stroke="#3A2218" stroke-width="1.5"/>
+        <path d="M204 200 C 204 148, 264 148, 264 200 Z" fill="#6B3F26" stroke="#3A2218" stroke-width="1.5"/>
+        <path d="M40 40 L45 55 L60 60 L45 65 L40 80 L35 65 L20 60 L35 55 Z" fill="#C9412E"/>
+        <path d="M282 30 L286 41 L297 45 L286 49 L282 60 L278 49 L267 45 L278 41 Z" fill="#DE7B3A"/>
+      </g>
+        <rect x="34" y="430" width="252" height="20" rx="10" fill="#C9412E"/>
+        <rect x="40" y="436" width="252" height="20" rx="10" fill="none" stroke="#3A2218" stroke-width="1.2"/>
+        <rect x="70" y="456" width="180" height="16" rx="8" fill="#EDB843"/>
+        <rect x="104" y="472" width="112" height="14" rx="7" fill="#EE9E9C"/>
+        <path d="M44 430 C 22 410, 20 380, 36 360 C 52 380, 56 408, 44 430 Z" fill="#DE7B3A"/>
+        <path d="M44 428 C 40 400, 38 380, 36 364" stroke="#3A2218" stroke-width="1.2" fill="none"/>
+        <path d="M278 430 C 302 412, 306 384, 292 364 C 274 382, 268 408, 278 430 Z" fill="#EE9E9C"/>
+        <path d="M278 428 C 284 402, 288 382, 292 368" stroke="#C9412E" stroke-width="1.2" fill="none"/>
+        <path d="M60 504 C 110 494, 210 514, 262 500" fill="none" stroke="#3A2218" stroke-width="1.6" stroke-dasharray="2 7" stroke-linecap="round"/>
+        <path d="M24 486 L27 495 L36 498 L27 501 L24 510 L21 501 L12 498 L21 495 Z" fill="#C9412E"/>
+        <path d="M298 474 L301 482 L309 485 L301 488 L298 496 L295 488 L287 485 L295 482 Z" fill="#EDB843"/>
+        <circle cx="160" cy="512" r="5" fill="#DE7B3A"/>
+      </svg>
+      </div>
+      <span class="eyebrow">Первый шаг</span>
+      <h2>Расскажите о&nbsp;своём запросе, и мы подберём <em>подходящий формат</em></h2>
+      <p>Оставьте заявку, и решим, с чего лучше начать: с выбора пути, офис пака или перезагрузки карьеры.</p>
+      <div class="actions">
+        <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-wide">Оставить заявку</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-name">Александра Амброжий<small>про людей и бизнес</small></div>
+      <nav class="socials" aria-label="Мои каналы">
+        <a class="social tg" href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener"><i>TG</i><div><b>Telegram</b><span>@alexandraambrozhy</span></div></a>
+        <a class="social yt" href="https://www.youtube.com/@alessmera" target="_blank" rel="noopener"><i>YT</i><div><b>YouTube</b><span>Александра Амброжий · alessmera</span></div></a>
+        <a class="social vk" href="https://vk.com/alessmera" target="_blank" rel="noopener"><i>VK</i><div><b>ВКонтакте</b><span>Александра Амброжий</span></div></a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Александра Амброжий</span>
+      <span>Профориентация · Резюме · Собеседования · Повышение · План роста</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var track = document.getElementById('rev-track');
+    if (!track) return;
+    document.querySelectorAll('[data-car]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = track.querySelector('.review');
+        var step = card ? card.offsetWidth + 20 : 300;
+        var dir = Number(btn.getAttribute('data-car'));
+        var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+        if (dir > 0 && atEnd) track.scrollTo({ left: 0, behavior: 'smooth' });
+        else if (dir < 0 && track.scrollLeft <= 4) track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+        else track.scrollBy({ left: step * dir, behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
