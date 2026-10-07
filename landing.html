@@ -323,6 +323,7 @@
   .form textarea { min-height: 118px; resize: vertical; }
   .form .btn { width: 100%; margin-top: 28px; font-size: 18px; padding: 20px; }
   .form .fine { text-align: center; font-size: 14px; color: var(--muted); margin: 15px 0 0; }
+  .form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
   .form .ok { display: none; margin-top: 13px; padding: 11px 14px; border-radius: 9px; background: #E9F6EC; color: #1E5B2E; font-size: 14px; }
   .form .ok a { font-weight: 600; text-decoration: underline; }
   .form .ok.show { display: block; animation: fadeUp .5s both; }
@@ -755,6 +756,7 @@
       </div>
       <div class="form-wrap rv d1">
         <form class="form" id="lead" novalidate>
+          <input type="text" name="website" id="f-website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
           <span class="lbl" id="opts-l">Что вас интересует?</span>
           <div class="opts" role="group" aria-labelledby="opts-l">
             <button type="button" class="opt" aria-pressed="true">Пока не знаю, нужна консультация</button>
@@ -985,17 +987,13 @@
   opts.forEach(function (o) {
     o.addEventListener('click', function () { opts.forEach(function (x) { x.setAttribute('aria-pressed', x === o ? 'true' : 'false'); }); });
   });
+  // Адрес веб-приложения Google Apps Script (tools/leads-apps-script.gs).
+  // Пока он пустой, форма предлагает отправить заявку в Telegram.
+  var LEADS_URL = '';
   var form = document.getElementById('lead'), ok = document.getElementById('lead-ok');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var c = form.contact.value.trim();
-    if (!c) { form.contact.focus(); form.contact.style.borderColor = 'var(--red)'; return; }
-    var pick = document.querySelector('.opt[aria-pressed="true"]');
-    var text = 'Здравствуйте, Александра! Хочу записаться на консультацию.\n' +
-      'Интересует: ' + (pick ? pick.textContent : '') + '\n' +
-      (form.name.value.trim() ? 'Имя: ' + form.name.value.trim() + '\n' : '') +
-      'Контакт: ' + c + '\n' +
-      (form.msg.value.trim() ? 'Запрос: ' + form.msg.value.trim() : '');
+  var field = function (n) { return form.elements.namedItem(n); };
+  var submitBtn = form.querySelector('button[type="submit"]');
+  function telegramFallback(text) {
     window.open('https://t.me/alexandraambrozhy', '_blank', 'noopener');
     var done = function (copied) {
       ok.innerHTML = (copied
@@ -1006,6 +1004,36 @@
     };
     try { navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); }); }
     catch (err) { done(false); }
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var c = field('contact').value.trim();
+    if (!c) { field('contact').focus(); field('contact').style.borderColor = 'var(--red)'; return; }
+    var pick = document.querySelector('.opt[aria-pressed="true"]');
+    var data = {
+      interest: pick ? pick.textContent : '',
+      name: field('name').value.trim(),
+      contact: c,
+      msg: field('msg').value.trim(),
+      website: field('website').value
+    };
+    var text = 'Здравствуйте, Александра! Хочу записаться на консультацию.\n' +
+      'Интересует: ' + data.interest + '\n' +
+      (data.name ? 'Имя: ' + data.name + '\n' : '') +
+      'Контакт: ' + c + '\n' +
+      (data.msg ? 'Запрос: ' + data.msg : '');
+    if (!LEADS_URL) { telegramFallback(text); return; }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправляем…';
+    fetch(LEADS_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) })
+      .then(function () {
+        ok.textContent = 'Спасибо! Заявка отправлена. Я отвечу лично и предложу удобное время для знакомства.';
+        ok.classList.add('show');
+        form.reset();
+        opts.forEach(function (x, i) { x.setAttribute('aria-pressed', i === 0 ? 'true' : 'false'); });
+      })
+      .catch(function () { telegramFallback(text); })
+      .then(function () { submitBtn.disabled = false; submitBtn.textContent = 'Записаться на консультацию'; });
   });
 })();
 </script>
