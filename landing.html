@@ -323,7 +323,8 @@
   .form textarea { min-height: 118px; resize: vertical; }
   .form .btn { width: 100%; margin-top: 28px; font-size: 18px; padding: 20px; }
   .form .fine { text-align: center; font-size: 14px; color: var(--muted); margin: 15px 0 0; }
-  .form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .form .opt-note { color: var(--muted); font-weight: 400; }
+  .form .btn svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .form .ok { display: none; margin-top: 13px; padding: 11px 14px; border-radius: 9px; background: #E9F6EC; color: #1E5B2E; font-size: 14px; }
   .form .ok a { font-weight: 600; text-decoration: underline; }
   .form .ok.show { display: block; animation: fadeUp .5s both; }
@@ -746,7 +747,7 @@
       <div class="rv">
         <span class="hand">написать</span>
         <h2>Давайте <span class="squig pink">начнём<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 12 C 40 2, 70 20, 110 10 S 180 2, 220 12 S 280 16, 298 8"/></svg></span></h2>
-        <p class="lead-k">Оставьте заявку на консультацию. Я отвечу лично и предложу удобное время для знакомства.</p>
+        <p class="lead-k">Выберите, что вас интересует, и напишите мне в Telegram. Я отвечу лично и предложу удобное время для знакомства.</p>
         <ul class="ways">
           <li><a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg></i><span><small>Telegram</small><b>@alexandraambrozhy</b></span></a></li>
           <li><a href="https://vk.com/alessmera" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M7 9c.5 3.5 2.5 6 5.5 6V12c1.2.2 2.3 1.3 2.8 3H17c-.5-2-1.8-3.3-2.6-3.8.8-.5 1.9-1.7 2.2-3.2h-1.5c-.4 1.3-1.4 2.4-2.6 2.6V9h-1.5v5c-1.3-.3-2.6-1.8-2.8-5H7Z"/></svg></i><span><small>ВКонтакте</small><b>vk.com/alessmera</b></span></a></li>
@@ -756,7 +757,6 @@
       </div>
       <div class="form-wrap rv d1">
         <form class="form" id="lead" novalidate>
-          <input type="text" name="website" id="f-website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
           <span class="lbl" id="opts-l">Что вас интересует?</span>
           <div class="opts" role="group" aria-labelledby="opts-l">
             <button type="button" class="opt" aria-pressed="true">Пока не знаю, нужна консультация</button>
@@ -767,15 +767,11 @@
             <button type="button" class="opt" aria-pressed="false">Перезагрузка карьеры</button>
             <button type="button" class="opt" aria-pressed="false">Услуги для компании</button>
           </div>
-          <div class="row2">
-            <div><label for="f-name">Имя</label><input id="f-name" name="name" placeholder="Анна" autocomplete="name"></div>
-            <div><label for="f-contact">Телефон, почта или Telegram</label><input id="f-contact" name="contact" placeholder="@username" required></div>
-          </div>
-          <label for="f-msg">Коротко о запросе</label>
+          <label for="f-msg">Коротко о запросе <span class="opt-note">(необязательно)</span></label>
           <textarea id="f-msg" name="msg" placeholder="Хочу повышение / ищу работу / думаю о смене профессии…"></textarea>
-          <button class="btn btn-red" type="submit">Записаться на консультацию</button>
+          <a class="btn btn-red" id="lead-go" href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>Написать в Telegram</a>
           <p class="ok" id="lead-ok" role="status"></p>
-          <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+          <p class="fine">Откроется личный чат со мной с готовым сообщением. Останется нажать «Отправить».</p>
         </form>
       </div>
     </div>
@@ -929,7 +925,7 @@
       '<p>' + esc(f.text) + '</p>' +
       '<ul class="checks">' + f.list.map(function (l) { return '<li>' + esc(l) + '</li>'; }).join('') + '</ul>' +
       '<div class="panel-foot"><span class="dur"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>' + esc(f.dur) + '</span>' +
-      '<a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-red">Выбрать формат</a></div>';
+      '<a href="https://t.me/alexandraambrozhy?text=' + encodeURIComponent('Здравствуйте, Александра! Меня интересует формат «' + f.title + '».') + '" target="_blank" rel="noopener" class="btn btn-red">Выбрать формат</a></div>';
     body.classList.remove('swap'); void body.offsetWidth; body.classList.add('swap');
   }
   tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); }); });
@@ -987,54 +983,37 @@
   opts.forEach(function (o) {
     o.addEventListener('click', function () { opts.forEach(function (x) { x.setAttribute('aria-pressed', x === o ? 'true' : 'false'); }); });
   });
-  // Адрес веб-приложения Google Apps Script (tools/leads-apps-script.gs).
-  // Пока он пустой, форма предлагает отправить заявку в Telegram.
-  var LEADS_URL = '';
-  var form = document.getElementById('lead'), ok = document.getElementById('lead-ok');
-  var field = function (n) { return form.elements.namedItem(n); };
-  var submitBtn = form.querySelector('button[type="submit"]');
-  function telegramFallback(text) {
-    window.open('https://t.me/alexandraambrozhy', '_blank', 'noopener');
-    var done = function (copied) {
-      ok.innerHTML = (copied
-        ? 'Текст заявки скопирован. Вставьте его в чат в Telegram и отправьте. '
-        : 'Скопируйте текст и отправьте его в Telegram: «' + esc(text.replace(/\n/g, ' ')) + '» ') +
-        '<a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener">Открыть чат →</a>';
-      ok.classList.add('show');
-    };
-    try { navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); }); }
-    catch (err) { done(false); }
-  }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var c = field('contact').value.trim();
-    if (!c) { field('contact').focus(); field('contact').style.borderColor = 'var(--red)'; return; }
+  // Заявка уходит готовым сообщением в личный чат Telegram.
+  var TG = 'https://t.me/alexandraambrozhy';
+  function tgLink(text) { return TG + '?text=' + encodeURIComponent(text); }
+  function leadText() {
     var pick = document.querySelector('.opt[aria-pressed="true"]');
-    var data = {
-      interest: pick ? pick.textContent : '',
-      name: field('name').value.trim(),
-      contact: c,
-      msg: field('msg').value.trim(),
-      website: field('website').value
-    };
-    var text = 'Здравствуйте, Александра! Хочу записаться на консультацию.\n' +
-      'Интересует: ' + data.interest + '\n' +
-      (data.name ? 'Имя: ' + data.name + '\n' : '') +
-      'Контакт: ' + c + '\n' +
-      (data.msg ? 'Запрос: ' + data.msg : '');
-    if (!LEADS_URL) { telegramFallback(text); return; }
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Отправляем…';
-    fetch(LEADS_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) })
-      .then(function () {
-        ok.textContent = 'Спасибо! Заявка отправлена. Я отвечу лично и предложу удобное время для знакомства.';
+    var choice = pick ? pick.textContent : '';
+    var text = choice === 'Пока не знаю, нужна консультация'
+      ? 'Здравствуйте, Александра! Хочу записаться на консультацию, пока не знаю, какой формат подойдёт.'
+      : choice === 'Услуги для компании'
+        ? 'Здравствуйте, Александра! Хочу обсудить HR-задачу для компании.'
+        : 'Здравствуйте, Александра! Меня интересует формат «' + choice + '».';
+    var msg = document.getElementById('f-msg').value.trim();
+    if (msg) text += '\n\nКоротко о запросе: ' + msg;
+    return text;
+  }
+  var go = document.getElementById('lead-go'), ok = document.getElementById('lead-ok');
+  function syncLead() { go.href = tgLink(leadText()); }
+  opts.forEach(function (o) { o.addEventListener('click', syncLead); });
+  document.getElementById('f-msg').addEventListener('input', syncLead);
+  syncLead();
+  // Запасной вариант для приложений, которые не подставляют текст: копируем его.
+  go.addEventListener('click', function () {
+    var text = leadText();
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        ok.textContent = 'Если сообщение не подставилось само, вставьте его в чат: текст уже скопирован.';
         ok.classList.add('show');
-        form.reset();
-        opts.forEach(function (x, i) { x.setAttribute('aria-pressed', i === 0 ? 'true' : 'false'); });
-      })
-      .catch(function () { telegramFallback(text); })
-      .then(function () { submitBtn.disabled = false; submitBtn.textContent = 'Записаться на консультацию'; });
+      }, function () {});
+    } catch (err) {}
   });
+  document.getElementById('lead').addEventListener('submit', function (e) { e.preventDefault(); go.click(); });
 })();
 </script>
 </body>
