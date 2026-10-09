@@ -65,6 +65,9 @@
   .nav ul a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 2px; background: var(--red); border-radius: 2px; transition: right .3s; }
   .nav ul a:hover::after { right: 0; }
   .nav .btn { padding: 11px 20px; border-radius: 819px; font-size: 15px; }
+  .nav-cta { display: flex; gap: 8px; flex: none; }
+  .btn-biz { background: #fff; color: var(--ink); border-color: var(--line); }
+  .btn-biz:hover { border-color: var(--ink); transform: translateY(-2px); }
 
   /* Hero */
   .hero { position: relative; min-height: 100vh; padding: 189px 0 49px; text-align: center; overflow: hidden; }
@@ -374,7 +377,9 @@
     .nav { padding: 8px 8px 8px 10px; top: 10px; width: calc(100% - 20px); gap: 8px; }
     .logo { font-size: 14px; gap: 8px; letter-spacing: -.03em; }
     .logo .ava { width: 34px; height: 34px; }
-    .nav .btn { padding: 10px 14px; font-size: 14px; width: auto; flex: none; }
+    .nav .btn { padding: 10px 12px; font-size: 13px; width: auto; flex: none; }
+    .nav-cta { gap: 6px; }
+    .logo { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
     .hero { padding: 140px 0 40px; }
     .hero h1 { font-size: 36px; }
     .squig { white-space: normal; }
@@ -406,7 +411,7 @@
     .tab { grid-template-columns: 56px 1fr 20px; gap: 16px; padding: 22px 20px; border-radius: 24px; }
     .tab .ico { width: 56px; height: 56px; } .tab .ico svg { width: 26px; height: 26px; }
     .tab b { font-size: 18px; } .tab small { font-size: 15px; }
-    .panel { padding: 44px 26px 32px; border-radius: 30px; }
+    .panel { padding: 36px 22px 28px; border-radius: 26px; min-height: 0; }
     .panel p, .checks li, .dur { font-size: 17px; }
     .panel-foot .btn { width: 100%; font-size: 17px; }
     .reviews { padding: 80px 0; }
@@ -469,10 +474,12 @@
     <li><a href="#formats">Форматы</a></li>
     <li><a href="#results">Результаты</a></li>
     <li><a href="#about">Обо мне</a></li>
-    <li><a href="#business">Компаниям</a></li>
     <li><a href="#channel">Канал</a></li>
   </ul>
-  <a href="#contact" class="btn btn-red">Написать</a>
+  <div class="nav-cta">
+    <a href="#business" class="btn btn-biz">Для бизнеса</a>
+    <a href="#contact" class="btn btn-red">Написать</a>
+  </div>
 </nav>
 
 <main id="top">
@@ -621,7 +628,7 @@
           </button>
           <button class="tab" role="tab" aria-selected="false" data-i="3">
             <span class="ico yellow"><svg viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></span>
-            <span><b>Сопровождение при выборе направления</b><small>Спокойный переход в новую сферу</small></span>
+            <span><b>Сопровождение при выборе направления</b><small>Решение и план перехода, который работает</small></span>
             <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </div>
@@ -903,15 +910,15 @@
       dur: '60–90 минут' },
     { tag: 'под ключ', title: 'Офис пак', color: '#FFC93C',
       text: 'Готовлю полный набор для поиска работы: от резюме, которое проходит автоматический отбор, до сценария разговора о зарплате.',
-      list: ['Резюме под ATS-системы', 'Сопроводительное письмо', 'Подготовка к собеседованию', 'Шпаргалка по переговорам'],
+      list: ['Резюме под ATS-системы', 'Сопроводительное письмо', 'Подготовка к собеседованию', 'Шпаргалка по переговорам', 'Стратегия поиска работы и анализ рынка'],
       dur: '1–2 сессии' },
     { tag: 'выбор пути', title: 'Профориентация', color: '#F05A5E',
       text: 'Углубляем запрос и даём методологию, чтобы дальше вы строили карьерный план самостоятельно.',
       list: ['Распаковка запроса и тесты', 'Ключевая задача и точка роста', 'Файл с выводами и пошаговый план'],
       dur: '1–2 сессии' },
-    { tag: 'карьерный переход', title: 'Сопровождение при выборе направления', color: '#FFC93C',
-      text: 'Вместе выбираем направление, проверяем гипотезы на рынке и выстраиваем позиционирование для новой роли.',
-      list: ['3–5 консультаций', 'Проверка гипотез и анализ рынка', 'Профессиональное позиционирование', 'План первых шагов в новой роли'],
+    { tag: 'выбор и переход', title: 'Сопровождение при выборе направления', color: '#FFC93C',
+      text: 'Для тех, кто уже видит несколько вариантов и хочет принять решение и перейти. Сравниваем варианты по вашим критериям, проверяем их на рынке и собираем план перехода, который реально выполнить: с шагами, сроками и запасным сценарием.',
+      list: ['Взвешиваем варианты и принимаем решение', 'Проверка гипотез на рынке до перехода', 'План перехода по шагам и срокам', 'Сопровождение и корректировка плана на 3–5 встречах'],
       dur: '1–2 месяца' }
   ];
   var body = document.getElementById('panel-body');
@@ -931,7 +938,25 @@
       '<a href="#contact" data-pick="' + esc(f.title) + '" class="btn btn-red">Выбрать формат</a></div>';
     body.classList.remove('swap'); void body.offsetWidth; body.classList.add('swap');
   }
-  tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); }); });
+  // На телефоне описание формата открывается прямо под выбранной плашкой.
+  var panel = document.querySelector('.panel'), tabsBox = document.querySelector('.tabs');
+  var mobile = window.matchMedia('(max-width: 760px)');
+  function placePanel(i) {
+    if (mobile.matches) tabs[i].after(panel);
+    else if (panel.parentNode !== tabsBox.parentNode) tabsBox.after(panel);
+  }
+  var current = 0;
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () {
+      current = i; show(i); placePanel(i);
+      if (mobile.matches) {
+        var y = t.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+  placePanel(0);
+  if (mobile.addEventListener) mobile.addEventListener('change', function () { placePanel(current); });
   show(0);
 
   /* Reviews carousel */
