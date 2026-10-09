@@ -61,13 +61,11 @@
   .logo .ava { width: 33px; height: 33px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 2px var(--red); transition: transform .4s cubic-bezier(.3,1.6,.5,1); }
   .logo:hover .ava { transform: scale(1.12) rotate(-6deg); }
   .nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 38px; }
-  .nav ul a { font-size: 15px; font-weight: 500; position: relative; }
+  .nav ul a { font-size: 15px; font-weight: 500; position: relative; white-space: nowrap; }
   .nav ul a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 2px; background: var(--red); border-radius: 2px; transition: right .3s; }
   .nav ul a:hover::after { right: 0; }
   .nav .btn { padding: 11px 20px; border-radius: 819px; font-size: 15px; }
-  .nav-cta { display: flex; gap: 8px; flex: none; }
-  .btn-biz { background: #fff; color: var(--ink); border-color: var(--line); }
-  .btn-biz:hover { border-color: var(--ink); transform: translateY(-2px); }
+
 
   /* Hero */
   .hero { position: relative; min-height: 100vh; padding: 189px 0 49px; text-align: center; overflow: hidden; }
@@ -345,7 +343,8 @@
   .rv.d1 { transition-delay: .1s; } .rv.d2 { transition-delay: .2s; } .rv.d3 { transition-delay: .3s; }
 
   @media (max-width: 1100px) {
-    .nav ul { display: none; }
+    .nav ul { gap: 18px; }
+    .nav ul a { font-size: 14px; }
     .why-grid, .fmt, .biz-grid, .channel-grid, .contact-grid, .reboot-grid { gap: 22px; }
     .about-grid { gap: 36px; }
     .why-col { gap: 22px; }
@@ -374,12 +373,14 @@
   @media (max-width: 760px) {
     body { font-size: 16px; }
     .wrap { padding: 0 16px; }
-    .nav { padding: 8px 8px 8px 10px; top: 10px; width: calc(100% - 20px); gap: 8px; }
+    .nav { padding: 8px 8px 6px 10px; top: 10px; width: calc(100% - 20px); gap: 6px 8px; flex-wrap: wrap; border-radius: 24px; }
+    .nav ul { order: 3; width: 100%; justify-content: space-between; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 4px 4px 2px; }
+    .nav ul::-webkit-scrollbar { display: none; }
+    .nav ul a { font-size: 12px; white-space: nowrap; }
     .logo { font-size: 14px; gap: 8px; letter-spacing: -.03em; }
     .logo .ava { width: 34px; height: 34px; }
     .nav .btn { padding: 10px 12px; font-size: 13px; width: auto; flex: none; }
-    .nav-cta { gap: 6px; }
-    .logo { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
     .hero { padding: 140px 0 40px; }
     .hero h1 { font-size: 36px; }
     .squig { white-space: normal; }
@@ -474,12 +475,10 @@
     <li><a href="#formats">Форматы</a></li>
     <li><a href="#results">Результаты</a></li>
     <li><a href="#about">Обо мне</a></li>
+    <li><a href="#business">Для бизнеса</a></li>
     <li><a href="#channel">Канал</a></li>
   </ul>
-  <div class="nav-cta">
-    <a href="#business" class="btn btn-biz">Для бизнеса</a>
-    <a href="#contact" class="btn btn-red">Написать</a>
-  </div>
+  <a href="#contact" class="btn btn-red">Написать</a>
 </nav>
 
 <main id="top">
