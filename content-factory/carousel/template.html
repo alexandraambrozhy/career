@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts/fonts2.css">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* Стиль каруселей Александры: квадрат 1080, кремовый фон, Onest + Marck Script, красный акцент, звёзды, «глобус» из линий */
+:root{
+  --bg:#F8EFE6; --card:#FFFBF6; --ink:#2B1B1E; --red:#CF3F2A; --orange:#E2683C; --burg:#7A1F2B;
+  --pink:#F1C9CF; --pink2:#E99AA3; --yellow:#E6B54E; --yellow2:#F3D58E; --peach:#EBA27F; --muted:#6E5A55;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#ccc;font-family:"Onest",sans-serif;color:var(--ink)}
+.s{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--bg);padding:72px 80px}
+.who{position:relative;z-index:3;font-size:25px;font-weight:500;letter-spacing:-.01em}
+.who span{color:var(--orange)}
+.eye{position:relative;z-index:3;font-family:"Marck Script",cursive;color:var(--red);font-size:44px;letter-spacing:.06em;margin-top:30px;line-height:1}
+h1,h2{position:relative;z-index:3;font-weight:800;letter-spacing:-.025em;line-height:1.02}
+h2{font-size:72px;margin-top:12px}
+h1{font-size:92px;margin-top:14px}
+.r{color:var(--red)} .pk{color:#F3B3BD}
+.deco{position:absolute;z-index:1;pointer-events:none}
+.z{position:relative;z-index:3}
+/* bullets */
+.bul{display:grid;gap:22px;margin-top:44px;max-width:860px}
+.bul li{list-style:none;display:grid;grid-template-columns:22px 1fr;gap:18px;font-size:30px;line-height:1.32;font-weight:400}
+.bul li::before{content:"";width:20px;height:20px;border-radius:50%;margin-top:9px;background:var(--c,var(--red))}
+.bul b{font-weight:700}
+.dark{background:var(--ink);color:#FBF3EA;border-radius:28px;padding:30px 34px;font-size:27px;line-height:1.38}
+.src{font-size:19px;color:var(--muted)}
+/* rows */
+.rows{display:grid;gap:16px;margin-top:36px}
+.row{background:var(--card);border-radius:24px;padding:20px 24px;display:grid;grid-template-columns:62px 1fr;gap:22px;align-items:center}
+.num{width:62px;height:62px;border-radius:16px;display:grid;place-items:center;font-weight:700;font-size:28px;color:var(--burg)}
+.row b{display:block;font-size:28px;font-weight:700;line-height:1.15}
+.row span{display:block;font-size:22px;color:var(--muted);margin-top:4px;line-height:1.3}
+/* quadrant cards */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.qc{border-radius:28px;padding:30px 30px 28px;min-height:330px;display:flex;flex-direction:column}
+.qc h3{font-size:36px;font-weight:700;letter-spacing:-.01em}
+.qc .h{font-family:"Marck Script";font-size:30px;margin-top:2px}
+.qc p{font-size:23px;line-height:1.32;margin-top:14px;opacity:.85}
+.qc .k{margin-top:auto;font-size:25px;font-weight:700;line-height:1.25}
+/* split photo */
+.split{display:grid;grid-template-columns:400px 1fr;padding:0}
+.split .ph{position:relative;height:1080px;overflow:hidden}
+.split .ph img{width:100%;height:100%;object-fit:cover}
+.split .tx{padding:72px 70px 60px 56px;position:relative}
+/* photo bg */
+.bgph{padding:72px 80px;color:#FBF3EA}
+.bgph img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.bgph .sh{position:absolute;inset:0;z-index:1}
+.bgph .who{color:#FBF3EA}
+.bgph .eye{color:#F3B3BD}
+/* timeline */
+.tl{position:relative;margin-top:40px;display:grid;gap:26px;padding-left:4px;max-width:640px}
+.tl::before{content:"";position:absolute;left:20px;top:20px;bottom:30px;border-left:2px dotted #B9A39A}
+.st{display:grid;grid-template-columns:42px 1fr;gap:22px;position:relative}
+.dot{width:42px;height:42px;border-radius:50%;border:3px solid var(--ink);background:var(--c)}
+.st b{font-size:30px;font-weight:700;display:block;line-height:1.15}
+.st span{font-size:23px;line-height:1.32;color:var(--muted);display:block;margin-top:4px}
+/* pills */
+.pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;max-width:620px}
+.pill{border-radius:999px;padding:10px 20px;font-size:23px;font-weight:500}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px}
+.btn{border-radius:999px;padding:26px 20px;text-align:center;font-weight:700;font-size:25px;line-height:1.2}
+</style></head><body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="spark" viewBox="0 0 100 100"><path d="M42 6 C46 40 52 50 84 54 C52 58 46 68 42 98 C38 68 32 58 2 54 C32 50 38 40 42 6Z"/><path d="M84 6 C85 16 87 18 96 19 C87 20 85 22 84 32 C83 22 81 20 72 19 C81 18 83 16 84 6Z"/></symbol>
+    <symbol id="globe" viewBox="0 0 600 600" fill="none">
+      <g stroke-width="2.2">
+        <ellipse cx="300" cy="300" rx="290" ry="290" stroke="#E99AA3"/>
+        <ellipse cx="300" cy="300" rx="235" ry="290" stroke="#E2683C" opacity=".7"/>
+        <ellipse cx="300" cy="300" rx="175" ry="290" stroke="#E6B54E"/>
+        <ellipse cx="300" cy="300" rx="115" ry="290" stroke="#E99AA3"/>
+        <ellipse cx="300" cy="300" rx="55" ry="290" stroke="#E2683C" opacity=".7"/>
+        <path d="M10 300 H590" stroke="#E6B54E" stroke-dasharray="8 8"/>
+        <ellipse cx="300" cy="300" rx="290" ry="120" stroke="#E6B54E" stroke-dasharray="8 8"/>
+      </g>
+    </symbol>
+    <symbol id="cloud" viewBox="0 0 160 60" fill="none"><path d="M10 50 H150 C150 38 138 32 128 36 C126 22 110 14 96 22 C88 8 64 8 56 24 C44 18 30 26 32 38 C20 36 10 42 10 50Z" stroke="#E99AA3" stroke-width="2.5"/></symbol>
+  </defs>
+</svg>
+
+<!-- 1 cover -->
+<section class="s bgph" id="s1">
+  <img class="bg" src="IMG_1212.jpg" alt="" style="object-position:50% 40%">
+  <div class="sh" style="background:linear-gradient(180deg,rgba(43,27,30,.35) 0%,rgba(43,27,30,.25) 40%,rgba(43,27,30,.85) 100%)"></div>
+  <div class="who">Александра <span style="color:#F3B3BD">Амброжий</span></div>
+  <svg class="deco" style="right:80px;top:70px;width:120px;height:120px;fill:#7A1F2B;z-index:2"><use href="#spark"/></svg>
+  <div style="position:absolute;left:80px;right:80px;top:330px;z-index:3">
+    <div class="eye" style="margin:0">психология личности</div>
+    <h1 style="color:#FBF3EA">Интересный, но слабый. Сильный, но скучный.<br><span class="pk">Кто вы?</span></h1>
+  </div>
+  <p class="z" style="position:absolute;left:80px;bottom:80px;font-size:28px;line-height:1.35;max-width:600px">4 типа личности по Леонтьеву и что из этого можно развить)</p>
+</section>
+
+<!-- 2 axes -->
+<section class="s" id="s2">
+  <svg class="deco" style="right:-60px;top:-110px;width:330px;height:330px"><circle cx="165" cy="165" r="165" fill="#F1C9CF"/></svg>
+  <svg class="deco" style="right:230px;top:150px;width:64px;height:64px"><circle cx="32" cy="32" r="32" fill="#E6B54E"/></svg>
+  <svg class="deco" style="right:110px;top:270px;width:96px;height:96px;fill:#7A1F2B"><use href="#spark"/></svg>
+  <svg class="deco" style="right:-230px;bottom:-190px;width:620px;height:620px"><use href="#globe"/></svg>
+  <svg class="deco" style="right:300px;top:240px;width:150px;height:56px"><use href="#cloud"/></svg>
+  <div class="who">Александра <span>Амброжий</span></div>
+  <div class="eye">что это такое</div>
+  <h2>Две оси<br><span class="r">личности</span></h2>
+  <ul class="bul z" style="max-width:720px">
+    <li style="--c:var(--red)"><span><b>Сила «Я»</b> — умение владеть собой и идти к своим целям, не теряя контакт с реальностью</span></li>
+    <li style="--c:var(--yellow)"><span><b>Богатство</b> — насколько широко вы понимаете мир: сложность мировоззрения, мудрость</span></li>
+    <li style="--c:var(--pink2)"><span><b>Две оси = два вектора развития.</b> Можно укреплять волю, а можно усложнять внутренний мир</span></li>
+  </ul>
+  <div class="dark z" style="position:absolute;left:80px;right:300px;bottom:110px">Фрейд говорил о силе «Я» как о саморегуляции. Леонтьев добавил второе измерение: богатство личности</div>
+  <div class="src z" style="position:absolute;left:80px;bottom:56px">Д.А. Леонтьев, НИУ ВШЭ, «Что такое развитие?», 2018</div>
+</section>
+
+<!-- 3 quadrant -->
+<section class="s" id="s3">
+  <svg class="deco" style="left:-300px;bottom:-260px;width:560px;height:560px;opacity:.75"><use href="#globe"/></svg>
+  <svg class="deco" style="right:70px;top:150px;width:104px;height:104px;fill:#7A1F2B;z-index:4"><use href="#spark"/></svg>
+  <div class="who">Александра <span>Амброжий</span></div>
+  <div class="eye">на героях «Покровских ворот»</div>
+  <h2>4 типа: где <span class="r">вы</span></h2>
+  <div class="grid z">
+    <div class="qc" style="background:var(--pink)"><h3 style="color:var(--burg)">Достигатор</h3><div class="h" style="color:var(--burg)">Маргарита</div><p>Сильное «Я», бедная личность. Узкие цели и никаких сомнений</p><div class="k">Качать: широту взгляда</div></div>
+    <div class="qc" style="background:var(--yellow2)"><h3 style="color:#6B4A12">Созидатель</h3><div class="h" style="color:#6B4A12">Костик</div><p>Сильное «Я», богатая личность. Видит широко и доводит до дела</p><div class="k">Это и есть цель</div></div>
+    <div class="qc" style="background:var(--peach)"><h3 style="color:var(--burg)">Конформист</h3><div class="h" style="color:var(--burg)">Савва Игнатьевич</div><p>Слабое «Я», бедная личность. Плывёт по течению</p><div class="k">Качать: свою линию</div></div>
+    <div class="qc" style="background:var(--ink);color:#FBF3EA"><h3 style="color:var(--yellow)">Созерцатель</h3><div class="h" style="color:var(--yellow)">Лев Хоботов</div><p>Слабое «Я», богатая личность. Глубокий, но идеи не доходят до дела</p><div class="k">Качать: силу «Я»</div></div>
+  </div>
+</section>
+
+<!-- 4 split photo -->
+<section class="s split" id="s4">
+  <div class="ph"><img src="IMG_1555.jpg" alt="" style="object-position:48% 50%"></div>
+  <div class="tx">
+    <svg class="deco" style="right:-200px;top:-200px;width:520px;height:520px"><use href="#globe"/></svg>
+    <svg class="deco" style="left:-62px;bottom:120px;width:124px;height:124px;fill:#7A1F2B;z-index:4"><use href="#spark"/></svg>
+    <div class="who">Александра <span>Амброжий</span></div>
+    <div class="eye">почему так</div>
+    <h2 style="font-size:60px">Интересные люди <span class="r">редко доводят до конца</span></h2>
+    <div class="rows z">
+      <div class="row"><div class="num" style="background:var(--pink)">1</div><div><b>Богатый мир</b><span>С ними всегда есть о чём поговорить</span></div></div>
+      <div class="row"><div class="num" style="background:var(--yellow2)">2</div><div><b>Слабое «Я»</b><span>Не хватает ресурса воплотить</span></div></div>
+      <div class="row"><div class="num" style="background:var(--peach)">3</div><div><b>Идей много</b><span>Доведённых мало</span></div></div>
+      <div class="row"><div class="num" style="background:var(--yellow2)">4</div><div><b>Выход</b><span>Думать не меньше. Укреплять волю</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 timeline what can grow -->
+<section class="s" id="s5">
+  <svg class="deco" style="right:70px;top:130px;width:110px;height:110px;fill:#7A1F2B"><use href="#spark"/></svg>
+  <svg class="deco" style="right:80px;bottom:120px;width:300px;height:340px" viewBox="0 0 300 340">
+    <rect x="10" y="230" width="70" height="100" rx="6" fill="#E6B54E" stroke="#2B1B1E" stroke-width="3"/>
+    <rect x="110" y="140" width="70" height="190" rx="6" fill="#E2683C" stroke="#2B1B1E" stroke-width="3"/>
+    <rect x="210" y="40" width="70" height="290" rx="6" fill="#CF3F2A" stroke="#2B1B1E" stroke-width="3"/>
+    <circle cx="245" cy="20" r="14" fill="#F1C9CF" stroke="#2B1B1E" stroke-width="3"/>
+    <path d="M0 333 H300" stroke="#B9A39A" stroke-width="2" stroke-dasharray="6 6"/>
+  </svg>
+  <div class="who">Александра <span>Амброжий</span></div>
+  <div class="eye">хорошая новость</div>
+  <h2>Что <span class="r">можно развить</span></h2>
+  <div class="tl z">
+    <div class="st"><div class="dot" style="--c:#D9CFC8"></div><div><b>Темперамент и энергия</b><span>Почти не меняются. Это база, с ней работаем</span></div></div>
+    <div class="st"><div class="dot" style="--c:var(--pink2)"></div><div><b>Самоэффективность</b><span>Вера, что у меня получится. Растёт от маленьких побед</span></div></div>
+    <div class="st"><div class="dot" style="--c:var(--yellow)"></div><div><b>Самоконтроль</b><span>Умение выбирать реакцию, а не следовать первой</span></div></div>
+    <div class="st"><div class="dot" style="--c:var(--red)"></div><div><b>Упорство и организованность</b><span>Тот самый мостик от идеи к делу</span></div></div>
+  </div>
+  <div class="src z" style="position:absolute;left:80px;bottom:56px">Софья Нартова-Бочавер, д.псх.н., Psychologies, 2026</div>
+</section>
+
+<!-- 6 counterpoint -->
+<section class="s" id="s6">
+  <svg class="deco" style="right:-250px;top:20px;width:640px;height:640px"><use href="#globe"/></svg>
+  <svg class="deco" style="right:120px;top:300px;width:80px;height:80px"><circle cx="40" cy="40" r="40" fill="#E6B54E"/></svg>
+  <svg class="deco" style="right:280px;top:470px;width:110px;height:110px;fill:#7A1F2B"><use href="#spark"/></svg>
+  <div class="who">Александра <span>Амброжий</span></div>
+  <div class="eye">честный взгляд</div>
+  <h2 style="font-size:64px">А может, не делить<br>на сильных и слабых?<br><span class="r">Гибкость важнее</span></h2>
+  <div class="pills z">
+    <span class="pill" style="background:var(--pink)">«Я слишком мягкая»</span>
+    <span class="pill" style="background:var(--yellow2)">«Я не довожу до конца»</span>
+    <span class="pill" style="background:var(--peach)">«Я слишком жёсткий»</span>
+    <span class="pill" style="background:var(--pink)">«Мне не хватает воли»</span>
+  </div>
+  <div class="z" style="position:absolute;left:80px;right:80px;bottom:80px;background:var(--card);border-radius:28px;padding:30px 34px">
+    <div style="color:var(--red);font-weight:700;font-size:27px;margin-bottom:14px">Не ругать себя, а спросить:</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;font-size:23px;line-height:1.35">
+      <div>1. Какая реакция у меня сейчас?</div><div>2. На какую потребность она указывает?</div>
+      <div>3. Какая реакция была бы точнее?</div><div>4. Где я уже так умею?</div>
+    </div>
+  </div>
+  <div class="src z" style="position:absolute;left:80px;bottom:36px">Гештальт-терапевт Елена Павлюченко, Psychologies, 2026</div>
+</section>
+
+<!-- 7 final -->
+<section class="s bgph" id="s7">
+  <img class="bg" src="IMG_1381.jpg" alt="" style="object-position:50% 45%">
+  <div class="sh" style="background:linear-gradient(180deg,rgba(43,27,30,.15) 0%,rgba(43,27,30,.35) 45%,rgba(43,27,30,.92) 100%)"></div>
+  <div class="who">Александра <span style="color:#F3B3BD">Амброжий</span></div>
+  <svg class="deco" style="left:90px;top:190px;width:130px;height:130px;fill:#F6E7C8;z-index:2"><use href="#spark"/></svg>
+  <div style="position:absolute;left:80px;right:80px;bottom:80px;z-index:3">
+    <div class="eye" style="margin:0">главное</div>
+    <h2 style="color:#FBF3EA;font-size:68px">Интересный — не приговор.<br><span class="pk">Силу «Я» можно нарастить</span></h2>
+    <p style="font-size:26px;line-height:1.38;margin-top:18px;max-width:860px">Богатый внутренний мир — уже половина пути. Вторая половина — маленькие доведённые шаги, которые укрепляют волю)</p>
+    <div class="btns">
+      <div class="btn" style="background:var(--red);color:#fff">Сохраните, чтобы вернуться</div>
+      <div class="btn" style="background:#FFFBF6;color:var(--ink)">А вы в каком квадранте? Пишите в комментариях 🤍</div>
+    </div>
+  </div>
+</section>
+</body></html>
