@@ -1,0 +1,592 @@
+<title>Контент-завод</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Golos+Text:wght@400;500;600&family=Caveat:wght@500;700&display=swap">
+<style>
+/* Layout: a desk with two sheets side by side — her own words on the left, the finished unit on the right. */
+:root {
+  --paper: #FFFAF4;
+  --cream: #FBF3EA;
+  --sand: #F4E3D3;
+  --ink: #3A2218;
+  --muted: #8A6A55;
+  --line: rgba(107, 63, 38, .16);
+  --accent: #C9412E;
+  --accent-soft: #F8DCD6;
+  --mark: #FBE3A6;
+  --ok: #4F7A4A;
+  --ok-soft: #E3EEDC;
+  --card: #FFFFFF;
+  --display: "Onest", "Golos Text", system-ui, sans-serif;
+  --body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Caveat", "Segoe Print", cursive;
+  --r: 18px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1E1612; --cream: #261C17; --sand: #33261F; --ink: #F4E6D8; --muted: #BFA390;
+    --line: rgba(244, 230, 216, .14); --accent: #EE7A62; --accent-soft: #4A2A22; --mark: #5C4A1E;
+    --ok: #9CC48F; --ok-soft: #26331F; --card: #2A201A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1E1612; --cream: #261C17; --sand: #33261F; --ink: #F4E6D8; --muted: #BFA390;
+  --line: rgba(244, 230, 216, .14); --accent: #EE7A62; --accent-soft: #4A2A22; --mark: #5C4A1E;
+  --ok: #9CC48F; --ok-soft: #26331F; --card: #2A201A; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 64px; display: grid; gap: 22px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -.01em; }
+h2 { font-size: 22px; font-weight: 600; }
+h3 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
+.count { font-family: var(--hand); font-size: 24px; color: var(--accent); line-height: 1; }
+.sub { color: var(--muted); max-width: 62ch; margin: 6px 0 0; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.tab { border: 1px solid var(--line); background: transparent; padding: 8px 16px; border-radius: 999px; font-weight: 500; }
+.tab[aria-selected="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.intake { background: var(--cream); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 12px; }
+.intake label.big { font-family: var(--display); font-weight: 600; font-size: 17px; }
+textarea { width: 100%; min-height: 120px; resize: vertical; border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 12px 14px; line-height: 1.55; }
+.hint { font-size: 13px; color: var(--muted); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 12px; font-size: 14px; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn { border: 0; border-radius: 12px; padding: 10px 18px; font-weight: 600; background: var(--accent); color: #fff; }
+.btn:disabled { opacity: .55; cursor: progress; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); font-weight: 500; }
+.btn.small { padding: 6px 12px; font-size: 13px; border-radius: 10px; }
+.status { font-size: 13px; color: var(--muted); min-height: 1.3em; }
+.status.err { color: var(--accent); }
+
+.desk { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 22px; align-items: start; }
+@media (max-width: 860px) { .desk { grid-template-columns: minmax(0, 1fr); } }
+.list { display: grid; gap: 8px; }
+.item { text-align: left; border: 1px solid var(--line); background: var(--card); border-radius: 14px; padding: 10px 12px; display: grid; gap: 4px; }
+.item[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.item b { font-family: var(--display); font-weight: 600; font-size: 14px; line-height: 1.3; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; color: var(--muted); }
+.pill { display: inline-block; border-radius: 999px; padding: 1px 8px; font-size: 12px; background: var(--sand); color: var(--ink); }
+.pill.red { background: var(--accent-soft); }
+.pill.ok { background: var(--ok-soft); color: var(--ok); }
+
+.sheets { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 8fr); gap: 18px; align-items: start; }
+@media (max-width: 1000px) { .sheets { grid-template-columns: minmax(0, 1fr); } }
+.sheet { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.sheet.src { background: var(--cream); }
+.src-text { white-space: pre-wrap; font-size: 15px; line-height: 1.65; }
+mark { background: var(--mark); color: inherit; border-radius: 4px; padding: 0 2px; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.legend .l-own::before { background: var(--mark); }
+.legend .l-add::before { border: 1.5px dashed var(--accent); }
+.hand { font-family: var(--hand); font-size: 20px; color: var(--accent); line-height: 1.1; }
+.fb { border-left: 3px solid var(--line); padding-left: 10px; font-size: 14px; color: var(--muted); }
+
+.why { font-size: 14px; color: var(--muted); }
+.hook-main { font-family: var(--display); font-size: clamp(19px, 2.4vw, 24px); font-weight: 600; line-height: 1.25; }
+.alts { display: grid; gap: 6px; }
+.alt { display: flex; gap: 8px; align-items: baseline; justify-content: space-between; border-top: 1px dashed var(--line); padding-top: 6px; font-size: 14px; }
+.alt button { border: 0; background: none; color: var(--accent); font-size: 13px; white-space: nowrap; padding: 0; }
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+td { vertical-align: top; padding: 9px 8px; border-bottom: 1px solid var(--line); }
+td.t { font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; width: 1%; }
+td.say.add { box-shadow: inset 2px 0 0 var(--accent); color: var(--ink); font-style: italic; }
+td.say.own { background: color-mix(in srgb, var(--mark) 55%, transparent); }
+td.titr { font-weight: 600; }
+td.shot { color: var(--muted); font-size: 13px; }
+.slides { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+.slide { aspect-ratio: 4 / 5; max-width: 100%; border-radius: 14px; background: var(--cream); border: 1px solid var(--line); padding: 12px; display: flex; flex-direction: column; gap: 6px; overflow: auto; }
+.slide .n { font-family: var(--hand); color: var(--accent); font-size: 20px; line-height: 1; }
+.slide b { font-family: var(--display); font-size: 15px; line-height: 1.2; }
+.slide p { margin: 0; font-size: 13px; }
+.slide .m { margin-top: auto; font-size: 12px; color: var(--muted); }
+.posttext { white-space: pre-wrap; background: var(--cream); border-radius: 12px; padding: 14px; line-height: 1.6; }
+.media { display: grid; gap: 6px; }
+.media a, .media div { font-size: 14px; color: var(--ink); }
+.media a b { color: var(--accent); }
+ul.ask { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--line); padding-top: 14px; }
+.fixrow { display: flex; gap: 8px; flex-wrap: wrap; }
+.fixrow input { flex: 1 1 220px; min-width: 0; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; background: var(--card); }
+.empty { border: 1.5px dashed var(--line); border-radius: var(--r); padding: 28px; text-align: center; color: var(--muted); display: grid; gap: 6px; justify-items: center; }
+.empty .hand { font-size: 26px; }
+.hooks { display: grid; gap: 10px; }
+.hk { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; background: var(--card); display: grid; gap: 4px; }
+.hk b { font-family: var(--display); font-size: 17px; }
+.hk q { color: var(--muted); font-size: 14px; }
+.hk q::before, .hk q::after { content: ""; }
+.stream { white-space: pre-wrap; font-size: 13px; color: var(--muted); max-height: 180px; overflow: auto; }
+@media (prefers-reduced-motion: no-preference) { .sheet { animation: rise .25s ease-out; } @keyframes rise { from { transform: translateY(4px); } to { transform: none; } } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="count" id="countdown">100 дней до 25</div>
+      <h1>Контент-завод</h1>
+      <p class="sub">Наговорите мысль — справа появится одна готовая единица контента. Слева остаются ваши слова: жёлтым подсвечено то, что ушло в текст дословно.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-ideas" aria-selected="true">Мысль → контент</button>
+      <button class="tab" role="tab" id="tab-video" aria-selected="false">Видео → хуки</button>
+    </div>
+  </header>
+
+  <!-- Ideas mode -->
+  <section id="mode-ideas" class="wrap" style="padding:0">
+    <form class="intake" id="intake">
+      <label class="big" for="src">Ваша мысль</label>
+      <textarea id="src" placeholder="Например: все сейчас рассуждают про ИИ-слоп, мол, это не стильно, но эти люди зарабатывают…"></textarea>
+      <div class="hint">На телефоне нажмите микрофон на клавиатуре и говорите как есть: с «эээ», повторами и отступлениями. Claude сам уберёт лишнее, а ваши формулировки сохранит.</div>
+      <div class="row" id="formats" aria-label="Формат"></div>
+      <div class="row">
+        <button class="btn" type="submit" id="go">Собрать</button>
+        <span class="status" id="st"></span>
+      </div>
+    </form>
+
+    <div class="desk">
+      <aside>
+        <h3 style="margin-bottom:8px">Мысли</h3>
+        <div class="list" id="list"><div class="hint">Загружаю…</div></div>
+      </aside>
+      <main id="view"></main>
+    </div>
+  </section>
+
+  <!-- Video mode -->
+  <section id="mode-video" class="wrap" style="padding:0" hidden>
+    <form class="intake" id="vform">
+      <label class="big" for="vtext">Расшифровка видео</label>
+      <textarea id="vtext" placeholder="Вставьте расшифровку из Descript (с таймкодами или без). После съёмки Claude сам добавит сюда расшифровки ваших роликов."></textarea>
+      <input id="vtitle" class="chip" style="border-radius:10px;padding:8px 12px" placeholder="Название видео, например «4 оффера за 4 недели»">
+      <div class="row">
+        <button class="btn" type="submit" id="vgo">Найти хуки и нарезки</button>
+        <span class="status" id="vst"></span>
+      </div>
+    </form>
+    <div class="desk">
+      <aside>
+        <h3 style="margin-bottom:8px">Видео</h3>
+        <div class="list" id="vlist"><div class="hint">Загружаю…</div></div>
+      </aside>
+      <main id="vview"></main>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  // ---------- static knowledge ----------
+  const FORMATS = [
+    ["auto", "Сама реши"], ["reel", "Рилс / шортс"], ["post", "Пост в ТГ"],
+    ["carousel", "Карусель"], ["stories", "Сторис"], ["long", "Длинное видео"], ["dzen", "Дзен"]
+  ];
+  const FORMAT_LABEL = Object.fromEntries(FORMATS);
+  const NOTION_FORMAT = { reel: "Рилс / шортс", post: "Пост", carousel: "Карусель", stories: "Сторис", long: "Длинное видео", dzen: "Дзен" };
+  const IDEAS_DS = "4f4cf32b-848d-4f7c-a74e-e146491bf9fd";
+
+  const CONTEXT = `Автор: Александра Амброжий, карьерный консультант и HRBP. Кампания «100 дней до 25» (1 октября — 8 января).
+Аудитория: специалисты 22–32 лет, которые месяцами откликаются и слышат тишину или годами стоят на месте. Ценят честность и данные, «заработай миллион» отталкивает.
+Главное послание: следующий шаг уже есть в вашем опыте, его не видно, пока смотришь только на себя.
+Продукты: «Слепая зона» (трипваер, ноябрь), «Чужая повестка» (декабрь), консультации. Кодовые слова в комментариях: ГИПОТЕЗА, СРЕДА, ПОЛЬЗА и подобные.
+Рубрики и скелеты:
+- Изнанка: как принято думать → как на самом деле → что это значит для вас → что сделать в понедельник.
+- Наследство: фраза-убеждение → одно исследование → как это выглядит на работе → маленький шаг.
+- Лёгкая жизнь: что было → чего боялся → решение → что изменилось (с цифрой) → что взять вам.
+- Комета: поворот → чего я тогда не знала → что поняла → что это значит для вас.
+- Чит-код: проблема → один инструмент → шаги → результат → кодовое слово.
+- Не по инструкции: совет → почему его дают → где ломается → что вместо.`;
+
+  const VOICE = `ГОЛОС (главное):
+- Ты редактор, а не автор. Основа — её слова из исходника. Режешь, переставляешь, убираешь «эээ» и повторы, но формулировки оставляешь её. Минимум 60% произносимых строк должны быть её фразами дословно или слегка подрезанными (own: true). Свои связки добавляй, только когда без них не понятно (own: false).
+- Не придумывай сцены, места, цифры, имена. Нужной детали нет — вопрос в "ask".
+- Факты и исследования только реальные и известные тебе точно, с источником в скобках. Не уверен — не добавляй, спроси в "ask".
+- Все предложения с заглавной буквы. Короткие фразы, разговорный ритм: длинное предложение, потом короткое.
+- Научный термин рядом с бытовым словом; можно английские вкрапления (vibe, match), скобочки «)» вместо эмодзи.
+- Финал — простой вопрос или один шаг. Обращение на «вы».
+ЗАПРЕЩЕНО: «важно помнить», «и это нормально», «ключевой», «уникальный», «в современном мире», «трансформация», «путешествие», мотивационные лозунги, коучинговые вопросы, несколько «не X, а Y» подряд, тройки ради троек, «оказалось, что», «дело в том, что».
+КОРОТКО: одна версия, без пояснений и комментариев от себя. Хуков ровно 3. Кликбейт допустим, ложь нет: хук обещает то, что текст правда даёт.`;
+
+  const FORMAT_SPEC = {
+    reel: `Рилс/шортс 30–45 сек. "script": 5–7 строк. Строка: {"t":"0–3","say":"что она говорит","own":true|false,"titr":"короткий титр на экране, до 6 слов","shot":"кадр или подложка"}. Первая строка — хук за 3 секунды. Схема: хук → сцена или факт → сдвиг → один шаг → вопрос/CTA. Плюс "caption" (подпись под видео, до 400 знаков).`,
+    long: `Длинное видео 6–10 мин. "script": 8–12 смысловых блоков. Строка: {"t":"0:00–0:15","say":"тезис блока её словами (что сказать, 1–3 предложения)","own":true|false,"titr":"титр или инфографика","shot":"кадр"}. Скелет: хук 15 сек → история → данные → метод → упражнение → вывод → CTA. Плюс "caption" (описание для YouTube, до 600 знаков) и "clips": 2–3 фразы из сценария, которые нарезать в шортсы.`,
+    post: `Пост в Telegram, до 900 знаков. "body": текст поста. Первая строка жирным через **…** с эмодзи в конце. Короткие абзацы 1–3 строки, одна цитата-блок через "> " с главной мыслью, финал — вопрос и сердечко 🤍.`,
+    dzen: `Статья для Дзена 700–1000 слов. "body": текст с подзаголовками "## ". Поисковый запрос в заголовке и первых 100 словах. В конце вопрос и ссылка на ТГ [ссылка].`,
+    carousel: `Карусель 6–8 слайдов. "slides": [{"title":"до 7 слов","text":"до 25 слов","media":"имя файла или пусто"}]. Обложка-интрига → проблема → 4–5 слайдов инструмента → вывод → «Сохраните» + кодовое слово. Плюс "caption" до 400 знаков.`,
+    stories: `Сторис 4–6 кадров. "slides": [{"title":"тип кадра: опрос / фото / текст / вопрос","text":"текст на экране до 15 слов + стикер","media":"имя файла или пусто"}]. Схема: опрос → личное → тизер следующего.`
+  };
+
+  // Media from Google Drive «Контент» — described by Claude, refreshed when new files arrive.
+  let MEDIA = [];
+
+  // ---------- helpers ----------
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const fmtDate = (ms) => new Date(ms).toLocaleDateString("ru-RU", { day: "numeric", month: "short" });
+  const daysLeft = Math.ceil((new Date("2027-01-08T00:00:00") - new Date()) / 864e5);
+  if (daysLeft > 0) $("countdown").textContent = `${daysLeft} ${plural(daysLeft, "день", "дня", "дней")} до 25`;
+  function plural(n, a, b, c) { const m = n % 10, h = n % 100; return m === 1 && h !== 11 ? a : m >= 2 && m <= 4 && (h < 12 || h > 14) ? b : c; }
+  function sampleErr(e) {
+    switch (e?.code) {
+      case "not_granted": case "sampling_disabled": return "Claude не подключён к странице: разрешите ему работать здесь в окне запроса.";
+      case "rate_limited": return "Слишком много запросов подряд. Подождите минуту и нажмите ещё раз.";
+      case "session_expired": return "Нужно заново войти в claude.ai.";
+      case "invalid_json": return "Claude ответил не в том формате. Нажмите «Собрать» ещё раз.";
+      case "refused": return "Claude отказался обрабатывать этот текст. Переформулируйте мысль.";
+      case "prompt_too_large": return "Текст слишком длинный. Сократите его или разбейте на две мысли.";
+      default: return "Не получилось собрать: связь с Claude прервалась. Нажмите ещё раз.";
+    }
+  }
+  function highlight(src, kept) {
+    let html = esc(src);
+    const phrases = (kept || []).map((k) => String(k).trim()).filter((k) => k.length > 6).sort((a, b) => b.length - a.length);
+    for (const p of phrases) {
+      const ep = esc(p).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      try { html = html.replace(new RegExp(ep, "i"), (m) => `<mark>${m}</mark>`); } catch {}
+    }
+    return html;
+  }
+
+  // ---------- state ----------
+  let db = null, sample = null, mcp = null;
+  let ideas = [], current = null, format = "auto";
+  let videos = [], vcurrent = null;
+  try { const d = localStorage.getItem("cf-draft"); if (d) $("src").value = d; } catch {}
+  $("src").addEventListener("input", () => { try { localStorage.setItem("cf-draft", $("src").value); } catch {} });
+
+  // format chips
+  $("formats").innerHTML = FORMATS.map(([k, l]) => `<button type="button" class="chip" data-f="${k}" aria-pressed="${k === format}">${l}</button>`).join("");
+  $("formats").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-f]"); if (!b) return;
+    format = b.dataset.f;
+    for (const c of $("formats").children) c.setAttribute("aria-pressed", c.dataset.f === format);
+  });
+
+  // tabs
+  for (const [tab, sec] of [["tab-ideas", "mode-ideas"], ["tab-video", "mode-video"]]) {
+    $(tab).addEventListener("click", () => {
+      for (const [t2, s2] of [["tab-ideas", "mode-ideas"], ["tab-video", "mode-video"]]) {
+        $(t2).setAttribute("aria-selected", t2 === tab); $(s2).hidden = s2 !== sec;
+      }
+    });
+  }
+
+  renderEmpty();
+  renderVEmpty();
+
+  // ---------- capabilities ----------
+  (async () => {
+    [db, sample, mcp] = await Promise.all([claude.use("db"), claude.use("sample"), claude.use("mcp")]);
+    if (!sample) { $("go").disabled = true; $("vgo").disabled = true; $("st").textContent = "Claude недоступен в этом окне: откройте страницу в claude.ai."; }
+    if (!db) { $("list").innerHTML = `<div class="hint">Сохранение недоступно в этом окне. Откройте страницу в claude.ai.</div>`; $("vlist").innerHTML = ""; return; }
+    db.doc("media/catalog").onSnapshot((s) => { MEDIA = s.exists ? (s.data().items || []) : []; });
+    db.collection("ideas").orderBy("createdAt", "desc").limit(200).onSnapshot((s) => {
+      ideas = s.docs.map((d) => ({ id: d.id, ...d.data() }));
+      if (current) current = ideas.find((i) => i.id === current.id) || null;
+      if (!current && ideas.length) current = ideas[0];
+      renderList(); renderView();
+    }, () => { $("list").innerHTML = `<div class="hint">Не удалось загрузить мысли. Обновите страницу.</div>`; });
+    db.collection("videos").orderBy("createdAt", "desc").limit(100).onSnapshot((s) => {
+      videos = s.docs.map((d) => ({ id: d.id, ...d.data() }));
+      if (vcurrent) vcurrent = videos.find((v) => v.id === vcurrent.id) || null;
+      if (!vcurrent && videos.length) vcurrent = videos[0];
+      renderVList(); renderVView();
+    }, () => { $("vlist").innerHTML = ""; });
+  })();
+
+  // ---------- prompt ----------
+  function mediaText() {
+    if (!MEDIA.length) return "Медиа с Диска пока не описаны.";
+    return MEDIA.map((m) => `- ${m.name} (${m.kind}): ${m.desc}. Подходит: ${m.useFor}`).join("\n");
+  }
+  function buildPrompt(src, fmt, fix, prev) {
+    const fmtLine = fmt === "auto"
+      ? `Сама выбери ОДИН лучший формат из: reel, post, carousel, stories, long, dzen — по смыслу мысли. Укажи его в "format". Спецификации:\n${Object.entries(FORMAT_SPEC).map(([k, v]) => `[${k}] ${v}`).join("\n")}`
+      : `Формат: ${fmt}. ${FORMAT_SPEC[fmt]}`;
+    return `Собери из мысли автора одну единицу контента.
+
+${CONTEXT}
+
+${VOICE}
+
+${fmtLine}
+
+Медиа на Google Диске (можно предлагать по имени файла, только реально подходящие, 0–3 штуки):
+${mediaText()}
+
+ИСХОДНИК (её слова, расшифровка диктовки, может быть с оговорками):
+"""
+${src}
+"""
+${prev ? `\nТЕКУЩАЯ ВЕРСИЯ (её надо поправить, а не писать заново):\n${JSON.stringify(prev)}\n` : ""}${fix ? `\nПРАВКА ОТ АВТОРА (выполни точно):\n${fix}\n` : ""}
+Ответь ТОЛЬКО JSON-объектом:
+{"title":"короткое название темы","format":"reel|post|carousel|stories|long|dzen","rubric":"одна из 6 рубрик","why":"зачем это зрителю, одно предложение","hooks":["главный хук","запасной","запасной"],
+"script":[...только для reel/long],"body":"только для post/dzen","slides":[...только для carousel/stories],"clips":["только для long"],
+"caption":"подпись","cta":"призыв: один шаг или кодовое слово","media":[{"name":"IMG_....","where":"куда поставить"}],
+"kept":["её фразы из исходника, которые ты сохранил дословно — копируй точно как в исходнике, 3–8 штук"],
+"ask":["что уточнить у автора, 0–3 вопроса"]}`;
+  }
+
+  // ---------- generate ----------
+  let ctl = null;
+  $("intake").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const src = $("src").value.trim();
+    if (!src) { $("st").textContent = "Сначала наговорите или вставьте мысль."; $("st").className = "status err"; return; }
+    const id = "i" + Date.now().toString(36);
+    const ok = await run(buildPrompt(src, format), $("st"), $("go"));
+    if (!ok) return;
+    const doc = { createdAt: Date.now(), source: src, format: ok.format || format, title: ok.title || src.slice(0, 60), result: ok, fixes: [], status: "new" };
+    if (db) { try { await db.doc("ideas/" + id).set(doc); } catch { $("st").textContent = "Собрано, но не сохранилось. Скопируйте текст."; } }
+    current = { id, ...doc };
+    $("src").value = ""; try { localStorage.removeItem("cf-draft"); } catch {}
+    renderList(); renderView();
+  });
+
+  async function run(prompt, stEl, btn) {
+    if (!sample) return null;
+    ctl?.abort(); ctl = new AbortController();
+    btn.disabled = true; stEl.className = "status"; stEl.textContent = "Claude думает… обычно до минуты.";
+    try {
+      const res = await sample.json(prompt, { signal: ctl.signal, cache: false, onText: ({ text }) => { stEl.textContent = `Пишет… ${text.length} знаков`; } });
+      if (!res || typeof res !== "object") throw { code: "invalid_json" };
+      stEl.textContent = "";
+      return res;
+    } catch (e) {
+      if (e?.code !== "cancelled") { stEl.className = "status err"; stEl.textContent = sampleErr(e); }
+      return null;
+    } finally { btn.disabled = false; }
+  }
+
+  // ---------- render ideas ----------
+  function renderEmpty() {
+    $("view").innerHTML = `<div class="empty"><div class="hand">Здесь появится готовый сценарий</div><div>Наговорите мысль выше и нажмите «Собрать». Слева останутся ваши слова, справа одна чистая версия: хук, сценарий, подпись, CTA и фото с Диска.</div></div>`;
+  }
+  function renderList() {
+    if (!ideas.length) { $("list").innerHTML = `<div class="hint">Пока пусто. Первая мысль появится здесь.</div>`; return; }
+    $("list").innerHTML = ideas.map((i) => `<button class="item" data-id="${esc(i.id)}" aria-current="${current?.id === i.id}">
+      <b>${esc(i.title)}</b>
+      <span class="meta"><span>${fmtDate(i.createdAt)}</span><span class="pill">${esc(FORMAT_LABEL[i.format] || i.format)}</span>${i.notionUrl ? `<span class="pill ok">в Notion</span>` : ""}</span></button>`).join("");
+  }
+  $("list").addEventListener("click", (e) => { const b = e.target.closest("[data-id]"); if (!b) return; current = ideas.find((i) => i.id === b.dataset.id); renderList(); renderView(); });
+
+  function renderView() {
+    if (!current) { renderEmpty(); return; }
+    const r = current.result || {};
+    const fmt = r.format || current.format;
+    const hooks = r.hooks || [];
+    let body = "";
+    if (Array.isArray(r.script) && r.script.length) {
+      body += `<div class="tbl"><table><thead><tr><th>Время</th><th>Говорю</th><th>Титр</th><th>Кадр</th></tr></thead><tbody>${r.script.map((s) => `<tr><td class="t">${esc(s.t)}</td><td class="say ${s.own === false ? "add" : "own"}">${esc(s.say)}</td><td class="titr">${esc(s.titr)}</td><td class="shot">${esc(s.shot)}</td></tr>`).join("")}</tbody></table></div>`;
+    }
+    if (r.body) body += `<div class="posttext">${esc(r.body).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")}</div>`;
+    if (Array.isArray(r.slides) && r.slides.length) {
+      body += `<div class="slides">${r.slides.map((s, i) => `<div class="slide"><span class="n">${i + 1}</span><b>${esc(s.title)}</b><p>${esc(s.text)}</p>${s.media ? `<span class="m">📷 ${esc(s.media)}</span>` : ""}</div>`).join("")}</div>`;
+    }
+    const media = (r.media || []).map((m) => {
+      const item = MEDIA.find((x) => x.name === m.name);
+      return item?.url ? `<a href="${esc(item.url)}" target="_blank" rel="noopener"><b>${esc(m.name)}</b> — ${esc(m.where)}</a>` : `<div><b>${esc(m.name)}</b> — ${esc(m.where)}</div>`;
+    }).join("");
+    const fixes = (current.fixes || []).slice(-3);
+    $("view").innerHTML = `<div class="sheets">
+      <section class="sheet src">
+        <h3>Ваш исходник</h3>
+        <div class="src-text">${highlight(current.source, r.kept)}</div>
+        ${fixes.length ? `<div class="fb"><div class="hand">ваши правки</div>${fixes.map((f) => esc(f)).join("<br>")}</div>` : ""}
+        <div class="legend"><span class="l-own">ваши слова дословно</span><span class="l-add">связка от Claude</span></div>
+      </section>
+      <section class="sheet">
+        <div class="meta"><span class="pill red">${esc(FORMAT_LABEL[fmt] || fmt)}</span>${r.rubric ? `<span class="pill">${esc(r.rubric)}</span>` : ""}</div>
+        <h2>${esc(r.title || current.title)}</h2>
+        ${r.why ? `<div class="why">Зачем зрителю: ${esc(r.why)}</div>` : ""}
+        <div><h3>Хук</h3><div class="hook-main">${esc(hooks[0] || "")}</div>
+          <div class="alts">${hooks.slice(1).map((h, i) => `<div class="alt"><span>${esc(h)}</span><button data-hook="${i + 1}">сделать главным</button></div>`).join("")}</div></div>
+        ${body ? `<div><h3>${Array.isArray(r.script) && r.script.length ? "Сценарий" : Array.isArray(r.slides) && r.slides.length ? "Слайды" : "Текст"}</h3>${body}</div>` : ""}
+        ${r.clips?.length ? `<div><h3>Нарезать в шортсы</h3><ul class="ask">${r.clips.map((c) => `<li>${esc(c)}</li>`).join("")}</ul></div>` : ""}
+        ${r.caption ? `<div><h3>Подпись</h3><div class="posttext">${esc(r.caption)}</div></div>` : ""}
+        ${r.cta ? `<div><h3>CTA</h3><div>${esc(r.cta)}</div></div>` : ""}
+        ${media ? `<div><h3>Фото и видео с Диска</h3><div class="media">${media}</div></div>` : ""}
+        ${r.ask?.length ? `<div><h3>Уточните</h3><ul class="ask">${r.ask.map((a) => `<li>${esc(a)}</li>`).join("")}</ul></div>` : ""}
+        <div class="actions" style="display:grid;gap:10px">
+          <div class="fixrow"><input id="fix" placeholder="Что поправить? Например: короче, хук жёстче, убери Samsung"><button class="btn small" id="fixgo">Поправить</button></div>
+          <div class="row">
+            <button class="btn ghost small" id="copy">Скопировать текст</button>
+            <button class="btn ghost small" id="redo">Пересобрать с нуля</button>
+            ${current.notionUrl ? `<a class="btn ghost small" href="${esc(current.notionUrl)}" target="_blank" rel="noopener">Открыть в Notion</a>` : `<button class="btn ghost small" id="notion">Отправить в Notion</button>`}
+            <span class="status" id="ast"></span>
+          </div>
+        </div>
+      </section></div>`;
+    wireView();
+  }
+
+  function asPlain(r) {
+    const out = [];
+    if (r.hooks?.[0]) out.push(r.hooks[0], "");
+    for (const s of r.script || []) out.push(`${s.t} · ${s.say}${s.titr ? `  [титр: ${s.titr}]` : ""}`);
+    if (r.body) out.push(r.body);
+    (r.slides || []).forEach((s, i) => out.push(`${i + 1}. ${s.title}\n${s.text}`));
+    if (r.caption) out.push("", r.caption);
+    if (r.cta) out.push("", r.cta);
+    return out.join("\n");
+  }
+
+  function wireView() {
+    const ast = $("ast");
+    $("view").querySelectorAll("[data-hook]").forEach((b) => b.addEventListener("click", async () => {
+      const r = structuredClone(current.result); const i = +b.dataset.hook;
+      [r.hooks[0], r.hooks[i]] = [r.hooks[i], r.hooks[0]];
+      await save({ result: r });
+    }));
+    $("copy").addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(asPlain(current.result)); ast.textContent = "Скопировано"; }
+      catch { ast.textContent = "Не удалось скопировать: выделите текст вручную."; }
+    });
+    $("fixgo").addEventListener("click", async () => {
+      const fix = $("fix").value.trim(); if (!fix) { ast.textContent = "Напишите, что поправить."; return; }
+      const r = await run(buildPrompt(current.source, current.result.format || current.format, fix, current.result), ast, $("fixgo"));
+      if (r) await save({ result: r, title: r.title || current.title, fixes: [...(current.fixes || []), fix] });
+    });
+    $("redo").addEventListener("click", async () => {
+      const r = await run(buildPrompt(current.source, current.format === "auto" ? "auto" : (current.result.format || current.format)), ast, $("redo"));
+      if (r) await save({ result: r, title: r.title || current.title });
+    });
+    $("notion")?.addEventListener("click", () => toNotion(ast));
+  }
+
+  async function save(patch) {
+    Object.assign(current, patch);
+    renderView(); renderList();
+    if (db) { try { await db.doc("ideas/" + current.id).update(patch); } catch { $("ast").textContent = "Изменения не сохранились. Обновите страницу."; } }
+  }
+
+  // ---------- Notion ----------
+  function cell(s) { return esc(s).replace(/\n/g, " "); }
+  function notionMarkdown(r, src) {
+    const md = [];
+    md.push(`## Хук`, r.hooks?.[0] || "", "");
+    if (r.hooks?.length > 1) md.push(...r.hooks.slice(1).map((h) => `- запасной: ${h}`), "");
+    if (r.script?.length) {
+      md.push(`## Сценарий`, `<table header-row="true">`, `<tr><td>Время</td><td>Говорю</td><td>Титр</td><td>Кадр</td></tr>`);
+      for (const s of r.script) md.push(`<tr><td>${cell(s.t)}</td><td>${cell(s.say)}</td><td>${cell(s.titr)}</td><td>${cell(s.shot)}</td></tr>`);
+      md.push(`</table>`, "");
+    }
+    if (r.body) md.push(`## Текст`, r.body, "");
+    if (r.slides?.length) md.push(`## Слайды`, ...r.slides.map((s, i) => `${i + 1}. **${s.title}** — ${s.text}${s.media ? ` (фото: ${s.media})` : ""}`), "");
+    if (r.clips?.length) md.push(`## Нарезать в шортсы`, ...r.clips.map((c) => `- ${c}`), "");
+    if (r.caption) md.push(`## Подпись`, r.caption, "");
+    if (r.cta) md.push(`## CTA`, r.cta, "");
+    if (r.media?.length) md.push(`## Медиа с Диска`, ...r.media.map((m) => `- ${m.name}: ${m.where}`), "");
+    if (r.ask?.length) md.push(`## Уточнить`, ...r.ask.map((a) => `- ${a}`), "");
+    md.push(`---`, `**Исходник:** ${src}`);
+    return md.join("\n");
+  }
+  async function toNotion(ast) {
+    if (!mcp) { ast.textContent = "Notion недоступен в этом окне. Откройте страницу в claude.ai."; return; }
+    const btn = $("notion"); btn.disabled = true; ast.textContent = "Отправляю в Notion…";
+    const r = current.result;
+    const fmt = NOTION_FORMAT[r.format || current.format];
+    try {
+      const res = await mcp.callTool("Notion", "notion-create-pages", {
+        parent: { type: "data_source_id", data_source_id: IDEAS_DS },
+        pages: [{
+          properties: {
+            "Мысль": r.title || current.title,
+            "Суть": current.source.slice(0, 1900),
+            "Статус": "Разложено",
+            ...(fmt ? { "Хочу в": JSON.stringify([fmt]) } : {}),
+            ...(r.ask?.length ? { "Уточнить": r.ask.join(" · ").slice(0, 1900) } : {})
+          },
+          content: notionMarkdown(r, current.source)
+        }]
+      });
+      const m = JSON.stringify(res.payload ?? res.content ?? "").match(/https:\/\/[^"\s\\]*notion[^"\s\\]*/);
+      await save({ notionUrl: m ? m[0] : "https://app.notion.com/p/2cf8c88683974e7da833e155ecc9451c", status: "notion" });
+    } catch (e) {
+      btn.disabled = false;
+      const c = e?.code;
+      ast.className = "status err";
+      ast.textContent = c === "needs_reauth" ? "Переподключите Notion: claude.ai → Настройки → Коннекторы."
+        : c === "server_not_connected" ? "Добавьте Notion: claude.ai → Настройки → Коннекторы."
+        : c === "not_in_manifest" || c === "approval_required" ? "Разрешите странице доступ к Notion и нажмите ещё раз."
+        : c === "tool_error" ? "Notion не принял страницу: " + String(e.message || "").slice(0, 160)
+        : "Notion не ответил. Проверьте базу «Входящие мысли», прежде чем отправлять снова: страница могла создаться.";
+    }
+  }
+
+  // ---------- video mode ----------
+  function renderVEmpty() {
+    $("vview").innerHTML = `<div class="empty"><div class="hand">Хуки из ваших же слов</div><div>Вставьте расшифровку ролика. Claude найдёт фразы, которые цепляют, сделает из них кликбейтные хуки и подскажет, какие куски вырезать в шортсы.</div></div>`;
+  }
+  function renderVList() {
+    if (!videos.length) { $("vlist").innerHTML = `<div class="hint">Пока пусто. После съёмки здесь появятся расшифровки.</div>`; return; }
+    $("vlist").innerHTML = videos.map((v) => `<button class="item" data-vid="${esc(v.id)}" aria-current="${vcurrent?.id === v.id}"><b>${esc(v.title)}</b><span class="meta"><span>${fmtDate(v.createdAt)}</span>${v.result ? `<span class="pill ok">хуки готовы</span>` : `<span class="pill">ждёт</span>`}</span></button>`).join("");
+  }
+  $("vlist").addEventListener("click", (e) => { const b = e.target.closest("[data-vid]"); if (!b) return; vcurrent = videos.find((v) => v.id === b.dataset.vid); renderVList(); renderVView(); });
+
+  function vPrompt(text) {
+    return `Это расшифровка видео Александры Амброжий. Найди в ней её самые цепляющие фразы и сделай из них хуки и нарезки.
+
+${CONTEXT}
+
+${VOICE}
+
+Правила: каждый хук строится из её фразы (поле "from" — дословная цитата из расшифровки). Хук можно подрезать и заострить для кликбейта, но смысл не искажать и не обещать того, чего в видео нет. Нарезки — куски по 20–45 секунд, которые работают как отдельный шортс.
+
+РАСШИФРОВКА:
+"""
+${text.slice(0, 60000)}
+"""
+
+Ответь ТОЛЬКО JSON:
+{"hooks":[{"hook":"кликбейтный хук до 12 слов","from":"её дословная фраза","why":"чем цепляет, 5–8 слов"}],
+"clips":[{"start":"таймкод начала или пусто","end":"таймкод конца или пусто","title":"заголовок шортса","quote":"первые слова куска дословно","hook":"хук-титр на первые 3 секунды"}],
+"titles":["3 кликбейтных заголовка для самого видео"]}
+Хуков 6–8, нарезок 3–6.`;
+  }
+  $("vform").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const text = $("vtext").value.trim();
+    if (!text) { $("vst").className = "status err"; $("vst").textContent = "Вставьте расшифровку."; return; }
+    const id = "v" + Date.now().toString(36);
+    const doc = { createdAt: Date.now(), title: $("vtitle").value.trim() || text.slice(0, 50), text };
+    const r = await run(vPrompt(text), $("vst"), $("vgo"));
+    if (!r) return;
+    doc.result = r;
+    if (db) { try { await db.doc("videos/" + id).set(doc); } catch { $("vst").textContent = "Готово, но не сохранилось."; } }
+    vcurrent = { id, ...doc }; $("vtext").value = ""; $("vtitle").value = "";
+    renderVList(); renderVView();
+  });
+  function renderVView() {
+    if (!vcurrent) { renderVEmpty(); return; }
+    const r = vcurrent.result;
+    $("vview").innerHTML = `<div class="sheets">
+      <section class="sheet src"><h3>Расшифровка</h3><div class="src-text" style="max-height:520px;overflow:auto">${highlight(vcurrent.text, (r?.hooks || []).map((h) => h.from))}</div>
+        <div class="legend"><span class="l-own">фразы, из которых сделаны хуки</span></div></section>
+      <section class="sheet"><h2>${esc(vcurrent.title)}</h2>
+        ${r ? `
+        ${r.titles?.length ? `<div><h3>Заголовки для видео</h3><ul class="ask">${r.titles.map((t) => `<li>${esc(t)}</li>`).join("")}</ul></div>` : ""}
+        <div><h3>Хуки из ваших слов</h3><div class="hooks">${(r.hooks || []).map((h) => `<div class="hk"><b>${esc(h.hook)}</b><q>Вы сказали: «${esc(h.from)}»</q><span class="hint">${esc(h.why)}</span></div>`).join("")}</div></div>
+        <div><h3>Что вырезать в шортсы</h3><div class="tbl"><table><thead><tr><th>Где</th><th>Шортс</th><th>Хук-титр</th></tr></thead><tbody>${(r.clips || []).map((c) => `<tr><td class="t">${esc([c.start, c.end].filter(Boolean).join("–") || "—")}</td><td><b>${esc(c.title)}</b><br><span class="hint">с «${esc(c.quote)}»</span></td><td class="titr">${esc(c.hook)}</td></tr>`).join("")}</tbody></table></div></div>
+        <div class="actions"><button class="btn ghost small" id="vredo">Найти другие хуки</button><span class="status" id="vast"></span></div>`
+        : `<div class="row"><button class="btn small" id="vredo">Найти хуки и нарезки</button><span class="status" id="vast"></span></div>`}
+      </section></div>`;
+    $("vredo").addEventListener("click", async () => {
+      const res = await run(vPrompt(vcurrent.text), $("vast"), $("vredo"));
+      if (!res) return;
+      vcurrent.result = res; renderVView(); renderVList();
+      if (db) { try { await db.doc("videos/" + vcurrent.id).update({ result: res }); } catch {} }
+    });
+  }
+})();
+</script>
