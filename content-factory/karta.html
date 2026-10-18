@@ -1,0 +1,246 @@
+<title>Карта смыслов</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Golos+Text:wght@400;500;600&family=Caveat:wght@500;700&display=swap">
+<style>
+/* Layout: the campaign as four seasons side by side — each column is a phase of «100 дней до 25», each card a theme that opens its Notion page. */
+:root {
+  --paper: #FFFAF4;
+  --cream: #FBF3EA;
+  --sand: #F4E3D3;
+  --ink: #3A2218;
+  --muted: #8A6A55;
+  --line: rgba(107, 63, 38, .16);
+  --card: #FFFFFF;
+  --red: #C9412E;
+  --orange: #DE7B3A;
+  --brown: #6B3F26;
+  --winter: #5B7FA6;
+  --leaf: #5E8A4F;
+  --yellow: #EDB843;
+  --st-idea: #EFE6DC;
+  --st-script: #FBE7B5;
+  --st-shot: #DCE7F3;
+  --st-done: #DDEBD5;
+  --display: "Onest", "Golos Text", system-ui, sans-serif;
+  --body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Caveat", "Segoe Print", cursive;
+  --r: 22px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1E1612; --cream: #261C17; --sand: #33261F; --ink: #F4E6D8; --muted: #BFA390; --line: rgba(244,230,216,.14); --card: #2A201A;
+    --red: #EE7A62; --orange: #F0A066; --brown: #D9A57E; --winter: #93B4D8; --leaf: #9CC48F; --yellow: #F2C96A;
+    --st-idea: #3A2E26; --st-script: #4D3E1C; --st-shot: #24364A; --st-done: #26391F; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1E1612; --cream: #261C17; --sand: #33261F; --ink: #F4E6D8; --muted: #BFA390; --line: rgba(244,230,216,.14); --card: #2A201A;
+  --red: #EE7A62; --orange: #F0A066; --brown: #D9A57E; --winter: #93B4D8; --leaf: #9CC48F; --yellow: #F2C96A;
+  --st-idea: #3A2E26; --st-script: #4D3E1C; --st-shot: #24364A; --st-done: #26391F; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+a { color: inherit; }
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 64px; display: grid; gap: 26px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; line-height: 1.12; }
+h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; letter-spacing: -.02em; }
+h2 { font-size: 22px; font-weight: 600; }
+.hand { font-family: var(--hand); color: var(--red); font-size: 26px; line-height: 1; }
+.sub { color: var(--muted); max-width: 64ch; margin: 8px 0 0; }
+.head { display: flex; flex-wrap: wrap; gap: 18px; align-items: end; justify-content: space-between; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.links a { text-decoration: none; border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 8px 14px; font-weight: 500; font-size: 14px; }
+.links a.main { background: var(--red); color: #fff; border-color: var(--red); }
+.links a:hover { border-color: var(--red); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+.stats { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline; border-block: 1px solid var(--line); padding-block: 14px; }
+.stat b { font-family: var(--display); font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; margin-right: 6px; }
+.stat span { color: var(--muted); font-size: 14px; }
+.fresh { margin-left: auto; font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+.fresh button { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 4px 12px; font: inherit; font-size: 13px; color: var(--ink); cursor: pointer; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.filters .lbl { font-size: 13px; color: var(--muted); margin-right: 4px; }
+.chip { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 5px 12px; font: inherit; font-size: 14px; color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+
+.board { display: grid; grid-template-columns: repeat(5, minmax(250px, 1fr)); gap: 16px; overflow-x: auto; padding-bottom: 6px; }
+@media (max-width: 760px) { .board { grid-template-columns: minmax(0, 1fr); overflow: visible; } }
+.lane { background: var(--cream); border-radius: var(--r); padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.lane-h { display: grid; gap: 2px; padding: 2px 4px 6px; border-bottom: 2px solid var(--lc, var(--line)); }
+.lane-h h3 { font-size: 17px; font-weight: 600; display: flex; gap: 8px; align-items: baseline; justify-content: space-between; }
+.lane-h h3 small { font-family: var(--body); font-weight: 500; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.lane-h p { margin: 0; font-size: 13px; color: var(--muted); }
+.card { display: grid; gap: 6px; text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 12px 13px; transition: border-color .15s, transform .15s; }
+.card:hover { border-color: var(--red); }
+@media (prefers-reduced-motion: no-preference) { .card:hover { transform: translateY(-1px); } }
+.card .top { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.card .t { font-family: var(--display); font-weight: 600; font-size: 15px; line-height: 1.25; }
+.card .hook { font-size: 13px; color: var(--muted); font-style: italic; }
+.card .hook::first-letter { text-transform: uppercase; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-size: 11.5px; border-radius: 999px; padding: 1px 8px; background: var(--sand); }
+.st { font-size: 11.5px; border-radius: 999px; padding: 1px 8px; font-weight: 600; white-space: nowrap; }
+.st.idea { background: var(--st-idea); }
+.st.script { background: var(--st-script); }
+.st.shot { background: var(--st-shot); }
+.st.done { background: var(--st-done); }
+.card.soon { box-shadow: inset 3px 0 0 var(--red); }
+.empty-lane { font-size: 13px; color: var(--muted); padding: 6px 4px; }
+
+.inbox { display: grid; gap: 12px; }
+.inbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.note { font-size: 13px; color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <div>
+      <div class="hand" id="countdown">100 дней до 25</div>
+      <h1>Карта смыслов</h1>
+      <p class="sub">Все темы кампании по сезонам. Нажмите на карточку, и в Notion откроется её страница со сценарием. Новые сценарии пишет проект «Сценарист», и они сразу появляются здесь.</p>
+    </div>
+    <nav class="links">
+      <a class="main" href="https://claude.ai/projects" target="_blank" rel="noopener">Открыть «Сценариста»</a>
+      <a href="https://app.notion.com/p/3fd2130a235b8161833bc05d8a7ad0ca" target="_blank" rel="noopener">Как настроить</a>
+      <a href="https://app.notion.com/p/6f8e687e7ba14b8394e0ca501fd0dcde" target="_blank" rel="noopener">Приёмы и примеры</a>
+      <a href="https://app.notion.com/p/3f12130a235b810e8af5e6cf36fdcf89" target="_blank" rel="noopener">Стратегия в Notion</a>
+    </nav>
+  </header>
+
+  <section class="stats" id="stats"></section>
+
+  <div class="filters" id="rubrics"><span class="lbl">Рубрика</span></div>
+
+  <section class="board" id="board"></section>
+
+  <section class="inbox">
+    <div class="head" style="align-items:baseline">
+      <h2>Входящие мысли</h2>
+      <span class="note">Сырые мысли, которые ещё не стали темами. Скажите «Сценаристу», какую разложить.</span>
+    </div>
+    <div class="inbox-grid" id="inbox"></div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const THEMES_DS = "collection://0f9a6d69-d62f-4c25-800c-291c0d29eb07";
+  const IDEAS_DS = "collection://4f4cf32b-848d-4f7c-a74e-e146491bf9fd";
+  const PHASES = [
+    ["🍂 Листопад", "Листопад", "1–26 октября · прогрев", "var(--orange)"],
+    ["🌰 Корни", "Корни", "27 октября — 23 ноября · «Слепая зона»", "var(--brown)"],
+    ["❄️ Перезимовать", "Перезимовать", "24 ноября — 21 декабря · «Чужая повестка»", "var(--winter)"],
+    ["🌱 Первый лист", "Первый лист", "22 декабря — 8 января · итоги и 25", "var(--leaf)"],
+    [null, "Без даты", "Запас тем: поставьте дату в Notion", "var(--line)"]
+  ];
+  const RUBRICS = { "Изнанка": "#4F7DB8", "Наследство": "#8A5BB0", "Лёгкая жизнь": "#5E8A4F", "Комета": "#D46A8C", "Чит-код": "#DE7B3A", "Не по инструкции": "#C9412E" };
+  const ST = { "Идея": "idea", "Сценарий": "script", "Снято / свёрстано": "shot", "Опубликовано": "done", "В архив": "idea", "Новая": "idea", "Разложено": "script", "В контент-плане": "done" };
+
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const left = Math.ceil((new Date("2027-01-08T00:00:00") - today) / 864e5);
+  const plural = (n, a, b, c) => { const m = n % 10, h = n % 100; return m === 1 && h !== 11 ? a : m >= 2 && m <= 4 && (h < 12 || h > 14) ? b : c; };
+  if (left > 0) $("countdown").textContent = `${left} ${plural(left, "день", "дня", "дней")} до 25`;
+  const fmt = (d) => d ? new Date(d + "T00:00:00").toLocaleDateString("ru-RU", { day: "numeric", month: "short" }) : "";
+  const parseArr = (v) => { if (Array.isArray(v)) return v; try { return JSON.parse(v || "[]") || []; } catch { return []; } };
+
+  let data = { themes: [], ideas: [] }, source = "", rubric = null;
+
+  // rubric chips
+  $("rubrics").insertAdjacentHTML("beforeend", `<button class="chip" data-r="" aria-pressed="true">Все</button>` +
+    Object.entries(RUBRICS).map(([r, c]) => `<button class="chip" data-r="${esc(r)}" aria-pressed="false"><span class="dot" style="background:${c}"></span>${esc(r)}</button>`).join(""));
+  $("rubrics").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-r]"); if (!b) return;
+    rubric = b.dataset.r || null;
+    for (const c of $("rubrics").querySelectorAll("[data-r]")) c.setAttribute("aria-pressed", (c.dataset.r || null) === rubric);
+    render();
+  });
+
+  function render() {
+    const th = data.themes.filter((t) => !rubric || t.r === rubric);
+    const scripts = data.themes.filter((t) => ["Сценарий", "Снято / свёрстано", "Опубликовано"].includes(t.st)).length;
+    const next = data.themes.filter((t) => t.d && new Date(t.d + "T00:00:00") >= today).sort((a, b) => a.d.localeCompare(b.d))[0];
+    $("stats").innerHTML = `
+      <div class="stat"><b>${data.themes.length}</b><span>тем</span></div>
+      <div class="stat"><b>${scripts}</b><span>со сценарием</span></div>
+      <div class="stat"><b>${data.ideas.length}</b><span>входящих мыслей</span></div>
+      ${next ? `<div class="stat"><span>Ближайшая: <a href="${esc(next.url)}" target="_blank" rel="noopener"><b style="font-size:15px">${esc(next.t)}</b></a> · ${fmt(next.d)}</span></div>` : ""}
+      <div class="fresh"><span id="src">${esc(source)}</span><button id="reload" type="button">Обновить</button></div>`;
+    $("reload").addEventListener("click", () => loadLive(true));
+
+    $("board").innerHTML = PHASES.map(([key, name, sub, color]) => {
+      const items = th.filter((t) => (t.ph || null) === key).sort((a, b) => (a.d || "9").localeCompare(b.d || "9"));
+      return `<div class="lane" style="--lc:${color}">
+        <div class="lane-h"><h3>${esc(name)} <small>${items.length}</small></h3><p>${esc(sub)}</p></div>
+        ${items.length ? items.map(card).join("") : `<div class="empty-lane">Тем этой рубрики здесь нет.</div>`}
+      </div>`;
+    }).join("");
+
+    $("inbox").innerHTML = data.ideas.length ? data.ideas.map((i) => `<a class="card" href="${esc(i.url)}" target="_blank" rel="noopener">
+        <div class="top"><span>${parseArr(i.f).slice(0, 3).map(esc).join(" · ") || "формат не выбран"}</span>${i.st ? `<span class="st ${ST[i.st] || "idea"}">${esc(i.st)}</span>` : ""}</div>
+        <div class="t">${esc(i.t)}</div></a>`).join("") : `<div class="note">Входящих мыслей нет.</div>`;
+  }
+
+  function card(t) {
+    const soon = t.d && (new Date(t.d + "T00:00:00") - today) / 864e5 <= 7 && new Date(t.d + "T00:00:00") >= today;
+    return `<a class="card${soon ? " soon" : ""}" href="${esc(t.url)}" target="_blank" rel="noopener">
+      <div class="top"><span>${t.d ? fmt(t.d) : "без даты"}${soon ? " · скоро" : ""}</span><span class="st ${ST[t.st] || "idea"}">${esc(t.st || "Идея")}</span></div>
+      <div class="t">${esc(t.t)}</div>
+      ${t.hook ? `<div class="hook">«${esc(t.hook)}»</div>` : ""}
+      <div class="tags">${t.r ? `<span class="tag"><span class="dot" style="background:${RUBRICS[t.r] || "var(--muted)"}"></span> ${esc(t.r)}</span>` : ""}${parseArr(t.f).map((f) => `<span class="tag">${esc(f)}</span>`).join("")}${t.to ? `<span class="tag">→ ${esc(t.to)}</span>` : ""}</div>
+    </a>`;
+  }
+
+  // ---- data: snapshot first, then live Notion ----
+  let db = null, mcp = null;
+  (async () => {
+    [db, mcp] = await Promise.all([claude.use("db"), claude.use("mcp")]);
+    if (db) {
+      try {
+        const s = await db.doc("snapshot/notion").get();
+        if (s.exists && !data.themes.length) {
+          const v = s.data();
+          data = { themes: v.themes || [], ideas: v.ideas || [] };
+          source = "Снимок от " + new Date(v.takenAt).toLocaleDateString("ru-RU", { day: "numeric", month: "long" });
+          render();
+        }
+      } catch {}
+    }
+    loadLive(false);
+  })();
+  render();
+
+  async function loadLive(manual) {
+    if (!mcp) { if (manual) { source = "Notion недоступен в этом окне"; render(); } return; }
+    source = "Загружаю из Notion…"; render();
+    try {
+      const q = (ds, sql) => mcp.callTool("Notion", "notion-query-data-sources", { data: { data_source_urls: [ds], query: sql } }, { cache: false });
+      const [a, b] = await Promise.all([
+        q(THEMES_DS, `SELECT "Тема", "Рубрика", "Фаза", "Статус", "Формат", "Ведёт в", "Хук", "date:Дата:start" AS d, url FROM "${THEMES_DS}"`),
+        q(IDEAS_DS, `SELECT "Мысль", "Статус", "Хочу в", url FROM "${IDEAS_DS}" ORDER BY createdTime`)
+      ]);
+      const ra = a.payload?.results, rb = b.payload?.results;
+      if (!Array.isArray(ra) || !Array.isArray(rb)) throw { code: "shape" };
+      data = {
+        themes: ra.filter((r) => r["Статус"] !== "В архив").map((r) => ({ t: r["Тема"], r: r["Рубрика"], ph: r["Фаза"], st: r["Статус"], f: r["Формат"], to: r["Ведёт в"], hook: r["Хук"], d: r.d, url: r.url })),
+        ideas: rb.map((r) => ({ t: r["Мысль"], st: r["Статус"], f: r["Хочу в"], url: r.url }))
+      };
+      source = "Из Notion, только что";
+      render();
+      if (db && db.doc) { try { await db.doc("snapshot/notion").set({ ...data, takenAt: new Date().toISOString() }); } catch {} }
+    } catch (e) {
+      const c = e?.code;
+      source = c === "needs_reauth" ? "Переподключите Notion в настройках claude.ai"
+        : c === "server_not_connected" ? "Подключите Notion в настройках claude.ai"
+        : c === "not_in_manifest" || c === "approval_required" ? "Разрешите доступ к Notion и нажмите «Обновить»"
+        : (data.themes.length ? source.replace("Загружаю из Notion…", "Снимок") + " · Notion не ответил" : "Notion не ответил, нажмите «Обновить»");
+      render();
+    }
+  }
+})();
+</script>
