@@ -32,10 +32,10 @@
     <tr>
       <td>{{ score_badge(c.score, vacancy.threshold) }}</td>
       <td><a href="/candidates/{{ c.id }}">{{ c.name or "Без имени" }}</a><br>
-          <span class="muted">{{ c.contact }}</span></td>
+          <span class="muted nowrap">{{ c.contact }}</span></td>
       <td>{{ (c.summary or "")[:220] }}</td>
-      <td><span class="badge">{{ statuses[c.status] }}</span></td>
-      <td class="muted">{{ c.created_at[:10] }}</td>
+      <td><span class="badge nowrap">{{ statuses[c.status] }}</span></td>
+      <td class="muted nowrap">{{ c.created_at[:10] }}</td>
     </tr>
     {% endfor %}
   </table>
