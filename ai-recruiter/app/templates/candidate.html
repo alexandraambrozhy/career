@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% from "base.html" import score_badge %}
+{% block title %}{{ cand.name }} — AI-рекрутер{% endblock %}
+{% block content %}
+<p><a href="/vacancies/{{ vacancy.id }}">← {{ vacancy.title }}</a></p>
+<div class="row" style="justify-content:space-between">
+  <h1>{{ cand.name or "Без имени" }} {{ score_badge(cand.score, vacancy.threshold) }}</h1>
+  <form method="post" action="/candidates/{{ cand.id }}/status" class="row">
+    <select name="status" aria-label="Статус">
+      {% for key, label in statuses.items() %}
+      <option value="{{ key }}" {{ "selected" if key == cand.status }}>{{ label }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" style="margin-top:0">Сохранить</button>
+  </form>
+</div>
+<p class="muted">
+  {{ cand.contact }}
+  {% if cand.tg_username %} · <a href="https://t.me/{{ cand.tg_username }}">@{{ cand.tg_username }}</a>{% endif %}
+  · {{ verdicts.get(cand.verdict, "без оценки") }} · {{ cand.created_at[:16].replace("T", " ") }}
+</p>
+
+<div class="card">
+  <h2>Сводка</h2>
+  <p>{{ cand.summary or "—" }}</p>
+</div>
+
+<div class="grid">
+  <div class="card"><h2>Сильные стороны</h2>
+    {% if cand.strengths %}<ul>{% for s in cand.strengths %}<li>{{ s }}</li>{% endfor %}</ul>{% else %}<p class="muted">—</p>{% endif %}
+  </div>
+  <div class="card"><h2>Риски</h2>
+    {% if cand.risks %}<ul>{% for s in cand.risks %}<li>{{ s }}</li>{% endfor %}</ul>{% else %}<p class="muted">—</p>{% endif %}
+  </div>
+</div>
+
+<div class="card"><h2>Вопросы для интервью</h2>
+  {% if cand.interview_questions %}<ul>{% for q in cand.interview_questions %}<li>{{ q }}</li>{% endfor %}</ul>{% else %}<p class="muted">—</p>{% endif %}
+</div>
+
+<div class="card"><h2>Ответы на скрининг</h2>
+  {% for a in cand.answers %}
+  <p><b>{{ a.question }}</b><br>{{ a.answer }}</p>
+  {% else %}<p class="muted">—</p>{% endfor %}
+</div>
+
+<div class="card"><h2>Резюме {% if cand.resume_filename %}<span class="muted">({{ cand.resume_filename }})</span>{% endif %}</h2>
+  {% if cand.resume_text %}<pre>{{ cand.resume_text }}</pre>{% else %}<p class="muted">Не приложено</p>{% endif %}
+</div>
+{% endblock %}

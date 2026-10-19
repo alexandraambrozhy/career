@@ -1,0 +1,10 @@
+<label for="title">Название</label>
+<input id="title" name="title" required value="{{ vacancy.title if vacancy else '' }}" placeholder="Менеджер по продажам B2B">
+<label for="description">Описание (увидит кандидат)</label>
+<textarea id="description" name="description" placeholder="Компания, задачи, условия, зарплатная вилка">{{ vacancy.description if vacancy else '' }}</textarea>
+<label for="requirements">Требования (для оценки)</label>
+<textarea id="requirements" name="requirements" placeholder="Опыт B2B-продаж от 2 лет, CRM, переговоры с ЛПР…">{{ vacancy.requirements if vacancy else '' }}</textarea>
+<label for="questions">Скрининговые вопросы — по одному на строку</label>
+<textarea id="questions" name="questions" placeholder="Сколько лет у вас опыта в продажах?&#10;Какой средний чек сделок вы закрывали?&#10;Какие ожидания по зарплате?">{{ vacancy.questions | join('\n') if vacancy else '' }}</textarea>
+<label for="threshold">Порог «подходит» (0–100) — выше него рекрутер получит уведомление</label>
+<input id="threshold" name="threshold" type="number" min="0" max="100" value="{{ vacancy.threshold if vacancy else 70 }}">

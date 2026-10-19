@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% from "base.html" import score_badge %}
+{% block title %}{{ vacancy.title }} — AI-рекрутер{% endblock %}
+{% block content %}
+<p><a href="/">← Все вакансии</a></p>
+<div class="row" style="justify-content:space-between">
+  <h1>{{ vacancy.title }} <span class="badge">{{ "Открыта" if vacancy.active else "Закрыта" }}</span></h1>
+  <div class="row">
+    <a class="btn secondary" href="/vacancies/{{ vacancy.id }}/export.csv">Экспорт CSV</a>
+    <form method="post" action="/vacancies/{{ vacancy.id }}/toggle">
+      <button class="secondary" type="submit">{{ "Закрыть" if vacancy.active else "Открыть" }}</button>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Ссылка для кандидатов</h2>
+  {% if bot_username %}
+  <p><code>https://t.me/{{ bot_username }}?start=vac_{{ vacancy.id }}</code></p>
+  <p class="muted">Разместите её в объявлении на hh.ru, в Telegram-каналах, соцсетях и на сайте.</p>
+  {% else %}
+  <p class="muted">Бот не запущен — задайте <code>TELEGRAM_BOT_TOKEN</code>. Параметр ссылки: <code>?start=vac_{{ vacancy.id }}</code></p>
+  {% endif %}
+</div>
+
+<div class="card table-wrap">
+  <h2>Кандидаты ({{ candidates | length }})</h2>
+  {% if candidates %}
+  <table>
+    <tr><th>Оценка</th><th>Кандидат</th><th>Сводка</th><th>Статус</th><th>Дата</th></tr>
+    {% for c in candidates %}
+    <tr>
+      <td>{{ score_badge(c.score, vacancy.threshold) }}</td>
+      <td><a href="/candidates/{{ c.id }}">{{ c.name or "Без имени" }}</a><br>
+          <span class="muted">{{ c.contact }}</span></td>
+      <td>{{ (c.summary or "")[:220] }}</td>
+      <td><span class="badge">{{ statuses[c.status] }}</span></td>
+      <td class="muted">{{ c.created_at[:10] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">Откликов пока нет.</p>
+  {% endif %}
+</div>
+
+<div class="card">
+  <h2>Редактировать вакансию</h2>
+  <form method="post" action="/vacancies/{{ vacancy.id }}">
+    {% include "_vacancy_form.html" %}
+    <button type="submit">Сохранить</button>
+  </form>
+</div>
+{% endblock %}

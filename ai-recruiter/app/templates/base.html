@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}AI-рекрутер{% endblock %}</title>
+<style>
+  :root { --bg:#f6f6f8; --card:#fff; --text:#1d1d22; --muted:#6b6b76; --line:#e4e4ea;
+          --accent:#4b3df5; --good:#1f9d55; --mid:#d48806; --bad:#cf3a3a; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--bg); color:var(--text); }
+  header { background:var(--card); border-bottom:1px solid var(--line); padding:12px 16px; }
+  header a { color:var(--text); text-decoration:none; font-weight:600; }
+  main { max-width:1100px; margin:0 auto; padding:24px 16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; margin-bottom:20px; }
+  h1 { font-size:24px; margin:0 0 16px; } h2 { font-size:18px; margin:0 0 12px; }
+  a { color:var(--accent); }
+  table { width:100%; border-collapse:collapse; }
+  th, td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--muted); font-weight:500; font-size:13px; }
+  .table-wrap { overflow-x:auto; }
+  label { display:block; font-weight:500; margin:12px 0 4px; }
+  input, textarea, select { width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:8px; font:inherit; }
+  textarea { min-height:90px; }
+  button, .btn { display:inline-block; background:var(--accent); color:#fff; border:0; border-radius:8px;
+                 padding:9px 16px; font:inherit; cursor:pointer; text-decoration:none; margin-top:12px; }
+  .btn.secondary, button.secondary { background:#ececf2; color:var(--text); }
+  .muted { color:var(--muted); } .row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .score { display:inline-block; min-width:44px; text-align:center; font-weight:700; border-radius:6px; padding:2px 6px; color:#fff; }
+  .score.good { background:var(--good); } .score.mid { background:var(--mid); } .score.bad { background:var(--bad); } .score.none { background:#aaa; }
+  .badge { display:inline-block; font-size:12px; padding:2px 8px; border-radius:99px; background:#ececf2; }
+  .banner { background:#fff7e6; border:1px solid #ffd591; border-radius:10px; padding:10px 14px; margin-bottom:20px; }
+  code { background:#ececf2; padding:2px 6px; border-radius:4px; word-break:break-all; }
+  pre { white-space:pre-wrap; background:#fafafc; border:1px solid var(--line); border-radius:8px; padding:12px; max-height:420px; overflow:auto; }
+  ul { margin:0; padding-left:20px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:760px) { .grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header><a href="/">AI-рекрутер</a></header>
+<main>
+{% if demo_mode %}
+<div class="banner">Демо-режим: оценка по ключевым словам. Задайте <code>ANTHROPIC_API_KEY</code>, чтобы кандидатов оценивал Claude.</div>
+{% endif %}
+{% block content %}{% endblock %}
+</main>
+</body>
+</html>
+{% macro score_badge(score, threshold=70) -%}
+{%- if score is none -%}<span class="score none">—</span>
+{%- elif score >= threshold -%}<span class="score good">{{ score }}</span>
+{%- elif score >= 50 -%}<span class="score mid">{{ score }}</span>
+{%- else -%}<span class="score bad">{{ score }}</span>{%- endif -%}
+{%- endmacro %}

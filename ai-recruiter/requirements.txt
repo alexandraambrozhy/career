@@ -1,0 +1,8 @@
+aiogram==3.31.0
+anthropic==1.15.0
+fastapi==0.148.0
+uvicorn==0.54.0
+Jinja2==3.1.6
+python-multipart==0.0.32
+pypdf==6.21.1
+python-docx==1.2.0
