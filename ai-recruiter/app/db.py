@@ -33,6 +33,13 @@ CREATE TABLE IF NOT EXISTS candidates (
     status TEXT NOT NULL DEFAULT 'new',
     created_at TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS paused_chats (
+    business_connection_id TEXT NOT NULL,
+    chat_id INTEGER NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (business_connection_id, chat_id)
+);
+CREATE INDEX IF NOT EXISTS idx_candidates_tg_user ON candidates(tg_user_id);
 CREATE INDEX IF NOT EXISTS idx_candidates_vacancy ON candidates(vacancy_id, score DESC);
 """
 
@@ -141,3 +148,22 @@ class Store:
             raise ValueError(f"unknown status: {status}")
         with self._conn() as c:
             c.execute("UPDATE candidates SET status = ? WHERE id = ?", (status, candidate_id))
+
+    def has_applied(self, tg_user_id: int) -> bool:
+        with self._conn() as c:
+            return c.execute("SELECT 1 FROM candidates WHERE tg_user_id = ? LIMIT 1",
+                             (tg_user_id,)).fetchone() is not None
+
+    # --- чаты Telegram Business, где рекрутер отвечает сам ---
+
+    def pause_chat(self, business_connection_id: str, chat_id: int) -> None:
+        with self._conn() as c:
+            c.execute("INSERT OR IGNORE INTO paused_chats VALUES (?, ?, ?)",
+                      (business_connection_id, chat_id, _now()))
+
+    def is_paused(self, business_connection_id: str, chat_id: int) -> bool:
+        with self._conn() as c:
+            return c.execute(
+                "SELECT 1 FROM paused_chats WHERE business_connection_id = ? AND chat_id = ?",
+                (business_connection_id, chat_id),
+            ).fetchone() is not None

@@ -11,7 +11,7 @@ from aiogram.filters import CommandObject, CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup,
-                           KeyboardButton, Message, ReplyKeyboardMarkup, ReplyKeyboardRemove)
+                           KeyboardButton, Message, ReplyKeyboardMarkup, ReplyKeyboardRemove, User)
 
 from .config import settings
 from .db import Store
@@ -131,20 +131,28 @@ async def got_answer(message: Message, state: FSMContext, store: Store):
     await _ask_next(message, state, store)
 
 
-@router.message(Screening.resume, F.document)
-async def got_resume_file(message: Message, state: FSMContext, store: Store):
+async def read_resume(message: Message) -> str:
+    """Текст резюме из присланного файла. ValueError — с понятным кандидату текстом."""
     doc = message.document
     if doc.file_size and doc.file_size > MAX_RESUME_BYTES:
-        return await message.answer("Файл слишком большой (максимум 10 МБ).")
+        raise ValueError("Файл слишком большой (максимум 10 МБ)")
     buf = await message.bot.download(doc)
     try:
-        text = extract_text(doc.file_name or "resume", buf.read())
-    except ValueError as e:
-        return await message.answer(f"{e}. Попробуйте другой файл или вставьте текст.")
+        return extract_text(doc.file_name or "resume", buf.read())
+    except ValueError:
+        raise
     except Exception:
         log.exception("resume parse failed")
-        return await message.answer("Не удалось прочитать файл. Попробуйте другой формат или вставьте текст.")
-    await _finish(message, state, store, text, doc.file_name)
+        raise ValueError("Не удалось прочитать файл")
+
+
+@router.message(Screening.resume, F.document)
+async def got_resume_file(message: Message, state: FSMContext, store: Store):
+    try:
+        text = await read_resume(message)
+    except ValueError as e:
+        return await message.answer(f"{e}. Попробуйте другой файл или вставьте текст.")
+    await _finish(message, state, store, text, message.document.file_name)
 
 
 @router.message(Screening.resume, F.text)
@@ -156,9 +164,14 @@ async def got_resume_text(message: Message, state: FSMContext, store: Store):
 async def _finish(message: Message, state: FSMContext, store: Store, resume_text: str, filename: str | None):
     data = await state.get_data()
     await state.clear()
-    vacancy = store.get_vacancy(data["vacancy_id"])
     await message.answer("Спасибо! Анкета отправлена, рекрутер свяжется с вами, если профиль подойдёт.")
+    await submit_application(message.bot, store, data, message.from_user, resume_text, filename)
 
+
+async def submit_application(bot: Bot, store: Store, data: dict, user: User, resume_text: str,
+                             filename: str | None, notify_chat_ids: tuple[int, ...] = ()) -> int:
+    """Оценивает анкету, сохраняет кандидата и уведомляет рекрутеров, если он выше порога."""
+    vacancy = store.get_vacancy(data["vacancy_id"])
     try:
         result = await score_candidate(vacancy, data["answers"], resume_text)
         fields = result.as_fields()
@@ -168,8 +181,8 @@ async def _finish(message: Message, state: FSMContext, store: Store, resume_text
 
     candidate_id = store.create_candidate(
         vacancy["id"],
-        tg_user_id=message.from_user.id,
-        tg_username=message.from_user.username,
+        tg_user_id=user.id,
+        tg_username=user.username,
         name=data["name"],
         contact=data["contact"],
         answers=data["answers"],
@@ -179,10 +192,12 @@ async def _finish(message: Message, state: FSMContext, store: Store, resume_text
     )
     score = fields.get("score")
     if score is not None and score >= vacancy["threshold"]:
-        await _notify_recruiters(message.bot, vacancy, store.get_candidate(candidate_id))
+        chat_ids = dict.fromkeys([*settings.recruiter_chat_ids, *notify_chat_ids])
+        await _notify_recruiters(bot, vacancy, store.get_candidate(candidate_id), chat_ids)
+    return candidate_id
 
 
-async def _notify_recruiters(bot: Bot, vacancy: dict, cand: dict):
+async def _notify_recruiters(bot: Bot, vacancy: dict, cand: dict, chat_ids):
     username = f" (@{cand['tg_username']})" if cand["tg_username"] else ""
     text = (
         f"🔥 Новый подходящий кандидат — <b>{html.escape(vacancy['title'])}</b>\n\n"
@@ -192,7 +207,7 @@ async def _notify_recruiters(bot: Bot, vacancy: dict, cand: dict):
         f"{html.escape(cand['summary'] or '')}\n\n"
         f"Карточка: {settings.public_url}/candidates/{cand['id']}"
     )
-    for chat_id in settings.recruiter_chat_ids:
+    for chat_id in chat_ids:
         try:
             await bot.send_message(chat_id, text)
         except Exception:
@@ -200,6 +215,8 @@ async def _notify_recruiters(bot: Bot, vacancy: dict, cand: dict):
 
 
 def build_dispatcher(store: Store) -> Dispatcher:
+    from .business import router as business_router
+
     dp = Dispatcher(store=store)
-    dp.include_router(router)
+    dp.include_routers(router, business_router)
     return dp
