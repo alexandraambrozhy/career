@@ -86,6 +86,13 @@ td.num{text-align:right;font-family:var(--mono);white-space:nowrap}
 .files code{font-family:var(--mono);font-size:12px;color:var(--muted);display:block}
 .caveat{background:var(--warn-soft);border-radius:6px;padding:14px 16px;font-size:14px;max-width:none}
 a{color:var(--accent)}
+details{display:flex;flex-direction:column;gap:10px}
+details>summary{cursor:pointer;font-weight:600;padding:10px 14px;background:var(--surface);border:1px solid var(--line);border-radius:6px;list-style-position:inside}
+details[open]>summary{margin-bottom:10px}
+details>.note{margin-top:8px}
+tr.sum td{font-weight:600;border-top:2px solid var(--line)}
+.files a{display:block;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);text-decoration:none}
+.files a:hover,.files a:focus-visible{border-color:var(--accent)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 </style>
 
@@ -246,8 +253,94 @@ a{color:var(--accent)}
     <li>Валовая маржа 88–91 %, LLM стоит 6–8 ₽ за отчёт.</li>
     <li>Потолок вашего времени — около 30 клиентских часов в месяц, это ~120–150 тыс. ₽ на консультациях. Расти дальше можно через группы и консультантов.</li>
     <li>Самый сильный рычаг B2C — hh.ru «Наставники». Telegram Ads при базовых конверсиях убыточен.</li>
-    <li>Финансовая модель для Excel партнёра лежит в файле <code>agents/08-model.csv</code>.</li>
   </ul>
+
+  <h3>Финансовая модель</h3>
+  <p class="note">Ниже — главное из модели агента 08. Полная модель с формулами для Excel партнёра лежит в репозитории: <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/08-model.csv" target="_blank" rel="noopener">08-model.csv</a>. Меняются только допущения, остальное пересчитывается. Время основателей в расходы не включено.</p>
+
+  <details open>
+    <summary>По месяцам: выручка / прибыль, тыс. ₽</summary>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Месяц</th><th>Пессимистичный</th><th>Базовый</th><th>Оптимистичный</th></tr></thead>
+        <tbody>
+        <tr><td>М1</td><td class="num">0 / −0,6</td><td class="num">0 / −0,9</td><td class="num">0 / −1,5</td></tr>
+        <tr><td>М2</td><td class="num">1,7 / 1,0</td><td class="num">24,9 / 0,5</td><td class="num">73,8 / 28,4</td></tr>
+        <tr><td>М3</td><td class="num">7,2 / 6,1</td><td class="num">9,7 / 6,5</td><td class="num">77,4 / 66,8</td></tr>
+        <tr><td>М4</td><td class="num">2,8 / 0,5</td><td class="num">27,0 / 22,4</td><td class="num">107,4 / 91,4</td></tr>
+        <tr><td>М5</td><td class="num">4,4 / 3,4</td><td class="num">25,4 / 19,5</td><td class="num">134,4 / 113,5</td></tr>
+        <tr><td>М6</td><td class="num">11,1 / 9,5</td><td class="num">59,1 / 48,8</td><td class="num">244,4 / 199,0</td></tr>
+        <tr><td>М7</td><td class="num">10,8 / 7,7</td><td class="num">110,9 / 95,8</td><td class="num">218,6 / 186,0</td></tr>
+        <tr><td>М8</td><td class="num">11,3 / 9,7</td><td class="num">102,9 / 86,6</td><td class="num">357,7 / 277,6</td></tr>
+        <tr><td>М9</td><td class="num">57,4 / 52,2</td><td class="num">150,5 / 130,3</td><td class="num">347,0 / 301,5</td></tr>
+        <tr><td>М10</td><td class="num">13,8 / 11,9</td><td class="num">120,0 / 101,9</td><td class="num">369,2 / 321,3</td></tr>
+        <tr><td>М11</td><td class="num">15,1 / 13,1</td><td class="num">190,0 / 164,9</td><td class="num">408,1 / 355,0</td></tr>
+        <tr><td>М12</td><td class="num">60,4 / 54,9</td><td class="num">152,8 / 130,1</td><td class="num">440,0 / 383,4</td></tr>
+        <tr class="sum"><td>Год</td><td class="num">196 / 170</td><td class="num">973 / 806</td><td class="num">2 778 / 2 322</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">М1 — CustDev и лендинг предзаказа. Скачки в М9 и М12 — наборы в группы. Консультанты начинают платить с М4–М5.</p>
+  </details>
+
+  <details>
+    <summary>Ключевые допущения</summary>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Допущение</th><th>Пессим.</th><th>Базовый</th><th>Оптим.</th></tr></thead>
+        <tbody>
+        <tr><td>Завершил тест → купил отчёт</td><td class="num">2 %</td><td class="num">3 %</td><td class="num">4,5 %</td></tr>
+        <tr><td>Завершил тест → купил разбор или пакет</td><td class="num">0,8 %</td><td class="num">1,2 %</td><td class="num">2 %</td></tr>
+        <tr><td>Завершений теста с одной коллаборации</td><td class="num">60</td><td class="num">120</td><td class="num">200</td></tr>
+        <tr><td>Цена завершения теста из посевов в Telegram</td><td class="num">180 ₽</td><td class="num">100 ₽</td><td class="num">70 ₽</td></tr>
+        <tr><td>Комиссия hh.ru «Наставники» (не опубликована)</td><td class="num">25 %</td><td class="num">20 %</td><td class="num">20 %</td></tr>
+        <tr><td>Новых консультантов в месяц</td><td class="num">1</td><td class="num">2–5</td><td class="num">3–10</td></tr>
+        <tr><td>Отток консультантов в месяц</td><td class="num">12 %</td><td class="num">8 %</td><td class="num">5 %</td></tr>
+        <tr><td>Денежный CAC консультанта</td><td class="num">3 000 ₽</td><td class="num">1 500 ₽</td><td class="num">1 000 ₽</td></tr>
+        <tr><td>Тарифы «Старт» / «Практика» / «Бренд», доли</td><td class="num">60/35/5</td><td class="num">50/40/10</td><td class="num">40/45/15</td></tr>
+        <tr><td>Ваших клиентских часов в месяц</td><td class="num">30</td><td class="num">30</td><td class="num">30</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Постоянные: эквайринг 3,5 %, налог самозанятой 4 % с физлиц и 6 % с ИП/юрлиц, LLM 8 ₽ на платный отчёт, хостинг 250–1 500 ₽ в месяц.</p>
+  </details>
+
+  <details>
+    <summary>Юнит-экономика</summary>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Метрика</th><th>Пессим.</th><th>Базовый</th><th>Оптим.</th></tr></thead>
+        <tbody>
+        <tr><td>Доля платящих среди прошедших тест</td><td class="num">2,8 %</td><td class="num">4,2 %</td><td class="num">6,5 %</td></tr>
+        <tr><td>Средний чек платящего (B2C)</td><td class="num">3 036 ₽</td><td class="num">3 293 ₽</td><td class="num">3 747 ₽</td></tr>
+        <tr><td>Выручка на одно прохождение теста</td><td class="num">85 ₽</td><td class="num">138 ₽</td><td class="num">244 ₽</td></tr>
+        <tr><td>Выручка на час консультаций</td><td class="num">4 350 ₽</td><td class="num">4 470 ₽</td><td class="num">4 575 ₽</td></tr>
+        <tr><td>Доход с консультанта в месяц</td><td class="num">1 832 ₽</td><td class="num">2 380 ₽</td><td class="num">2 850 ₽</td></tr>
+        <tr><td>LTV консультанта</td><td class="num">13,7 тыс. ₽</td><td class="num">26,4 тыс. ₽</td><td class="num">50,4 тыс. ₽</td></tr>
+        <tr><td>LTV / CAC консультанта</td><td class="num">4,6</td><td class="num">17,6</td><td class="num">50</td></tr>
+        <tr><td>Валовая маржа B2C / консультанты</td><td class="num">92 / 89,5 %</td><td class="num">92 / 88,8 %</td><td class="num">92 / 88,4 %</td></tr>
+        <tr><td>Активных консультантов в М12</td><td class="num">5</td><td class="num">24</td><td class="num">51</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary>Каналы: сколько стоит один платящий клиент</summary>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Канал</th><th>Цена платящего</th><th>Вывод</th></tr></thead>
+        <tbody>
+        <tr><td>YouTube, Shorts, Telegram, VK</td><td class="num">0 ₽</td><td>основа, ~25 ч контента в месяц</td></tr>
+        <tr><td>Коллаборации с блогерами</td><td class="num">0 ₽</td><td>лучший канал по затратам времени</td></tr>
+        <tr><td>hh.ru «Наставники»</td><td class="num">~1 780 ₽</td><td>самые «тёплые» покупатели; допуск: ≥ 100 ч практики, ≥ 10 отзывов</td></tr>
+        <tr><td>Консультанты: личные письма, чаты, вебинары</td><td class="num">~1 500 ₽</td><td>~3 ч партнёра на одного</td></tr>
+        <tr><td>Посевы в Telegram</td><td class="num">~2 400 ₽</td><td>на грани окупаемости, только ради выборки</td></tr>
+        <tr><td>Telegram Ads</td><td class="num">~6 000 ₽</td><td>убыточен, старт от ~35 тыс. ₽</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
 </section>
 
 <section id="build">
@@ -340,20 +433,20 @@ a{color:var(--accent)}
 
 <section id="files">
   <h2><span class="n">10</span>Отчёты агентов</h2>
-  <p class="note">Полные отчёты лежат в репозитории, ветка <code>claude/sharp-dirac-k7ht0n</code>, папка <code>research/hr-tech/</code>.</p>
+  <p class="note">Каждая карточка открывает полный отчёт на GitHub. Если репозиторий приватный, GitHub попросит войти в аккаунт с доступом.</p>
   <div class="files">
-    <div>01 Рынок и тренды<code>agents/01-market.md</code></div>
-    <div>02 Конкуренты<code>agents/02-competitors.md</code></div>
-    <div>03 Боли клиентов<code>agents/03-pains.md</code></div>
-    <div>04 Наука и валидность<code>agents/04-science.md</code></div>
-    <div>05 Право и этика<code>agents/05-legal.md</code></div>
-    <div>05a Аудитория и каналы<code>agents/05a-audience.md</code></div>
-    <div>06 Скоринг ниш<code>agents/06-opportunities.md</code></div>
-    <div>07 CustDev-пакет<code>agents/07-custdev.md</code></div>
-    <div>08 Монетизация и модель<code>agents/08-monetization.md</code></div>
-    <div>09 План разработки<code>agents/09-dev-plan.md</code></div>
-    <div>10 Команда и навыки<code>agents/10-team-skills.md</code></div>
-    <div>Итоговый отчёт<code>REPORT.md</code></div>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/01-market.md" target="_blank" rel="noopener">01 Рынок и тренды<code>agents/01-market.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/02-competitors.md" target="_blank" rel="noopener">02 Конкуренты<code>agents/02-competitors.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/03-pains.md" target="_blank" rel="noopener">03 Боли клиентов<code>agents/03-pains.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/04-science.md" target="_blank" rel="noopener">04 Наука и валидность<code>agents/04-science.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/05-legal.md" target="_blank" rel="noopener">05 Право и этика<code>agents/05-legal.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/05a-audience.md" target="_blank" rel="noopener">05a Аудитория и каналы<code>agents/05a-audience.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/06-opportunities.md" target="_blank" rel="noopener">06 Скоринг ниш<code>agents/06-opportunities.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/07-custdev.md" target="_blank" rel="noopener">07 CustDev-пакет<code>agents/07-custdev.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/08-monetization.md" target="_blank" rel="noopener">08 Монетизация и модель<code>agents/08-monetization.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/09-dev-plan.md" target="_blank" rel="noopener">09 План разработки<code>agents/09-dev-plan.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/10-team-skills.md" target="_blank" rel="noopener">10 Команда и навыки<code>agents/10-team-skills.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/REPORT.md" target="_blank" rel="noopener">Итоговый отчёт<code>REPORT.md</code></a>
   </div>
 </section>
 </main>
