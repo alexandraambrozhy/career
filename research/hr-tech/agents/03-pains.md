@@ -8,6 +8,8 @@
 > **Как это повлияло на данные.** Все цитаты ниже взяты **только из текста, который поисковик вернул как фрагмент страницы** (сниппет), а ссылки — из выдачи. Ничего не придумано, но **дословность проверена только по сниппету**, а не по открытой странице. Такие цитаты помечены уровнем проверки **«S»** (сниппет). Если по сниппету нельзя однозначно понять, к какой странице относится цитата, это отмечено как «атрибуция неточна», и такие цитаты не считаются опорными.
 >
 > **Итог по объёму:** вместо ≥ 150 высказываний собрано **30 цитат-высказываний и статистических утверждений** и **55 заголовков-сигналов**. Заголовки — это дословные названия пользовательских и экспертных публикаций, где автор сам формулирует боль. Всего **85 единиц**, закодированных в Приложении A. Для доведения до 150+ нужен повторный запуск с рабочим WebFetch (см. раздел 4).
+>
+> **Обновление (агент 03b):** добавлено 94 единицы (B-01…B-94). Всего **179 единиц**. Новые кластеры K11–K16 и обновлённая сводная таблица — в разделе «Дополнение 03b» в конце файла.
 
 ---
 
@@ -292,3 +294,320 @@
 - «Ghosted by the Recruiter: A Recruitment Rant in the Age of Applicants» — https://haraldagterhuis.substack.com/p/ghosted-by-the-recruiter-a-recruitment
 
 **Приоритетные страницы для повторного прогона с рабочим WebFetch** (страницы комментариев — самые богатые на высказывания): habr 965246, 996136, 513004, 1055668, 993622, 897778, 994304, 941230, 841224, 797509, 825472, 1022848, 970158; vc.ru 3101796, 1136795, 1139323, 998833, 1143172; отзывы G2/Capterra на Culture Amp, Lattice, TestGorilla, Hogan, BetterUp, CoachHub; Otzovik/irecommend на Huntflow, Talantix, Potok и онлайн-тесты профориентации.
+
+---
+
+# Дополнение 03b (дособор болей)
+
+> **Что сделано.** Агент 03b провёл 40 поисков через WebSearch (WebFetch и Reddit по-прежнему недоступны) и добавил **94 закодированные единицы** (B-01…B-94). Вместе с 85 единицами основного отчёта получается **179 единиц**, порог в 150 пройден.
+>
+> **Метод и ограничения.** Правила те же, что в основном отчёте. Цитаты дословные только по фрагменту поисковой выдачи (проверка **S**). Если по выдаче нельзя точно сказать, с какой страницы фрагмент, стоит **S?**. Поисковик в этой среде возвращает не сырой сниппет, а обработанную выдачу с фрагментами в кавычках. Поэтому введён тип **П**: близкий к тексту пересказ поисковика без дословной цитаты. П слабее Ц, и опорными такие единицы не считаются.
+>
+> **Состав 94 единиц:** 46 цитат (Ц), 35 статистических утверждений или цен (С), 11 пересказов (П), 2 заголовка (З). Проверка: 80 S, 14 S?.
+>
+> **Важная оговорка о частотах.** Новые кластеры K11–K16 собраны **целевыми** запросами, а не естественным потоком жалоб, как K1–K2. Поэтому их частоты завышены относительно «стихийной» громкости темы. Сравнивать частоты старых и новых кластеров напрямую нельзя. Корректнее смотреть на интенсивность и качество источников (доля B-статистики и прямых отзывов D).
+
+## 03b.1. Краткое резюме дополнения
+
+1. **K11. Развитие руководителей — самый «тяжёлый» по данным B-уровня кластер.** Без формального обучения назначаются 60 % новых руководителей (CCL), 66 % (Robert Walters) и 82 % (CMI, UK). В России 59 % руководителей учились управлению «на собственном опыте» (РБК). Перегружены или выгорают 71 % руководителей среднего звена (Capterra). У новых руководителей (< 2 лет) доля ищущих работу вдвое выше: 40 % против 20 %. По hh.ru, стресс у управленцев среднего звена на 59 % выше, чем у рядовых. Отдельная боль — обратная связь: руководители её избегают, а 16 % сотрудников не получают её вовсе. *(Уверенность: средняя–высокая для масштаба боли; средняя для России; по готовности платить данных нет.)*
+2. **K12. Коучи и консультанты платят за инструменты дорого, и платят дважды:** сертификация (Hogan $3 050, MBTI $1 700–4 500, по данным вендора-конкурента $2 000–7 500) плюс плата за каждый отчёт. Диагностику под своим брендом у крупных инструментов не получить: Everything DiSC и Birkman дают только co-branded отчёты. White label есть у нишевых игроков за $99–199 в месяц. Российские коучи жалуются на обесценивание профессии («слово "коуч" стало чуть ли не ругательным») и на то, что клиентов приводят только рекомендации и «свой продукт». *(Средняя для цен, которые указаны вендорами; низкая для голоса российских коучей: прямых высказываний мало.)*
+3. **K13. У HRBP и HRD боль одна: их оценки формальны и не убеждают бизнес.** Кадровый резерв формальный и субъективный («по впечатлению»), в него берут самых результативных вместо людей с потенциалом. Оценку 360 считают предвзятой. Финансовый ROI обучения 68 % HR-директоров посчитать не могут. При этом бюджеты на обучение режут: вакансий в тренинге и управлении персоналом стало на 43 % меньше за год (hh.ru). *(Средняя.)*
+4. **K14. Для МСБ западные платформы «дорогие» и «избыточные», а в РФ HR-функцию несёт собственник.** Есть прямые отзывы на Lattice, TestGorilla и Culture Amp: «pricing outweighs the potential benefit given the size of our organization», «too expensive for small companies», «overwhelming». Модель цены (подписка вместо кредитов, нет прайса) раздражает отдельно. В РФ компаниям до 50–100 человек штатный HR невыгоден, и «главный человек по кадрам» — собственник. Российских отзывов «дорого/избыточно» про Huntflow, Talantix и «Поток» **не найдено**: в отзывах цену оценивают как справедливую (4/5). *(Средняя для западных SaaS, низкая для РФ.)*
+5. **K15. B2C: спрос на смену профессии массовый, но к платным тестам и консультантам относятся с подозрением.** По hh.ru, 67 % планируют сменить специальность в 2026 году. Каждый пятый из желающих сменить профессию не знает, на какую. Платные тесты ассоциируются со скрытыми подписками (16Personalities через стороннюю оплату, MyIQ: 0,50 € → 29,99 €/мес.) и с отчётами «то же, что бесплатно». Карьерных консультантов подозревают в схеме «деньги возьмут, а потом ни работы, ни денег». *(Средняя.)*
+6. **K16. Ценовые ориентиры есть, но нет данных о готовности платить у массового клиента.** Цены, которые реально встречаются: полный профотчёт 349 ₽; отчёт 16Personalities $9; пакет услуг консультанта 100 €; сессия психолога или коуча 12 000 ₽ за 55 минут; Huntflow 6 250–8 250 ₽ за пользователя в месяц; white label диагностики $99–199 в месяц. Опроса о том, **сколько россияне готовы платить** за тест или консультацию, не найдено. Есть только косвенный сигнал: SuperJob называет цену барьером для обучения, а государство даёт бесплатную профдиагностику («Билет в будущее»). *(Низкая для WTP.)*
+7. **Обновлённый топ кластеров по частоте:** K11 (24) → K16 (23) → K12 (22) → K1 (20) → K15 (19) → K14 (18) → K2 (17). С поправкой на интенсивность и качество данных лидеры такие: **K3 (ошибки найма МСБ, 5)**, **K11 (развитие руководителей, 4, много B-статистики)**, **K1/K2/K4 (4)**. *(Интерпретация.)*
+8. **Сквозная гипотеза для выбора ниши (не факт).** Наиболее подтверждённое пересечение — **оценка и развитие новых руководителей**. Боль измерена B-опросами, касается и корпораций, и МСБ, а коучам нужен для этого недорогой брендируемый инструмент (K12). Второй кандидат — **недорогая валидная диагностика для коучей и консультантов под их брендом** (B2B2C). Она обходит недоверие B2C к «тестам-подпискам» (K15): продаёт консультант, которому клиент уже доверяет. Проверить в CustDev.
+
+## 03b.2. Новые и расширенные кластеры
+
+| # | Кластер | Кто | Новых единиц | Интенсивность | Уверенность |
+|---|---|---|---|---|---|
+| K11 | Развитие руководителей: «случайные» руководители без обучения, переход «специалист → руководитель», выгорание среднего звена, неумение давать обратную связь | Новые и средние руководители, их сотрудники, HR | 22 | 4 | средняя–высокая (B-опросы, в основном зарубежные) |
+| K12 | Коучи и консультанты как пользователи инструментов: дорогая сертификация + плата за отчёт, нет white label, обесценивание профессии, клиенты только по рекомендациям, низкая оплата на платформах | Коучи, карьерные консультанты | 22 | 3 | средняя (цены — от вендоров, голоса коучей мало) |
+| K13 | HRBP/HRD: формальный кадровый резерв, субъективный отбор в резерв, 360 как предвзятая и бесполезная процедура, невозможность доказать ROI обучения, сокращение бюджетов | HRBP, HRD, L&D | 16 | 3 | средняя |
+| K14 | МСБ: «дорого», «избыточно», «нет HR» — платформы не окупаются на малой численности, сложная модель цены, собственник = HR | Собственники МСБ, небольшие HR-команды | 18 | 3 | средняя (Запад), низкая (РФ) |
+| K15 | B2C: смена профессии и самопознание; недоверие к платным тестам (скрытые подписки, шаблонные отчёты) и к карьерным консультантам | Взрослые, меняющие профессию; соискатели | 19 | 3–4 | средняя |
+| K16 | Готовность платить и цены (сквозной тег): названные цены, жалобы на цену и модель оплаты | Все сегменты | 23 | 3 | низкая для WTP, средняя для уровня цен |
+
+Расширены старые кластеры: K8 (+7: B2C-статистика смены профессии), K7 (+4), K5 (+3), K3 (+2), K6 (+2), K9 (+1).
+
+### Ключевые цитаты дополнения
+
+**K11. Развитие руководителей**
+- «Через несколько месяцев оказывается, что новый руководитель не умеет распределять задачи, избегает сложных разговоров, пытается всё делать самостоятельно или не может добиться результата от команды.» — [Т—Ж, «Повысили лучшего и ошиблись»](https://t-j.ru/povysili-luchshego-i-oshiblis/) (D/E, S)
+- «Проблема не в том, что человек «стал хуже». Просто компания оценила не те качества.» — там же (D/E, S)
+- «многие руководители/лиды это интуитивно чувствуют, и, хотя на рациональном уровне считают, что негативная обратная связь полезна, избегают её давать» — [Хабр](https://habr.com/ru/articles/1002928) (D/E, S)
+- «60 percent of new managers report that they never received any training when they transitioned into their first leadership role» — [Wharton, 09.2024 (данные CCL)](https://executiveeducation.wharton.upenn.edu/thought-leadership/wharton-at-work/2024/09/new-leaders-need-training/) (B, S)
+- «71% of middle managers report feeling overwhelmed, stressed, or burned out at work» — [Capterra через BusinessWire, 13.02.2024](https://www.businesswire.com/news/home/20240213234872/en/40-of-New-Middle-Managers-Are-Looking-for-New-Jobs-Caused-by-High-Burnout-Capterra-Finds) (B, S)
+
+**K12. Коучи и консультанты**
+- «requires the coach to complete a paid certification programme ($2,000-7,500 one-time) before administering the instrument, with per-report client fees layered on top» — [JobCannon](https://jobcannon.io/compare/top-5-coach-assessment-platforms) (E, вендор-конкурент; S)
+- «Everything DiSC and Birkman ship co-branded reports through their authorised partner programmes but the assessment platform itself stays branded.» — [JobCannon](https://jobcannon.io/compare/best-coaching-assessment-tools) (E, S)
+- «Слово "коуч" стало чуть ли не ругательным.» — [vc.ru, «Стать коучем в РФ»](https://vc.ru/id3042163/1104572-stat-kouchem-v-rf) (D, S)
+- «the price can be a bit steep, but you get what you pay for!» — [G2, Hogan](https://www.g2.com/products/hogan-assessment-systems/reviews_and_filters) (D, S)
+
+**K13. HRBP / HRD**
+- «кадровый резерв работает только тогда, когда попадание в него основано на реальных данных» — Т—Ж, материал о кадровом резерве (D/E, S?)
+- «первая ошибка — включать в резерв только самых результативных сотрудников; текущий результат важен, но он не всегда показывает готовность к управлению» — там же (D/E, S?)
+- «Employees reject 360-degree reviews, cite bias» — [SHRM, заголовок](https://shrm.org/topics-tools/news/organizational-employee-development/employees-reject-360-degree-reviews-cite-bias) (B, S)
+- «very expensive for a tool that primarily focuses on employee engagement and surveys» — [TrustRadius, Culture Amp](https://trustradius.com/compare-products/culture-amp) (D, S)
+
+**K14. МСБ**
+- «the pricing outweighs the potential benefit given the size of our organization» — [Capterra, Lattice](https://www.capterra.com/p/151676/Lattice/reviews/?rating=2) (D, S)
+- «it's a bit too expensive for small companies» — [Software Advice, TestGorilla](https://www.softwareadvice.com/hr/testgorilla-profile/reviews/) (D, S)
+- «Для компаний до 50–100 сотрудников такая схема в большинстве случаев не работает — ни по экономике, ни по логике процессов.» — [Sostav](https://www.sostav.ru/blogs/282131/85331) (E, S)
+- «собственник малого и среднего бизнеса — это при любом раскладе главный человек по кадрам в компании» — [Т-Бизнес](https://secrets.tbank.ru/blogi-kompanij/sobstvennik-glavnyj-hr/) (E, S)
+
+**K15–K16. B2C и цена**
+- «Деньги возьмут, а потом ни работы, ни денег» — [dev.by, заголовок](https://devby.io/news/hr-konsultanty) (D, S)
+- Платный отчёт — «basically just the same, some generic stuff as the free one» — [Trustpilot, 16Personalities](https://ca.trustpilot.com/review/16personalities.com) (D, S)
+- «myiq.com 30 евро подписка списана без моего согласия — прошу возврат» — [Şikayetvar](https://www.sikayetvar.com/ru/myiq-ru/myiqcom-30-evro-podpiska-spisana-bez-moego-soglasia-prosu-vozvrat) (D, S)
+- «почти каждый пятый из них не представляет, на какую сферу деятельности он собирается сменить имеющуюся» — [Skillbox, опрос](https://skillbox.ru/media/education/opros-pokazal-chto-rossiyane-khotyat-pomenyat-professiyu-ne-tolko-izza-razmera-zarplaty/) (B/E, S)
+
+### Ценовые ориентиры, найденные в выдаче (для агента монетизации)
+
+| Что | Цена | Сегмент | Источник | Ур. |
+|---|---|---|---|---|
+| Полный отчёт профтеста | 349 ₽ | B2C | выдача по профтестам (атрибуция неточна) | C |
+| Отчёт 16Personalities | $9 | B2C | https://16personalities.com/academy/consul | C |
+| «Бесплатный» IQ-тест → подписка | 0,50 € → 29,99 €/мес. (жалоба) | B2C | sikayetvar (MyIQ) | D |
+| Пакет услуг карьерного консультанта (резюме, мок-интервью, английский) | 100 € | B2C | dev.by | D |
+| Консультант «за процент» | 50 % первой зарплаты или $5 000 | B2C | dev.by | D |
+| Сессия психолога/коуча, 55 мин | 12 000 ₽ | B2C | прайс ИП, 2025 (S?) | C |
+| Обучение карьерному консультированию | 24–106 тыс. ₽; 45 900 ₽ за 2 дня | Коучи | checkroi, ТГУ ДПО | C |
+| Сертификация Hogan | $3 050 + $1 850 за воркшоп | Коучи / HR | rfp.wiki | C/E |
+| Сертификация MBTI | $1 695–4 500 | Коучи | paperbell | E |
+| Поштучные тесты для коучей | $9 (16P Pros), $9–22 (Truity) | Коучи | JobCannon | E |
+| White label диагностики | $99–199/мес.; Starter $29/мес.; от 39 AUD/мес. | Коучи | Capterra, JobCannon, AlternativeTo | C |
+| Huntflow | 6 250 / 8 250 ₽ за пользователя в месяц | МСБ / HR | crmindex | C |
+| Culture Amp Engage (15–75 чел.) | ≈ $4 500–9 000 в год (оценка) | МСБ | compono | E |
+| Lattice | от $10 за пользователя | МСБ | Capterra | C |
+
+**Чего нет:** опросов о готовности платить (WTP) за тест или карьерную консультацию в РФ; цен сессий карьерных консультантов на Профи.ру; российских отзывов «дорого» на ATS. Закрыть можно только CustDev или тест-лендингом с ценой.
+
+## 03b.3. Обновлённая сводная таблица кластеров (все 179 единиц)
+
+Частота — число единиц: 85 из основного отчёта плюс 94 из дополнения. Одна единица может входить в 1–2 кластера, поэтому сумма больше 179. Интенсивность (1–5) — экспертная оценка (см. 2.1).
+
+| # | Кластер | Кто | Частота: осн. + 03b = всего | Интенсивность | Уверенность |
+|---|---|---|---|---|---|
+| K11 | Развитие руководителей | Новые и средние руководители, HR | 2 + 22 = **24** | 4 | средняя–высокая |
+| K16 | Готовность платить, цены, модель оплаты (сквозной) | Все | 0 + 23 = **23** | 3 | низкая (WTP) / средняя (цены) |
+| K12 | Коучи и консультанты как пользователи инструментов | Коучи, консультанты | 0 + 22 = **22** | 3 | средняя |
+| K1 | Шум откликов, ИИ-спам, автофильтры | Рекрутеры, соискатели | 20 + 0 = **20** | 4 | средняя |
+| K15 | B2C: смена профессии, недоверие к платным тестам и консультантам | Взрослые, соискатели | 0 + 19 = **19** | 3–4 | средняя |
+| K14 | МСБ: дорого, избыточно, нет HR | Собственники МСБ | 0 + 18 = **18** | 3 | средняя / низкая (РФ) |
+| K2 | Неуважительный опыт кандидата | Соискатели | 17 + 0 = **17** | 4 | средняя |
+| K3 | Ошибки найма и их цена | Собственники МСБ, руководители | 14 + 2 = **16** | 5 | средняя |
+| K13 | HRBP/HRD: резерв, 360, ROI, бюджеты | HRBP, HRD, L&D | 0 + 16 = **16** | 3 | средняя |
+| K8 | Карьерная неопределённость, смена профессии | Взрослые 30+, молодёжь | 8 + 7 = **15** | 3–4 | средняя |
+| K5 | Ненаучные инструменты, недоверие к тестам | HR, соискатели, критики | 10 + 3 = **13** | 3 | средняя |
+| K4 | Недостоверность кандидата | Нанимающие менеджеры | 12 + 0 = **12** | 4 | средняя |
+| K6 | Текучесть, адаптация | Собственники, HRD | 9 + 2 = **11** | 4 | средняя |
+| K7 | Выгорание и переработки | Сотрудники, руководители | 7 + 4 = **11** | 4 | средняя |
+| K9 | Перегрузка рекрутера, конфликт с нанимающим менеджером | Рекрутеры | 6 + 1 = **7** | 3 | низкая–средняя |
+| K10 | Предвзятость и дискриминация | Соискатели 40+ | 4 + 0 = **4** | 3 | низкая |
+
+**Как изменился топ.**
+- *До 03b (по частоте):* K1 (20) → K2 (17) → K3 (14) → K4 (12) → K5 (10). Все пять — про найм.
+- *После 03b (по частоте):* K11 (24) → K16 (23) → K12 (22) → K1 (20) → K15 (19) → K14 (18). Частоты новых кластеров завышены целевыми запросами (см. оговорку выше).
+- *По произведению «частота × интенсивность» (грубая интерпретация):* K11 ≈ 96 → K1 ≈ 80 → K3 ≈ 80 → K16 ≈ 69 → K2 ≈ 68 → K12 ≈ 66 → K15 ≈ 57–76.
+- **Вывод (интерпретация, уверенность средняя).** Найм остаётся самой «громкой» стихийной болью. Но в нём много бесплатного шума: соискатели жалуются и не платят. **Развитие руководителей (K11)** — единственный новый кластер, где одновременно есть массовая B-статистика, понятный покупатель (компания или HR) и связь с коучами (K12) как каналом. Пробел остаётся прежним: нет прямых данных о готовности платить (K16).
+
+## 03b.4. Новые источники
+
+Все страницы видны только через поисковую выдачу, ни одна не открыта целиком. Дата указана, если она видна в URL или в выдаче.
+
+| # | Источник | Ссылка | Дата | Уровень |
+|---|---|---|---|---|
+| 35 | Т—Ж, «Повысили лучшего и ошиблись» | https://t-j.ru/povysili-luchshego-i-oshiblis/ | н/д | D/E |
+| 36 | vc.ru, «17 типичных ошибок начинающих руководителей» | https://vc.ru/hr/14928-manager-mistakes | н/д | E |
+| 37 | Sostav, исследование ВЕРВЕСТ и РШУ (679 руководителей) | https://www.sostav.ru/blogs/291373/91382 | н/д | B/E |
+| 38 | Inc. Russia, данные hh.ru о стрессе среднего звена | https://incrussia.ru/understand/management-25/ | 28.02.2025 | B (через E) |
+| 39 | Хабр, о выгоревших топ-менеджерах | https://habr.com/ru/articles/890732/ | н/д | E |
+| 40 | e1.ru, «Скажи мне правду» (опрос об обратной связи) | https://www.e1.ru/text/job/2019/03/18/66019900/ | 18.03.2019 | B/D |
+| 41 | Allo/Точка, «Каждый четвёртый руководитель скрывает обратную связь» | https://allo.tochka.com/news/obratnaia-sviaz | н/д | B (через E) |
+| 42 | Хабр, «О чём говорят исследования» (негативная обратная связь) | https://habr.com/ru/articles/1002928 | н/д | D/E |
+| 43 | AhaSlides, вопросы для оценки лидерства | https://ahaslides.com/ru/blog/leadership-survey-questions/ | н/д | E |
+| 44 | Wharton, «New leaders need training» (данные CCL) | https://executiveeducation.wharton.upenn.edu/thought-leadership/wharton-at-work/2024/09/new-leaders-need-training/ | 09.2024 | B |
+| 45 | Fortune, accidental managers (Robert Walters) | https://fortune.com/2024/05/23/accidental-managers-no-training-losing-talent-survey | 23.05.2024 | B |
+| 46 | Fortune, CMI: 82 % accidental managers | https://fortune.com/2023/10/16/bosses-accidental-formal-training-workers-quit-cmi | 16.10.2023 | B |
+| 47 | Recruiting News Network, Oji/Harris | https://www.recruitingnewsnetwork.com/posts/us-workers-report-anxiety-and-stress-over-unprepared-first-time-managers | 2023 | B (через E) |
+| 48 | SHRM, «First-time managers often ill-prepared» (CareerBuilder) | https://www.shrm.org/mena/topics-tools/news/managing-smart/first-time-managers-often-ill-prepared-for-new-role | н/д | B |
+| 49 | BusinessWire / Capterra, выгорание средних менеджеров | https://www.businesswire.com/news/home/20240213234872/en/40-of-New-Middle-Managers-Are-Looking-for-New-Jobs-Caused-by-High-Burnout-Capterra-Finds | 13.02.2024 | B |
+| 50 | Capterra, «Middle Manager Burnout is High» | https://www.capterra.com/human-resource-software/manager-burnout-strategies | 2024 | B |
+| 51 | Mail.ru Финансы, Школа управления РБК: треть менеджеров — управленцы по профессии | https://finance.mail.ru/article/lish-tret-rossijskih-menedzherov-okazalis-upravlentsami-po-professii-69212688/ | 2026 | B |
+| 52 | Toolfox, курс «Тимлид с нуля» | https://toolfox.ru/courses/upravlenie/upravlenie-komandoj-tim-lid/tim-lid-s-nulya | н/д | E |
+| 53 | Хабр/OTUS, о роли руководителя | https://habr.com/en/companies/otus/articles/791816 | н/д | E |
+| 54 | JobCannon, сравнения инструментов для коучей; white label | https://jobcannon.io/compare/top-5-coach-assessment-platforms ; https://jobcannon.io/compare/best-coaching-assessment-tools ; https://jobcannon.io/ru/b2b/white-label | н/д | E (вендор) |
+| 55 | Capterra, White Label DISC | https://www.capterra.com/p/10039081/White-Label-DISC/ | 2026 | C |
+| 56 | AlternativeTo, Scorafy | https://alternativeto.net/software/scorafy/about | н/д | C |
+| 57 | rfp.wiki, сравнения Hogan | https://www.rfp.wiki/hr-office/leadership-assessments/hogan-assessments/mrg | н/д | C/E |
+| 58 | G2, отзывы Hogan Assessment Systems | https://www.g2.com/products/hogan-assessment-systems/reviews_and_filters | н/д | D |
+| 59 | Paperbell, сертификация MBTI для коучей | https://paperbell.com/blog/myers-briggs-certification/ | 2026 | E |
+| 60 | Glassdoor, BetterUp (отзывы коучей) | https://www.glassdoor.com/FAQ/BetterUp-Question-FAQ200129-E1802731.htm | н/д | D |
+| 61 | Daily Beast, «A revolt is brewing at… BetterUp» | https://thedailybeast.com/a-revolt-is-brewing-at-prince-harrys-silicon-valley-gig-betterup | ≈2022 | B/E |
+| 62 | vc.ru, «Стать коучем в РФ» | https://vc.ru/id3042163/1104572-stat-kouchem-v-rf | н/д | D |
+| 63 | Sostav, «Есть ли спрос на коучей?» | https://www.sostav.ru/blogs/262462/34907 | н/д | E |
+| 64 | Коммерсантъ FM, вакансии в тренинге −43 % (hh.ru) | https://www.kommersant.ru/doc/8379659 | н/д | B |
+| 65 | 24.kz, сертификация коучей в Мажилисе | https://www.24.kz/ru/news/social/695912-sertifitsirovat-uslugi-kouchej-i-biznes-trenerov-predlozhili-v-mazhilise | н/д | B/E |
+| 66 | hh.ru, требования к экспертам маркетплейса | https://hh.ru/article/marketplace_requirements | н/д | C |
+| 67 | Checkroi, курсы карьерного коучинга | https://checkroi.ru/courses/professiya/karernyy-kouching/ | н/д | C |
+| 68 | ТГУ ДПО, «Карьерная консультация» | https://www.tgu-dpo.ru/news/2026/06/12/kariernaya-konsultaciya/ | 12.06.2026 | C/E |
+| 69 | НИУ ВШЭ, «Исследование коучинга в РФ» (n=115; данные в выдаче не видны) | https://social.hse.ru/data/2024/02/15/2095238170/ | 09.2023 | B |
+| 70 | Сбер Про, кадровый резерв | https://sber.pro/publication/kadrovii-rezerv-i-obuchenie-liderov-kak-virastit-rukovoditelei-vnutri-kompanii/ | н/д | E |
+| 71 | Т—Ж, «Кадровый резерв, который работает» / «Как я отбирала людей в кадровый резерв» | https://t-j.ru/reserve-that-works/ ; https://t-j.ru/kak-ia-otbirala-liudei-v-kadrovyi-rezerv/ | н/д | D/E |
+| 72 | Ward Howell, HR-бюджеты 2025–2026 | https://tei.wardhowell.com/researches/HRbudgets_2025_2026.pdf | 2025 | B |
+| 73 | SHRM, «Employees reject 360-degree reviews, cite bias» | https://shrm.org/topics-tools/news/organizational-employee-development/employees-reject-360-degree-reviews-cite-bias | н/д | B |
+| 74 | vc.ru, «360: быть или не быть» | https://vc.ru/523920-360-byt-ili-ne-byt | н/д | D/E |
+| 75 | ERE, «1 in 5 HR directors measure training ROI» | https://www.ere.net/articles/1-in-5-hr-directors-measure-training-roi-study-shows | н/д | B |
+| 76 | ISCTE, «ROI in training projects» | https://ciencia.iscte-iul.pt/publications/roi-in-training-projects-from-satisfaction-to-business-impact/99530?lang=en | н/д | A/B |
+| 77 | Sostav, «Урок арифметики…» (оценка обучения) | https://www.sostav.ru/publication/urok-arifmetiki-mozhno-li-tochno-v-tsifrakh-otsenit-effektivnost-korporativnogo-obucheniya-81580.html | 02.2026 | E |
+| 78 | TrustRadius / Capterra / Outsail / Compono — Culture Amp | https://trustradius.com/compare-products/culture-amp ; https://capterra.com/p/154170/Employee-Effectiveness/reviews/ ; https://www.outsail.co/post/culture-amp-reviews---pricing-pros-cons-user-reviews ; https://www.compono.com/articles/culture-amp-pricing-guide-2026 | 2026 | D / E |
+| 79 | Sostav, «HR без отдела HR» (Mega Personal) | https://www.sostav.ru/blogs/282131/85331 | 2026 | E |
+| 80 | Т-Бизнес, «Собственник — главный HR» и «Найм без HR» | https://secrets.tbank.ru/blogi-kompanij/sobstvennik-glavnyj-hr/ ; https://secrets.tbank.ru/blogi-kompanij/najm-bez-hr/ | н/д | E |
+| 81 | G2 / Software Advice / GetApp — TestGorilla | https://www.g2.com/products/testgorilla/reviews ; https://www.softwareadvice.com/hr/testgorilla-profile/reviews/ ; https://www.getapp.com/hr-employee-management-software/a/testgorilla/reviews/ | 2026 | D |
+| 82 | Capterra / G2 / TrustRadius / SaaSHub — Lattice | https://www.capterra.com/p/151676/Lattice/reviews/ ; https://g2.com/products/lattice-lattice/reviews_and_filters?page=3 ; https://www.trustradius.com/compare-products/helloteam-vs-lattice ; https://www.saashub.com/compare-salesforce-vs-lattice | 2026 | D / E |
+| 83 | CRMindex, Huntflow и Talantix (тарифы и отзывы) | https://crmindex.ru/products/huntflow ; https://crmindex.ru/products/talantix/reviews | н/д | C / D |
+| 84 | CareerBuilder, pre-employment tests for small business | https://resources.careerbuilder.com/small-business/how-to-assess-potential-employees-using-pre-employment-tests | н/д | E |
+| 85 | Mail.ru Финансы, hh.ru: 67 % планируют сменить профессию в 2026 | https://finance.mail.ru/article/bolshe-polovinyi-rossiyan-planiruyut-smenit-professiyu-v-2026-godu-69196487/ | 2026 | B |
+| 86 | Сноб, Профи.ру: смена профессии 2025 | https://snob.ru/news/rossiiane-vse-chashche-zadumyvaiutsia-o-smene-professii-v-2025-godu/ | 2025 | B |
+| 87 | Skillbox, опрос о смене профессии | https://skillbox.ru/media/education/opros-pokazal-chto-rossiyane-khotyat-pomenyat-professiyu-ne-tolko-izza-razmera-zarplaty/ | н/д | B/E |
+| 88 | Inc. Russia, готовность к карьерным переменам (hh.ru) | https://incrussia.ru/news/issledovanie-pokazalo-vysokuyu-gotovnost-rossiyan-k-karernym-peremenam/ | н/д | B (через E) |
+| 89 | hh.ru, «Кем быть: что расскажет тест «Профориентация»» | https://hh.ru/article/303517 | н/д | E |
+| 90 | Совкомбанк Журнал / Т—Ж — профтесты | https://journal.sovcombank.ru/obuchenie/testi-na-proforientatsiyu-chto-eto-takoe-gde-naiti-i-pomogayut-li-oni-v-vibore-professii ; https://t-j.ru/short/career-guidance/ | н/д | E |
+| 91 | ЭТУ, сборник 2023, с. 301–304 | https://scm.etu.ru/assets/files/2023/sbornik/301-304.pdf | 2023 | A/B |
+| 92 | vc.ru, «Профориентация для взрослых» | https://vc.ru/hr/2287781-proforientatsiya-dlya-vzroslykh-smena-karery | н/д | E |
+| 93 | dev.by, «Деньги возьмут, а потом ни работы, ни денег» и «Оффер за 5k» | https://devby.io/news/hr-konsultanty ; https://devby.io/news/offer-za-5k | н/д | D |
+| 94 | Oborot.ru, «Чем могут помочь карьерные консультанты…» | https://oborot.ru/blogs/chem-mogut-pomoch-karernye-konsultanty-a-chego-ot-nih-zhdat-ne-stoit-i265419.html | н/д | E |
+| 95 | TenChat, отзыв о карьерной консультации | https://tenchat.ru/4877386 | н/д | D |
+| 96 | Trustpilot, 16Personalities (2,5/5, 23 отзыва) | https://ca.trustpilot.com/review/16personalities.com | н/д | D |
+| 97 | 16Personalities, страница платного отчёта | https://16personalities.com/academy/consul | н/д | C |
+| 98 | Şikayetvar, жалобы на MyIQ | https://www.sikayetvar.com/ru/myiq-ru/myiqcom-30-evro-podpiska-spisana-bez-moego-soglasia-prosu-vozvrat | 10.2025–01.2026 | D |
+| 99 | Прайс ИП (Google Docs), консультации 2025 | https://docs.google.com/document/d/1dPx9aVx9v0XuX8vWBm1RdPtHg0xVv0ES/export?format=pdf | 2025 | C |
+
+## 03b.5. Пробелы после дополнения
+
+| Пробел | Статус | Как закрыть |
+|---|---|---|
+| Объём ≥ 150 | **Закрыт**: 179 единиц | — |
+| Готовность платить (WTP) в РФ за тест или консультацию | Не закрыт: есть только цены предложения, нет цен спроса | Тест-лендинг с 2–3 ценами (например, 349 / 990 / 2 990 ₽) на аудитории автора; вопрос о цене в CustDev |
+| Голос российских коучей и карьерных консультантов об инструментах | Слабо: 3–4 прямые цитаты, остальное — цены вендоров | 10 CustDev-интервью с коучами (ICF, МАК, выпускники курсов карьерного консультирования); опрос в Telegram-чатах коучей |
+| Российские руководители среднего звена | Есть B-статистика (hh.ru, РБК), но почти нет прямых цитат | Открыть комментарии Хабра о переходе в тимлиды; интервью с 5–7 новыми руководителями |
+| МСБ РФ: «дорого/избыточно» | Не подтверждено: отзывы на Huntflow и Talantix не про цену | Отзывы на «Поток», «Битрикс24 HR», «1С:ЗУП» по ручному поиску; CustDev с собственниками |
+| HRBP: оценка 360 в РФ | Только методические статьи | Telegram-каналы HR, кейсы Ecopsy и SHL Россия |
+| Данные исследования коучинга ВШЭ (2023) | PDF есть в выдаче, цифры не видны | Открыть PDF вручную: там есть разделы о доходе коучей и применяемых инструментах |
+
+## 03b.6. Уверенность по выводам дополнения
+
+| Вывод | Уверенность | Основание |
+|---|---|---|
+| Большинство новых руководителей не обучены, среднее звено перегружено (K11) | высокая (масштаб, зарубежные данные) / средняя (РФ) | Несколько независимых B-опросов (CCL, CMI, Robert Walters, Capterra); для РФ — hh.ru и РБК |
+| Коучи платят за сертификацию и за каждый отчёт, white label редок (K12) | средняя | Цены от вендоров и агрегаторов, часть — от прямого конкурента (JobCannon) |
+| Коучам нужна своя брендированная диагностика | низкая | Только тезис вендора; прямых запросов коучей не найдено |
+| HR-оценка (резерв, 360, ROI) формальна и не убеждает бизнес (K13) | средняя | B-статистика по ROI, E-статьи по резерву |
+| Западные платформы дороги и избыточны для МСБ (K14) | средняя | Прямые отзывы G2, Capterra, TrustRadius |
+| Российские ATS «дороги» для МСБ | не подтверждено | Отзывы оценивают цену как справедливую |
+| B2C не доверяет платным тестам из-за скрытых подписок и шаблонных отчётов (K15) | средняя | Trustpilot, Şikayetvar, dev.by; выборка жалоб смещена к негативу |
+| Сколько B2C готов платить | низкая | Только цены предложения |
+
+## Приложение B. Кодировка единиц дополнения 03b
+
+**Тип:** Ц — дословная цитата по фрагменту выдачи; С — статистика или цена; П — пересказ поисковика (близко к тексту, без дословной цитаты; не опорная); З — заголовок-сигнал. **Проверка:** S — фрагмент виден в выдаче; S? — атрибуция к конкретной странице неточна. **Кластер K16** — сквозной тег «цена / готовность платить».
+
+| ID | Тип | Кто | Ситуация | Боль | Как решает сейчас | Цена (время/деньги) | Что раздражает в текущих решениях | Кластер | Цитата / заголовок | Источник | Ур. | Пров. |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| B-01 | Ц | Компания / новый руководитель | Повысили сильного специалиста | Не умеет распределять задачи, избегает сложных разговоров | Ждут, потом снимают | Несколько месяцев | Оценили не те качества | K11 | «Через несколько месяцев оказывается, что новый руководитель не умеет распределять задачи, избегает сложных разговоров, пытается всё делать самостоятельно или не может добиться результата от команды.» | https://t-j.ru/povysili-luchshego-i-oshiblis/ | D/E | S |
+| B-02 | Ц | Компания | То же | Ошибка оценки при повышении | Повышение по результатам исполнителя | — | Не оценивают управленческие качества | K11/K13 | «Проблема не в том, что человек «стал хуже». Просто компания оценила не те качества.» | https://t-j.ru/povysili-luchshego-i-oshiblis/ | D/E | S |
+| B-03 | Ц | Автор | Назначение руководителей из лучших сотрудников | Хороший специалист ≠ хороший менеджер | Назначают лучших | — | — | K11 | «Но помнить о том, что не всякий хороший сотрудник станет хорошим менеджером.» | https://vc.ru/hr/14928-manager-mistakes | E | S |
+| B-04 | Ц | Разработчик → руководитель | Переход в управление | Это смена профессии, а не рост | — | — | Ожидание «повышения» | K11/K8 | «это не рост, а смена вида деятельности или смена профессии, если так понятнее» | Хабр, одна из статей выдачи (592433 / 904116 / 473436 / 701114), атрибуция неточна | D | S? |
+| B-05 | С | Руководители среднего звена | Стресс и выгорание | Стресс выше, чаще хотят уйти | — | Риск ухода | — | K11/K7 | Уровень стресса у управленцев среднего звена на 59 % выше, чем у сотрудников без руководящих функций; на 36 % чаще заявляют о выгорании; на 24 % чаще собираются уволиться в ближайшие полгода (данные hh.ru) | https://incrussia.ru/understand/management-25/ (28.02.2025) | B (через E) | S |
+| B-06 | П | Топ-менеджер | Выгорание руководителя | Выгоревший руководитель вредит команде | Самоконтроль | — | — | K11/K7 | «только за счёт высоких навыков самоконтроля и управления эмоциями примерно в 10-15% случаев выгоревший топ-менеджер может не влиять на команду негативно» | Хабр 890732 / 941394, атрибуция неточна | E | S? |
+| B-07 | С | Сотрудники | Обратная связь от руководителя | Нет фидбэка | — | — | — | K11 | Оценка начальника влияет на работоспособность 78 %; «16% опрошенных никогда не получают такого фидбэка» | https://www.e1.ru/text/job/2019/03/18/66019900/ (18.03.2019) | B/D | S |
+| B-08 | С | Менеджеры | Обратная связь | Скрывают результаты, даже хорошие | — | — | — | K11 | Каждый четвёртый руководитель не передаёт сотрудникам полную информацию о результатах их работы, может скрывать даже положительную обратную связь (эксперимент, 2 620 чел.) | https://allo.tochka.com/news/obratnaia-sviaz | B (через E) | S |
+| B-09 | Ц | Руководители, лиды | Негативная обратная связь | Избегают давать | Молчат | — | Разрыв между убеждением и поведением | K11 | «многие руководители/лиды это интуитивно чувствуют, и, хотя на рациональном уровне считают, что негативная обратная связь полезна, избегают её давать» | https://habr.com/ru/articles/1002928 | D/E | S |
+| B-10 | Ц | HR | Оценка лидерства опросами | Формальность, результаты не используются | Анкета, таблица | — | Никто не возвращается к результатам | K13/K11 | «Вопросы часто расплывчаты, процесс кажется формальным, а результаты хранятся в электронной таблице, к которой никто не возвращается.» | https://ahaslides.com/ru/blog/leadership-survey-questions/ | E (вендор) | S |
+| B-11 | С | Новые руководители | Первое назначение | Нет обучения | — | — | — | K11 | «60 percent of new managers report that they never received any training when they transitioned into their first leadership role» (CCL в пересказе Wharton) | https://executiveeducation.wharton.upenn.edu/thought-leadership/wharton-at-work/2024/09/new-leaders-need-training/ (09.2024) | B | S |
+| B-12 | С | Руководители | «Случайные» менеджеры | Нет формального обучения, просят его | Просят работодателя | — | Работодатель не обучает | K11 | 66 % менеджеров — «accidental», без формального обучения; 35 % неоднократно просили работодателя об обучении (опрос Robert Walters) | https://fortune.com/2024/05/23/accidental-managers-no-training-losing-talent-survey (23.05.2024) | B | S |
+| B-13 | С | Сотрудники | Плохой руководитель | Тревога | — | — | — | K11 | 41 % сотрудников стрессуют или тревожатся из-за работы под плохим руководителем (Oji/Harris, 2023, n=2 066) | https://www.recruitingnewsnetwork.com/posts/us-workers-report-anxiety-and-stress-over-unprepared-first-time-managers | B (через E) | S |
+| B-14 | С | Новые руководители | Неготовность к роли | Не обучены | — | — | — | K11 | 26 % чувствовали себя неготовыми, из них 58 % не получили обучения (CareerBuilder) | https://www.shrm.org/mena/topics-tools/news/managing-smart/first-time-managers-often-ill-prepared-for-new-role | B | S |
+| B-15 | С | Руководители среднего звена | Перегрузка | Выгорание | — | — | — | K11/K7 | «71% of middle managers report feeling overwhelmed, stressed, or burned out at work–a figure that jumps to 76% for those under 35» (Capterra) | https://www.businesswire.com/news/home/20240213234872/en/ (13.02.2024) | B | S |
+| B-16 | С | Новые руководители (< 2 лет) | Выгорание | Уход | Ищут работу | Текучесть | — | K11/K6 | «Over 40% of managers with less than two years of managerial experience are looking for new jobs, compared to 20%» опытных | там же | B | S |
+| B-17 | С | Руководители среднего звена | Обучение и время | Нет обучения, встречи | — | 44 % недели на встречи | Нет постоянной поддержки | K11 | 44 % рабочей недели — встречи; лишь 37 % получили управленческое обучение при назначении; 74 % редко или никогда не получают его потом | https://www.capterra.com/human-resource-software/manager-burnout-strategies | B | S |
+| B-18 | С | Руководители (UK) | «Случайные» менеджеры | Нет подготовки | — | Уход каждого третьего | — | K11/K6 | 82 % руководителей — «accidental managers» (CMI, 2023, 4 500 чел.); заголовок: это приводит к уходу каждого третьего работника | https://fortune.com/2023/10/16/bosses-accidental-formal-training-workers-quit-cmi (16.10.2023) | B | S |
+| B-19 | С | Руководители (Россия) | Подготовка управленцев | Учатся на собственном опыте | Самообучение | — | — | K11 | Диплом по менеджменту — чуть больше чем у трети; 59 % учились управлению прежде всего на собственном опыте (Школа управления РБК, 2-я волна, май 2026) | https://finance.mail.ru/article/lish-tret-rossijskih-menedzherov-okazalis-upravlentsami-po-professii-69212688/ | B | S |
+| B-20 | П | Новые тимлиды | Первые месяцы в роли | Самый трудный период | Курсы | 3–6 месяцев | — | K11 | Первые 3–6 месяцев в роли — самые сложные; переход — отказ от роли лучшего исполнителя ради делегирования, обратной связи, 1-on-1 (описание курсов) | https://toolfox.ru/courses/upravlenie/upravlenie-komandoj-tim-lid/tim-lid-s-nulya | E | S |
+| B-21 | П | Руководитель | Ожидания сторон | Зажат между менеджментом и командой | — | — | — | K11 | Руководитель постоянно находится между ожиданиями менеджмента, команды и собственными | https://habr.com/en/companies/otus/articles/791816 | E | S |
+| B-22 | С | Коуч | Сертификация на инструмент | Высокий входной порог | Платная сертификация | $2 000–7 500 разово + плата за отчёт | Плата за каждый отчёт сверху | K12 | «requires the coach to complete a paid certification programme ($2,000-7,500 one-time) before administering the instrument, with per-report client fees layered on top» | https://jobcannon.io/compare/top-5-coach-assessment-platforms | E (конкурент) | S |
+| B-23 | С | Коуч | Тесты без сертификации | Плата за каждое прохождение | Поштучная оплата | $9 за клиента (16Personalities Pros), $9–22 за тест (Truity) | — | K12 | «16Personalities Pros ($9/client), Truity at Work ($9-22/test)… require no cert, charge per administration» | там же | E | S |
+| B-24 | Ц | Коуч | Свой бренд | Нужен ли white label | — | — | — | K12 | «If your coaching brand is the asset, white-label matters; if your coaching practice runs on referrals and personal brand directly, it matters less.» | https://jobcannon.io/compare/best-coaching-assessment-tools | E | S |
+| B-25 | Ц | Коуч | Диагностика под своим брендом | У крупных инструментов нет white label | Co-branded отчёты | — | Платформа остаётся под чужим брендом | K12 | «Everything DiSC and Birkman ship co-branded reports through their authorised partner programmes but the assessment platform itself stays branded. 16Personalities Pros, Truity at Work, HumanMetrics, IDRlabs do not offer meaningful white-label.» | там же | E | S |
+| B-26 | С | Коуч / консультант | White label DISC | Цена подписки | Подписка | $99/мес. за 10 оценок; $199/мес. за 25 | — | K12 | «$99.00 Flat Rate, Per Month», до 10 оценок, «fully white-labeled experience (logo, colors, branding)» | https://www.capterra.com/p/10039081/White-Label-DISC/ | C | S |
+| B-27 | С | Коуч | White label карьерной диагностики | Цена | Подписка | $199/мес. (Scale), Starter $29/мес. | — | K12 | Тариф Scale $199 в месяц, white label, свой домен и логотип; Starter $29/мес. | https://jobcannon.io/ru/b2b/white-label | C/E | S |
+| B-28 | С | Коуч | ИИ-отчёты по опросникам | Цена | Подписка | от 39 AUD/мес. | — | K12 | Scorafy: от $39 AUD/месяц, есть white label | https://alternativeto.net/software/scorafy/about | C | S |
+| B-29 | С | Коуч / HR | Сертификация Hogan | Дорогой вход | Сертификация | $3 050 базовая + $1 850 за каждый продвинутый воркшоп | Цена оценки — по запросу | K12 | Базовая сертификация Hogan $3 050, продвинутые воркшопы по $1 850 | https://www.rfp.wiki/hr-office/leadership-assessments/hogan-assessments/mrg | C/E | S |
+| B-30 | Ц | Пользователи Hogan | Интерпретация отчётов | Нужен обученный фасилитатор | Сертификация, дебриф | Дебриф сверх цены оценки | Кривая обучения | K12/K13 | «interpretation complexity creates a learning curve without trained facilitators» | https://www.rfp.wiki/hr-office/leadership-assessments/hogan-assessments/alternatives-and-competitors | E | S |
+| B-31 | Ц | Пользователь Hogan (G2) | Цена | Дорого | — | — | — | K12/K16 | «the price can be a bit steep, but you get what you pay for!» | https://www.g2.com/products/hogan-assessment-systems/reviews_and_filters | D | S |
+| B-32 | Ц | Пользователь Hogan (G2) | Прохождение теста | Неудобно для респондента | — | — | UX | K12 | «Hogan assessment-taking process is not always user-friendly» | там же | D | S |
+| B-33 | С | Коуч | Сертификация MBTI | Дорогой вход | Сертификация | $2 500–4 500 (2026); по другой оценке $1 695–1 895 | Плюс поездка | K12 | Виртуальная сертификация $2 500–3 200, очная $3 500–4 500+ | https://paperbell.com/blog/myers-briggs-certification/ | E | S |
+| B-34 | П | Коуч | Масштабирование практики | Плата за отчёт растёт с числом клиентов | — | — | Дорого при многих клиентах | K12 | Коучей по модели сертификации потом тарифицируют за каждый отчёт сверх разовой суммы, и это делает работу с многими клиентами дорогой | https://jobcannon.io/compare/top-5-coach-assessment-platforms | E (конкурент) | S |
+| B-35 | П | Коуч платформы (BetterUp, Glassdoor) | Работа на платформе | Низкая оплата | — | Неоплачиваемая подготовка | Получают малую долю от цены | K12 | Оплата не росла годами, нет индексации и соцпакета, подготовка не оплачивается; коучам платят «a small fraction» от собранных сборов; другие называют оплату «mediocre» | https://www.glassdoor.com/FAQ/BetterUp-Question-FAQ200129-E1802731.htm (домены .co.uk/.ca и др.) | D | S? |
+| B-36 | С | Коучи BetterUp | Изменение условий | Снижение оплаты | Протест | Эффективная ставка −≈1/3 | Новая система рейтингов | K12 | Коучи возражали против отмены доплаты за заметки и подготовку; у одного эффективная оплата должна была упасть почти на треть (≈2022) | https://thedailybeast.com/a-revolt-is-brewing-at-prince-harrys-silicon-valley-gig-betterup | B/E | S |
+| B-37 | Ц | Коуч (Россия) | Репутация профессии | Обесценивание | — | — | Псевдокоучи | K12 | «Большой вклад внесли само-названные "коучи", которые не проходили никакого обучения и занимаются манипуляциями с целью получения выгоды. Слово "коуч" стало чуть ли не ругательным.» | https://vc.ru/id3042163/1104572-stat-kouchem-v-rf | D | S |
+| B-38 | Ц | Коуч (Россия) | Привлечение клиентов | Без своего продукта не узнают | Свой продукт | — | — | K12 | «Для запуска своего "продукта" без которого о тебе так же никто знать не будет» | там же | D | S |
+| B-39 | Ц | Коучи / клиенты | Поиск коуча | Клиенты приходят по рекомендациям | Сарафан | — | — | K12 | «основными каналами поиска коуча в России являются рекомендации (сарафанное радио по-нашему)» | https://www.sostav.ru/blogs/262462/34907 | E | S |
+| B-40 | С | Тренеры, HR, коучи | Спрос компаний | Сокращение бюджетов на обучение | — | Вакансии −43 % за год | — | K12/K13 | По hh.ru, вакансий в сфере тренинга и управления персоналом стало на 43 % меньше за год; компании урезали бюджет на обучение | https://www.kommersant.ru/doc/8379659 | B | S |
+| B-41 | Ц | Регулятор (Казахстан) | Рынок коучей | Недобросовестные «специалисты» | Предложение сертификации | — | Нет стандартов | K12/K5 | «число некомпетентных и недобросовестных «специалистов» значительно увеличилось» | https://www.24.kz/ru/news/social/695912-sertifitsirovat-uslugi-kouchej-i-biznes-trenerov-predlozhili-v-mazhilise | B/E | S |
+| B-42 | С | Карьерный консультант | Выход на маркетплейс hh.ru | Высокий порог входа | — | ≥ 100 часов практики, ≥ 3 лет, ≥ 10 отзывов | — | K12 | Требования hh.ru к экспертам: подтверждённый опыт карьерного консультирования не менее 100 часов и 3 лет, не менее 10 подтверждаемых отзывов | https://hh.ru/article/marketplace_requirements | C | S |
+| B-43 | С | Будущие консультанты | Обучение профессии | Цена входа | Курсы | 24–106 тыс. ₽ за программу; 45 900 ₽ за 2-дневный курс | — | K12/K16 | Курсы карьерного коучинга примерно от 24 до 106 тыс. ₽; двухдневное обучение карьерному консультированию — 45 900 ₽ | https://checkroi.ru/courses/professiya/karernyy-kouching/ ; https://www.tgu-dpo.ru/news/2026/06/12/kariernaya-konsultaciya/ | C | S |
+| B-44 | П | HR / компания | Кадровый резерв | Формальность | Резерв «для галочки» | — | Выгода сводится на нет | K13 | Многие подходят к созданию резерва формально, что сводит выгоду на нет | https://sber.pro/publication/kadrovii-rezerv-i-obuchenie-liderov-kak-virastit-rukovoditelei-vnutri-kompanii/ | E | S |
+| B-45 | Ц | HR | Отбор в резерв | Субъективность | Отбор по впечатлению | — | Симпатия руководителя | K13 | «кадровый резерв работает только тогда, когда попадание в него основано на реальных данных» (без оценки компетенций резерв — субъективный список по впечатлению) | https://t-j.ru/reserve-that-works/ / https://t-j.ru/kak-ia-otbirala-liudei-v-kadrovyi-rezerv/, атрибуция неточна | D/E | S? |
+| B-46 | Ц | HR | Отбор в резерв | Результативность ≠ потенциал | Берут самых результативных | — | — | K13/K11 | «первая ошибка — включать в резерв только самых результативных сотрудников; текущий результат важен, но он не всегда показывает готовность к управлению» | t-j.ru (выдача по кадровому резерву), атрибуция неточна | D/E | S? |
+| B-47 | Ц | HR | Резерв под меняющуюся роль | Профиль устаревает | — | — | — | K13 | «от будущего руководителя теперь требуется совсем другой набор компетенций» | выдача по кадровому резерву (new-retail.ru / t-j.ru), атрибуция неточна | E | S? |
+| B-48 | С | HR-директора крупных компаний | Бюджеты | — | — | 47 % планируют рост HR-бюджета | Нужно сдерживать затраты и удерживать людей | K13 | Опрос HR-директоров 53 крупнейших российских компаний: 47 % планируют увеличить HR-бюджет на следующий год | https://tei.wardhowell.com/researches/HRbudgets_2025_2026.pdf | B | S |
+| B-49 | З | Сотрудники | Оценка 360 | Предвзятость | — | — | — | K13/K5 | «Employees reject 360-degree reviews, cite bias» | https://shrm.org/topics-tools/news/organizational-employee-development/employees-reject-360-degree-reviews-cite-bias | B | S |
+| B-50 | Ц | HR-автор | Оценка 360 | Иногда бесполезна | 360 | — | — | K13 | «иногда такая оценка бесполезна» | https://vc.ru/523920-360-byt-ili-ne-byt | D/E | S |
+| B-51 | С | HR-директора | ROI обучения | Не могут посчитать эффект | Оценка реакции | — | Нет ресурсов на оценку | K13 | 68 % HR-директоров указали на сложность расчёта финансового ROI, 67 % — на недостаток ресурсов для полной оценки программ | https://www.ere.net/articles/1-in-5-hr-directors-measure-training-roi-study-shows | B | S |
+| B-52 | С | L&D | Оценка обучения | Оценивают только реакцию и знания | Уровни 1–2 Киркпатрика | — | Уровни влияния и ROI игнорируются | K13 | Уровни 1 и 2 используются часто, остальные (применение, влияние, ROI) часто игнорируются | https://ciencia.iscte-iul.pt/publications/roi-in-training-projects-from-satisfaction-to-business-impact/99530?lang=en | A/B | S |
+| B-53 | П | HR / собственник | Защита бюджета обучения | Собственник верит только цифрам | Перевод в бизнес-показатели | — | — | K13/K14 | Собственники и руководители доверяют цифрам и бизнес-показателям; HR будет проще получить бюджет, если говорить на этом языке | https://www.sostav.ru/publication/urok-arifmetiki-mozhno-li-tochno-v-tsifrakh-otsenit-effektivnost-korporativnogo-obucheniya-81580.html (02.2026); https://snob.ru/profile/414680/blog/3098082/ | E | S |
+| B-54 | Ц | Пользователь Culture Amp (TrustRadius) | Опросы вовлечённости | Дорого за узкую функцию | Culture Amp | — | Цена vs функции | K13/K16 | «very expensive for a tool that primarily focuses on employee engagement and surveys» | https://trustradius.com/compare-products/culture-amp | D | S |
+| B-55 | Ц | Пользователь Culture Amp (Capterra) | Рост компании > 400 чел. | Инструмент перестал подходить | — | — | — | K13 | «terrible and no longer serves us» | https://capterra.com/p/154170/Employee-Effectiveness/reviews/ | D | S |
+| B-56 | Ц | Консультант по найму | Малый бизнес без штатного HR | Штатный HR невыгоден | Аутсорс рекрутмента | — | — | K14 | «Для компаний до 50–100 сотрудников такая схема в большинстве случаев не работает — ни по экономике, ни по логике процессов.» | https://www.sostav.ru/blogs/282131/85331 | E | S |
+| B-57 | Ц | HR-консультант | Кадры в МСБ | Всё на собственнике | Собственник сам | — | — | K14/K3 | «собственник малого и среднего бизнеса — это при любом раскладе главный человек по кадрам в компании» | https://secrets.tbank.ru/blogi-kompanij/sobstvennik-glavnyj-hr/ | E | S |
+| B-58 | П | Собственник МСБ | Найм без HR | — | Сам нанимает | — | — | K14 | Без HR не обойтись, если в компании больше 30 человек или высокая текучка (например, клининг); для большинства малых компаний самостоятельный найм реален | https://secrets.tbank.ru/blogi-kompanij/najm-bez-hr/ | E | S |
+| B-59 | Ц | Малые компании | Culture Amp | Дорого | — | $4 500–9 000/год за Engage для 15–75 чел. (оценка) | Цены не публикуются | K14/K16 | «smaller organizations may find Culture Amp's costs challenging to justify» | https://www.outsail.co/post/culture-amp-reviews---pricing-pros-cons-user-reviews ; https://www.compono.com/articles/culture-amp-pricing-guide-2026 | E | S |
+| B-60 | Ц | Пользователь TestGorilla (G2) | Малая команда | Цена | — | — | — | K14/K16 | «pricing can be a concern for smaller teams» | https://www.g2.com/products/testgorilla/reviews | D | S |
+| B-61 | Ц | Пользователь TestGorilla (Software Advice) | Малая компания | Дорого | — | — | — | K14/K16 | «it's a bit too expensive for small companies» | https://www.softwareadvice.com/hr/testgorilla-profile/reviews/ | D | S |
+| B-62 | Ц | Пользователи TestGorilla (сводка GetApp) | Тарифы | Непонятная модель цены | — | — | Неясные расходы | K14/K16 | «the pricing model is confusing and expensive, with unclear costs» | https://www.getapp.com/hr-employee-management-software/a/testgorilla/reviews/ | D | S |
+| B-63 | Ц | Пользователь TestGorilla (G2) | Смена модели оплаты | Подписка вместо кредитов | — | — | Подписка | K14/K16 | «the subscription service over the credits system makes me dislike the business model a tad» | https://www.g2.com/products/testgorilla/reviews | D | S |
+| B-64 | Ц | Пользователи TestGorilla (сводка GetApp) | Работа с тестами | Мало настроек, сбои, поддержка | — | — | — | K14 | «limited editing options for assessments, occasional technical glitches, and slow or unhelpful customer support» | https://www.getapp.com/hr-employee-management-software/a/testgorilla/reviews/ | D | S |
+| B-65 | Ц | Пользователь Lattice (Capterra) | Небольшая организация | Цена выше пользы | — | Цена за пользователя (от $10) | — | K14/K16 | «the pricing outweighs the potential benefit given the size of our organization» | https://www.capterra.com/p/151676/Lattice/reviews/?rating=2 | D | S |
+| B-66 | Ц | Пользователь Lattice (G2) | Цена | Очень дорого | — | — | — | K14/K16 | «very expensive, which makes it almost neutral to recommend» | https://g2.com/products/lattice-lattice/reviews_and_filters?page=3 | D | S |
+| B-67 | Ц | Пользователь Lattice (Capterra) | Внедрение | Слишком много функций | Настройка | Время на настройку | Кривая обучения | K14 | «some areas can feel a little overwhelming at first, as there are many features to get familiar with» | https://www.capterra.com/p/151676/Lattice/reviews/ | D | S |
+| B-68 | Ц | Обзорщик | Малые команды | Избыточность | — | — | — | K14 | «might be overwhelming for smaller teams who may not need such a robust suite of tools» | https://www.saashub.com/compare-salesforce-vs-lattice | E | S |
+| B-69 | Ц | Пользователь Lattice (TrustRadius) | Альтернативы | Есть дешевле | Смотрит альтернативы | — | — | K14/K16 | «other platforms are coming to market with similar features at a fraction of the price» | https://www.trustradius.com/compare-products/helloteam-vs-lattice | D | S |
+| B-70 | С | Работодатели РФ | ATS Huntflow | Цена за пользователя | Huntflow | 6 250 / 8 250 ₽ в месяц за пользователя; у конкурентов от 2 000 ₽ | — | K14/K16 | Тарифы 6 250 ₽ и 8 250 ₽ в месяц на пользователя; справедливость цены в одном отзыве 4/5 | https://crmindex.ru/products/huntflow ; https://toolfox.ru/services/s/huntflow/alternatives | C | S |
+| B-71 | Ц | Пользователь Talantix | Работа с заявками | Неудобно | — | — | Устаревший интерфейс | K14/K9 | «Неудобно настроена работа с заявками. Не нашла инфо о том, как перепривязывать заявки к вакансиям.» | https://crmindex.ru/products/talantix/reviews | D | S |
+| B-72 | П | Владельцы малого бизнеса (США) | Тесты при найме | Считают тесты дорогими | Не тестируют | Цена ошибочного найма | — | K14/K3 | Владельцы малого бизнеса нередко считают тесты слишком дорогими, хотя ошибочный найм тоже обходится дорого | https://resources.careerbuilder.com/small-business/how-to-assess-potential-employees-using-pre-employment-tests | E | S |
+| B-73 | С | Работники РФ | Планы на 2026 | Хотят сменить специальность | — | — | — | K8 | 67 % собираются перейти на работу по новой специальности; среди 18–24 лет — 51 % уверенно планируют сменить сферу (hh.ru) | https://finance.mail.ru/article/bolshe-polovinyi-rossiyan-planiruyut-smenit-professiyu-v-2026-godu-69196487/ | B | S |
+| B-74 | С | Работники РФ | Мысли о смене работы | Зарплата, нет роста, стресс | — | — | — | K8/K7 | 55 % регулярно или иногда задумываются о смене работы; причины: низкая зарплата (40 %), нет карьерного роста (35 %), стресс (30 %) (Профи.ру, 2025) | https://snob.ru/news/rossiiane-vse-chashche-zadumyvaiutsia-o-smene-professii-v-2025-godu/ | B | S |
+| B-75 | С | Желающие сменить профессию | Выбор направления | Не знают куда | — | — | — | K8/K15 | 19,2 % хотели бы поменять профессию, «почти каждый пятый из них не представляет, на какую сферу деятельности он собирается сменить имеющуюся» (Skillbox) | https://skillbox.ru/media/education/opros-pokazal-chto-rossiyane-khotyat-pomenyat-professiyu-ne-tolko-izza-razmera-zarplaty/ | B/E | S |
+| B-76 | С | Взрослые | Отношение к профориентации | — | — | — | — | K15 | 57,8 % заявили о «неоспоримой полезности» профориентации (тот же опрос) | там же | B/E | S |
+| B-77 | С | Соискатели | Спрос на карьерные консультации | Резюме, работа за рубежом, смена профессии | Консультации | — | — | K15/K8 | По hh.ru, вырос спрос на карьерные консультации; в топе — подготовка резюме, затем поиск работы за границей и смена профессии | https://incrussia.ru/news/issledovanie-pokazalo-vysokuyu-gotovnost-rossiyan-k-karernym-peremenam/ | B (через E) | S? |
+| B-78 | С | Взрослые | Обучение новой профессии | Не хватает денег | — | Высокая стоимость программ | — | K15/K16 | По SuperJob, учиться мешают высокая стоимость программ или нехватка средств | выдача (incrussia / allo.tochka), атрибуция неточна | B | S? |
+| B-79 | П | Подростки / семьи | Профориентация | Есть бесплатная госальтернатива | «Билет в будущее» | 0 ₽ | — | K15/K16 | Федеральные проекты, например «Билет в будущее», дают профдиагностику бесплатно | выдача по опросам о профориентации (incrussia.ru/news/work-prof), атрибуция неточна | E | S? |
+| B-80 | Ц | Автор | Тест профориентации | Тест не заменяет практику | Пробы, стажировки | — | — | K15/K8 | «Никакой тест не заменит живого опыта.» | https://journal.sovcombank.ru/obuchenie/testi-na-proforientatsiyu-chto-eto-takoe-gde-naiti-i-pomogayut-li-oni-v-vibore-professii / https://t-j.ru/short/career-guidance/, атрибуция неточна | E | S? |
+| B-81 | П | hh.ru | Результаты теста | Не основание для смены работы | — | — | — | K15 | Итоги теста — не диагноз, а обратная связь; использовать как единственную причину сменить работу не стоит | https://hh.ru/article/303517 | E | S |
+| B-82 | Ц | Исследователи (ЭТУ) | Профтесты | Неточность | Тест как дополнение | — | — | K15/K5 | выбор по интересам, обстоятельствам или зарплате «могут давать неточное и неполное представление» | https://scm.etu.ru/assets/files/2023/sbornik/301-304.pdf | A/B (сборник конф.) | S |
+| B-83 | Ц | Автор | Профориентация взрослых | Мало времени и ресурсов | — | — | Методики для подростков | K15/K8 | «У вас уже есть опыт, меньше времени и ресурсов, чтобы учиться новому.» | https://vc.ru/hr/2287781-proforientatsiya-dlya-vzroslykh-smena-karery | E | S |
+| B-84 | С | Пользователь профтеста | Платный отчёт | Платить ли за полный отчёт | Бесплатная часть | 349 ₽ за полный отчёт | — | K15/K16 | Бесплатный отчёт с профессиями, полный — 349 ₽ («информацию об особенностях характера и мышления») | выдача по профтестам для взрослых (t-j.ru / sovcombank / dengi.ua), атрибуция неточна | C | S? |
+| B-85 | Ц | QA-инженер, 6+ лет (dev.by) | 1,5 месяца отказов | Не находит работу | Карьерный консультант | 100 € за резюме, мок-интервью, английский | — | K15/K16 | Заплатил 100 евро за переработку резюме, мок-собеседование и подготовку к собеседованию на английском | https://devby.io/news/hr-konsultanty | D | S |
+| B-86 | З | Соискатели IT | Карьерные консультанты | Деньги без результата | — | — | Нет гарантий | K15 | «Деньги возьмут, а потом ни работы, ни денег» | https://devby.io/news/hr-konsultanty | D | S |
+| B-87 | Ц | Соискатель (dev.by) | Консультант с процентом | Непрозрачная цена | — | 50 % первой зарплаты или $5 000 при отказе от оффера | Кабальные условия | K15/K16 | Консультант хотел 50 % от первой зарплаты или $5 тыс., если кандидат откажется от предложения | https://devby.io/news/offer-za-5k | D | S |
+| B-88 | Ц | Клиенты консультантов | Выбор консультанта | Недобросовестные консультанты | Отзывы | — | Гарантии оффера, давление на оплату, непрозрачная цена | K15/K16 | Тревожные признаки: «обещания гарантированного трудоустройства, отсутствие портфолио или отзывов, шаблонные советы и давление на срочную оплату», непрозрачная стоимость | https://oborot.ru/blogs/chem-mogut-pomoch-karernye-konsultanty-a-chego-ot-nih-zhdat-ne-stoit-i265419.html | E | S |
+| B-89 | Ц | Клиент консультации (TenChat) | Разбор резюме и стратегии | — | Консультация 1 час | — | — (позитив: ценность за час) | K15 | «Консультация заняла час, но за это время мы смогли решить много задач» | https://tenchat.ru/4877386 | D | S |
+| B-90 | Ц | Покупатель 16Personalities (Trustpilot) | Платный отчёт | То же, что бесплатно | Возврат | $9 (цена отчёта на сайте) | Шаблонность | K15/K16 | Платный отчёт — «basically just the same, some generic stuff as the free one»; при возврате — «a very weird, accusatory exchange» | https://ca.trustpilot.com/review/16personalities.com | D | S |
+| B-91 | Ц | Покупатели (Trustpilot) | «Бесплатный тест» → подписка | Скрытая подписка | Отмена через компанию | £2,99 → £29,95; £30 в месяц | Скрытое автопродление | K15/K16 | Плата £2,99 за результат «free test», не связанная явно с подпиской £29,95; списывали £30 в месяц, отменить можно было только через компанию (возможно, сторонняя оплата через TestLibrary.com) | https://ca.trustpilot.com/review/16personalities.com ; https://it.trustpilot.com/review/16personalities.com | D | S? |
+| B-92 | Ц | Пользователи MyIQ | IQ-тест за 0,50 € | Скрытая подписка | Жалоба, банк | 0,50 € → 29,99 € в месяц (10.2025–01.2026) | Поддержка отказала в возврате | K15/K16 | «myiq.com 30 евро подписка списана без моего согласия — прошу возврат»; «переписка с поддержкой содержала противоречивые ответы: сначала обещали помочь, затем отказали в возврате» | https://www.sikayetvar.com/ru/myiq-ru/myiqcom-30-evro-podpiska-spisana-bez-moego-soglasia-prosu-vozvrat | D | S |
+| B-93 | Ц | Клиент психодиагностики | Доплата после диагностики | Скрытые платежи | — | +1 000 ₽, 10 дней | — | K15/K16 | «заключение стоит дополнительно 1000₽ и готовится 10 дней» | выдача (форумы: woman.ru / proza.ru), атрибуция неточна | D | S? |
+| B-94 | С | Частные клиенты | Цена индивидуальной сессии | — | — | 12 000 ₽ за 55 минут (прайс ИП, 2025, психология/коучинг) | — | K16 | Первичная консультация 55 минут — 12 000 ₽, повторные сессии коучинга в той же цене | https://docs.google.com/document/d/1dPx9aVx9v0XuX8vWBm1RdPtHg0xVv0ES/export?format=pdf | C | S? |
