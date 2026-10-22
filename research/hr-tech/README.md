@@ -18,3 +18,5 @@
 | 4 | 09 План разработки | `agents/09-dev-plan.md` |
 | 4 | 10 Команда и навыки | `agents/10-team-skills.md` |
 | — | Итоговый отчёт | `REPORT.md` |
+| — | Финансовая модель (CSV для Excel) | `agents/08-model.csv` |
+| — | Обзорная страница | `overview.html` |

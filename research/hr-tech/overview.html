@@ -1,0 +1,360 @@
+<title>Карьерный профиль</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column with a fixed side index on wide screens; sections are numbered because the research ran in stages */
+:root{
+  --bg:#f5f6f2; --surface:#ffffff; --ink:#1d2a2a; --muted:#5b6866; --line:#d9dfdb;
+  --accent:#1f7a6b; --accent-soft:#dcefe9; --warn:#b5651d; --warn-soft:#f6e8da; --stop:#a33a3a; --stop-soft:#f5e1e1;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Onest", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121817; --surface:#1a2221; --ink:#e4ece9; --muted:#9aa8a5; --line:#2c3735;
+  --accent:#5cc3ad; --accent-soft:#1d3a34; --warn:#e2a066; --warn-soft:#3a2b1d; --stop:#e48a8a; --stop-soft:#3c2223; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121817; --surface:#1a2221; --ink:#e4ece9; --muted:#9aa8a5; --line:#2c3735;
+  --accent:#5cc3ad; --accent-soft:#1d3a34; --warn:#e2a066; --warn-soft:#3a2b1d; --stop:#e48a8a; --stop-soft:#3c2223; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--body)}
+.wrap{max-width:1080px;margin:0 auto;padding-block:40px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:200px minmax(0,1fr);gap:48px}
+nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;display:flex;flex-direction:column;gap:6px;font-size:14px}
+nav a{color:var(--muted);text-decoration:none;padding:2px 0}
+nav a:hover,nav a:focus-visible{color:var(--accent)}
+nav .n{font-family:var(--mono);font-size:12px;margin-right:8px;color:var(--accent)}
+main{min-width:0;display:flex;flex-direction:column;gap:56px}
+@media (max-width:820px){.wrap{grid-template-columns:minmax(0,1fr)}nav{display:none}}
+h1,h2,h3{text-wrap:balance;margin:0}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,48px);line-height:1.1;letter-spacing:-.01em}
+h2{font-family:var(--display);font-weight:500;font-size:22px;line-height:1.25;display:flex;gap:12px;align-items:baseline}
+h2 .n{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:500}
+h3{font-size:16px;font-weight:600}
+p{margin:0;max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:18px}
+.lead{font-size:19px;line-height:1.55;max-width:60ch}
+.hero{display:flex;flex-direction:column;gap:18px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.note{font-size:14px;color:var(--muted);max-width:72ch}
+.verdict{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.fact b{font-family:var(--display);font-weight:500;font-size:22px;font-variant-numeric:tabular-nums}
+.fact span{font-size:13px;color:var(--muted)}
+ul,ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:72ch}
+/* niche scores as a 1–5 scale, like a test profile */
+.scores{display:flex;flex-direction:column;gap:10px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 220px 44px;gap:14px;align-items:center}
+.row .lbl{font-size:15px}
+.row .lbl small{display:block;color:var(--muted);font-size:13px}
+.bar{position:relative;height:10px;background:var(--line);border-radius:5px}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:5px;background:var(--muted)}
+.row.top .bar i{background:var(--accent)}
+.row .v{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.axis{display:grid;grid-template-columns:minmax(0,1fr) 220px 44px;gap:14px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.axis div:nth-child(2){display:flex;justify-content:space-between}
+@media (max-width:560px){.row,.axis{grid-template-columns:minmax(0,1fr) 110px 40px}}
+/* value ladder */
+.ladder{display:flex;flex-direction:column;gap:8px}
+.step{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 16px}
+.step .p{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.step.free{border-style:dashed}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;font-size:13px;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td.num{text-align:right;font-family:var(--mono);white-space:nowrap}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card.ok{border-top:3px solid var(--accent)}
+.card.no{border-top:3px solid var(--stop)}
+.redlines{display:flex;flex-direction:column;gap:8px;counter-reset:rl}
+.redlines div{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:10px 14px;background:var(--stop-soft);border-radius:6px}
+.redlines div::before{counter-increment:rl;content:counter(rl);font-family:var(--mono);color:var(--stop);font-weight:500}
+/* timeline */
+.tl{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+.tl div{position:relative;padding:0 0 18px 22px;display:flex;flex-direction:column;gap:2px}
+.tl div::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.tl div.gate::before{background:var(--accent)}
+.tl .w{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);margin-left:6px;vertical-align:1px}
+.pill.w{background:var(--warn-soft);color:var(--warn)}
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;font-size:14px}
+.files div{padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+.files code{font-family:var(--mono);font-size:12px;color:var(--muted);display:block}
+.caveat{background:var(--warn-soft);border-radius:6px;padding:14px 16px;font-size:14px;max-width:none}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+<nav aria-label="Разделы">
+  <a href="#verdict"><span class="n">00</span>Вывод</a>
+  <a href="#niches"><span class="n">01</span>Ниши</a>
+  <a href="#market"><span class="n">02</span>Рынок и боли</a>
+  <a href="#science"><span class="n">03</span>Наука</a>
+  <a href="#legal"><span class="n">04</span>Красные линии</a>
+  <a href="#money"><span class="n">05</span>Деньги</a>
+  <a href="#build"><span class="n">06</span>Разработка</a>
+  <a href="#plan"><span class="n">07</span>План и гейты</a>
+  <a href="#team"><span class="n">08</span>Команда</a>
+  <a href="#next"><span class="n">09</span>Первые 2 недели</a>
+  <a href="#files"><span class="n">10</span>Отчёты агентов</a>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="eyebrow">Исследование HR-tech · 11 агентов · 22.10.2026</div>
+  <h1>Карьерный профиль</h1>
+  <p class="lead">Научно обоснованная диагностика для взрослых, которые думают о смене профессии. Следующим шагом она становится инструментом для карьерных консультантов и коучей под их брендом.</p>
+  <p class="caveat">Агенты видели только поисковую выдачу: сетевая политика окружения закрывала сами сайты. Цифры и цены взяты из фрагментов и помечены уровнем источника. Перед решениями с деньгами их нужно сверить. Уверенность в рекомендации средняя. Главное, что не проверено, — готовность платить в России.</p>
+</header>
+
+<section id="verdict">
+  <h2><span class="n">00</span>Вывод</h2>
+  <div class="verdict">
+    <h3>Делаем одну воронку из двух ниш</h3>
+    <p>Бесплатный профиль (интересы + Big Five, 7–10 минут) приводит людей и собирает данные для валидизации. Деньги приносят отчёт, разбор и план проб профессии. Тот же движок затем продаётся консультантам по подписке, и каждый консультант приводит своих клиентов.</p>
+  </div>
+  <div class="facts">
+    <div class="fact"><b>67 %</b><span>россиян думают о смене специальности (hh.ru)</span></div>
+    <div class="fact"><b>3–10 тыс. ₽</b><span>до первой выручки в минимальном сценарии</span></div>
+    <div class="fact"><b>~29.01.2027</b><span>MVP в продакшене</span></div>
+    <div class="fact"><b>N ≈ 300</b><span>пилотная выборка к месяцу 6</span></div>
+  </div>
+</section>
+
+<section id="niches">
+  <h2><span class="n">01</span>Ниши</h2>
+  <p>Взвешенный балл по 8 критериям (шкала 1–5): боль, готовность платить, незакрытость, реализуемость, валидность, скорость до денег, соответствие команде, правовой риск. Разница в первой четвёрке меньше погрешности, окончательно решит CustDev.</p>
+  <div class="scores" role="list">
+    <div class="axis" aria-hidden="true"><div></div><div><span>1</span><span>3</span><span>5</span></div><div></div></div>
+    <div class="row top" role="listitem"><div class="lbl">Смена профессии у взрослых <span class="pill">MVP</span><small>B2C: бесплатный профиль → отчёт → разбор</small></div><div class="bar"><i style="width:67.5%"></i></div><div class="v">3,70</div></div>
+    <div class="row top" role="listitem"><div class="lbl">Инструмент для консультантов под их брендом <span class="pill">шаг 2</span><small>B2B2C, подписка</small></div><div class="bar"><i style="width:65%"></i></div><div class="v">3,60</div></div>
+    <div class="row" role="listitem"><div class="lbl">Первые 90 дней нового руководителя <span class="pill w">резерв</span><small>первый B2B-шаг после месяца 6</small></div><div class="bar"><i style="width:62.5%"></i></div><div class="v">3,50</div></div>
+    <div class="row" role="listitem"><div class="lbl">Найм без HR для малого и среднего бизнеса<small>отложено: правовые риски найма</small></div><div class="bar"><i style="width:62.5%"></i></div><div class="v">3,50</div></div>
+    <div class="row" role="listitem"><div class="lbl">Научная альтернатива 16Personalities<small>слабая готовность платить</small></div><div class="bar"><i style="width:61.25%"></i></div><div class="v">3,45</div></div>
+  </div>
+  <p class="note">NeuroFrame рассматривается как конкурент в B2B-игровой оценке, а не как ориентир. Его сравнительная таблица составлена самим вендором, независимых публикаций о валидности нет.</p>
+</section>
+
+<section id="market">
+  <h2><span class="n">02</span>Рынок и боли</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Рынок</h3>
+      <ul>
+        <li>Российский HR-tech: ~94–100 млрд ₽, рост замедлился до ~9 %.</li>
+        <li>Подбор занимает ~60 % рынка и стоит на месте. Оценка персонала растёт на +31 %.</li>
+        <li>На одну вакансию приходится 9,6–10,3 резюме: соискателям нужна помощь с карьерой.</li>
+        <li>Венчура почти нет, поэтому строим на собственные деньги и быстро выходим на выручку.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Пустая середина</h3>
+      <ul>
+        <li>Дорого и научно: SHL, Hogan, «Экопси».</li>
+        <li>Дёшево и без доказательной базы: 16Personalities, типологии.</li>
+        <li>Не занято: доступный и прозрачно валидный инструмент на русском, в том числе для коучей под их брендом.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Боли (179 единиц)</h3>
+      <ul>
+        <li>Развитие новых руководителей — 24</li>
+        <li>Цены и готовность платить — 23</li>
+        <li>Коучам нужен свой инструмент — 22</li>
+        <li>Смена профессии и недоверие к платным тестам — 19</li>
+        <li>Малому бизнесу дорого и избыточно — 18</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="science">
+  <h2><span class="n">03</span>Наука</h2>
+  <div class="cols">
+    <div class="card ok">
+      <h3>Измеряем честно</h3>
+      <ul>
+        <li>Big Five, 5 доменов (IPIP, общественное достояние)</li>
+        <li>Профессиональные интересы (ORVIS, на основе IPIP)</li>
+        <li>Честность и скромность</li>
+        <li>Когнитивная рефлексия</li>
+        <li>Склонность к риску по самоотчёту</li>
+      </ul>
+    </div>
+    <div class="card no">
+      <h3>Не обещаем</h3>
+      <ul>
+        <li>«Типы» и «вашу профессию»</li>
+        <li>Прогноз эффективности на работе</li>
+        <li>«Нейропрофили»</li>
+        <li>Выводы о человеке по поведенческим играм</li>
+        <li>Клинические выводы</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Научный пакет MVP</h3>
+      <ul>
+        <li>Адаптация по ITC: перевод, обратный перевод, эксперты</li>
+        <li>Пилот N≈300, ретест 50–100</li>
+        <li>ω ≥ 0,70, CFA, бета-нормы</li>
+        <li>Препринт на PsyArXiv после рецензента</li>
+      </ul>
+      <p class="note">3–4 месяца и 0–15 тыс. ₽. Проверенной русской IPIP-версии пока нет, поэтому публикация станет научным активом проекта.</p>
+    </div>
+  </div>
+</section>
+
+<section id="legal">
+  <h2><span class="n">04</span>Красные линии</h2>
+  <div class="redlines">
+    <div><span>Персональные данные россиян хранятся только в РФ с первого дня. Google Forms, Tally, Supabase и Airtable для них не используем.</span></div>
+    <div><span>До сбора контактов оформляем отдельное согласие и подаём уведомление в РКН.</span></div>
+    <div><span>Не используем клинические шкалы: депрессию, тревогу, выгорание, «нейродиагностику».</span></div>
+    <div><span>Не отсеиваем кандидатов автоматически. Решение о найме всегда принимает человек.</span></div>
+    <div><span>Методики: IPIP и ORVIS можно. MBTI, 16PF, NEO, Hogan и MMPI нельзя.</span></div>
+    <div><span>В зарубежные LLM персональные данные не передаём. Используем GigaChat или YandexGPT и отправляем им только зоны баллов.</span></div>
+    <div><span>Реклама на YouTube и в Telegram формально запрещена. Мораторий ФАС действует до 31.12.2026, поэтому главный канал связи — e-mail.</span></div>
+  </div>
+</section>
+
+<section id="money">
+  <h2><span class="n">05</span>Деньги</h2>
+  <div class="ladder">
+    <div class="step free"><span>Бесплатный профиль и карточка для сторис</span><span class="p">0 ₽</span></div>
+    <div class="step"><span>Расширенный отчёт: 3–5 направлений и план проб на 30 дней</span><span class="p">990 ₽</span></div>
+    <div class="step"><span>Разбор 1:1 (на hh.ru «Наставники» — дороже)</span><span class="p">4 900–5 900 ₽</span></div>
+    <div class="step"><span>Пакет «План проб профессии»</span><span class="p">12 900–14 900 ₽</span></div>
+    <div class="step"><span>Подписка консультанта, отчёт под его брендом</span><span class="p">990–4 990 ₽/мес</span></div>
+  </div>
+  <p class="note">Агенты разработки и монетизации предложили разные цены на разбор и пакет. Обе сетки стоит проверить A/B-тестом на лендинге предзаказа.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Сценарий на 12 месяцев</th><th>Выручка</th><th>Прибыль до оплаты времени основателей</th><th>Консультантов в М12</th></tr></thead>
+      <tbody>
+        <tr><td>Пессимистичный</td><td class="num">~196 тыс. ₽</td><td class="num">~170 тыс. ₽</td><td class="num">5</td></tr>
+        <tr><td>Базовый</td><td class="num">~973 тыс. ₽</td><td class="num">~806 тыс. ₽</td><td class="num">24</td></tr>
+        <tr><td>Оптимистичный</td><td class="num">~2,78 млн ₽</td><td class="num">~2,32 млн ₽</td><td class="num">51</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li>Валовая маржа 88–91 %, LLM стоит 6–8 ₽ за отчёт.</li>
+    <li>Потолок вашего времени — около 30 клиентских часов в месяц, это ~120–150 тыс. ₽ на консультациях. Расти дальше можно через группы и консультантов.</li>
+    <li>Самый сильный рычаг B2C — hh.ru «Наставники». Telegram Ads при базовых конверсиях убыточен.</li>
+    <li>Финансовая модель для Excel партнёра лежит в файле <code>agents/08-model.csv</code>.</li>
+  </ul>
+</section>
+
+<section id="build">
+  <h2><span class="n">06</span>Разработка</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Стек в два шага</h3>
+      <p><b>Недели 2–8.</b> Анонимный тест считается прямо в браузере, оплата по ссылке Robokassa или ЮKassa. Персональных данных на этом шаге нет.</p>
+      <p><b>С недели 9.</b> Astro/React, Hono и PostgreSQL на VPS в РФ, зашифрованные бэкапы. Персональные данные хранятся отдельно от ответов.</p>
+    </div>
+    <div class="card">
+      <h3>Психометрический движок</h3>
+      <ul>
+        <li>Банк заданий в YAML с версиями</li>
+        <li>Одна функция подсчёта: обратные пункты, флаги невнимательности, SEM</li>
+        <li>Нормы по стадиям: POMP → бета-процентили → квотные</li>
+        <li>Партнёр сверяет 50 наборов в Excel</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>9 агентов Claude Code</h3>
+      <p>Spec → UX/контент и Психометрист → Backend → Frontend → AI → QA → Security-гейты → Growth. Агенты работают только с синтетическими данными и передают работу через файлы-контракты.</p>
+    </div>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Бюджет до выручки</th><th>Сумма</th><th>Что входит</th></tr></thead>
+      <tbody>
+        <tr><td>Минимальный</td><td class="num">3–10 тыс. ₽</td><td>домен, VPS в РФ, бэкапы, немного посевов; документы по шаблонам</td></tr>
+        <tr><td>Рекомендуемый</td><td class="num">~45–50 тыс. ₽</td><td>плюс проверка оферты и согласий юристом, посевы, вознаграждения за ретест</td></tr>
+        <tr><td>Комфортный</td><td class="num">220–320 тыс. ₽</td><td>плюс рецензент, дизайнер, маркетинг, частичная панель респондентов</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="plan">
+  <h2><span class="n">07</span>План и гейты</h2>
+  <p>36 недель, с 26.10.2026 по 04.07.2027. Залитые точки — гейты «продолжаем / меняем / стоп».</p>
+  <div class="tl">
+    <div><span class="w">Нед. 1–2</span><b>Старт и лендинг предзаказа</b><span>самозанятость, домен, платежи, три пакета с ценами</span></div>
+    <div class="gate"><span class="w">Конец мес. 1</span><b>CustDev: 20 интервью по смене профессии и 15 с консультантами</b><span>продолжаем, если ≥ 6 из 15 описали боль и свои траты; иначе переходим к нише руководителей</span></div>
+    <div><span class="w">Нед. 5–6</span><b>Прототип R1</b><span>анонимный тест в браузере, когнитивные интервью</span></div>
+    <div class="gate"><span class="w">Мес. 2</span><b>Предзаказ</b><span>≥ 10 оплат вне своего круга или ≥ 3 % лидов; иначе фокус на консультантах</span></div>
+    <div><span class="w">Нед. 9</span><b>Уведомление в РКН</b><span>подаём до сбора персональных данных</span></div>
+    <div><span class="w">Нед. 14 · ~29.01.2027</span><b>MVP R2 в продакшене</b></div>
+    <div class="gate"><span class="w">Мес. 4</span><b>Консьерж-пилот с 5 консультантами</b><span>≥ 3 из 5 готовы платить</span></div>
+    <div><span class="w">Нед. 20</span><b>Платный запуск, профиль на hh.ru «Наставники»</b></div>
+    <div class="gate"><span class="w">Мес. 6</span><b>Данные</b><span>≥ 300 анкет с согласием, ω ≥ 0,70, ретест ≥ 50</span></div>
+    <div><span class="w">Нед. 32 · ~06.06.2027</span><b>Кабинет консультанта R5, препринт</b></div>
+    <div class="gate"><span class="w">Мес. 6–9</span><b>Выручка</b><span>≥ 10 платящих консультантов или ≥ 30 B2C-оплат в месяц, затем решение по B2B</span></div>
+  </div>
+</section>
+
+<section id="team">
+  <h2><span class="n">08</span>Команда</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Вы — лицо проекта и методолог</h3>
+      <p>CustDev, шкалы и отчёт, видео, разборы, первые 10 консультантов. 15–20 ч в неделю на проект плюс ~5 ч на учёбу.</p>
+      <p class="note">Учёба на своих пилотных данных: CTT и ω → EFA → CFA и ретест → технический отчёт → IRT → нормы. Ресурсы: Navarro &amp; Foxcroft, Revelle, Furr, Stepik.</p>
+    </div>
+    <div class="card">
+      <h3>Партнёр — операционный директор и контролёр</h3>
+      <p>Финансовая модель, воронка, QA и сверка баллов в Excel, сборка с ИИ-агентами, журнал согласий, онбординг консультантов, тендерная разведка. 6–10 ч в неделю, это стоит с ним согласовать.</p>
+    </div>
+    <div class="card">
+      <h3>Кого привлечь со стороны</h3>
+      <ul>
+        <li>Рецензента-психометриста с кафедры (ВШЭ, Пермь, МГУ, ТГУ) за соавторство</li>
+        <li>Магистрантов, которым нужны данные для диплома</li>
+        <li>Юриста по персональным данным: 15–40 тыс. ₽ или юридическая клиника</li>
+      </ul>
+      <p class="note">Главный пробел — нет ответственного за технику и безопасность данных.</p>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="n">09</span>Первые 2 недели</h2>
+  <ol>
+    <li>Зарегистрироваться самозанятой, купить домен, подключить Robokassa или ЮKassa.</li>
+    <li>Запустить лендинг предзаказа с тремя пакетами и ценами.</li>
+    <li>Провести 5–8 первых интервью по скрипту. Партнёр ведёт таблицу синтеза без персональных данных.</li>
+    <li>Партнёр выясняет условия допуска и комиссию hh.ru «Наставники».</li>
+    <li>Начать адаптацию IPIP-50 и ORVIS: черновик перевода делает ИИ, проверяют 2–3 эксперта.</li>
+    <li>Принять 12 стартовых решений: оператор данных, название, состав теста, цены, хостинг, LLM.</li>
+  </ol>
+</section>
+
+<section id="files">
+  <h2><span class="n">10</span>Отчёты агентов</h2>
+  <p class="note">Полные отчёты лежат в репозитории, ветка <code>claude/sharp-dirac-k7ht0n</code>, папка <code>research/hr-tech/</code>.</p>
+  <div class="files">
+    <div>01 Рынок и тренды<code>agents/01-market.md</code></div>
+    <div>02 Конкуренты<code>agents/02-competitors.md</code></div>
+    <div>03 Боли клиентов<code>agents/03-pains.md</code></div>
+    <div>04 Наука и валидность<code>agents/04-science.md</code></div>
+    <div>05 Право и этика<code>agents/05-legal.md</code></div>
+    <div>05a Аудитория и каналы<code>agents/05a-audience.md</code></div>
+    <div>06 Скоринг ниш<code>agents/06-opportunities.md</code></div>
+    <div>07 CustDev-пакет<code>agents/07-custdev.md</code></div>
+    <div>08 Монетизация и модель<code>agents/08-monetization.md</code></div>
+    <div>09 План разработки<code>agents/09-dev-plan.md</code></div>
+    <div>10 Команда и навыки<code>agents/10-team-skills.md</code></div>
+    <div>Итоговый отчёт<code>REPORT.md</code></div>
+  </div>
+</section>
+</main>
+</div>
