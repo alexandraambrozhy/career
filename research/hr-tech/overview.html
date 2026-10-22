@@ -90,6 +90,7 @@ details{display:flex;flex-direction:column;gap:10px}
 details>summary{cursor:pointer;font-weight:600;padding:10px 14px;background:var(--surface);border:1px solid var(--line);border-radius:6px;list-style-position:inside}
 details[open]>summary{margin-bottom:10px}
 details>.note{margin-top:8px}
+details>h3{margin-top:6px}
 tr.sum td{font-weight:600;border-top:2px solid var(--line)}
 .files a{display:block;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);text-decoration:none}
 .files a:hover,.files a:focus-visible{border-color:var(--accent)}
@@ -109,8 +110,9 @@ tr.sum td{font-weight:600;border-top:2px solid var(--line)}
   <a href="#team"><span class="n">08</span>Команда</a>
   <a href="#next"><span class="n">09</span>Первые 2 недели</a>
   <a href="#howto"><span class="n">10</span>Как собрать</a>
-  <a href="#terms"><span class="n">11</span>Словарь</a>
-  <a href="#files"><span class="n">12</span>Отчёты агентов</a>
+  <a href="#custdev"><span class="n">11</span>Интервью</a>
+  <a href="#terms"><span class="n">12</span>Словарь</a>
+  <a href="#files"><span class="n">13</span>Отчёты агентов</a>
 </nav>
 
 <main>
@@ -540,8 +542,187 @@ flowchart TD
   </details>
 </section>
 
+<section id="custdev">
+  <h2><span class="n">11</span>Интервью: CustDev и адаптация</h2>
+  <p>Интервью двух видов, их легко перепутать. Полные скрипты, согласия и шаблоны: <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/07-custdev.md" target="_blank" rel="noopener">07-custdev.md</a>, шпаргалка: <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/CUSTDEV.md" target="_blank" rel="noopener">CUSTDEV.md</a>.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th></th><th>CustDev-интервью</th><th>Когнитивное интервью</th></tr></thead>
+      <tbody>
+      <tr><td>Зачем</td><td>Понять, есть ли боль и деньги</td><td>Проверить, правильно ли понимают формулировки теста</td></tr>
+      <tr><td>Что показываем</td><td>Ничего: ни продукт, ни тест</td><td>Сам тест</td></tr>
+      <tr><td>Сколько</td><td class="num">20 + 15</td><td class="num">5–10</td></tr>
+      <tr><td>Когда</td><td>Недели 1–4</td><td>Недели 4–5, после перевода</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <details open>
+    <summary>С кем говорить</summary>
+    <h3>Смена профессии — 20 человек</h3>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Портрет</th><th>Сколько</th><th>Кто</th><th>Где найти</th></tr></thead>
+        <tbody>
+        <tr><td>«Застрявший специалист»</td><td class="num">8</td><td>28–40 лет, 5–12 лет в одной сфере, «не плохо, но не моё»</td><td>комментарии под вашими видео, опрос в Telegram, коллаборации</td></tr>
+        <tr><td>«Уставший эксперт»</td><td class="num">6</td><td>35–45 лет, высокий доход и обязательства, страшно потерять статус</td><td>бывшие клиенты (не больше 30 % выборки), профессиональные чаты</td></tr>
+        <tr><td>«Вынужденно меняющий»</td><td class="num">6</td><td>25–45 лет, сокращение, ИИ обесценил задачи, переезд</td><td>hh.ru «Наставники», чаты выпускников курсов переквалификации</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Консультанты и коучи — 15 человек</h3>
+    <p>Новички после курсов (5), практикующие и наставники с hh.ru (6), коучи с бизнес-клиентами (4).</p>
+    <h3>Скрининг перед интервью</h3>
+    <ol>
+      <li>Всерьёз думали о смене профессии за последние 12 месяцев?</li>
+      <li>Что уже сделали: ничего / читал(а), проходил(а) тесты / платил(а) за курс или консультацию / уже пробую новое?</li>
+      <li>Вас недавно назначили руководителем? (метка для ниши руководителей)</li>
+      <li>Вам есть 18 лет?</li>
+    </ol>
+    <p class="note">Не берём близких друзей и родственников, людей в остром кризисе и младше 18 лет. Хотя бы половина выборки должна уже что-то сделать сама: те, кто «только думает», почти никогда не платят.</p>
+  </details>
+
+  <details>
+    <summary>Скрипт: смена профессии (15 вопросов)</summary>
+    <p class="note">Спрашиваем о прошлом, а не о будущем. Про продукт не рассказываем. Вы говорите не больше 20 % времени. 40–50 минут, Телемост, только аудио.</p>
+    <ol>
+      <li>Чем занимаетесь, как пришли в профессию?</li>
+      <li>Когда впервые всерьёз подумали о смене? Что тогда произошло?</li>
+      <li>Что делали с тех пор? Расскажите по шагам.</li>
+      <li>Был ли момент, когда особенно активно искали решение?</li>
+      <li>Главный вопрос был «куда идти» или «как перейти»? <i>Задавать только после 2–4.</i></li>
+      <li>Какие тесты, курсы или специалисты попадались? Расскажите про последний.</li>
+      <li>Что сделали с результатом? Что изменилось?</li>
+      <li><b>Платили ли за что-то в связи со сменой профессии за год? За что, сколько?</b></li>
+      <li>За что почти заплатили, но не стали? Что остановило?</li>
+      <li>Сколько часов за последний месяц потратили на этот вопрос?</li>
+      <li>Что удерживает в текущей профессии?</li>
+      <li>Что пугает в смене?</li>
+      <li>Пробовали новую сферу «на вкус»?</li>
+      <li>По какому признаку поймёте, что выбор правильный?</li>
+      <li>Кого ещё из знакомых в похожей ситуации стоит расспросить?</li>
+    </ol>
+    <p class="note">В конце: «Можно я напишу через 2–3 недели и попрошу 30 минут на обратную связь?»</p>
+  </details>
+
+  <details>
+    <summary>Скрипт: консультанты и коучи (ключевые вопросы)</summary>
+    <ol>
+      <li>Расскажите про последнего нового клиента: как готовились к первой сессии?</li>
+      <li>Какие опросники и тесты использовали за последние 3 месяца?</li>
+      <li>Как выбрали инструмент, с чем сравнивали?</li>
+      <li><b>Сколько он стоит вам за год: сертификации, отчёты, ваше время?</b></li>
+      <li>Когда инструмент последний раз подвёл или раздражал?</li>
+      <li>Как показываете результаты клиенту, сколько времени уходит на подготовку?</li>
+      <li>Как клиенты понимают, что вы профессионал?</li>
+      <li>Пробовали сделать свой опросник?</li>
+      <li>Где хранятся анкеты клиентов, спрашиваете ли согласие?</li>
+      <li>Кого из коллег стоит расспросить, есть ли чаты про инструменты?</li>
+    </ol>
+    <p class="note">В конце: «Собираю закрытый пилот для 5 консультантов. Можно написать, когда будет готов?»</p>
+  </details>
+
+  <details>
+    <summary>Чего нельзя в интервью</summary>
+    <ul>
+      <li>Спрашивать «Купили бы вы?», «Нужен ли вам?», «Сколько бы заплатили?». Ответы на них — вежливость, а не данные.</li>
+      <li>Показывать продукт и называть цены в проблемном интервью.</li>
+      <li>Консультировать: «запишу ваш вопрос, вернёмся после».</li>
+      <li>Превращать интервью в сессию. Если разговор уходит в переживания, мягко возвращайте к фактам: «Что вы сделали после этого?».</li>
+      <li>Продолжать при остром состоянии: остановить запись, дать контакты помощи, в анализ не включать.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Когнитивное интервью для адаптации теста</summary>
+    <p>5–10 человек из целевой аудитории проходят прототип и говорят вслух, 40–60 минут. По каждому пункту или выборочно:</p>
+    <ul>
+      <li>«Прочитайте и скажите своими словами, что здесь спрашивают».</li>
+      <li>«Какой ответ выбрали и почему?»</li>
+      <li>«Было ли трудно выбрать? Что мешало?»</li>
+      <li>«Есть ли слова, которые звучат странно или понимаются по-разному?»</li>
+    </ul>
+    <p class="note">Особое внимание: «Я бываю груб(а) с людьми», «У меня часто всё идёт наперекосяк», «На встречах и праздниках…». Пункт переделываем, если его иначе поняли хотя бы двое.</p>
+  </details>
+
+  <details>
+    <summary>Критерии: адаптация удалась или нет</summary>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Этап</th><th>Хорошо</th><th>Переделывать</th></tr></thead>
+        <tbody>
+        <tr><td>Обратный перевод</td><td>Смысл совпадает с оригиналом</td><td>Смысл ушёл или сузился</td></tr>
+        <tr><td>Эксперты (CVI)</td><td>≥ 78 % оценок 3–4</td><td>&lt; 78 %</td></tr>
+        <tr><td>Когнитивные интервью</td><td>Пункт понят одинаково</td><td>≥ 2 человек поняли иначе</td></tr>
+        <tr><td>Надёжность (α, ω)</td><td class="num">≥ 0,70</td><td class="num">&lt; 0,70</td></tr>
+        <tr><td>Связь пункта со шкалой</td><td class="num">≥ 0,30</td><td class="num">&lt; 0,30</td></tr>
+        <tr><td>Нагрузка на свой фактор</td><td class="num">≥ 0,40</td><td>сильнее связан с чужой шкалой</td></tr>
+        <tr><td>Ретест</td><td class="num">r ≥ 0,70</td><td class="num">&lt; 0,70</td></tr>
+        <tr><td>Связь с эталонным тестом</td><td class="num">r ≥ 0,50</td><td class="num">&lt; 0,30</td></tr>
+        <tr><td>Отсеяно анкет (внимание, скорость)</td><td class="num">&lt; 10–15 %</td><td>много: тест длинный или непонятный</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary>Критерии: CustDev идёт хорошо или плохо</summary>
+    <p class="note">Партнёр отправляет пороги вам письмом до первого интервью, потом их не меняют.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Что проверяем</th><th>Хорошо</th><th>Серая зона</th><th>Плохо → что делаем</th></tr></thead>
+        <tbody>
+        <tr><td>Сами сказали «не знаю, куда идти»</td><td class="num">≥ 8 из 20</td><td class="num">5–7</td><td>≤ 4 → продукт про «как перейти»</td></tr>
+        <tr><td>Тратили деньги на задачу за год (≥ 1 000 ₽)</td><td class="num">≥ 6 из 20</td><td class="num">3–5</td><td>≤ 2 → фокус на консультантах</td></tr>
+        <tr><td>Сами назвали недоверие к тестам</td><td class="num">≥ 6 из 20</td><td class="num">3–5</td><td>≤ 2 → научность не главное отличие</td></tr>
+        <tr><td>Консультанты используют тесты</td><td class="num">≥ 8 из 15</td><td class="num">5–7</td><td>≤ 4 → продавать обучение</td></tr>
+        <tr><td>Консультанты платили за инструменты</td><td class="num">≥ 5 из 15</td><td class="num">3–4</td><td>≤ 2 → оплата за отчёт</td></tr>
+        <tr><td>Консультанты сами описали боль</td><td class="num">≥ 6 из 15</td><td class="num">4–5</td><td>≤ 3 → стоп по консультантам</td></tr>
+        <tr><td>Предзаказ (месяц 2)</td><td>≥ 10 оплат вне своего круга</td><td>—</td><td>меньше → фокус на консультантах</td></tr>
+        <tr><td>Пилот с консультантами (месяц 4)</td><td class="num">≥ 3 из 5 платят</td><td class="num">2 из 5</td><td>≤ 1 → оплата за отчёт или стоп</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cols">
+      <div class="card ok">
+        <h3>Идёт хорошо</h3>
+        <ul>
+          <li>Боль описывают сами, на конкретном эпизоде</li>
+          <li>Называют реальные траты: курс за 40 тыс., три консультации</li>
+          <li>Ругают существующие решения конкретно</li>
+          <li>Сами спрашивают: «А когда будет? Можно первым?»</li>
+          <li>Дают контакты, соглашаются на вторую встречу, вносят предоплату</li>
+          <li>После 10–15 интервью боли повторяются</li>
+        </ul>
+      </div>
+      <div class="card no">
+        <h3>Идёт плохо</h3>
+        <ul>
+          <li>«Интересная идея», «я бы купил», но ни одной траты в прошлом</li>
+          <li>Боль приходится вытягивать наводящими вопросами</li>
+          <li>«Думаю 5 лет, но ничего не делал»</li>
+          <li>У всех разные проблемы, общего паттерна нет</li>
+          <li>Отказ от второй встречи, контактов и предоплаты</li>
+          <li>Даже на бесплатный разговор соглашаются единицы</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Ошибки интервьюера</h3>
+        <ul>
+          <li>Вы говорите больше 20 % времени</li>
+          <li>Больше 2 вопросов о будущем или продукте за интервью</li>
+          <li>Тёплый круг больше 30 % выборки</li>
+          <li>Консультируете вместо того, чтобы слушать</li>
+        </ul>
+        <p class="note">Партнёр проверяет по расшифровкам и двойным кодированием 20 % интервью (совпадение ≥ 80 %).</p>
+      </div>
+    </div>
+    <p><b>Решение:</b> зелёная зона — идём дальше. Серая — добираем 5 интервью или запускаем лендинг с предоплатой. Красная — делаем то, что записано заранее, без «давайте ещё поговорим».</p>
+  </details>
+</section>
+
 <section id="terms">
-  <h2><span class="n">11</span>Словарь</h2>
+  <h2><span class="n">12</span>Словарь</h2>
   <p>Главные слова простым языком. Полный словарь: <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/GLOSSARY.md" target="_blank" rel="noopener">GLOSSARY.md</a>.</p>
   <div class="tbl">
     <table>
@@ -567,7 +748,7 @@ flowchart TD
 </section>
 
 <section id="files">
-  <h2><span class="n">12</span>Отчёты агентов</h2>
+  <h2><span class="n">13</span>Отчёты агентов</h2>
   <p class="note">Каждая карточка открывает полный отчёт на GitHub. Если репозиторий приватный, GitHub попросит войти в аккаунт с доступом.</p>
   <div class="files">
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/01-market.md" target="_blank" rel="noopener">01 Рынок и тренды<code>agents/01-market.md</code></a>
@@ -582,6 +763,7 @@ flowchart TD
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/09-dev-plan.md" target="_blank" rel="noopener">09 План разработки<code>agents/09-dev-plan.md</code></a>
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/10-team-skills.md" target="_blank" rel="noopener">10 Команда и навыки<code>agents/10-team-skills.md</code></a>
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/GUIDE.md" target="_blank" rel="noopener">Пошаговая инструкция<code>build/GUIDE.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/CUSTDEV.md" target="_blank" rel="noopener">Шпаргалка по интервью<code>build/CUSTDEV.md</code></a>
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/GLOSSARY.md" target="_blank" rel="noopener">Словарь терминов<code>build/GLOSSARY.md</code></a>
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/REPORT.md" target="_blank" rel="noopener">Итоговый отчёт<code>REPORT.md</code></a>
   </div>
