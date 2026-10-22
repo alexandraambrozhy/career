@@ -108,7 +108,9 @@ tr.sum td{font-weight:600;border-top:2px solid var(--line)}
   <a href="#plan"><span class="n">07</span>План и гейты</a>
   <a href="#team"><span class="n">08</span>Команда</a>
   <a href="#next"><span class="n">09</span>Первые 2 недели</a>
-  <a href="#files"><span class="n">10</span>Отчёты агентов</a>
+  <a href="#howto"><span class="n">10</span>Как собрать</a>
+  <a href="#terms"><span class="n">11</span>Словарь</a>
+  <a href="#files"><span class="n">12</span>Отчёты агентов</a>
 </nav>
 
 <main>
@@ -431,8 +433,141 @@ tr.sum td{font-weight:600;border-top:2px solid var(--line)}
   </ol>
 </section>
 
+<section id="howto">
+  <h2><span class="n">10</span>Как собрать</h2>
+  <p>Полная пошаговая инструкция: <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/GUIDE.md" target="_blank" rel="noopener">GUIDE.md</a>. Ниже — карта проекта и главные шаги. Три линии идут параллельно, стрелки между ними показывают, что чего ждёт.</p>
+  <div class="tbl" style="padding:12px">
+<pre class="mermaid">
+flowchart TD
+    subgraph SCI["Наука (вы)"]
+        S1["1. Открытые опросники<br/>IPIP-50, ORVIS"] --> S2["2. Перевод по ITC"]
+        S2 --> S3["3. Когнитивные интервью"]
+        S3 --> S4["4. Пилот N≈300 + ретест"]
+        S4 --> S5["5. Анализ: α, ω, ЭФА, КФА"]
+        S5 --> S6["6. Бета-нормы, тех. отчёт"]
+    end
+    subgraph PROD["Продукт (ИИ + партнёр)"]
+        P1["R0 лендинг предзаказа"] --> P2["R1 тест в браузере<br/>(готов прототип)"]
+        P2 --> P3["R2 MVP: сервер в РФ,<br/>согласия, оплата"]
+        P3 --> P4["R4 платный запуск"]
+        P4 --> P5["R5 кабинет консультанта"]
+    end
+    subgraph BIZ["Спрос (вы + партнёр)"]
+        B1["CustDev: 35 интервью"] --> B2["Предзаказ ≥ 10 оплат"]
+        B2 --> B3["Пилот с 5 консультантами"]
+    end
+    S3 --> P2
+    P3 --> S4
+    S6 --> P4
+    B2 --> P3
+    B3 --> P5
+</pre>
+  </div>
+
+  <div class="verdict">
+    <h3>Уже можно попробовать: прототип теста</h3>
+    <p>50 утверждений IPIP на русском (черновой перевод ИИ), подсчёт баллов в браузере, профиль из пяти черт с условными зонами и блок «для исследователя» с формулами и записью ответов. Ничего никуда не отправляется. Есть кнопка «Демо», чтобы сразу увидеть результат.</p>
+    <p><a href="https://claude.ai/artifact/P2b5L3CCaGgbQhkWnTcGvb" target="_blank" rel="noopener">Открыть прототип</a></p>
+  </div>
+
+  <details open>
+    <summary>Где взять тест</summary>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Что</th><th>Где</th><th>Лицензия</th></tr></thead>
+        <tbody>
+        <tr><td>IPIP-50, личность (Goldberg, 1992): 5 шкал × 10 пунктов, 18 обратных</td><td><a href="https://ipip.ori.org/new_ipip-50-item-scale.htm" target="_blank" rel="noopener">пункты</a> · <a href="https://ipip.ori.org/newBigFive5broadKey.htm" target="_blank" rel="noopener">ключ</a></td><td>общественное достояние</td></tr>
+        <tr><td>ORVIS, интересы (Pozzebon и соавт., 2010): 8 шкал</td><td><a href="https://ipip.ori.org/newORVISKey.htm" target="_blank" rel="noopener">ключ</a> · <a href="https://ipip.ori.org/newORVISSurvey.htm" target="_blank" rel="noopener">анкета</a></td><td>общественное достояние</td></tr>
+        <tr><td>Данные ~1 млн человек на IPIP-50 (англ.) для тренировки анализа</td><td><a href="https://openpsychometrics.org/_rawdata/" target="_blank" rel="noopener">openpsychometrics.org</a></td><td>уточнить на сайте</td></tr>
+        <tr><td>Правила перевода и адаптации тестов ITC, 2-е изд.</td><td>DOI 10.1080/15305058.2017.1398166</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Нельзя: MBTI, 16PF, NEO, Hogan, MMPI. BFI-2 и HEXACO — только для некоммерческого пилота и с разрешения авторов.</p>
+  </details>
+
+  <details>
+    <summary>Как перевести: 6 шагов ITC</summary>
+    <ol>
+      <li><b>Два независимых перевода.</b> Первый уже сделал ИИ, второй делает человек, не видевший первого.</li>
+      <li><b>Согласование.</b> Вы выбираете лучший вариант и записываете почему.</li>
+      <li><b>Обратный перевод.</b> Третий человек переводит русский текст обратно на английский. Если смысл ушёл, возвращаемся к шагу 2.</li>
+      <li><b>Эксперты.</b> Трое оценивают каждый пункт по ясности и смыслу (1–4). Если меньше 78 % оценок равны 3–4, пункт переделываем.</li>
+      <li><b>Когнитивные интервью.</b> 5–10 человек проходят прототип вслух: «как вы поняли эту фразу?».</li>
+      <li><b>Версия ru-0.1.</b> Финальные тексты переносятся в банк заданий, партнёр сверяет.</li>
+    </ol>
+    <p class="note">Всё ведётся в одной таблице: <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/translation-sheet.csv" target="_blank" rel="noopener">translation-sheet.csv</a>.</p>
+  </details>
+
+  <details>
+    <summary>Как соединить личность и интересы в рекомендации</summary>
+    <ol>
+      <li>Берём 2–3 самых сильных интереса человека (ORVIS).</li>
+      <li>Ищем в каталоге 40–60 направлений те, где эти интересы ключевые. Каталог строится по O*NET, «Справочнику профессий» Минтруда и «Атласу новых профессий».</li>
+      <li>Черты не отсекают варианты, а дают пояснения: что поможет, на что обратить внимание.</li>
+      <li>Показываем 3–5 направлений и пробы на 30 дней. LLM только пишет связный текст по готовым баллам.</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Платформа</summary>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Вариант</th><th>Вердикт</th></tr></thead>
+        <tbody>
+        <tr><td>Свой сайт: прототип → сервер в РФ (Timeweb или Selectel), PostgreSQL, Robokassa или ЮKassa</td><td>основной путь, собирают ИИ-агенты</td></tr>
+        <tr><td>formr — открытая платформа психологических исследований с отчётами на R</td><td>публичный сервер в Германии не подходит по 152-ФЗ; свой сервер — сложно</td></tr>
+        <tr><td>Яндекс Формы</td><td>только для анонимных опросов CustDev</td></tr>
+        <tr><td>Анкетолог, Testograf</td><td>запасной вариант для пилота, платно</td></tr>
+        <tr><td>Telegram-бот</td><td>только как вход со ссылкой на сайт</td></tr>
+        <tr><td>jsPsych, lab.js</td><td>позже, для игр на риск и принятие решений</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary>Анализ пилота: что нажимать</summary>
+    <ol>
+      <li>Партнёр выгружает ответы без имён в CSV и переворачивает обратные пункты (6 − ответ).</li>
+      <li><b>JASP</b> (бесплатно): Reliability → Unidimensional Reliability, смотрим ω и α. Цель — от 0,70.</li>
+      <li>Factor → Exploratory Factor Analysis: распадаются ли 50 пунктов на 5 групп.</li>
+      <li>Factor → Confirmatory Factor Analysis: CFI, RMSEA, SRMR.</li>
+      <li>Ретест: корреляция первого и второго прохождения, цель — от 0,70.</li>
+      <li>Процентили 10/25/50/75/90 → бета-нормы.</li>
+    </ol>
+    <p class="note">То же самое одной командой делает <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/analysis/analysis.R" target="_blank" rel="noopener">analysis.R</a>. Без пилота он тренируется на учебных данных. В этой среде R не установлен, поэтому скрипт ещё не запускался.</p>
+  </details>
+</section>
+
+<section id="terms">
+  <h2><span class="n">11</span>Словарь</h2>
+  <p>Главные слова простым языком. Полный словарь: <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/GLOSSARY.md" target="_blank" rel="noopener">GLOSSARY.md</a>.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Термин</th><th>Простыми словами</th><th>Норма</th></tr></thead>
+      <tbody>
+      <tr><td>Надёжность</td><td>Тест каждый раз показывает примерно одно и то же, как точные весы</td><td>—</td></tr>
+      <tr><td>Альфа Кронбаха (α)</td><td>Насколько согласованно люди отвечают на пункты одной шкалы</td><td>≥ 0,70 приемлемо, ≥ 0,80 хорошо</td></tr>
+      <tr><td>Омега (ω)</td><td>Более точная современная версия альфы, сейчас рекомендуют её</td><td>≥ 0,70</td></tr>
+      <tr><td>Ретест</td><td>Те же люди проходят тест через 2–4 недели, результаты должны совпасть</td><td>r ≥ 0,70</td></tr>
+      <tr><td>Валидность</td><td>Тест измеряет то, что заявлено, а выводы из него обоснованы</td><td>—</td></tr>
+      <tr><td>Конвергентная валидность</td><td>Наша шкала совпадает с другим тестом того же свойства</td><td>r ≥ 0,50</td></tr>
+      <tr><td>Критериальная валидность</td><td>Результат связан с реальной жизнью: удовлетворённостью, сменой работы</td><td>в психологии r 0,2–0,3 — уже рабочий уровень</td></tr>
+      <tr><td>Фактор, нагрузка</td><td>Скрытая общая причина похожих ответов; нагрузка показывает, насколько пункт с ней связан</td><td>нагрузка ≥ 0,40</td></tr>
+      <tr><td>ЭФА / КФА</td><td>ЭФА — «посмотреть, какие группы выйдут»; КФА — «проверить заранее заданные группы»</td><td>CFI ≥ 0,90, RMSEA ≤ 0,08</td></tr>
+      <tr><td>Обратный пункт</td><td>Согласие означает меньше черты, переворачивается: 6 − ответ</td><td>—</td></tr>
+      <tr><td>Нормы, процентиль</td><td>«Вы набрали больше, чем 70 % людей». Нужна выборка от 1 000</td><td>—</td></tr>
+      <tr><td>POMP</td><td>Положение на самой шкале от 0 до 100, пока норм нет</td><td>—</td></tr>
+      <tr><td>Корреляция (r)</td><td>Сила связи от −1 до 1</td><td>0,1 слабая, 0,3 средняя, 0,5 сильная</td></tr>
+      <tr><td>IRT</td><td>Анализ каждого пункта отдельно, нужен для коротких и адаптивных тестов</td><td>выборка ≥ 500, зрелая версия</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="files">
-  <h2><span class="n">10</span>Отчёты агентов</h2>
+  <h2><span class="n">12</span>Отчёты агентов</h2>
   <p class="note">Каждая карточка открывает полный отчёт на GitHub. Если репозиторий приватный, GitHub попросит войти в аккаунт с доступом.</p>
   <div class="files">
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/01-market.md" target="_blank" rel="noopener">01 Рынок и тренды<code>agents/01-market.md</code></a>
@@ -446,6 +581,8 @@ tr.sum td{font-weight:600;border-top:2px solid var(--line)}
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/08-monetization.md" target="_blank" rel="noopener">08 Монетизация и модель<code>agents/08-monetization.md</code></a>
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/09-dev-plan.md" target="_blank" rel="noopener">09 План разработки<code>agents/09-dev-plan.md</code></a>
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/agents/10-team-skills.md" target="_blank" rel="noopener">10 Команда и навыки<code>agents/10-team-skills.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/GUIDE.md" target="_blank" rel="noopener">Пошаговая инструкция<code>build/GUIDE.md</code></a>
+    <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/build/GLOSSARY.md" target="_blank" rel="noopener">Словарь терминов<code>build/GLOSSARY.md</code></a>
     <a href="https://github.com/alexandraambrozhy/career/blob/claude/sharp-dirac-k7ht0n/research/hr-tech/REPORT.md" target="_blank" rel="noopener">Итоговый отчёт<code>REPORT.md</code></a>
   </div>
 </section>

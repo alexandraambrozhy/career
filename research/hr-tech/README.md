@@ -20,3 +20,6 @@
 | — | Итоговый отчёт | `REPORT.md` |
 | — | Финансовая модель (CSV для Excel) | `agents/08-model.csv` |
 | — | Обзорная страница | `overview.html` |
+| — | Пошаговая инструкция и словарь | `build/GUIDE.md`, `build/GLOSSARY.md` |
+| — | Прототип теста, банк заданий | `prototype/` |
+| — | Скрипт анализа пилота | `analysis/analysis.R` |

@@ -210,3 +210,14 @@
 4. Тарифы эквайринга и чеки самозанятых 2026 года, freemium GigaChat для коммерческого использования.
 5. Официальные цены российских B2B-платформ оценки (запросить коммерческие предложения).
 6. Сверить по первоисточникам ключевые коэффициенты из 04 и нормы из 05.
+
+---
+
+## 13. Реализация: инструкция, прототип, словарь
+
+- **Пошаговая инструкция:** [`build/GUIDE.md`](build/GUIDE.md). Где взять тест (ссылки на IPIP-50 и ORVIS), как адаптировать, как переводить по ITC, как соединить личность и интересы, на какой платформе собирать, как провести пилот и что нажимать в JASP.
+- **Кликабельный прототип:** [`prototype/index.html`](prototype/index.html), опубликован: https://claude.ai/artifact/P2b5L3CCaGgbQhkWnTcGvb.
+- **Банк заданий:** [`prototype/items-ipip50.csv`](prototype/items-ipip50.csv).
+- **Таблица перевода:** [`build/translation-sheet.csv`](build/translation-sheet.csv).
+- **Скрипт анализа:** [`analysis/analysis.R`](analysis/analysis.R).
+- **Словарь терминов простым языком:** [`build/GLOSSARY.md`](build/GLOSSARY.md).
