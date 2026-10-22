@@ -1,0 +1,51 @@
+id;order;domain;key;en_original;ru_draft_ai;note
+E1;1;E;+;Am the life of the party.;Я душа компании.;
+A1;2;A;-;Feel little concern for others.;Меня мало заботят другие люди.;
+C1;3;C;+;Am always prepared.;Я всегда ко всему готов(а).;
+N1;4;N;+;Get stressed out easily.;Я легко поддаюсь стрессу.;
+O1;5;O;+;Have a rich vocabulary.;У меня богатый словарный запас.;
+E2;6;E;-;Don't talk a lot.;Я мало говорю.;
+A2;7;A;+;Am interested in people.;Мне интересны люди.;
+C2;8;C;-;Leave my belongings around.;Я оставляю свои вещи где попало.;
+N2;9;N;-;Am relaxed most of the time.;Большую часть времени я спокоен(на).;
+O2;10;O;-;Have difficulty understanding abstract ideas.;Мне трудно понимать абстрактные идеи.;
+E3;11;E;+;Feel comfortable around people.;Мне комфортно среди людей.;
+A3;12;A;-;Insult people.;Я бываю груб(а) с людьми.;"insult" сложно передать; проверить на когнитивных интервью"
+C3;13;C;+;Pay attention to details.;Я внимателен(на) к деталям.;
+N3;14;N;+;Worry about things.;Я часто о чём-то тревожусь.;
+O3;15;O;+;Have a vivid imagination.;У меня яркое воображение.;
+E4;16;E;-;Keep in the background.;Я предпочитаю держаться в тени.;
+A4;17;A;+;Sympathize with others' feelings.;Я сочувствую переживаниям других.;
+C4;18;C;-;Make a mess of things.;У меня часто всё идёт наперекосяк.;идиома; кандидат на правку
+N4;19;N;-;Seldom feel blue.;Мне редко бывает грустно.;
+O4;20;O;-;Am not interested in abstract ideas.;Мне неинтересны абстрактные идеи.;
+E5;21;E;+;Start conversations.;Я первым(ой) начинаю разговор.;
+A5;22;A;-;Am not interested in other people's problems.;Меня не интересуют чужие проблемы.;
+C5;23;C;+;Get chores done right away.;Я делаю бытовые дела сразу, не откладывая.;
+N5;24;N;+;Am easily disturbed.;Меня легко выбить из колеи.;
+O5;25;O;+;Have excellent ideas.;У меня бывают отличные идеи.;
+E6;26;E;-;Have little to say.;Мне обычно нечего сказать.;
+A6;27;A;+;Have a soft heart.;У меня мягкое сердце.;
+C6;28;C;-;Often forget to put things back in their proper place.;Я часто забываю класть вещи на место.;
+N6;29;N;+;Get upset easily.;Я легко расстраиваюсь.;
+O6;30;O;-;Do not have a good imagination.;У меня не очень хорошее воображение.;
+E7;31;E;+;Talk to a lot of different people at parties.;На встречах и праздниках я общаюсь с множеством разных людей.;"parties" адаптировано"
+A7;32;A;-;Am not really interested in others.;Другие люди мне не особенно интересны.;
+C7;33;C;+;Like order.;Я люблю порядок.;
+N7;34;N;+;Change my mood a lot.;Моё настроение часто меняется.;
+O7;35;O;+;Am quick to understand things.;Я быстро схватываю суть.;
+E8;36;E;-;Don't like to draw attention to myself.;Я не люблю привлекать к себе внимание.;
+A8;37;A;+;Take time out for others.;Я нахожу время для других.;
+C8;38;C;-;Shirk my duties.;Я увиливаю от своих обязанностей.;
+N8;39;N;+;Have frequent mood swings.;У меня бывают частые перепады настроения.;
+O8;40;O;+;Use difficult words.;Я использую сложные слова.;
+E9;41;E;+;Don't mind being the center of attention.;Я не против оказаться в центре внимания.;
+A9;42;A;+;Feel others' emotions.;Я чувствую эмоции других людей.;
+C9;43;C;+;Follow a schedule.;Я следую расписанию.;
+N9;44;N;+;Get irritated easily.;Я легко раздражаюсь.;
+O9;45;O;+;Spend time reflecting on things.;Я часто размышляю о разном.;
+E10;46;E;-;Am quiet around strangers.;С незнакомыми людьми я молчалив(а).;
+A10;47;A;+;Make people feel at ease.;Рядом со мной людям спокойно и легко.;
+C10;48;C;+;Am exacting in my work.;Я требователен(на) к качеству своей работы.;
+N10;49;N;+;Often feel blue.;Мне часто бывает грустно.;
+O10;50;O;+;Am full of ideas.;У меня полно идей.;

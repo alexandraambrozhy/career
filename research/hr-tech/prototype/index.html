@@ -1,0 +1,271 @@
+<title>Карьерный профиль · прототип</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column, one screen at a time (intro → 5 pages of statements → profile) */
+:root{
+  --bg:#f5f6f2; --surface:#ffffff; --ink:#1d2a2a; --muted:#5b6866; --line:#d9dfdb;
+  --accent:#1f7a6b; --accent-soft:#dcefe9; --warn:#b5651d; --warn-soft:#f6e8da;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Onest","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121817; --surface:#1a2221; --ink:#e4ece9; --muted:#9aa8a5; --line:#2c3735;
+  --accent:#5cc3ad; --accent-soft:#1d3a34; --warn:#e2a066; --warn-soft:#3a2b1d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121817; --surface:#1a2221; --ink:#e4ece9; --muted:#9aa8a5; --line:#2c3735;
+  --accent:#5cc3ad; --accent-soft:#1d3a34; --warn:#e2a066; --warn-soft:#3a2b1d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
+.wrap{max-width:720px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:24px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,5vw,38px);line-height:1.15}
+h2{font-family:var(--display);font-weight:500;font-size:20px}
+h3{font-size:16px;font-weight:600}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted);font-size:14px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.warnbox{background:var(--warn-soft);border-radius:8px;padding:14px 16px;font-size:14px}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;border-radius:6px;padding:10px 18px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.link{border:0;background:none;color:var(--accent);padding:4px 0;text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .2s}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.item.check{border-style:dashed}
+.item .q{font-weight:500}
+.item .n{font-family:var(--mono);font-size:12px;color:var(--muted);margin-right:8px}
+.scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.scale label{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;padding:6px 4px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;line-height:1.2;cursor:pointer;color:var(--muted)}
+.scale input{position:absolute;opacity:0;pointer-events:none}
+.scale input:checked+span{color:var(--ink);font-weight:600}
+.scale label:has(input:checked){background:var(--accent-soft);border-color:var(--accent)}
+.scale label:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:480px){.scale label{font-size:11px;min-height:52px}}
+.legend{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+/* profile bars: POMP 0–100 with provisional zone ticks at 35 and 65 */
+.trait{display:flex;flex-direction:column;gap:8px;padding:16px 0;border-bottom:1px solid var(--line)}
+.trait:last-child{border-bottom:0}
+.trait .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.trait .val{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.track{position:relative;height:12px;background:var(--line);border-radius:6px}
+.track i{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:var(--accent)}
+.track b{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--bg)}
+.ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.zone{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);margin-left:6px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+td.num{text-align:right;font-family:var(--mono)}
+details>summary{cursor:pointer;font-weight:600}
+pre{margin:0;white-space:pre-wrap;word-break:break-all;font:12px/1.4 var(--mono);max-height:240px;overflow:auto;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:13px;padding:4px 10px;border:1px dashed var(--line);border-radius:999px;color:var(--muted)}
+</style>
+
+<div class="wrap" id="app">
+
+<section id="intro" class="stack">
+  <div class="eyebrow">Прототип R1 · анонимно · ничего не отправляется</div>
+  <h1>Карьерный профиль</h1>
+  <p>50 коротких утверждений о том, как вы обычно себя ведёте. Это займёт 7–9 минут. В конце вы увидите свой профиль по пяти большим чертам личности (модель Big Five) и подсказки, что они значат для выбора работы.</p>
+  <div class="warnbox"><b>Это рабочий прототип.</b> Утверждения взяты из открытого опросника IPIP-50 (Goldberg, общественное достояние). Перевод черновой, его сделал ИИ, и он ещё не прошёл проверку по правилам ITC. Русских норм пока нет, поэтому зоны «ниже / средне / выше» условные. Это не диагноз и не прогноз успеха.</div>
+  <div class="box">
+    <h3>Как отвечать</h3>
+    <ul>
+      <li>Описывайте себя таким, какой вы обычно есть сейчас, а не каким хотели бы быть.</li>
+      <li>Сравнивайте себя с людьми своего пола и возраста.</li>
+      <li>Отвечайте быстро, первое впечатление обычно самое точное.</li>
+    </ul>
+  </div>
+  <div class="btns">
+    <button class="primary" id="start">Начать</button>
+    <button id="demo" title="Заполнит ответы случайно, чтобы посмотреть экран результата">Демо: заполнить случайно</button>
+  </div>
+</section>
+
+<section id="survey" class="stack" hidden>
+  <div class="stack" style="gap:8px">
+    <div class="legend"><span id="pageLabel">Страница 1 из 5</span><span id="countLabel">0 из 50</span></div>
+    <div class="progress" aria-hidden="true"><i id="bar" style="width:0"></i></div>
+  </div>
+  <div id="items" class="stack"></div>
+  <p class="muted" id="hint">Ответьте на все утверждения на странице, чтобы перейти дальше.</p>
+  <div class="btns">
+    <button id="back">Назад</button>
+    <button class="primary" id="next" disabled>Дальше</button>
+  </div>
+</section>
+
+<section id="result" class="stack" hidden>
+  <div class="eyebrow">Ваш профиль · прототип</div>
+  <h1>Пять черт личности</h1>
+  <div id="flags"></div>
+  <p class="muted">Шкала от 0 до 100 показывает, где вы оказались между самым низким и самым высоким возможным ответом (метод POMP). Это не процент людей. Метки на 35 и 65 делят шкалу на условные зоны, пока нет норм.</p>
+  <div class="box" id="traits" style="gap:0"></div>
+
+  <div class="box">
+    <h3>Блок 2: профессиональные интересы (ORVIS)</h3>
+    <p class="muted">Подключается после перевода. 8 шкал интересов из открытого опросника ORVIS (Pozzebon и соавт., 2010):</p>
+    <div class="chips"><span>Лидерство</span><span>Организация</span><span>Помощь людям</span><span>Творчество</span><span>Анализ</span><span>Создание вещей руками</span><span>Риск и приключения</span><span>Эрудиция</span></div>
+    <p class="muted">Платный отчёт соединит интересы и черты и предложит 3–5 направлений с планом проб на 30 дней.</p>
+  </div>
+
+  <details class="box">
+    <summary>Для исследователя: как это посчитано</summary>
+    <p class="muted">Обратные утверждения перевёрнуты по формуле 6 − ответ. Балл шкалы — среднее 10 ответов, POMP = (среднее − 1) / 4 × 100. Флаги качества: провал проверки внимания, слишком быстрые ответы (в среднем меньше 1,5 секунды на утверждение), одинаковые ответы подряд (12 и больше).</p>
+    <div class="tbl"><table id="scoreTable"></table></div>
+    <h3>Запись ответов в формате для базы</h3>
+    <p class="muted">В прототипе запись никуда не отправляется. В рабочей версии такая строка без имени и почты попадает в базу на сервере в РФ, если человек дал согласие на исследование.</p>
+    <pre id="raw"></pre>
+    <div class="btns"><button id="copy">Скопировать запись</button><span class="muted" id="copied" aria-live="polite"></span></div>
+  </details>
+
+  <div class="btns"><button id="again">Пройти заново</button></div>
+</section>
+</div>
+
+<script>
+const ITEMS = [{"id": "E1", "d": "E", "k": 1, "ru": "Я душа компании.", "en": "Am the life of the party."}, {"id": "A1", "d": "A", "k": -1, "ru": "Меня мало заботят другие люди.", "en": "Feel little concern for others."}, {"id": "C1", "d": "C", "k": 1, "ru": "Я всегда ко всему готов(а).", "en": "Am always prepared."}, {"id": "N1", "d": "N", "k": 1, "ru": "Я легко поддаюсь стрессу.", "en": "Get stressed out easily."}, {"id": "O1", "d": "O", "k": 1, "ru": "У меня богатый словарный запас.", "en": "Have a rich vocabulary."}, {"id": "E2", "d": "E", "k": -1, "ru": "Я мало говорю.", "en": "Don't talk a lot."}, {"id": "A2", "d": "A", "k": 1, "ru": "Мне интересны люди.", "en": "Am interested in people."}, {"id": "C2", "d": "C", "k": -1, "ru": "Я оставляю свои вещи где попало.", "en": "Leave my belongings around."}, {"id": "N2", "d": "N", "k": -1, "ru": "Большую часть времени я спокоен(на).", "en": "Am relaxed most of the time."}, {"id": "O2", "d": "O", "k": -1, "ru": "Мне трудно понимать абстрактные идеи.", "en": "Have difficulty understanding abstract ideas."}, {"id": "E3", "d": "E", "k": 1, "ru": "Мне комфортно среди людей.", "en": "Feel comfortable around people."}, {"id": "A3", "d": "A", "k": -1, "ru": "Я бываю груб(а) с людьми.", "en": "Insult people."}, {"id": "C3", "d": "C", "k": 1, "ru": "Я внимателен(на) к деталям.", "en": "Pay attention to details."}, {"id": "N3", "d": "N", "k": 1, "ru": "Я часто о чём-то тревожусь.", "en": "Worry about things."}, {"id": "O3", "d": "O", "k": 1, "ru": "У меня яркое воображение.", "en": "Have a vivid imagination."}, {"id": "E4", "d": "E", "k": -1, "ru": "Я предпочитаю держаться в тени.", "en": "Keep in the background."}, {"id": "A4", "d": "A", "k": 1, "ru": "Я сочувствую переживаниям других.", "en": "Sympathize with others' feelings."}, {"id": "C4", "d": "C", "k": -1, "ru": "У меня часто всё идёт наперекосяк.", "en": "Make a mess of things."}, {"id": "N4", "d": "N", "k": -1, "ru": "Мне редко бывает грустно.", "en": "Seldom feel blue."}, {"id": "O4", "d": "O", "k": -1, "ru": "Мне неинтересны абстрактные идеи.", "en": "Am not interested in abstract ideas."}, {"id": "E5", "d": "E", "k": 1, "ru": "Я первым(ой) начинаю разговор.", "en": "Start conversations."}, {"id": "A5", "d": "A", "k": -1, "ru": "Меня не интересуют чужие проблемы.", "en": "Am not interested in other people's problems."}, {"id": "C5", "d": "C", "k": 1, "ru": "Я делаю бытовые дела сразу, не откладывая.", "en": "Get chores done right away."}, {"id": "N5", "d": "N", "k": 1, "ru": "Меня легко выбить из колеи.", "en": "Am easily disturbed."}, {"id": "O5", "d": "O", "k": 1, "ru": "У меня бывают отличные идеи.", "en": "Have excellent ideas."}, {"id": "E6", "d": "E", "k": -1, "ru": "Мне обычно нечего сказать.", "en": "Have little to say."}, {"id": "A6", "d": "A", "k": 1, "ru": "У меня мягкое сердце.", "en": "Have a soft heart."}, {"id": "C6", "d": "C", "k": -1, "ru": "Я часто забываю класть вещи на место.", "en": "Often forget to put things back in their proper place."}, {"id": "N6", "d": "N", "k": 1, "ru": "Я легко расстраиваюсь.", "en": "Get upset easily."}, {"id": "O6", "d": "O", "k": -1, "ru": "У меня не очень хорошее воображение.", "en": "Do not have a good imagination."}, {"id": "E7", "d": "E", "k": 1, "ru": "На встречах и праздниках я общаюсь с множеством разных людей.", "en": "Talk to a lot of different people at parties."}, {"id": "A7", "d": "A", "k": -1, "ru": "Другие люди мне не особенно интересны.", "en": "Am not really interested in others."}, {"id": "C7", "d": "C", "k": 1, "ru": "Я люблю порядок.", "en": "Like order."}, {"id": "N7", "d": "N", "k": 1, "ru": "Моё настроение часто меняется.", "en": "Change my mood a lot."}, {"id": "O7", "d": "O", "k": 1, "ru": "Я быстро схватываю суть.", "en": "Am quick to understand things."}, {"id": "E8", "d": "E", "k": -1, "ru": "Я не люблю привлекать к себе внимание.", "en": "Don't like to draw attention to myself."}, {"id": "A8", "d": "A", "k": 1, "ru": "Я нахожу время для других.", "en": "Take time out for others."}, {"id": "C8", "d": "C", "k": -1, "ru": "Я увиливаю от своих обязанностей.", "en": "Shirk my duties."}, {"id": "N8", "d": "N", "k": 1, "ru": "У меня бывают частые перепады настроения.", "en": "Have frequent mood swings."}, {"id": "O8", "d": "O", "k": 1, "ru": "Я использую сложные слова.", "en": "Use difficult words."}, {"id": "E9", "d": "E", "k": 1, "ru": "Я не против оказаться в центре внимания.", "en": "Don't mind being the center of attention."}, {"id": "A9", "d": "A", "k": 1, "ru": "Я чувствую эмоции других людей.", "en": "Feel others' emotions."}, {"id": "C9", "d": "C", "k": 1, "ru": "Я следую расписанию.", "en": "Follow a schedule."}, {"id": "N9", "d": "N", "k": 1, "ru": "Я легко раздражаюсь.", "en": "Get irritated easily."}, {"id": "O9", "d": "O", "k": 1, "ru": "Я часто размышляю о разном.", "en": "Spend time reflecting on things."}, {"id": "E10", "d": "E", "k": -1, "ru": "С незнакомыми людьми я молчалив(а).", "en": "Am quiet around strangers."}, {"id": "A10", "d": "A", "k": 1, "ru": "Рядом со мной людям спокойно и легко.", "en": "Make people feel at ease."}, {"id": "C10", "d": "C", "k": 1, "ru": "Я требователен(на) к качеству своей работы.", "en": "Am exacting in my work."}, {"id": "N10", "d": "N", "k": 1, "ru": "Мне часто бывает грустно.", "en": "Often feel blue."}, {"id": "O10", "d": "O", "k": 1, "ru": "У меня полно идей.", "en": "Am full of ideas."}];
+const SCALE = ["Совершенно неверно","Скорее неверно","Ни то ни другое","Скорее верно","Совершенно верно"];
+const CHECK = {id:"ATT1", ru:"Проверка внимания: выберите вариант «Скорее неверно».", want:2};
+const PER_PAGE = 10, PAGES = 5, CHECK_PAGE = 2;
+const DOMAINS = {
+  E:{name:"Экстраверсия", lo:"Тише, сдержаннее", hi:"Общительнее, энергичнее",
+     txt:["Вам ближе работа с понятным кругом людей и время на сосредоточенность. Шумные роли с постоянными контактами могут утомлять.","Вам подходят и командные, и самостоятельные задачи. Важнее баланс, чем выбор крайности.","Вас заряжают люди и активность. Подходят роли с контактами, выступлениями, переговорами."]},
+  A:{name:"Доброжелательность", lo:"Прямее, твёрже", hi:"Мягче, заботливее",
+     txt:["Вы готовы спорить и отстаивать позицию. Это помогает в переговорах и экспертизе, где нужна жёсткость.","Вы умеете и сотрудничать, и настаивать на своём, в зависимости от ситуации.","Вам важны отношения и помощь другим. Подходят роли, где ценятся забота, поддержка и сервис."]},
+  C:{name:"Добросовестность", lo:"Гибче, спонтаннее", hi:"Организованнее, надёжнее",
+     txt:["Вам легче в свободном ритме, чем по жёсткому плану. Хорошо, когда работа допускает импровизацию.","Вы держите порядок там, где это важно, и спокойно переносите перемены.","Вы любите план, порядок и доводите дела до конца. Подходят роли с ответственностью и точностью."]},
+  S:{name:"Эмоциональная устойчивость", lo:"Чувствительнее к стрессу", hi:"Спокойнее под давлением",
+     txt:["Вы остро реагируете на напряжение. Стоит обращать внимание на темп и нагрузку при выборе работы. Это черта, а не диагноз.","Обычно вы справляетесь со стрессом, хотя сильное давление чувствуется.","Вы сохраняете спокойствие в напряжённых ситуациях. Подходят роли с высокой неопределённостью и давлением."]},
+  O:{name:"Открытость опыту", lo:"Практичнее, конкретнее", hi:"Любознательнее, образнее",
+     txt:["Вам ближе понятные, проверенные задачи и практический результат.","Вы интересуетесь новым, но цените и привычные способы работы.","Вас тянет к идеям, обучению и творчеству. Подходят роли, где нужно придумывать и разбираться в сложном."]}
+};
+const ORDER = ["E","A","C","S","O"];
+
+let page = 0, answers = {}, times = {}, pageStart = 0, startedAt = 0;
+const $ = id => document.getElementById(id);
+function show(id){ for (const s of ["intro","survey","result"]) $(s).hidden = s !== id; window.scrollTo(0,0); }
+
+function pageItems(p){
+  const list = ITEMS.slice(p*PER_PAGE, p*PER_PAGE+PER_PAGE).map((it,i)=>({...it, num:p*PER_PAGE+i+1}));
+  if (p === CHECK_PAGE) list.splice(5, 0, {...CHECK, check:true});
+  return list;
+}
+
+function renderPage(){
+  const box = $("items"); box.innerHTML = "";
+  for (const it of pageItems(page)){
+    const div = document.createElement("div");
+    div.className = "item" + (it.check ? " check" : "");
+    const name = "q_" + it.id;
+    div.innerHTML = `<div class="q">${it.check ? "" : `<span class="n">${it.num}</span>`}${it.ru}</div>
+      <div class="scale" role="radiogroup" aria-label="${it.ru.replace(/"/g,"&quot;")}">
+      ${SCALE.map((s,j)=>`<label><input type="radio" id="${name}_${j+1}" name="${name}" value="${j+1}" ${answers[it.id]===j+1?"checked":""}><span>${s}</span></label>`).join("")}
+      </div>`;
+    div.addEventListener("change", e => {
+      answers[it.id] = Number(e.target.value);
+      times[it.id] = Date.now() - startedAt;
+      update();
+    });
+    box.appendChild(div);
+  }
+  pageStart = Date.now();
+  $("pageLabel").textContent = `Страница ${page+1} из ${PAGES}`;
+  $("back").disabled = page === 0;
+  $("next").textContent = page === PAGES-1 ? "Показать профиль" : "Дальше";
+  update();
+}
+
+function update(){
+  const done = ITEMS.filter(it => answers[it.id]).length;
+  $("countLabel").textContent = `${done} из ${ITEMS.length}`;
+  $("bar").style.width = (done/ITEMS.length*100) + "%";
+  const ok = pageItems(page).every(it => answers[it.id]);
+  $("next").disabled = !ok;
+  $("hint").hidden = ok;
+}
+
+// Scoring kept as one pure function so it can be checked against the partner's Excel recount.
+function score(ans){
+  const res = {};
+  for (const d of ["E","A","C","N","O"]){
+    const its = ITEMS.filter(it => it.d === d);
+    const vals = its.map(it => ans[it.id] == null ? null : (it.k === 1 ? ans[it.id] : 6 - ans[it.id])).filter(v => v != null);
+    if (vals.length < 8) { res[d] = null; continue; }
+    const mean = vals.reduce((a,b)=>a+b,0) / vals.length;
+    res[d] = {mean, pomp: (mean-1)/4*100, n: vals.length};
+  }
+  if (res.N) res.S = {mean: 6 - res.N.mean, pomp: 100 - res.N.pomp, n: res.N.n};
+  return res;
+}
+
+function quality(ans, elapsedMs){
+  const flags = [];
+  if (ans[CHECK.id] !== CHECK.want) flags.push("Не пройдена проверка внимания.");
+  if (elapsedMs / ITEMS.length < 1500) flags.push("Ответы были очень быстрыми.");
+  let run = 1, maxRun = 1;
+  for (let i = 1; i < ITEMS.length; i++){
+    run = ans[ITEMS[i].id] === ans[ITEMS[i-1].id] ? run + 1 : 1;
+    maxRun = Math.max(maxRun, run);
+  }
+  if (maxRun >= 12) flags.push(`Один и тот же ответ ${maxRun} раз подряд.`);
+  return flags;
+}
+
+function zone(p){ return p < 35 ? 0 : p > 65 ? 2 : 1; }
+const ZONE_NAMES = ["ниже среднего","средне","выше среднего"];
+const fmt = x => x.toFixed(1).replace(".", ",");
+
+function renderResult(){
+  const elapsed = Date.now() - startedAt;
+  const s = score(answers), flags = quality(answers, elapsed);
+  $("flags").innerHTML = flags.length
+    ? `<div class="warnbox"><b>Профиль может быть неточным.</b> ${flags.join(" ")} В рабочей версии такие анкеты не попадают в выборку для норм.</div>` : "";
+  $("traits").innerHTML = ORDER.map(d => {
+    const r = s[d], D = DOMAINS[d], z = zone(r.pomp);
+    return `<div class="trait">
+      <div class="top"><h3>${D.name}<span class="zone">${ZONE_NAMES[z]}</span></h3><span class="val">${Math.round(r.pomp)} / 100</span></div>
+      <div class="track" role="img" aria-label="${D.name}: ${Math.round(r.pomp)} из 100"><i style="width:${r.pomp}%"></i><b style="left:35%"></b><b style="left:65%"></b></div>
+      <div class="ends"><span>${D.lo}</span><span>${D.hi}</span></div>
+      <p>${D.txt[z]}</p></div>`;
+  }).join("");
+  $("scoreTable").innerHTML = `<thead><tr><th>Шкала</th><th>Ответов</th><th>Среднее (1–5)</th><th>POMP</th></tr></thead><tbody>` +
+    ["E","A","C","N","O"].map(d => `<tr><td>${d === "N" ? "Нейротизм (N)" : DOMAINS[d].name + " (" + d + ")"}</td><td class="num">${s[d].n}</td><td class="num">${fmt(s[d].mean)}</td><td class="num">${fmt(s[d].pomp)}</td></tr>`).join("") + `</tbody>`;
+  const record = {
+    form: "ipip50-ru-draft-0.1", scoring: "0.1", submitted_at: new Date().toISOString(),
+    duration_s: Math.round(elapsed/1000), attention_ok: answers[CHECK.id] === CHECK.want, flags,
+    answers: Object.fromEntries(ITEMS.map(it => [it.id, answers[it.id] ?? null])),
+    scores: Object.fromEntries(["E","A","C","N","O"].map(d => [d, Number(s[d].mean.toFixed(3))]))
+  };
+  $("raw").textContent = JSON.stringify(record, null, 1);
+  show("result");
+}
+
+$("start").onclick = () => { answers = {}; times = {}; page = 0; startedAt = Date.now(); show("survey"); renderPage(); };
+$("demo").onclick = () => {
+  answers = {}; startedAt = Date.now() - 6*60*1000;
+  for (const it of ITEMS) answers[it.id] = 1 + Math.floor(Math.random()*5);
+  answers[CHECK.id] = CHECK.want;
+  renderResult();
+};
+$("next").onclick = () => { if (page < PAGES-1){ page++; renderPage(); window.scrollTo(0,0); } else renderResult(); };
+$("back").onclick = () => { if (page > 0){ page--; renderPage(); } };
+$("again").onclick = () => show("intro");
+$("copy").onclick = () => {
+  const t = $("raw").textContent;
+  navigator.clipboard.writeText(t).then(() => $("copied").textContent = "Скопировано",
+    () => { const r = document.createRange(); r.selectNodeContents($("raw")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); $("copied").textContent = "Выделено, нажмите Ctrl+C"; });
+};
+</script>

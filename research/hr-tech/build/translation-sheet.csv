@@ -1,0 +1,51 @@
+﻿id;ключ;оригинал (EN);перевод 1 (T1);перевод 2 (T2);согласованный вариант (T12);обратный перевод (BT);расхождение со смыслом? (да/нет);эксперт 1: ясность 1-4;эксперт 1: соответствие смыслу 1-4;эксперт 2: ясность;эксперт 2: соответствие;эксперт 3: ясность;эксперт 3: соответствие;заметки когнитивных интервью;финальная версия;версия формы
+E1;+;Am the life of the party.;Я душа компании.;;;;;;;;;;;;;ru-0.1
+A1;-;Feel little concern for others.;Меня мало заботят другие люди.;;;;;;;;;;;;;ru-0.1
+C1;+;Am always prepared.;Я всегда ко всему готов(а).;;;;;;;;;;;;;ru-0.1
+N1;+;Get stressed out easily.;Я легко поддаюсь стрессу.;;;;;;;;;;;;;ru-0.1
+O1;+;Have a rich vocabulary.;У меня богатый словарный запас.;;;;;;;;;;;;;ru-0.1
+E2;-;Don't talk a lot.;Я мало говорю.;;;;;;;;;;;;;ru-0.1
+A2;+;Am interested in people.;Мне интересны люди.;;;;;;;;;;;;;ru-0.1
+C2;-;Leave my belongings around.;Я оставляю свои вещи где попало.;;;;;;;;;;;;;ru-0.1
+N2;-;Am relaxed most of the time.;Большую часть времени я спокоен(на).;;;;;;;;;;;;;ru-0.1
+O2;-;Have difficulty understanding abstract ideas.;Мне трудно понимать абстрактные идеи.;;;;;;;;;;;;;ru-0.1
+E3;+;Feel comfortable around people.;Мне комфортно среди людей.;;;;;;;;;;;;;ru-0.1
+A3;-;Insult people.;Я бываю груб(а) с людьми.;;;;;;;;;;;;;ru-0.1
+C3;+;Pay attention to details.;Я внимателен(на) к деталям.;;;;;;;;;;;;;ru-0.1
+N3;+;Worry about things.;Я часто о чём-то тревожусь.;;;;;;;;;;;;;ru-0.1
+O3;+;Have a vivid imagination.;У меня яркое воображение.;;;;;;;;;;;;;ru-0.1
+E4;-;Keep in the background.;Я предпочитаю держаться в тени.;;;;;;;;;;;;;ru-0.1
+A4;+;Sympathize with others' feelings.;Я сочувствую переживаниям других.;;;;;;;;;;;;;ru-0.1
+C4;-;Make a mess of things.;У меня часто всё идёт наперекосяк.;;;;;;;;;;;;;ru-0.1
+N4;-;Seldom feel blue.;Мне редко бывает грустно.;;;;;;;;;;;;;ru-0.1
+O4;-;Am not interested in abstract ideas.;Мне неинтересны абстрактные идеи.;;;;;;;;;;;;;ru-0.1
+E5;+;Start conversations.;Я первым(ой) начинаю разговор.;;;;;;;;;;;;;ru-0.1
+A5;-;Am not interested in other people's problems.;Меня не интересуют чужие проблемы.;;;;;;;;;;;;;ru-0.1
+C5;+;Get chores done right away.;Я делаю бытовые дела сразу, не откладывая.;;;;;;;;;;;;;ru-0.1
+N5;+;Am easily disturbed.;Меня легко выбить из колеи.;;;;;;;;;;;;;ru-0.1
+O5;+;Have excellent ideas.;У меня бывают отличные идеи.;;;;;;;;;;;;;ru-0.1
+E6;-;Have little to say.;Мне обычно нечего сказать.;;;;;;;;;;;;;ru-0.1
+A6;+;Have a soft heart.;У меня мягкое сердце.;;;;;;;;;;;;;ru-0.1
+C6;-;Often forget to put things back in their proper place.;Я часто забываю класть вещи на место.;;;;;;;;;;;;;ru-0.1
+N6;+;Get upset easily.;Я легко расстраиваюсь.;;;;;;;;;;;;;ru-0.1
+O6;-;Do not have a good imagination.;У меня не очень хорошее воображение.;;;;;;;;;;;;;ru-0.1
+E7;+;Talk to a lot of different people at parties.;На встречах и праздниках я общаюсь с множеством разных людей.;;;;;;;;;;;;;ru-0.1
+A7;-;Am not really interested in others.;Другие люди мне не особенно интересны.;;;;;;;;;;;;;ru-0.1
+C7;+;Like order.;Я люблю порядок.;;;;;;;;;;;;;ru-0.1
+N7;+;Change my mood a lot.;Моё настроение часто меняется.;;;;;;;;;;;;;ru-0.1
+O7;+;Am quick to understand things.;Я быстро схватываю суть.;;;;;;;;;;;;;ru-0.1
+E8;-;Don't like to draw attention to myself.;Я не люблю привлекать к себе внимание.;;;;;;;;;;;;;ru-0.1
+A8;+;Take time out for others.;Я нахожу время для других.;;;;;;;;;;;;;ru-0.1
+C8;-;Shirk my duties.;Я увиливаю от своих обязанностей.;;;;;;;;;;;;;ru-0.1
+N8;+;Have frequent mood swings.;У меня бывают частые перепады настроения.;;;;;;;;;;;;;ru-0.1
+O8;+;Use difficult words.;Я использую сложные слова.;;;;;;;;;;;;;ru-0.1
+E9;+;Don't mind being the center of attention.;Я не против оказаться в центре внимания.;;;;;;;;;;;;;ru-0.1
+A9;+;Feel others' emotions.;Я чувствую эмоции других людей.;;;;;;;;;;;;;ru-0.1
+C9;+;Follow a schedule.;Я следую расписанию.;;;;;;;;;;;;;ru-0.1
+N9;+;Get irritated easily.;Я легко раздражаюсь.;;;;;;;;;;;;;ru-0.1
+O9;+;Spend time reflecting on things.;Я часто размышляю о разном.;;;;;;;;;;;;;ru-0.1
+E10;-;Am quiet around strangers.;С незнакомыми людьми я молчалив(а).;;;;;;;;;;;;;ru-0.1
+A10;+;Make people feel at ease.;Рядом со мной людям спокойно и легко.;;;;;;;;;;;;;ru-0.1
+C10;+;Am exacting in my work.;Я требователен(на) к качеству своей работы.;;;;;;;;;;;;;ru-0.1
+N10;+;Often feel blue.;Мне часто бывает грустно.;;;;;;;;;;;;;ru-0.1
+O10;+;Am full of ideas.;У меня полно идей.;;;;;;;;;;;;;ru-0.1
