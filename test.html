@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Тест «Широта и опора» · Александра Амброжий</title>
+<meta name="description" content="Короткий тест-самоисследование по модели личности А. Н. Леонтьева: богатство связей с миром и сила личности. 24 вопроса, около 7 минут.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Same palette and type as index.html: cream paper, flame accent, ink lines, pill buttons, ✱ markers */
+  :root {
+    --cream: #FBF3EA;
+    --sand: #F4E3D3;
+    --blush: #F8DCD6;
+    --pink: #EE9E9C;
+    --red: #C9412E;
+    --orange: #DE7B3A;
+    --yellow: #EDB843;
+    --brown: #6B3F26;
+    --espresso: #3A2218;
+    --muted: #8A6A55;
+    --line: rgba(107, 63, 38, .16);
+    --paper: #FFFAF4;
+    --flame: #E8693F;
+    --ink: #221E1D;
+    --display: "Onest", "Golos Text", system-ui, sans-serif;
+    --sans: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans); color: var(--espresso); background: var(--cream);
+    line-height: 1.6; font-size: 17px; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .13 0 0 0 0 .09 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"); opacity: .07; mix-blend-mode: multiply; }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  svg { display: block; max-width: 100%; }
+  [hidden] { display: none !important; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding-inline: 24px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; letter-spacing: -.035em; line-height: 1.02; text-wrap: balance; color: var(--ink); }
+  h3 { letter-spacing: -.02em; line-height: 1.12; }
+  h1 em, h2 em, h3 em { font-style: normal; color: var(--flame); }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font: 500 14px/1.3 var(--sans); letter-spacing: .02em; color: var(--flame); }
+  .eyebrow::before { content: "✱"; font-size: 16px; }
+
+  header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(251, 243, 234, .86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; }
+  .logo { font: 500 23px var(--display); letter-spacing: -.03em; white-space: nowrap; }
+  .logo em { font-style: normal; color: var(--flame); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 30px; border-radius: 999px;
+    font: 500 15px/1.2 var(--sans); letter-spacing: .02em; border: 1px solid transparent; cursor: pointer;
+    transition: transform .25s ease, background .25s ease, color .25s ease, opacity .25s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(1px); }
+  .btn[disabled] { opacity: .45; cursor: not-allowed; transform: none; }
+  .btn-primary { background: var(--flame); color: #fff; }
+  .btn-primary:hover:not([disabled]) { background: var(--red); }
+  .btn-ghost { background: rgba(255, 255, 255, .6); border-color: var(--ink); color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: #fff; }
+  .btn-sm { padding: 11px 22px; font-size: 14px; }
+  .btn-wide { min-width: 260px; font-size: 17px; padding-block: 18px; }
+  .link { background: none; border: 0; font: inherit; color: var(--brown); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .link:hover { color: var(--flame); }
+
+  main { padding-block: 20px 80px; }
+
+  /* Intro: silk panel like the main hero */
+  .panel {
+    position: relative; overflow: hidden; border-radius: 36px; padding: 64px 56px 48px;
+    background: radial-gradient(70% 60% at 75% 80%, #FFE3B8 0%, transparent 70%), linear-gradient(165deg, #FFF3E8 0%, #FDE3CF 45%, #FCEBDD 100%);
+  }
+  .silk { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .silk .w1 { animation: drift 14s ease-in-out infinite alternate; }
+  .silk .w2 { animation: drift 18s ease-in-out infinite alternate-reverse; }
+  @keyframes drift { from { transform: translateY(-10px); } to { transform: translateY(14px); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .panel > *:not(.silk) { position: relative; z-index: 1; }
+  .intro-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: end; }
+  .intro-grid > div { min-width: 0; }
+  .intro h1 { font-size: clamp(42px, 6vw, 84px); margin-top: 16px; line-height: .98; }
+  .intro .lead { margin: 22px 0 32px; max-width: 560px; color: var(--ink); opacity: .82; font-size: 19px; }
+  .intro .lead b { color: var(--flame); font-weight: 600; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+  .chip { padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(34, 30, 29, .25); background: rgba(255, 255, 255, .5); font-size: 14px; color: var(--ink); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+  .mini-map { justify-self: end; width: 100%; max-width: 340px; padding: 20px; border-radius: 22px; background: rgba(255, 255, 255, .45); border: 1px solid rgba(255, 255, 255, .8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .mini-map .grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mini-map .q { border: 1px solid var(--ink); border-radius: 14px; padding: 12px; font-size: 13px; line-height: 1.3; min-height: 86px; display: flex; flex-direction: column; justify-content: space-between; color: var(--ink); }
+  .mini-map .q b { font: 500 15px/1.15 var(--display); letter-spacing: -.02em; }
+  .mini-map .q span { opacity: .7; }
+  .mini-map .cap { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); margin-top: 56px; }
+  .fact { padding: 30px 28px 34px 0; min-width: 0; }
+  .fact + .fact { border-left: 1px solid var(--ink); padding-left: 28px; }
+  .fact h3 { font-size: 24px; margin-bottom: 10px; }
+  .fact p { font-size: 15px; color: var(--ink); opacity: .78; }
+
+  /* Quiz */
+  .quiz { max-width: 820px; margin: 24px auto 0; }
+  .progress { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; }
+  .bar { flex: 1; height: 8px; border-radius: 99px; background: var(--sand); overflow: hidden; border: 1px solid var(--line); }
+  .bar i { display: block; height: 100%; width: 0; background: var(--flame); border-radius: 99px; transition: width .35s ease; }
+  .count { font: 500 15px var(--display); color: var(--ink); white-space: nowrap; letter-spacing: -.01em; }
+  .count b { color: var(--flame); font-weight: 500; }
+  .qcard { background: #fff; border: 1.5px solid var(--ink); border-radius: 28px; padding: 48px 44px 40px; box-shadow: 8px 8px 0 var(--blush); position: relative; }
+  .qcard .tag { display: inline-block; font-size: 13px; padding: 6px 14px; border-radius: 999px; background: var(--cream); border: 1px solid var(--line); color: var(--brown); margin-bottom: 20px; }
+  .qtext { font: 500 clamp(24px, 3.2vw, 34px)/1.2 var(--display); letter-spacing: -.025em; color: var(--ink); min-height: 2.4em; }
+  .qtext.swap { animation: swap .35s ease; }
+  @keyframes swap { from { opacity: 0; transform: translateY(8px); } }
+  .scale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 36px; }
+  .opt { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 16px 8px 14px; border-radius: 18px; border: 1px solid var(--line); background: var(--paper); cursor: pointer; font: 500 13px/1.25 var(--sans); color: var(--brown); text-align: center; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+  .opt:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .opt .dot { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--ink); display: grid; place-items: center; font: 500 17px var(--display); color: var(--ink); background: #fff; transition: background .2s ease, color .2s ease; }
+  .opt[aria-pressed="true"] { background: var(--blush); border-color: var(--ink); }
+  .opt[aria-pressed="true"] .dot { background: var(--flame); color: #fff; border-color: var(--flame); }
+  .qnav { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 28px; }
+  .hint { font-size: 13px; color: var(--muted); }
+
+  /* Contact form */
+  .formcard { max-width: 720px; margin: 24px auto 0; background: #fff; border: 1.5px solid var(--ink); border-radius: 28px; padding: 48px 44px 40px; box-shadow: 8px 8px 0 var(--yellow); }
+  .formcard h2 { font-size: clamp(32px, 4vw, 46px); margin: 14px 0 12px; }
+  .formcard > p { color: var(--ink); opacity: .78; margin-bottom: 28px; }
+  .field { display: grid; gap: 8px; margin-bottom: 18px; }
+  .field label { font-weight: 500; font-size: 15px; color: var(--ink); }
+  .field label small { font-weight: 400; color: var(--muted); }
+  .field input, .field textarea { width: 100%; font: 16px/1.4 var(--sans); color: var(--ink); padding: 14px 18px; border-radius: 16px; border: 1px solid rgba(34, 30, 29, .3); background: var(--paper); transition: border-color .2s ease; }
+  .field input:focus, .field textarea:focus { border-color: var(--flame); outline: none; }
+  .field textarea { min-height: 90px; resize: vertical; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .consent { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--brown); margin: 8px 0 26px; line-height: 1.45; cursor: pointer; }
+  .consent input { width: 20px; height: 20px; flex: none; margin-top: 1px; accent-color: var(--flame); }
+  .err { color: var(--red); font-size: 14px; margin: -12px 0 18px; }
+
+  /* Result */
+  .res-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .res-head > div { min-width: 0; }
+  .res-head h1 { font-size: clamp(40px, 5.6vw, 76px); margin: 16px 0 18px; }
+  .res-head .lead { font-size: 19px; color: var(--ink); opacity: .82; max-width: 520px; }
+  .near { display: inline-block; margin-top: 18px; font-size: 14px; padding: 8px 14px; border-radius: 12px; background: rgba(255, 255, 255, .6); border: 1px dashed var(--brown); color: var(--brown); }
+  .chart { width: 100%; max-width: 420px; justify-self: end; background: rgba(255, 255, 255, .55); border: 1px solid rgba(255, 255, 255, .85); border-radius: 26px; padding: 18px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .chart .you { transition: transform 1s cubic-bezier(.2, .8, .2, 1); }
+
+  .axes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+  .axis { background: #fff; border: 1.5px solid var(--ink); border-radius: 24px; padding: 30px 30px 26px; min-width: 0; }
+  .axis.a1 { box-shadow: 7px 7px 0 var(--pink); }
+  .axis.a2 { box-shadow: 7px 7px 0 var(--yellow); }
+  .axis-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 6px; }
+  .axis h3 { font-size: 26px; }
+  .axis .big { font: 500 48px/1 var(--display); letter-spacing: -.04em; color: var(--flame); }
+  .axis .sub { font-size: 14px; color: var(--muted); margin-bottom: 22px; }
+  .sc { margin-top: 16px; }
+  .sc-row { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; color: var(--ink); margin-bottom: 7px; }
+  .sc-row span:last-child { font-weight: 600; }
+  .track { height: 10px; border-radius: 99px; background: var(--sand); overflow: hidden; }
+  .track i { display: block; height: 100%; border-radius: 99px; width: 0; transition: width 1s ease .2s; }
+  .a1 .track i { background: var(--pink); }
+  .a2 .track i { background: var(--yellow); }
+
+  .story { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 64px; border-top: 1px solid var(--ink); }
+  .story > div { padding: 36px 32px 40px 0; min-width: 0; }
+  .story > div + div { border-left: 1px solid var(--ink); padding-left: 32px; }
+  .story h3 { font-size: 28px; margin-bottom: 18px; }
+  .story ul { list-style: none; display: grid; gap: 14px; }
+  .story li { padding-left: 28px; position: relative; color: var(--ink); }
+  .story li::before { content: "✱"; position: absolute; left: 0; top: 0; color: var(--flame); }
+
+  .dark { background: var(--ink); color: #F4ECE6; border-radius: 36px; padding: 56px 48px; margin-top: 56px; }
+  .dark h2 { color: #fff; font-size: clamp(32px, 4.2vw, 52px); margin: 14px 0 18px; }
+  .dark p { color: rgba(244, 236, 230, .82); max-width: 720px; }
+  .methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 34px; border-top: 1px solid rgba(255, 255, 255, .25); }
+  .methods > div { padding: 26px 24px 8px 0; min-width: 0; }
+  .methods > div + div { border-left: 1px solid rgba(255, 255, 255, .25); padding-left: 24px; }
+  .methods b { display: block; font: 500 20px/1.2 var(--display); letter-spacing: -.02em; color: #fff; margin-bottom: 8px; }
+  .methods span { font-size: 15px; color: rgba(244, 236, 230, .75); }
+  .dark .eyebrow { color: var(--flame); }
+
+  .final { text-align: center; padding-top: 80px; }
+  .final h2 { font-size: clamp(34px, 4.6vw, 58px); max-width: 760px; margin: 14px auto 18px; }
+  .final p { color: var(--brown); max-width: 560px; margin: 0 auto 32px; }
+  .final .actions { justify-content: center; }
+  .status { margin-top: 22px; font-size: 14px; color: var(--muted); }
+  .status.ok { color: #3F7A3A; }
+  .disclaimer { margin-top: 48px; font-size: 13px; color: var(--muted); max-width: 760px; margin-inline: auto; text-align: center; line-height: 1.55; }
+
+  footer { background: var(--espresso); color: var(--sand); padding-block: 40px; font-size: 14px; border-radius: 40px 40px 0 0; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+  footer b { font: 500 24px var(--display); letter-spacing: -.03em; color: var(--paper); }
+  footer a { color: var(--pink); }
+
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 140%); background: var(--ink); color: #fff; padding: 14px 22px; border-radius: 999px; font-size: 15px; z-index: 70; transition: transform .35s ease, opacity .35s ease; max-width: calc(100% - 32px); text-align: center; opacity: 0; pointer-events: none; }
+  .toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+  @media (max-width: 900px) {
+    .intro-grid, .res-head { grid-template-columns: 1fr; }
+    .mini-map, .chart { justify-self: start; }
+    .facts, .methods { grid-template-columns: 1fr; }
+    .fact + .fact, .methods > div + div { border-left: none; padding-left: 0; border-top: 1px solid currentColor; }
+    .fact + .fact { border-top-color: var(--ink); }
+    .methods > div + div { border-top-color: rgba(255, 255, 255, .25); }
+    .axes, .story { grid-template-columns: 1fr; }
+    .story > div + div { border-left: none; padding-left: 0; border-top: 1px solid var(--ink); }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .wrap { padding-inline: 16px; }
+    .nav .btn { display: none; }
+    main { padding-block: 8px 56px; }
+    .panel { padding: 40px 20px 28px; border-radius: 28px; }
+    .qcard, .formcard { padding: 30px 20px 26px; border-radius: 24px; box-shadow: 5px 5px 0 var(--blush); }
+    .formcard { box-shadow: 5px 5px 0 var(--yellow); }
+    .scale { grid-template-columns: 1fr; gap: 8px; margin-top: 26px; }
+    .opt { flex-direction: row; justify-content: flex-start; gap: 14px; padding: 10px 14px; font-size: 15px; text-align: left; }
+    .opt .dot { width: 36px; height: 36px; font-size: 15px; flex: none; }
+    .row2 { grid-template-columns: 1fr; gap: 0; }
+    .btn-wide { min-width: 0; width: 100%; }
+    .axis { padding: 24px 20px 22px; }
+    .dark { padding: 40px 20px; border-radius: 28px; }
+    .hint { display: none; }
+    footer { border-radius: 28px 28px 0 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .silk .w1, .silk .w2, .spin { animation: none; }
+    .qtext.swap { animation: none; }
+    .btn:hover, .opt:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo">Александра <em>Амброжий</em></a>
+    <a href="index.html" class="btn btn-ghost btn-sm">← На главную</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- Screen 1: intro -->
+    <section id="s-intro" class="panel intro" aria-labelledby="t-intro">
+      <svg class="silk" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="sA" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F0501C"/><stop offset=".45" stop-color="#FF8A3D"/><stop offset="1" stop-color="#FFC9A0" stop-opacity="0"/></linearGradient>
+          <linearGradient id="sB" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F26A3A"/><stop offset=".6" stop-color="#F0503A"/><stop offset="1" stop-color="#F5A3B0"/></linearGradient>
+          <radialGradient id="sY" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFC75A"/><stop offset="1" stop-color="#FFD58A" stop-opacity="0"/></radialGradient>
+          <filter id="b30" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>
+          <filter id="b8" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+          <filter id="b2"><feGaussianBlur stdDeviation="1.6"/></filter>
+        </defs>
+        <ellipse cx="900" cy="560" rx="420" ry="200" fill="url(#sY)" filter="url(#b30)"/>
+        <g transform="translate(0,-210)"><g class="w1"><path d="M0 250 C 260 170, 560 260, 1200 330 L 1200 360 C 760 320, 380 330, 0 340 Z" fill="url(#sA)" filter="url(#b8)" opacity=".75"/></g>
+        <g class="w2"><path d="M0 330 C 300 300, 720 360, 1200 250" fill="none" stroke="url(#sB)" stroke-width="6" filter="url(#b2)" opacity=".8"/></g></g>
+      </svg>
+      <div class="intro-grid">
+        <div>
+          <span class="eyebrow">Тест-самоисследование</span>
+          <h1 id="t-intro">Широта <em>и опора</em></h1>
+          <p class="lead">Какая у вас личность по модели психолога А. Н. Леонтьева: насколько <b>богаты ваши связи с миром</b> и насколько <b>сильна иерархия мотивов</b>, которая держит вас на курсе.</p>
+          <div class="meta">
+            <span class="chip">24 утверждения</span>
+            <span class="chip">≈ 7 минут</span>
+            <span class="chip">Результат сразу</span>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary btn-wide" id="start">Начать тест</button>
+            <button class="link" id="resume" hidden>Продолжить с места остановки</button>
+          </div>
+        </div>
+        <div class="mini-map" aria-label="Четыре типа в модели">
+          <div class="grid4">
+            <div class="q" style="background:#FDE7C4"><b>Сильная, но узкая</b><span>ясный курс, мало опор</span></div>
+            <div class="q" style="background:#FFD3C2"><b>Широкая и сильная</b><span>большой мир и стержень</span></div>
+            <div class="q" style="background:#fff"><b>Время собирать себя</b><span>поиск своего</span></div>
+            <div class="q" style="background:#FBE3EC"><b>Широкая, но рассеянная</b><span>много дверей, мало курса</span></div>
+          </div>
+          <div class="cap"><span>← узко</span><span>богатство связей</span><span>широко →</span></div>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><h3>Богатство</h3><p>Широта интересов, людей, ролей и ценностей — сколько нитей связывает вас с миром.</p></div>
+        <div class="fact"><h3>Сила</h3><p>Умение выстроить мотивы по важности и держать курс вопреки сиюминутным импульсам.</p></div>
+        <div class="fact"><h3>Честно о тесте</h3><p>Это не клиническая методика, а повод посмотреть на себя. Отвечайте, как есть, а не как «правильно».</p></div>
+      </div>
+    </section>
+
+    <!-- Screen 2: questions -->
+    <section id="s-quiz" class="quiz" hidden aria-live="polite">
+      <div class="progress">
+        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="24" aria-valuenow="0" id="bar"><i id="bar-fill"></i></div>
+        <span class="count"><b id="qn">1</b> / <span id="qt">24</span></span>
+      </div>
+      <div class="qcard">
+        <span class="tag">Насколько это про вас?</span>
+        <p class="qtext" id="qtext"></p>
+        <div class="scale" id="scale" role="group" aria-label="Варианты ответа"></div>
+      </div>
+      <div class="qnav">
+        <button class="btn btn-ghost btn-sm" id="back">← Назад</button>
+        <span class="hint">Можно отвечать клавишами 1–5</span>
+        <button class="btn btn-primary btn-sm" id="next" disabled>Дальше →</button>
+      </div>
+    </section>
+
+    <!-- Screen 3: contact details -->
+    <section id="s-form" hidden>
+      <form class="formcard" id="form" novalidate>
+        <span class="eyebrow">Последний шаг</span>
+        <h2>Куда прислать <em>разбор</em>?</h2>
+        <p>Результат откроется сразу. Ваши ответы и контакты увижу только я — чтобы при желании разобрать профиль вместе и подсказать, с чего начать.</p>
+        <div class="row2">
+          <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" autocomplete="given-name" required maxlength="80"></div>
+          <div class="field"><label for="f-age">Возраст <small>— по желанию</small></label><input id="f-age" name="age" inputmode="numeric" maxlength="3"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-tg">Telegram <small>— @ник</small></label><input id="f-tg" name="telegram" autocomplete="off" maxlength="80" placeholder="@username"></div>
+          <div class="field"><label for="f-email">или e-mail</label><input id="f-email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@mail.ru"></div>
+        </div>
+        <div class="field"><label for="f-note">Что сейчас важно в работе или жизни? <small>— по желанию</small></label><textarea id="f-note" name="note" maxlength="1000"></textarea></div>
+        <label class="consent"><input type="checkbox" id="f-ok"> <span>Согласна(-ен) на обработку персональных данных (имя, контакты, ответы теста) Александрой Амброжий для обратной связи по результатам. Данные не передаются третьим лицам; удалить их можно по запросу в Telegram.</span></label>
+        <p class="err" id="f-err" hidden></p>
+        <div class="actions">
+          <button class="btn btn-primary btn-wide" type="submit" id="f-send">Показать мой результат</button>
+          <button class="link" type="button" id="f-back">← вернуться к вопросам</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Screen 4: result -->
+    <section id="s-result" hidden>
+      <div class="panel">
+        <svg class="silk" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <ellipse cx="300" cy="600" rx="420" ry="200" fill="url(#sY)" filter="url(#b30)"/>
+          <g transform="translate(0,-230)"><g class="w1"><path d="M0 250 C 260 170, 560 260, 1200 330 L 1200 360 C 760 320, 380 330, 0 340 Z" fill="url(#sA)" filter="url(#b8)" opacity=".6"/></g></g>
+        </svg>
+        <div class="res-head">
+          <div>
+            <span class="eyebrow" id="r-hello">Ваш результат</span>
+            <h1 id="r-title"></h1>
+            <p class="lead" id="r-lead"></p>
+            <span class="near" id="r-near" hidden></span>
+          </div>
+          <div class="chart">
+            <svg viewBox="0 0 400 400" role="img" aria-labelledby="r-chart-t" id="r-chart">
+              <title id="r-chart-t">Ваше положение на карте: богатство связей по горизонтали, сила по вертикали</title>
+              <rect x="40" y="10" width="170" height="170" rx="14" fill="#FDE7C4"/>
+              <rect x="220" y="10" width="170" height="170" rx="14" fill="#FFD3C2"/>
+              <rect x="40" y="190" width="170" height="170" rx="14" fill="#FFFFFF"/>
+              <rect x="220" y="190" width="170" height="170" rx="14" fill="#FBE3EC"/>
+              <g fill="none" stroke="#221E1D" stroke-width="1"><rect x="40" y="10" width="170" height="170" rx="14"/><rect x="220" y="10" width="170" height="170" rx="14"/><rect x="40" y="190" width="170" height="170" rx="14"/><rect x="220" y="190" width="170" height="170" rx="14"/></g>
+              <g font-family="Onest, sans-serif" font-size="12.5" fill="#221E1D" opacity=".75">
+                <text x="54" y="34">Сильная, но узкая</text>
+                <text x="234" y="34">Широкая и сильная</text>
+                <text x="54" y="348">Время собирать себя</text>
+                <text x="234" y="348">Широкая, но рассеянная</text>
+              </g>
+              <g font-family="Golos Text, sans-serif" font-size="12" fill="#8A6A55">
+                <text x="215" y="388" text-anchor="middle">богатство связей с миром →</text>
+                <text transform="translate(22 185) rotate(-90)" text-anchor="middle">сила личности →</text>
+              </g>
+              <g class="you" id="r-dot" transform="translate(215 185)" style="transform: translate(215px, 185px)">
+                <circle r="22" fill="#E8693F" opacity=".22"/>
+                <circle r="11" fill="#E8693F" stroke="#221E1D" stroke-width="1.5"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="axes">
+        <div class="axis a1">
+          <div class="axis-top"><h3>Богатство связей</h3><span class="big" id="r-rich">0%</span></div>
+          <p class="sub">Широта интересов, людей, ролей и смыслов</p>
+          <div id="r-rich-sc"></div>
+        </div>
+        <div class="axis a2">
+          <div class="axis-top"><h3>Сила личности</h3><span class="big" id="r-str">0%</span></div>
+          <p class="sub">Иерархия мотивов, воля, автономия, устойчивость</p>
+          <div id="r-str-sc"></div>
+        </div>
+      </div>
+
+      <div class="story">
+        <div><h3>На что можно опираться</h3><ul id="r-plus"></ul></div>
+        <div><h3>Куда расти</h3><ul id="r-grow"></ul></div>
+      </div>
+
+      <div class="dark">
+        <span class="eyebrow">Если хочется точнее</span>
+        <h2>Тест — это компас, <em>а не диагноз</em></h2>
+        <p>У Леонтьева «богатство» и «сила» — теоретическая модель, а не готовая методика. Если хотите проверить профиль глубже, вот валидизированные инструменты, которые измеряют близкие вещи:</p>
+        <div class="methods">
+          <div><b>СЖО Д. А. Леонтьева</b><span>Смысложизненные ориентации: цели, осмысленность, локус контроля. Ближе к обеим осям.</span></div>
+          <div><b>Тест жизнестойкости</b><span>С. Мадди в адаптации Д. А. Леонтьева и Е. И. Рассказовой. Ближе всего к «силе».</span></div>
+          <div><b>САТ</b><span>Самоактуализационный тест: ценности, гибкость, контактность. Помогает про «богатство».</span></div>
+        </div>
+      </div>
+
+      <div class="final">
+        <span class="eyebrow">Что дальше</span>
+        <h2>Разберём ваш профиль <em>вместе</em>?</h2>
+        <p>На консультации посмотрим, как ваша «широта» и «опора» проявляются в работе, и соберём план следующего шага.</p>
+        <div class="actions">
+          <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-wide">Записаться на разбор</a>
+          <button class="btn btn-ghost" id="copy">Скопировать результат</button>
+          <button class="btn btn-ghost" id="link">Ссылка на результат</button>
+        </div>
+        <p class="status" id="status" aria-live="polite"></p>
+        <p style="margin-top:22px"><button class="link" id="again">Пройти тест заново</button></p>
+      </div>
+      <p class="disclaimer">Тест составлен по мотивам теории личности А. Н. Леонтьева (оси «богатство связей с миром» и «сила / иерархизованность мотивов») и не является стандартизированной психодиагностической методикой. Граница между полюсами условная, самоотчёт подвержен желанию выглядеть «правильно». Для выводов о себе используйте его вместе с беседой со специалистом.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Александра Амброжий</b>
+    <span>Карьера · люди · бизнес — <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener">@alexandraambrozhy</a></span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+  (function () {
+    // Google Apps Script web app URL that writes each submission to your Google Sheet.
+    // Setup: tools/test-results.gs. Leave empty to only show results without sending.
+    var ENDPOINT = '';
+
+    // Each item: axis (r = richness, s = strength), facet, reversed?
+    var FACETS = {
+      r1: 'Широта интересов', r2: 'Связи с людьми', r3: 'Разнообразие ролей', r4: 'Ценности и смыслы',
+      s1: 'Иерархия мотивов', s2: 'Воля и саморегуляция', s3: 'Автономия', s4: 'Жизнестойкость'
+    };
+    var ITEMS = [
+      ['r1', 0, 'У меня есть несколько областей, которые искренне интересуют меня помимо работы.'],
+      ['s1', 0, 'Я ясно понимаю, что для меня главное, а что второстепенное.'],
+      ['r2', 0, 'В моей жизни есть люди из очень разных кругов — по возрасту, профессии, взглядам.'],
+      ['s2', 0, 'Я довожу важные дела до конца, даже когда интерес пропал.'],
+      ['r3', 0, 'Я реализую себя в нескольких ролях: в работе, семье, дружбе, хобби, сообществе.'],
+      ['s3', 0, 'Я считаю, что моя жизнь во многом зависит от моих собственных решений.'],
+      ['r4', 0, 'Я могу назвать несколько вещей, ради которых мне стоит жить и работать.'],
+      ['s4', 0, 'После неудачи я довольно быстро возвращаюсь к своим планам.'],
+      ['r1', 1, 'Мне быстро становится скучно, если разговор уходит от привычных мне тем.'],
+      ['s1', 1, 'Мои цели часто меняются вслед за настроением или мнением окружающих.'],
+      ['r2', 0, 'Мне есть к кому обратиться и за советом, и за поддержкой, и просто поговорить.'],
+      ['s2', 1, 'Я легко бросаю план ради того, что приятнее прямо сейчас.'],
+      ['r3', 1, 'Если убрать работу, в моей жизни останется мало того, что по-настоящему наполняет.'],
+      ['s3', 1, 'Мне трудно принять решение, пока его не одобрят значимые для меня люди.'],
+      ['r4', 0, 'Меня волнуют вопросы шире личной выгоды: общество, культура, природа, будущее.'],
+      ['s4', 0, 'Трудности я воспринимаю как опыт, из которого можно чему-то научиться.'],
+      ['r1', 0, 'Я регулярно пробую новое: занятия, места, книги, форматы.'],
+      ['s1', 0, 'Когда желания спорят друг с другом, я выбираю то, что важнее в долгую.'],
+      ['r2', 1, 'Моё общение в основном сводится к узкому кругу и одним и тем же темам.'],
+      ['s2', 0, 'Я могу долго работать на цель, не получая быстрого результата.'],
+      ['r3', 0, 'Я часто переношу идеи из одной сферы жизни в другую.'],
+      ['s3', 0, 'Я могу отстоять свою позицию, даже если большинство думает иначе.'],
+      ['r4', 1, 'Мне сложно сказать, что для меня по-настоящему ценно.'],
+      ['s4', 1, 'Под давлением обстоятельств я быстро опускаю руки.']
+    ];
+    var LABELS = ['Совсем не про меня', 'Скорее нет', 'Отчасти', 'Скорее да', 'Точно про меня'];
+    var CUT = 60; // percent of axis range that splits the poles
+
+    var QUADS = {
+      RS: {
+        title: 'Широкая <em>и сильная</em>',
+        lead: 'У вас много живых связей с миром — интересы, люди, роли, ценности — и при этом есть стержень: понятно, что главное, и хватает воли держать курс.',
+        plus: ['Вы видите больше вариантов и не зависите от одной сферы жизни.', 'Можете выбирать приоритеты и не теряться в многообразии.', 'Неудачи в одном месте компенсируются опорой в другом.'],
+        grow: ['Следите за перегрузкой: широкий мир и высокая планка вместе легко приводят к усталости.', 'Регулярно сверяйте главное — иерархия мотивов тоже меняется со временем.', 'Подумайте, как передавать опыт другим: наставничество, команда, проекты.']
+      },
+      Rs: {
+        title: 'Широкая, <em>но рассеянная</em>',
+        lead: 'Мир для вас большой и интересный: много увлечений, людей и идей. Но мотивы пока не выстроены по важности, поэтому энергия разлетается, а важное откладывается.',
+        plus: ['Любопытство и открытость — хорошее сырьё для любой карьеры.', 'Вы легко находите общий язык с разными людьми.', 'У вас много ресурсов, которые можно соединить в свой путь.'],
+        grow: ['Выберите одно главное направление на ближайшие 3–6 месяцев и проверяйте решения через него.', 'Маленькие обязательства с дедлайнами тренируют «силу» лучше больших планов.', 'Опирайтесь на собственное мнение: сначала решите сами, потом спрашивайте других.']
+      },
+      rS: {
+        title: 'Сильная, <em>но узкая</em>',
+        lead: 'У вас есть ясный курс и характер, чтобы его держать. При этом связей с миром пока немного: одна главная сфера, узкий круг, мало того, что наполняет помимо цели.',
+        plus: ['Вы умеете концентрироваться и доводить начатое.', 'Не зависите от чужого одобрения и сиюминутных соблазнов.', 'Хорошо переносите трудности на пути к цели.'],
+        grow: ['Добавьте вторую опору вне главной цели — увлечение, сообщество, людей не из своей сферы.', 'Риск «все яйца в одной корзине»: если главное пошатнётся, опереться будет не на что.', 'Новые круги общения часто дают и новые карьерные возможности.']
+      },
+      rs: {
+        title: 'Время <em>собирать себя</em>',
+        lead: 'Сейчас и связей с миром, и внутренней опоры меньше, чем хотелось бы. Это не приговор и не черта характера, а состояние — часто так бывает после выгорания, переезда или долгого периода «на автопилоте».',
+        plus: ['Вы честно посмотрели на себя — это уже первый шаг.', 'Из этой точки любое небольшое действие даёт заметный эффект.', 'Можно строить жизнь заново, опираясь на то, что действительно ваше.'],
+        grow: ['Начните с малого: одно новое занятие или один новый человек в месяц.', 'Выберите одну цель на месяц и доведите её до конца — это укрепляет веру в себя.', 'Не тащите всё в одиночку: разговор со специалистом помогает быстрее найти опору.']
+      }
+    };
+
+    var $ = function (id) { return document.getElementById(id); };
+    var answers = new Array(ITEMS.length).fill(0);
+    var idx = 0;
+    var sent = false;
+    var person = {};
+
+    function store(k, v) { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} }
+    function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+    function show(id) {
+      ['s-intro', 's-quiz', 's-form', 's-result'].forEach(function (s) { $(s).hidden = s !== id; });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Quiz
+    var scale = $('scale');
+    LABELS.forEach(function (lbl, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'opt'; b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<span class="dot">' + (i + 1) + '</span><span>' + lbl + '</span>';
+      b.addEventListener('click', function () { pick(i + 1); });
+      scale.appendChild(b);
+    });
+    $('qt').textContent = ITEMS.length;
+
+    function render() {
+      var t = $('qtext');
+      t.textContent = ITEMS[idx][2];
+      t.classList.remove('swap'); void t.offsetWidth; t.classList.add('swap');
+      $('qn').textContent = idx + 1;
+      var done = answers.filter(Boolean).length;
+      $('bar-fill').style.width = (done / ITEMS.length * 100) + '%';
+      $('bar').setAttribute('aria-valuenow', done);
+      [].forEach.call(scale.children, function (b, i) { b.setAttribute('aria-pressed', String(answers[idx] === i + 1)); });
+      $('next').disabled = !answers[idx];
+      $('back').style.visibility = idx === 0 ? 'hidden' : 'visible';
+    }
+
+    var advancing = null;
+    function pick(v) {
+      answers[idx] = v;
+      store('lt-answers', answers.join(''));
+      render();
+      clearTimeout(advancing);
+      advancing = setTimeout(next, 280);
+    }
+    function next() {
+      clearTimeout(advancing);
+      if (!answers[idx]) return;
+      if (idx < ITEMS.length - 1) { idx++; render(); }
+      else show('s-form');
+    }
+    $('next').addEventListener('click', next);
+    $('back').addEventListener('click', function () { clearTimeout(advancing); if (idx > 0) { idx--; render(); } });
+    document.addEventListener('keydown', function (e) {
+      if ($('s-quiz').hidden || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key >= '1' && e.key <= '5') pick(Number(e.key));
+      else if (e.key === 'ArrowLeft') $('back').click();
+      else if (e.key === 'ArrowRight' || e.key === 'Enter') next();
+    });
+
+    function startQuiz(fromStart) {
+      if (fromStart) { answers.fill(0); idx = 0; store('lt-answers', null); }
+      else { var first = answers.indexOf(0); idx = first < 0 ? ITEMS.length - 1 : first; }
+      show('s-quiz'); render();
+    }
+    $('start').addEventListener('click', function () { startQuiz(true); });
+    $('resume').addEventListener('click', function () { startQuiz(false); });
+    $('f-back').addEventListener('click', function () { idx = ITEMS.length - 1; show('s-quiz'); render(); });
+    $('again').addEventListener('click', function () { history.replaceState(null, '', location.pathname); sent = false; startQuiz(true); });
+
+    // Scoring: facet and axis means on 1..5, shown as 0..100%
+    function score(ans) {
+      var f = {};
+      ITEMS.forEach(function (it, i) {
+        var v = it[1] ? 6 - ans[i] : ans[i];
+        (f[it[0]] = f[it[0]] || []).push(v);
+      });
+      var pct = function (arr) { var m = arr.reduce(function (a, b) { return a + b; }, 0) / arr.length; return Math.round((m - 1) / 4 * 100); };
+      var facets = {};
+      Object.keys(f).forEach(function (k) { facets[k] = pct(f[k]); });
+      var axis = function (p) { return pct(ITEMS.map(function (it, i) { return it[0][0] === p ? (it[1] ? 6 - ans[i] : ans[i]) : null; }).filter(function (x) { return x !== null; })); };
+      var rich = axis('r'), str = axis('s');
+      var key = (rich >= CUT ? 'R' : 'r') + (str >= CUT ? 'S' : 's');
+      return { rich: rich, str: str, facets: facets, key: key };
+    }
+
+    function bars(prefix, facets) {
+      return ['1', '2', '3', '4'].map(function (n) {
+        var k = prefix + n;
+        return '<div class="sc"><div class="sc-row"><span>' + FACETS[k] + '</span><span>' + facets[k] + '%</span></div><div class="track"><i data-w="' + facets[k] + '"></i></div></div>';
+      }).join('');
+    }
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+    function showResult(ans, name) {
+      var r = score(ans), q = QUADS[r.key];
+      $('r-hello').textContent = name ? name + ', ваш результат' : 'Ваш результат';
+      $('r-title').innerHTML = q.title;
+      $('r-lead').textContent = q.lead;
+      var near = [];
+      if (Math.abs(r.rich - CUT) <= 7) near.push('богатству');
+      if (Math.abs(r.str - CUT) <= 7) near.push('силе');
+      $('r-near').hidden = !near.length;
+      if (near.length) $('r-near').textContent = 'По ' + near.join(' и ') + ' вы близко к границе — соседний тип тоже может быть про вас.';
+      $('r-rich').textContent = r.rich + '%';
+      $('r-str').textContent = r.str + '%';
+      $('r-rich-sc').innerHTML = bars('r', r.facets);
+      $('r-str-sc').innerHTML = bars('s', r.facets);
+      $('r-plus').innerHTML = q.plus.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+      $('r-grow').innerHTML = q.grow.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+      // Chart: plot area x 40..390, y 10..360; the CUT line sits on the quadrant gap
+      var px = function (p, lo, gap, hi) { return p < CUT ? lo + (gap - lo) * p / CUT : gap + (hi - gap) * (p - CUT) / (100 - CUT); };
+      var x = px(r.rich, 52, 215, 378), y = px(r.str, 348, 185, 22);
+      show('s-result');
+      requestAnimationFrame(function () {
+        setTimeout(function () {
+          $('r-dot').setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ')');
+          $('r-dot').style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+          document.querySelectorAll('.track i').forEach(function (i) { i.style.width = i.getAttribute('data-w') + '%'; });
+        }, 120);
+      });
+      return r;
+    }
+
+    function resultLink() { return location.origin + location.pathname + '#r=' + answers.join(''); }
+
+    function summary(r) {
+      var tmp = document.createElement('div'); tmp.innerHTML = QUADS[r.key].title;
+      var lines = ['Тест «Широта и опора»' + (person.name ? ' — ' + person.name : ''), 'Тип: ' + tmp.textContent, 'Богатство связей: ' + r.rich + '%', 'Сила личности: ' + r.str + '%'];
+      Object.keys(FACETS).forEach(function (k) { lines.push('· ' + FACETS[k] + ': ' + r.facets[k] + '%'); });
+      lines.push(resultLink());
+      return lines.join('\n');
+    }
+
+    function toast(t) { var el = $('toast'); el.textContent = t; el.classList.add('show'); setTimeout(function () { el.classList.remove('show'); }, 2600); }
+    function copy(text, msg) {
+      var done = function () { toast(msg); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, function () { prompt('Скопируйте:', text); });
+      else prompt('Скопируйте:', text);
+    }
+    var last = null;
+    $('copy').addEventListener('click', function () { copy(summary(last), 'Результат скопирован — можно отправить мне в Telegram'); });
+    $('link').addEventListener('click', function () { copy(resultLink(), 'Ссылка скопирована'); });
+
+    // Contact form
+    $('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = $('f-name').value.trim(), tg = $('f-tg').value.trim(), email = $('f-email').value.trim();
+      var err = '';
+      if (!name) err = 'Напишите, как к вам обращаться.';
+      else if (!tg && !email) err = 'Оставьте Telegram или e-mail, чтобы я могла связаться.';
+      else if (email && !/^\S+@\S+\.\S+$/.test(email)) err = 'Проверьте e-mail.';
+      else if (!$('f-ok').checked) err = 'Нужно согласие на обработку данных.';
+      $('f-err').hidden = !err; $('f-err').textContent = err;
+      if (err) return;
+      person = { name: name, telegram: tg, email: email, age: $('f-age').value.trim(), note: $('f-note').value.trim() };
+      history.replaceState(null, '', '#r=' + answers.join(''));
+      last = showResult(answers, name);
+      send(last);
+      store('lt-answers', null);
+    });
+
+    function send(r) {
+      var st = $('status');
+      if (sent) return;
+      if (!ENDPOINT) { st.textContent = 'Чтобы я увидела ваш результат, нажмите «Скопировать результат» и пришлите его мне в Telegram.'; return; }
+      sent = true;
+      var tmp = document.createElement('div'); tmp.innerHTML = QUADS[r.key].title;
+      var payload = {
+        name: person.name, telegram: person.telegram, email: person.email, age: person.age, note: person.note,
+        type: tmp.textContent, richness: r.rich, strength: r.str, facets: r.facets,
+        answers: answers.join(''), link: resultLink(), consent: true, userAgent: navigator.userAgent
+      };
+      st.textContent = 'Отправляю результат Александре…';
+      // text/plain keeps this a simple request, so Apps Script accepts it without CORS preflight
+      fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) })
+        .then(function () { st.textContent = '✓ Результат отправлен Александре. Она свяжется с вами, если вы захотите разбор.'; st.className = 'status ok'; })
+        .catch(function () { sent = false; st.textContent = 'Не получилось отправить автоматически — нажмите «Скопировать результат» и пришлите его в Telegram.'; });
+    }
+
+    // Entry: shared result link (#r=...) or saved progress
+    var m = location.hash.match(/^#r=([1-5]{24})$/);
+    if (m) {
+      answers = m[1].split('').map(Number);
+      last = showResult(answers, '');
+      $('status').textContent = 'Это сохранённый результат. Хотите узнать свой — пройдите тест заново.';
+    } else {
+      var saved = load('lt-answers');
+      if (saved && /^[0-5]{24}$/.test(saved) && /[1-5]/.test(saved)) {
+        answers = saved.split('').map(Number);
+        $('resume').hidden = false;
+      }
+    }
+  })();
+</script>
+</body>
+</html>
