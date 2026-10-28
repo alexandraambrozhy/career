@@ -126,20 +126,6 @@
   .qnav { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 28px; }
   .hint { font-size: 13px; color: var(--muted); }
 
-  /* Contact form */
-  .formcard { max-width: 720px; margin: 24px auto 0; background: #fff; border: 1.5px solid var(--ink); border-radius: 28px; padding: 48px 44px 40px; box-shadow: 8px 8px 0 var(--yellow); }
-  .formcard h2 { font-size: clamp(32px, 4vw, 46px); margin: 14px 0 12px; }
-  .formcard > p { color: var(--ink); opacity: .78; margin-bottom: 28px; }
-  .field { display: grid; gap: 8px; margin-bottom: 18px; }
-  .field label { font-weight: 500; font-size: 15px; color: var(--ink); }
-  .field label small { font-weight: 400; color: var(--muted); }
-  .field input, .field textarea { width: 100%; font: 16px/1.4 var(--sans); color: var(--ink); padding: 14px 18px; border-radius: 16px; border: 1px solid rgba(34, 30, 29, .3); background: var(--paper); transition: border-color .2s ease; }
-  .field input:focus, .field textarea:focus { border-color: var(--flame); outline: none; }
-  .field textarea { min-height: 90px; resize: vertical; }
-  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .consent { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--brown); margin: 8px 0 26px; line-height: 1.45; cursor: pointer; }
-  .consent input { width: 20px; height: 20px; flex: none; margin-top: 1px; accent-color: var(--flame); }
-  .err { color: var(--red); font-size: 14px; margin: -12px 0 18px; }
 
   /* Result */
   .res-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
@@ -189,7 +175,6 @@
   .final p { color: var(--brown); max-width: 560px; margin: 0 auto 32px; }
   .final .actions { justify-content: center; }
   .status { margin-top: 22px; font-size: 14px; color: var(--muted); }
-  .status.ok { color: #3F7A3A; }
   .disclaimer { margin-top: 48px; font-size: 13px; color: var(--muted); max-width: 760px; margin-inline: auto; text-align: center; line-height: 1.55; }
 
   footer { background: var(--espresso); color: var(--sand); padding-block: 40px; font-size: 14px; border-radius: 40px 40px 0 0; }
@@ -216,12 +201,10 @@
     .nav .btn { display: none; }
     main { padding-block: 8px 56px; }
     .panel { padding: 40px 20px 28px; border-radius: 28px; }
-    .qcard, .formcard { padding: 30px 20px 26px; border-radius: 24px; box-shadow: 5px 5px 0 var(--blush); }
-    .formcard { box-shadow: 5px 5px 0 var(--yellow); }
+    .qcard { padding: 30px 20px 26px; border-radius: 24px; box-shadow: 5px 5px 0 var(--blush); }
     .scale { grid-template-columns: 1fr; gap: 8px; margin-top: 26px; }
     .opt { flex-direction: row; justify-content: flex-start; gap: 14px; padding: 10px 14px; font-size: 15px; text-align: left; }
     .opt .dot { width: 36px; height: 36px; font-size: 15px; flex: none; }
-    .row2 { grid-template-columns: 1fr; gap: 0; }
     .btn-wide { min-width: 0; width: 100%; }
     .axis { padding: 24px 20px 22px; }
     .dark { padding: 40px 20px; border-radius: 28px; }
@@ -312,31 +295,7 @@
       </div>
     </section>
 
-    <!-- Screen 3: contact details -->
-    <section id="s-form" hidden>
-      <form class="formcard" id="form" novalidate>
-        <span class="eyebrow">Последний шаг</span>
-        <h2>Куда прислать <em>разбор</em>?</h2>
-        <p>Результат откроется сразу. Ваши ответы и контакты увижу только я — чтобы при желании разобрать профиль вместе и подсказать, с чего начать.</p>
-        <div class="row2">
-          <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" autocomplete="given-name" required maxlength="80"></div>
-          <div class="field"><label for="f-age">Возраст <small>— по желанию</small></label><input id="f-age" name="age" inputmode="numeric" maxlength="3"></div>
-        </div>
-        <div class="row2">
-          <div class="field"><label for="f-tg">Telegram <small>— @ник</small></label><input id="f-tg" name="telegram" autocomplete="off" maxlength="80" placeholder="@username"></div>
-          <div class="field"><label for="f-email">или e-mail</label><input id="f-email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@mail.ru"></div>
-        </div>
-        <div class="field"><label for="f-note">Что сейчас важно в работе или жизни? <small>— по желанию</small></label><textarea id="f-note" name="note" maxlength="1000"></textarea></div>
-        <label class="consent"><input type="checkbox" id="f-ok"> <span>Согласна(-ен) на обработку персональных данных (имя, контакты, ответы теста) Александрой Амброжий для обратной связи по результатам. Данные не передаются третьим лицам; удалить их можно по запросу в Telegram.</span></label>
-        <p class="err" id="f-err" hidden></p>
-        <div class="actions">
-          <button class="btn btn-primary btn-wide" type="submit" id="f-send">Показать мой результат</button>
-          <button class="link" type="button" id="f-back">← вернуться к вопросам</button>
-        </div>
-      </form>
-    </section>
-
-    <!-- Screen 4: result -->
+    <!-- Screen 3: result -->
     <section id="s-result" hidden>
       <div class="panel">
         <svg class="silk" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -409,13 +368,13 @@
       <div class="final">
         <span class="eyebrow">Что дальше</span>
         <h2>Разберём ваш профиль <em>вместе</em>?</h2>
-        <p>На консультации посмотрим, как ваша «широта» и «опора» проявляются в работе, и соберём план следующего шага.</p>
+        <p>На консультации посмотрим, как ваша «широта» и «опора» проявляются в работе, и соберём план следующего шага. Или пришлите мне результат в Telegram — разберу его отдельно.</p>
         <div class="actions">
-          <a href="https://t.me/alexandraambrozhy" target="_blank" rel="noopener" class="btn btn-primary btn-wide">Записаться на разбор</a>
-          <button class="btn btn-ghost" id="copy">Скопировать результат</button>
+          <a href="index.html#formats" class="btn btn-primary btn-wide">Записаться на консультацию</a>
+          <button class="btn btn-ghost" id="review">Хочу разбор результата</button>
           <button class="btn btn-ghost" id="link">Ссылка на результат</button>
         </div>
-        <p class="status" id="status" aria-live="polite"></p>
+        <p class="status" id="status" aria-live="polite">Тест анонимный: я вижу только, сколько людей его прошли и какие типы получились, — без имён и контактов.</p>
         <p style="margin-top:22px"><button class="link" id="again">Пройти тест заново</button></p>
       </div>
       <p class="disclaimer">Тест составлен по мотивам теории личности А. Н. Леонтьева (оси «богатство связей с миром» и «сила / иерархизованность мотивов») и не является стандартизированной психодиагностической методикой. Граница между полюсами условная, самоотчёт подвержен желанию выглядеть «правильно». Для выводов о себе используйте его вместе с беседой со специалистом.</p>
@@ -436,7 +395,7 @@
 <script>
   (function () {
     // Google Apps Script web app URL that writes each submission to your Google Sheet.
-    // Setup: tools/test-results.gs. Leave empty to only show results without sending.
+    // Setup: tools/test-results.gs. Leave empty to show results without counting.
     var ENDPOINT = '';
 
     // Each item: axis (r = richness, s = strength), facet, reversed?
@@ -504,13 +463,12 @@
     var answers = new Array(ITEMS.length).fill(0);
     var idx = 0;
     var sent = false;
-    var person = {};
 
     function store(k, v) { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} }
     function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
 
     function show(id) {
-      ['s-intro', 's-quiz', 's-form', 's-result'].forEach(function (s) { $(s).hidden = s !== id; });
+      ['s-intro', 's-quiz', 's-result'].forEach(function (s) { $(s).hidden = s !== id; });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -550,7 +508,7 @@
       clearTimeout(advancing);
       if (!answers[idx]) return;
       if (idx < ITEMS.length - 1) { idx++; render(); }
-      else show('s-form');
+      else finish();
     }
     $('next').addEventListener('click', next);
     $('back').addEventListener('click', function () { clearTimeout(advancing); if (idx > 0) { idx--; render(); } });
@@ -566,10 +524,9 @@
       else { var first = answers.indexOf(0); idx = first < 0 ? ITEMS.length - 1 : first; }
       show('s-quiz'); render();
     }
-    $('start').addEventListener('click', function () { startQuiz(true); });
+    $('start').addEventListener('click', function () { track('start'); startQuiz(true); });
     $('resume').addEventListener('click', function () { startQuiz(false); });
-    $('f-back').addEventListener('click', function () { idx = ITEMS.length - 1; show('s-quiz'); render(); });
-    $('again').addEventListener('click', function () { history.replaceState(null, '', location.pathname); sent = false; startQuiz(true); });
+    $('again').addEventListener('click', function () { history.replaceState(null, '', location.pathname); sent = false; track('start'); startQuiz(true); });
 
     // Scoring: facet and axis means on 1..5, shown as 0..100%
     function score(ans) {
@@ -595,9 +552,8 @@
     }
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
-    function showResult(ans, name) {
+    function showResult(ans) {
       var r = score(ans), q = QUADS[r.key];
-      $('r-hello').textContent = name ? name + ', ваш результат' : 'Ваш результат';
       $('r-title').innerHTML = q.title;
       $('r-lead').textContent = q.lead;
       var near = [];
@@ -629,7 +585,7 @@
 
     function summary(r) {
       var tmp = document.createElement('div'); tmp.innerHTML = QUADS[r.key].title;
-      var lines = ['Тест «Широта и опора»' + (person.name ? ' — ' + person.name : ''), 'Тип: ' + tmp.textContent, 'Богатство связей: ' + r.rich + '%', 'Сила личности: ' + r.str + '%'];
+      var lines = ['Тест «Широта и опора»', 'Тип: ' + tmp.textContent, 'Богатство связей: ' + r.rich + '%', 'Сила личности: ' + r.str + '%'];
       Object.keys(FACETS).forEach(function (k) { lines.push('· ' + FACETS[k] + ': ' + r.facets[k] + '%'); });
       lines.push(resultLink());
       return lines.join('\n');
@@ -642,50 +598,36 @@
       else prompt('Скопируйте:', text);
     }
     var last = null;
-    $('copy').addEventListener('click', function () { copy(summary(last), 'Результат скопирован — можно отправить мне в Telegram'); });
+    $('review').addEventListener('click', function () {
+      copy(summary(last), 'Результат скопирован — вставьте его в чат со мной');
+      setTimeout(function () { window.open('https://t.me/alexandraambrozhy', '_blank', 'noopener'); }, 700);
+    });
     $('link').addEventListener('click', function () { copy(resultLink(), 'Ссылка скопирована'); });
 
-    // Contact form
-    $('form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = $('f-name').value.trim(), tg = $('f-tg').value.trim(), email = $('f-email').value.trim();
-      var err = '';
-      if (!name) err = 'Напишите, как к вам обращаться.';
-      else if (!tg && !email) err = 'Оставьте Telegram или e-mail, чтобы я могла связаться.';
-      else if (email && !/^\S+@\S+\.\S+$/.test(email)) err = 'Проверьте e-mail.';
-      else if (!$('f-ok').checked) err = 'Нужно согласие на обработку данных.';
-      $('f-err').hidden = !err; $('f-err').textContent = err;
-      if (err) return;
-      person = { name: name, telegram: tg, email: email, age: $('f-age').value.trim(), note: $('f-note').value.trim() };
+    function finish() {
       history.replaceState(null, '', '#r=' + answers.join(''));
-      last = showResult(answers, name);
-      send(last);
+      last = showResult(answers);
       store('lt-answers', null);
-    });
+      if (!sent) { sent = true; track('finish', last); }
+    }
 
-    function send(r) {
-      var st = $('status');
-      if (sent) return;
-      if (!ENDPOINT) { st.textContent = 'Чтобы я увидела ваш результат, нажмите «Скопировать результат» и пришлите его мне в Telegram.'; return; }
-      sent = true;
-      var tmp = document.createElement('div'); tmp.innerHTML = QUADS[r.key].title;
-      var payload = {
-        name: person.name, telegram: person.telegram, email: person.email, age: person.age, note: person.note,
-        type: tmp.textContent, richness: r.rich, strength: r.str, facets: r.facets,
-        answers: answers.join(''), link: resultLink(), consent: true, userAgent: navigator.userAgent
-      };
-      st.textContent = 'Отправляю результат Александре…';
+    // Anonymous counter: only the event and the scores, no names, contacts or device data
+    function track(event, r) {
+      if (!ENDPOINT) return;
+      var payload = { event: event };
+      if (r) {
+        var tmp = document.createElement('div'); tmp.innerHTML = QUADS[r.key].title;
+        payload.type = tmp.textContent; payload.richness = r.rich; payload.strength = r.str; payload.facets = r.facets;
+      }
       // text/plain keeps this a simple request, so Apps Script accepts it without CORS preflight
-      fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) })
-        .then(function () { st.textContent = '✓ Результат отправлен Александре. Она свяжется с вами, если вы захотите разбор.'; st.className = 'status ok'; })
-        .catch(function () { sent = false; st.textContent = 'Не получилось отправить автоматически — нажмите «Скопировать результат» и пришлите его в Telegram.'; });
+      fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) }).catch(function () {});
     }
 
     // Entry: shared result link (#r=...) or saved progress
     var m = location.hash.match(/^#r=([1-5]{24})$/);
     if (m) {
       answers = m[1].split('').map(Number);
-      last = showResult(answers, '');
+      last = showResult(answers);
       $('status').textContent = 'Это сохранённый результат. Хотите узнать свой — пройдите тест заново.';
     } else {
       var saved = load('lt-answers');
